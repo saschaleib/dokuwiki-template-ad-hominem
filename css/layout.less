@@ -1,1 +1,500 @@
-//QUBE/Web/denkfehler.online/de/lib/tpl/ad-hominem/css/layout.less
+/**
+ * This contains the most basic layouts and styles
+ * @author Sascha Leib <sascha@leib.be>
+ */
+
+html, body, * {
+	margin:			0;
+	padding:		0;
+}
+body {
+	background-color:	@ini_background_site;
+	font-size:			105%;
+}
+
+#skip-link {
+	display:		none;
+}
+
+.sronly {
+	display:		none;
+}
+div.no {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+#globalTools a:link {
+	text-decoration:	none;
+}
+
+#gSiteTools {
+	justify-self: start;
+}
+#gSiteTools select {
+	display:	none;
+}
+
+#gUserTools {
+	justify-self:		end;
+	padding:			2pt 5pt 2pt 0;
+}
+#gUserTools ul {
+	list-style:			none inside;
+	display:			block;
+}
+#gUserTools ul li {
+	display:			inline;
+}
+
+#header-layout,
+#footer-layout,
+#docinfo-layout {
+	width:					100%;
+}
+#header-layout>header {
+	width:					100%;
+	max-width:				@ini_site_width;
+	margin:					0 auto;
+	display:				grid;
+	grid-template-columns:	@ini_sidebar_width auto @ini_sidebar_width;
+	grid-template-rows:		auto auto auto;
+	justify-items:			stretch;
+	align-items:			center;
+}
+#siteLogo {
+	grid-column:		1;
+	grid-row:			1 / span 3;
+}
+#globalTools {
+	grid-column:		2 / span 2;
+	grid-row:			1;
+	text-align:			right;
+	font-size:			10pt;
+}
+#phSearch {
+	grid-column:		2;
+	grid-row:			2;
+}
+
+#phSearch form {
+	margin:					15px;
+}
+#phSearch form>div.search-field {
+	width:					100%;
+	display:				grid;
+	grid-template-columns:	auto 20pt 20pt;
+	place-items:			stretch;
+	border:					@ini_border solid 1pt;
+	background:				@ini_background;
+	border-radius:			4pt;
+	-moz-box-shadow:		inset 0 0 3pt @ini_border;
+	-webkit-box-shadow:		inset 0 0 3pt @ini_border;
+	box-shadow:				inset 0 0 3pt @ini_border;
+}
+#phSearch form>div input {
+	grid-column:		1;
+	grid-row:			1;
+	font-family:		__code_fonts__;
+	font-size:			large;
+	padding:			2pt 0 2pt 4pt;
+	border:				transparent none 0;
+	border-radius:		3pt;
+	background-color:	transparent;
+	outline:			transparent solid 2pt;
+}
+#phSearch form>div input:focus {
+	outline-color:		@ini_focus_color;
+}
+#phSearch form>div button {
+	border:				transparent solid 1pt;
+	background:			transparent none no-repeat center;
+	background-size:	13pt;
+	color:				transparent;
+	width:				19pt;
+	border-radius:		3pt;
+	overflow:			hidden;
+	margin:				1pt 1pt 1pt 0;
+	outline:			transparent solid 2pt;
+}
+#phSearch form>div button[type=reset] {
+	background-image:	url('images/delete.svg');
+	border-right:		@ini_border solid 1pt;
+}	
+#phSearch form>div button[type=submit] {
+	background-image:	url('images/search.svg');
+}	
+#phSearch form>div button:hover {
+	background-color:	@ini_background_alt;
+	border-color:		@ini_border;
+}
+#phSearch form>div button:focus {
+	outline-color:		@ini_focus_color;
+	border-color:		@ini_border;
+}
+
+#phSearch form .search-popup {
+	height:				10px;
+	margin-right:		38pt;
+	overflow:			display;
+}
+
+#qsearch__out {
+	position:			relative;
+	white-space:		nowrap;
+	font-size:			small;
+	background-color:	@ini_background_site;
+}
+#qsearch__out strong {
+	display:			none;
+	padding:			2pt;
+	font-weight:		normal;
+}
+#qsearch__out ul {
+	background-color:	@ini_background_alt;
+	border:				@ini_border solid 1px;
+	max-height:			11em;
+	overflow:			hidden auto;
+}
+#qsearch__out li {
+	border-top:			@ini_border solid 1px;
+}
+#qsearch__out li a {
+	display:			block;
+	padding:			4pt 0 4pt 6pt;
+}
+
+#phTools{
+}
+#phInclude {
+	grid-column:		2 / span 2;
+	grid-row:			3;
+}
+
+#main-layout {
+	width:				100%;
+	max-width:			@ini_site_width;
+	margin:				0 auto;
+	display:			grid;
+	grid-template-columns:	@ini_sidebar_width auto;
+	place-items:		stretch;
+}
+#main-layout>#sidebar {
+	padding:			1em .25em 0 1em;
+}
+#main-layout>#sidebar .content {
+	line-height:		1.7em;
+	font-size:			small;
+}
+
+#sidebar .content p,
+#sidebar .content ul {
+}
+#sidebar .content ul {
+	list-style:			square outside;
+	padding-left:		1.25em;
+}
+#sidebar .content ul li {
+	color:				@ini_text_alt;
+}
+#sidebar .content .curid {
+	font-weight:		bold;
+}
+#sidebar h4 {
+	font-family:		@ini_alt_fonts;
+	font-size:			1rem;
+	margin:				0.5em;
+}
+
+#sidebar hr {
+    border:				0;
+    height:				1pt;
+    background:			@ini_text_alt;
+    background-image:	linear-gradient(to right, @ini_background_alt, @ini_text_alt, @ini_background_alt);
+	margin:				.5em 1em .5em 0;
+}
+
+#sbNavigation {
+	margin-bottom:		1.5em;
+}
+#navBreadCrumbs ol {
+	list-style:			decimal outside;
+	padding-left:		2em;
+}
+
+#main-layout main {
+	width:				e("calc(90% - 5px)");
+	border:				@ini_border solid 1px;
+	padding:			1.5em 5% .75em 5%;
+	-moz-box-shadow:	2px 2px 2px 2px #ccc;
+	-webkit-box-shadow:	2px 2px 2px 2px #ccc;
+	box-shadow:			2px 2px 2px 2px #ccc;
+}
+#navYouAreHere {
+	display:			flex;
+	flex-flow:			row nowrap;
+	position:			relative;
+	top:				0;
+	left:				0;
+	height:				16pt;
+	overflow:			hidden;
+	white-space:		nowrap;
+}
+#navYouAreHere h4 {
+	display:		none /*inline-block */;
+	font-family:	@ini_default_fonts;
+	font-weight:	normal;
+	font-size:		small;
+	line-height:	1.5em;
+	margin:			0 .5em 0 0;
+}
+
+#navYouAreHere ol {
+	list-style:			none inside;
+	display:			flex;
+	line-height:		1.5em;
+	height:				100pt;
+	padding-left:		0;
+	margin:				0 2pt 0 0;
+	font-size:			small;
+	overflow:			scroll hidden;
+}
+#navYouAreHere ol li {
+	display:			inline;
+	margin-bottom:		0;
+}
+#navYouAreHere ol li.home {
+	min-width:		14px;
+	overflow:		hidden;
+}
+#navYouAreHere ol li .curid {
+	display:		none;
+}
+
+#navYouAreHere ol li:before {
+	content:		'\25B8';
+	padding:		0 2pt;
+	color:			@ini_text_alt;
+}
+#navYouAreHere ol li.home:before {
+	content:		'';
+	padding:		0;
+}
+#navYouAreHere ol li.home a {
+	display:		inline-block;
+	width:			14px;
+	overflow:		hidden;
+}
+#navYouAreHere ol li.home a:before {
+	content:		' ';
+	display:		inline-block;
+	width:			14px;
+	height:			1em;
+	background:		transparent url('images/home.svg') no-repeat left center;
+}
+
+main>footer {
+	margin-top:			2em;
+	text-align:			right;
+}
+main>footer p.docInfo {
+	display:			inline-block;
+	border-top:			@ini_separator solid 1px;
+	padding-top:		.5em;
+	padding-left:		5%;
+	font-size:			small;
+	color:				@ini_text_alt;
+}
+main>footer p.docInfo .editorname {
+	display:			inline-block;
+	width:				1.2em;
+	height:				1.2em;
+	vertical-align:		text-bottom;
+	overflow:			hidden;
+	border:				@ini_text_alt solid 1px;
+	border-radius:		.6em;
+}
+main>footer p.docInfo .editorname:focus {
+	display:			contents;
+	outline:			@ini_focus_color solid 2px;
+}
+main>footer p.docInfo .editorname:before {
+	display:			inline-block;
+	content:			' ';
+	width:				1.2em;
+	height:				1.4em;
+	background:			transparent url('images/user.svg') no-repeat center;
+	background-size:	1em;
+}	
+main>footer p.docInfo .editorname:focus:before {
+	display:			none;
+}
+
+/* Table of Contents */
+#dw__toc {
+	clear:				both;
+	float:				right;
+    width:				auto;
+    max-width:			@ini_sidebar_width;
+	line-height:		1.5em;
+}
+#dw__toc ol {
+	list-style:			none inside;
+	padding-left:		.5em;
+	margin-left:		0;
+}
+#dw__toc>div {
+	padding:			0 0 .5em .25em;
+	border-left:		@ini_border solid 1pt;
+}
+#dw__toc ol li {
+	font-size:			small;
+	text-indent:		-1em;
+	padding-left:		1em;
+	line-height:		1.25em;
+	margin:				.25em 0;
+}
+#dw__toc h3 {
+	margin:				0;
+    width:				@ini_sidebar_width;
+	font-family:		@ini_default_fonts;
+	font-size:			small;
+	font-weight:		bold;
+	line-height:		1.5em;
+	border-left:		@ini_border solid 1pt;
+}
+#dw__toc h3.closed {
+	font-weight:		normal;
+	width:				auto;
+}
+#dw__toc h3 strong {
+	display:			inline-block;
+	width:				1.5em;
+	line-height:		1em;
+	text-align:			center;
+	color:				@ini_text_alt;
+}
+
+/* edit buttons */
+main .secedit {
+    float:				right;
+    margin-top:			-22pt;
+	line-height:		0;
+}
+main .secedit button {
+	border:				@ini_border solid 1pt;
+	background-color:	transparent;
+	color:				transparent;
+	width:				20pt;
+	height:				20pt;
+	border-radius:		50%;
+	cursor:				pointer;
+}
+main .secedit button:before {
+	content:			' ';
+	display:			inline-block;
+	width:				13pt;
+	height:				13pt;
+	padding:			2pt;
+	background:			transparent url('images/edit.svg') no-repeat center;
+	background-size:	10pt;
+}
+main .secedit button:hover {
+	background-color:	@ini_highlight;
+	border:				@ini_text_alt solid 1pt;
+}
+main .secedit button:focus {
+	background-color:	@ini_highlight;
+	border:				@ini_focus_color solid 2px;
+	outline:			transparent none 0;
+}
+main .secedit button:hover:before {
+}
+
+#footer-layout {
+	padding-top:		1.5em;
+}
+#footer-layout>footer {
+	width:				100%;
+	max-width:			@ini_site_width;
+	margin:				0 auto;
+	display:			grid;
+	grid-template-columns: @ini_sidebar_width 1fr 1fr 1fr;
+	grid-template-rows:	auto auto;
+	grid-gap:			6pt;
+	align-items:		stretch;
+}
+#footer-layout>footer .ftSection {
+	padding-left:		1em;
+}
+#footer-layout>footer .ftSection ul {
+	list-style:			none inside;
+	padding-left:		.5em;
+}
+#footer-layout>footer .ftSection ul li {
+	margin-bottom:		.5em;
+	font-size:			small;
+}
+#footer-layout>footer h4 {
+	color:				@ini_headlines;
+	margin:				0 0 1em 0;
+	font-family:		@ini_alt_fonts;
+	font-size:			1rem;
+}
+
+#footer-layout>footer #gMobileTools>* {
+	display:			none;
+}
+
+#ftLicenseButtons {
+	grid-row:			2;
+	grid-column:		2 / span 3;
+	text-align:			center;
+	font-size:			small;
+	padding-top:		1em;
+}
+#ftLicenseButtons hr {
+    border:				0;
+    height:				1pt;
+    background:			#333;
+    background-image:	linear-gradient(to right, @ini_background_alt, @ini_text_alt, @ini_background_alt);
+}
+#ftLicenseButtons p.license {
+	margin:				.5em 0 1em 0;
+	font-size:			small;
+	color:				@ini_text_alt;
+}
+#ftLicenseButtons p.license bdi {
+	display:			block;
+	width:				100%;
+}
+
+
+@media all and (max-width: @ini_tablet_width) {
+	body {
+		font-size:		100%;
+	}
+	#header-layout>header {
+		margin:				0;
+		grid-template-columns:	auto;
+		grid-template-rows:		auto auto auto auto;
+	}
+	#header-layout>header #siteLogo {
+		grid-column:		1;
+		grid-row:			1;
+	}
+	#header-layout>header #globalTools {
+		grid-row:			2;
+		grid-column:		1 ;
+	}
+	#header-layout>header #phSearch {
+		grid-row:			3;
+		grid-column:		1;
+	}
+	#main-layout {
+		margin:				0;
+		grid-template-columns:	auto;
+		grid-template-rows:	auto auto;
+	}
+}

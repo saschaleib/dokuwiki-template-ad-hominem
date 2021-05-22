@@ -1,1 +1,7 @@
-//QUBE/Web/denkfehler.online/de/lib/tpl/ad-hominem/template.info.txt
+base     dokuwiki
+author   Sascha Leib
+email    sascha@leib.be
+date     2021-05-05
+name     Ad Hominem
+desc     A simple, stripped down (but cleaner and more efficient) version of the default template. In use on https://ad.hominem.info/de/
+url      <tbd>

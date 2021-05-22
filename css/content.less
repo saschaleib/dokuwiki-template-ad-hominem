@@ -1,1 +1,111 @@
-//QUBE/Web/denkfehler.online/de/lib/tpl/ad-hominem/css/content.less
+/**
+ * This contains the content styling
+ * @author Sascha Leib <sascha@leib.be>
+ */
+html, body, * {
+	font-family:	@ini_default_fonts;
+}
+
+main {
+	padding:			.5em .5em 1em 1em;
+	background-color:	@ini_background;
+	color:				@ini_text;
+	line-height:		1.5em;
+}
+
+main p,
+main blockquote,
+main div.table {
+	margin-bottom:	1em;
+}
+
+/* headlines: */
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+	font-family:	@ini_alt_fonts;
+	color:			@ini_headlines;
+	margin:			1em 0 1em 0;
+	line-height:	1.1em;
+}
+
+main h1 { font-size: 2em; }
+main h2 { font-size: 1.5em; }
+main h3 { font-size: 1.125em; }
+main h4 { font-size: 1em; }
+main h5 { font-size: .875em; }
+main h6 { font-size: .75em; }
+
+/* TODO: other headline sizes */
+
+/* lists: */
+main ul, main ol {
+	margin-left:	1em;
+	padding-left:	1.75em;
+}
+main ul {
+	list-style:		square outside;
+}
+main ol {
+	list-style:		decimal outside;
+}
+main li {
+}
+main li::marker {
+	color:			#666;
+}
+
+/* quotes: */
+main blockquote {
+	border-left:	@ini_blockquote solid .4em;
+	border-radius:	.5em;
+	padding:		.25em 0 .25em .75em;
+	margin:			0 4em 1em 1em;
+	font-family:	@ini_alt_fonts;
+	font-size:		1.1rem;
+}
+main blockquote * {
+	font-family:	@ini_alt_fonts;
+	font-size:		1.1rem;
+}
+
+/*  tables */
+main div.table {
+    overflow-x:			auto;
+}
+
+main table {
+    border-collapse:	collapse;
+    empty-cells:		show;
+    border-spacing:		0;
+	font-size:			smaller;
+    border:				1px solid @ini_border;
+}
+
+main table.inline {
+    min-width:			50%;
+}
+
+main table th,
+main table td {
+	padding:			.5em .3em;
+	vertical-align:		top;
+	border:				1px solid @ini_border;
+	line-height:		1.25em;
+}
+main table th {
+	font-weight:		bold;
+	background-color:	@ini_background_alt;
+	text-align:			left;
+}
+
+main table.inline tr:hover td {
+    background-color:	@ini_background_alt;
+}
+
+main table.inline tr:hover th {
+    background-color:	@ini_border;
+}
