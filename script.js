@@ -1,89 +1,80 @@
 /**
- *  We handle several device classes based on browser width.
+ *  Site scripts for Ad Hominem Info
  *
- *  - desktop:   > __tablet_width__ (as set in style.ini)
- *  - mobile:
- *    - tablet   <= __tablet_width__
- *    - phone    <= __phone_width__
+ * @author     Sascha Leib <sascha@leib.be>
+ * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
-var device_class = ''; // not yet known
-var device_classes = 'desktop mobile tablet phone';
 
-function tpl_dokuwiki_mobile(){
+/* list of REST APIs for different link types: */
+var kRestURLs = {
+	'wikilink1'	: '%basedir%lib/tpl/ad-hominem/json/pi.php?id=%id%&v=preview',
+	'iw_wp'		: 'https://en.wikipedia.org/api/rest_v1/page/summary/%ln%',
+	'iw_wpde' 	: 'https://de.wikipedia.org/api/rest_v1/page/summary/%ln%'
+};
 
-    // the z-index in mobile.css is (mis-)used purely for detecting the screen mode here
-    var screen_mode = jQuery('#screen__mode').css('z-index') + '';
+/**
+ * Loads title info for internal and Wikipedia links
+ *
+**/
 
-    // determine our device pattern
-    // TODO: consider moving into dokuwiki core
-    switch (screen_mode) {
-        case '1':
-            if (device_class.match(/tablet/)) return;
-            device_class = 'mobile tablet';
-            break;
-        case '2':
-            if (device_class.match(/phone/)) return;
-            device_class = 'mobile phone';
-            break;
-        default:
-            if (device_class == 'desktop') return;
-            device_class = 'desktop';
-    }
+function loadWikiPageInfo() {
+	var a = jQuery(this);
+	var hi = jQuery.data(this, 'has-info');
+	var url = null;
+	
+	/* only if the info hasn't been set yet: */
+	if (hi == undefined || hi == '') {
+		
+		// remember that we are now working on it:
+		jQuery.data(this, 'has-info', '0');
 
-    jQuery('html').removeClass(device_classes).addClass(device_class);
+		for (var cls in kRestURLs) {
+			if (a.hasClass(cls)) {
+				url = kRestURLs[cls];
+				break;
+			}
+		};
 
-    // handle some layout changes based on change in device
-    var $handle = jQuery('#dokuwiki__aside h3.toggle');
-    var $toc = jQuery('#dw__toc h3');
+		if (url !== null) {
+		
+			/* modify the URLs: */
+			var href = jQuery(this).attr('href');
+			
+			var rp = {
+				'basedir': BASEDIR,
+				'id': jQuery(this).data('wiki-id'),
+				'ln': href.substring(href.lastIndexOf('/')+1)
+			};
+			
+			for (var p in rp) {
+				url = url.replace('%'+p+'%', rp[p]);
+			}
 
-    if (device_class == 'desktop') {
-        // reset for desktop mode
-        if($handle.length) {
-            $handle[0].setState(1);
-            $handle.hide();
-        }
-        if($toc.length) {
-            $toc[0].setState(1);
-        }
-    }
-    if (device_class.match(/mobile/)){
-        // toc and sidebar hiding
-        if($handle.length) {
-            $handle.show();
-            $handle[0].setState(-1);
-        }
-        if($toc.length) {
-            $toc[0].setState(-1);
-        }
-    }
+			/* load the page info */
+			jQuery.ajax({
+				url:		url,
+				context:	a,
+				dataType:	'json',
+				error:		function(xhr, msg, e) {
+								console.error(msg);
+							},
+				success:	function(data, msg, xhr) {
+								// build the new title for the element:
+								jQuery(this).attr('title', data.title + "\n" + data.extract);
+								jQuery.data(this, 'has-info', '1')
+							},
+				complete:	function() {
+								if (jQuery.data(this, 'has-info') == '0') {
+									jQuery.removeData(this, 'has-info');
+								}
+							}
+			});
+		}
+	}
 }
-
+ 
 jQuery(function(){
-    var resizeTimer;
-    dw_page.makeToggle('#dokuwiki__aside h3.toggle','#dokuwiki__aside div.content');
-
-    tpl_dokuwiki_mobile();
-    jQuery(window).on('resize',
-        function(){
-            if (resizeTimer) clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(tpl_dokuwiki_mobile,200);
-        }
-    );
-
-    // increase sidebar length to match content (desktop mode only)
-    var sidebar_height = jQuery('.desktop #dokuwiki__aside').height();
-    var pagetool_height = jQuery('.desktop #dokuwiki__pagetools ul:first').height();
-    // pagetools div has no height; ul has a height
-    var content_min = Math.max(sidebar_height || 0, pagetool_height || 0);
-
-    var content_height = jQuery('#dokuwiki__content div.page').height();
-    if(content_min && content_min > content_height) {
-        var $content = jQuery('#dokuwiki__content div.page');
-        $content.css('min-height', content_min);
-    }
-
-    // blur when clicked
-    jQuery('#dokuwiki__pagetools div.tools>ul>li>a').on('click', function(){
-        this.blur();
-    });
+	
+	/* lazy-load link information to mouse-overs: */
+	jQuery('main a:link').hover(loadWikiPageInfo);
 });

@@ -4,12 +4,14 @@
  */
 
 html, body, * {
+	font-family:	@ini_default_fonts;
 	margin:			0;
 	padding:		0;
 }
 body {
 	background-color:	@ini_background_site;
-	font-size:			105%;
+	font-size:			@ini_default_font_size;
+	letter-spacing:		@ini_default_letter_spacing;
 }
 
 #skip-link {
@@ -47,6 +49,15 @@ div.no {
 #gUserTools ul li {
 	display:			inline;
 }
+#gUserTools ul li::before {
+	content:		'\00B7';
+	display:		inline-block;
+	width:			.35em;
+	padding-right:	.35em;
+}
+#gUserTools ul li:first-child::before {
+	content:		'';
+}
 
 #header-layout,
 #footer-layout,
@@ -66,7 +77,32 @@ div.no {
 #siteLogo {
 	grid-column:		1;
 	grid-row:			1 / span 3;
+	padding:			.25em 0 0 .5em;
+	display:			grid;
+	grid-template-columns:	70px auto;
+	grid-template-rows:	auto auto;
 }
+#siteLogo .logo {
+	grid-column:		1;
+	grid-row:			1 / span 2;
+}
+
+#siteLogo .title {
+	grid-column:		2;
+	grid-row:			1;
+	font-size:			14pt;
+	line-height:		1em;
+	margin:				0;
+}
+#siteLogo .title * {
+	font-family:		@ini_alt_fonts;
+}
+#siteLogo .claim {
+	grid-column:		2;
+	grid-row:			2;
+	font-size:			10pt;
+}
+
 #globalTools {
 	grid-column:		2 / span 2;
 	grid-row:			1;
@@ -223,13 +259,16 @@ div.no {
 	padding-left:		2em;
 }
 
-#main-layout main {
+main {
 	width:				e("calc(90% - 5px)");
-	border:				@ini_border solid 1px;
+	background-color:	@ini_background;
+	color:				@ini_text;
+	line-height:		1.5em;
 	padding:			1.5em 5% .75em 5%;
-	-moz-box-shadow:	2px 2px 2px 2px #ccc;
-	-webkit-box-shadow:	2px 2px 2px 2px #ccc;
-	box-shadow:			2px 2px 2px 2px #ccc;
+	border:				@ini_border solid 1px;
+	-moz-box-shadow:	2px 2px 3px 2px #DDD;
+	-webkit-box-shadow:	2px 2px 3px 2px #DDD;
+	box-shadow:			2px 2px 3px 2px #DDD;
 }
 #navYouAreHere {
 	display:			flex;
@@ -277,7 +316,7 @@ div.no {
 	padding:		0 2pt;
 	color:			@ini_text_alt;
 }
-#navYouAreHere ol li.home:before {
+#navYouAreHere ol li.home::before {
 	content:		'';
 	padding:		0;
 }
@@ -286,12 +325,16 @@ div.no {
 	width:			14px;
 	overflow:		hidden;
 }
-#navYouAreHere ol li.home a:before {
+#navYouAreHere ol li.home a::before {
 	content:		' ';
 	display:		inline-block;
 	width:			14px;
 	height:			1em;
 	background:		transparent url('images/home.svg') no-repeat left center;
+}
+
+body.home #navYouAreHere {
+	display:		none;
 }
 
 main>footer {
@@ -319,7 +362,7 @@ main>footer p.docInfo .editorname:focus {
 	display:			contents;
 	outline:			@ini_focus_color solid 2px;
 }
-main>footer p.docInfo .editorname:before {
+main>footer p.docInfo .editorname::before {
 	display:			inline-block;
 	content:			' ';
 	width:				1.2em;
@@ -327,7 +370,7 @@ main>footer p.docInfo .editorname:before {
 	background:			transparent url('images/user.svg') no-repeat center;
 	background-size:	1em;
 }	
-main>footer p.docInfo .editorname:focus:before {
+main>footer p.docInfo .editorname:focus::before {
 	display:			none;
 }
 
@@ -337,12 +380,13 @@ main>footer p.docInfo .editorname:focus:before {
 	float:				right;
     width:				auto;
     max-width:			@ini_sidebar_width;
+	background-color:	transparent;
 	line-height:		1.5em;
 }
 #dw__toc ol {
 	list-style:			none inside;
 	padding-left:		.5em;
-	margin-left:		0;
+	margin:				0;
 }
 #dw__toc>div {
 	padding:			0 0 .5em .25em;
@@ -391,7 +435,7 @@ main .secedit button {
 	border-radius:		50%;
 	cursor:				pointer;
 }
-main .secedit button:before {
+main .secedit button::before {
 	content:			' ';
 	display:			inline-block;
 	width:				13pt;
@@ -409,7 +453,7 @@ main .secedit button:focus {
 	border:				@ini_focus_color solid 2px;
 	outline:			transparent none 0;
 }
-main .secedit button:hover:before {
+main .secedit button:hover::before {
 }
 
 #footer-layout {
@@ -443,7 +487,7 @@ main .secedit button:hover:before {
 	font-size:			1rem;
 }
 
-#footer-layout>footer #gMobileTools>* {
+#footer-layout>footer #ftMobileTools>* {
 	display:			none;
 }
 
@@ -470,11 +514,8 @@ main .secedit button:hover:before {
 	width:				100%;
 }
 
-
+/* narrow tablet sizes */
 @media all and (max-width: @ini_tablet_width) {
-	body {
-		font-size:		100%;
-	}
 	#header-layout>header {
 		margin:				0;
 		grid-template-columns:	auto;
@@ -496,5 +537,14 @@ main .secedit button:hover:before {
 		margin:				0;
 		grid-template-columns:	auto;
 		grid-template-rows:	auto auto;
+	}
+	main {
+		width:			auto;
+		border-width:	1px 0;
+		box-shadow:		0 0 0 0 transparent;
+	}
+
+	#footer-layout>footer {
+		grid-template-columns: 12pt 1fr 1fr 1fr;
 	}
 }

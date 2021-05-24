@@ -23,7 +23,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 ?><!DOCTYPE html>
 <html<?php echo $htmlLang ?>>
 <head>
-	<meta charset="utf-8" />
+	<meta charset="UTF-8" />
 	<title><?php tpl_pagetitle() ?> &ndash; <?php echo str_replace(' ', ' ', strip_tags($conf['title'])) ?></title>
 <?php my_metaheaders() ?>
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -35,7 +35,17 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 	</div>
 	<div id="header-layout">
 		<header>
-			<h2 id="siteLogo"><? tpl_link( wl(), $conf['title'], 'accesskey="h" title="' . $conf['title'] . ' [H]"'); ?></h2>
+			<div id="siteLogo">
+				<?php
+					// get logo either out of the template images folder or data/media folder
+					$logoSize = array();
+					$logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/sitelogo.svg'), false, $logoSize);
+					tpl_link( wl(),
+						'<img src="'.$logo.'" '.$logoSize[3].' alt="' . htmlentities($conf['title']) . '" width="64" height="64" />', 'accesskey="h" title="[H]" class="logo"');
+				?>
+				<h2 class="title"><?php tpl_link( wl(), htmlentities($conf['title']), ''); ?></h2>
+				<p class="claim">Irrtümer und Trugschlüsse <i lang="fr">en gros</i> und <i lang="fr">en detail</i></p>
+			</div>
 			<div id="globalTools">
 				<div id="gUserTools">
 					<h3 class="sronly"><?php echo $lang['user_tools']; ?></h3>
@@ -53,7 +63,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 	</div>
     <div id="main-layout"<?php echo ($showSidebar && $hasSidebar ? ' class="showSidebar hasSidebar"' : ''); ?>>
 		<div id="sidebar">
-			<h4 class="sronly"><?php echo $lang['sidebar'] ?></h4>
+			<h4><?php echo $lang['sidebar'] ?></h4>
 			<div class="content">
 				<nav id="sbNavigation">
 <!-- - - - - - - - - SIDEBAR CONTENT - - - - - - - -->
@@ -92,7 +102,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 
 	<div id="footer-layout">
 		<footer>
-			<div id="gMobileTools" class="ftSection">
+			<div id="ftMobileTools" class="ftSection">
 				<h4><?php echo $lang['site_tools']; ?></h4>
 				<?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
 

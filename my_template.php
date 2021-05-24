@@ -44,6 +44,18 @@ function my_metaheaders($alt = true) {
     foreach($depends as $f) $tseed .= @filemtime($f);
     $tseed   = md5($tseed);
 
+	// Open Graph information
+	$meta = p_get_metadata($ID);
+	if ($meta['title'] !== null) {
+		$head['meta'][] = array('property' => 'og:title', 'content' => tpl_pagetitle($ID, true));
+		$head['meta'][] = array('property' => 'og:site_name ', 'content' => $conf['title']);
+		$head['meta'][] = array('property' => 'og:type', 'content' => 'website');
+		$head['meta'][] = array('property' => 'og:url', 'content' => wl($ID));
+	
+		$parts = explode("\n", $meta['description']['abstract']);
+		$head['meta'][] = array('property' => 'og:description ', 'content' => $parts[2]);
+	}
+
     // the usual stuff
     $head['meta'][] = array('name'=> 'generator', 'content'=> 'DokuWiki');
     if(actionOK('search')) {
@@ -151,13 +163,18 @@ function my_metaheaders($alt = true) {
     // load stylesheets
     $head['link'][] = array(
         'rel' => 'stylesheet',
-        'href'=> DOKU_BASE.'lib/exe/css.php?t='.rawurlencode($conf['template']).'&tseed='.$tseed
+        'href'=> DOKU_BASE . 'lib/exe/css.php?t='.rawurlencode($conf['template']).'&tseed='.$tseed
     );
 
-    $script = "var NS='".(isset($INFO)?$INFO['namespace']:'')."';";
+    $script = "var NS='".(isset($INFO)?$INFO['namespace']:'')."';\n\t\t";
     if($conf['useacl'] && $INPUT->server->str('REMOTE_USER')) {
-        $script .= "var SIG=".toolbar_signature().";";
+        $script .= "var SIG=".toolbar_signature().";\n\t\t";
     }
+	
+    if($conf['basedir']) {
+        $script .= 'var BASEDIR="'.$conf['basedir']."\";\n\t\t";
+    }
+
     jsinfo();
     $script .= 'var JSINFO = ' . json_encode($JSINFO).';';
     $head['script'][] = array('_data'=> $script);
@@ -175,7 +192,7 @@ function my_metaheaders($alt = true) {
     // load our javascript dispatcher
     $head['script'][] = array(
         'charset'=> 'utf-8', '_data'=> '',
-        'src' => DOKU_BASE.'lib/exe/js.php'.'?t='.rawurlencode($conf['template']).'&tseed='.$tseed,
+        'src' => DOKU_BASE . 'lib/exe/js.php'.'?t='.rawurlencode($conf['template']).'&tseed='.$tseed,
     ) + ($conf['defer_js'] ? [ 'defer' => 'defer'] : []);
 
     // trigger event here
@@ -332,7 +349,7 @@ function my_userinfo($prefix = '') {
 	foreach($items as $it) {
 		$typ = $it->getType();
 		if ($typ === 'profile') {
-			echo $prefix . "<li class=\"action $typ\"><span class=\"sronly\">" . $lang['loggedinas'] . ' </span><a href="' . htmlentities($it->getLink()) . '" title="' . $it->getTitle() . '">' . userlink() . "</a></li>\n";
+			echo $prefix . "<li class=\"action $typ\"><span class=\"sronly\">" . $lang['loggedinas'] . ' </span>' . userlink() . "</li>\n";
 		} else {
 			echo $prefix . "<li class=\"action $typ\"><a href=\"" . htmlentities($it->getLink()) . '" title="' . $it->getTitle() . '">' . $it->getLabel() . "</a></li>\n";
 		}

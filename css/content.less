@@ -2,16 +2,6 @@
  * This contains the content styling
  * @author Sascha Leib <sascha@leib.be>
  */
-html, body, * {
-	font-family:	@ini_default_fonts;
-}
-
-main {
-	padding:			.5em .5em 1em 1em;
-	background-color:	@ini_background;
-	color:				@ini_text;
-	line-height:		1.5em;
-}
 
 main p,
 main blockquote,
@@ -39,12 +29,14 @@ main h4 { font-size: 1em; }
 main h5 { font-size: .875em; }
 main h6 { font-size: .75em; }
 
-/* TODO: other headline sizes */
+/* on the homepage only, reduce the H1 top margin: */
+body.home h1:first-child { margin-top: .5em; }
 
 /* lists: */
 main ul, main ol {
 	margin-left:	1em;
 	padding-left:	1.75em;
+	margin-bottom:	1em;
 }
 main ul {
 	list-style:		square outside;
