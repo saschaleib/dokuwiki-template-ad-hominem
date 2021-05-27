@@ -121,21 +121,21 @@ div.picker button.toolbutton {
 /* section edit buttons
 ********************************************************************/
 
-.dokuwiki .secedit {
+/* .dokuwiki .secedit {
     float: right;
     margin-top: -1.4em;
-}
+} */
 [dir=rtl] .dokuwiki .secedit {
     float: left;
 }
-.dokuwiki .secedit button {
+/*.dokuwiki .secedit button {
     font-size: 75%;
-}
+}*/
 
-/* style for section highlighting */
+/* style for section highlighting
 .dokuwiki div.section_highlight {
-    margin: 0 -1em; /* negative side margin = side padding + side border */
+    margin: 0 -1em;
     padding: 0 .5em;
     border: solid @ini_background_alt;
     border-width: 0 .5em;
-}
+} */

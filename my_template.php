@@ -183,7 +183,7 @@ function my_metaheaders($alt = true) {
     $jquery = getCdnUrls();
     foreach($jquery as $src) {
         $head['script'][] = array(
-            'charset' => 'utf-8',
+            /* 'charset' => 'utf-8', -- obsolete */
             '_data' => '',
             'src' => $src,
         ) + ($conf['defer_js'] ? [ 'defer' => 'defer'] : []);
@@ -191,7 +191,8 @@ function my_metaheaders($alt = true) {
 
     // load our javascript dispatcher
     $head['script'][] = array(
-        'charset'=> 'utf-8', '_data'=> '',
+        /* 'charset'=> 'utf-8', -- obsolete */
+		'_data'=> '',
         'src' => DOKU_BASE . 'lib/exe/js.php'.'?t='.rawurlencode($conf['template']).'&tseed='.$tseed,
     ) + ($conf['defer_js'] ? [ 'defer' => 'defer'] : []);
 
@@ -199,7 +200,6 @@ function my_metaheaders($alt = true) {
     Event::createAndTrigger('TPL_METAHEADER_OUTPUT', $head, '_my_metaheaders_action', true);
     return true;
 }
-
 
 /**
  * prints the array build by my_metaheaders
@@ -261,9 +261,8 @@ function my_breadcrumbs($prefix = '') {
 
 	/* begin listing */
 	echo $prefix . "<nav id=\"navBreadCrumbs\">\n";
-	echo $prefix . "\t<h4 class=\"toggle\">" . $lang['breadcrumb'] . "</h4>\n";
+	echo $prefix . "\t<h4>" . $lang['breadcrumb'] . "</h4>\n";
 	echo $prefix . "\t<ol reversed>\n";
-
 
     $last = count($crumbs);
     $i    = 0;
@@ -274,7 +273,6 @@ function my_breadcrumbs($prefix = '') {
 	echo $prefix . "\t</ol>\n";
 	echo $prefix . "</nav>\n";
 }
-
 
 /**
  * Hierarchical breadcrumbs
@@ -345,7 +343,7 @@ function my_userinfo($prefix = '') {
     global $INPUT;
 
 	// add login/logout button:
-	$items = array_reverse((new \dokuwiki\Menu\UserMenu())->getItems());
+	$items = (new \dokuwiki\Menu\UserMenu())->getItems();
 	foreach($items as $it) {
 		$typ = $it->getType();
 		if ($typ === 'profile') {
@@ -405,8 +403,8 @@ function my_toc($prefix = '') {
 
 	/* Build the hierarchical list of headline links: */
 	if (count($toc) >= intval($conf['tocminheads'])) {
-		echo $prefix . "<aside id=\"dw__toc\" class=\"dw__toc\">\n";
-		echo $prefix . "\t<h3>" . $lang['toc'] . "</h3>\n" . $prefix . "\t<div>";
+		echo $prefix . "<aside id=\"toc\" class=\"toggle mclosed\">\n";
+		echo $prefix . "\t<h3 class=\"tg_button\">" . htmlentities($lang['toc']) . "</h3>\n" . $prefix . "\t<div class=\"tg_content\">";
 		$level = intval("0");
 		foreach($toc as $it) {
 
@@ -447,11 +445,13 @@ function my_lastchange($prefix = '') {
     global $lang;
     global $INFO;
 
-	$format = '%Y-%m-%dT%T%z';	/* 2021-21-05T16:45:12+02:00 */
+	$format = '%Y-%m-%dT%T%z';	/* e.g. 2021-21-05T16:45:12+02:00 */
 
 	$date = $INFO['lastmod'];
 
 	echo $prefix . '<bdi>' . $lang['lastmod'] . "</bdi>\n";
-	echo $prefix . '<time itemprop="dateModified" datetime="' . strftime($format, $date) . '">' . dformat($date) . "</time>\n";
-	echo $prefix .'<span class="editorname" tabindex="0">' . $lang['by'] . ' <bdi itemprop="editor">' . editorinfo($INFO['editor']) . "</bdi></span>\n";
+	echo $prefix . '<time datetime="' . strftime($format, $date) . '">' . dformat($date) . "</time>\n";
+	
+	/* user name for last change (is this really interesting to the visitor?) */
+	/* echo $prefix .'<span class="editorname" tabindex="0">' . $lang['by'] . ' <bdi>' . editorinfo($INFO['editor']) . "</bdi></span>\n"; */
 }

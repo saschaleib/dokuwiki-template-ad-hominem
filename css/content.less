@@ -34,9 +34,8 @@ body.home h1:first-child { margin-top: .5em; }
 
 /* lists: */
 main ul, main ol {
-	margin-left:	1em;
+	margin:			0 2em 1em 1em;
 	padding-left:	1.75em;
-	margin-bottom:	1em;
 }
 main ul {
 	list-style:		square outside;
@@ -55,13 +54,24 @@ main blockquote {
 	border-left:	@ini_blockquote solid .4em;
 	border-radius:	.5em;
 	padding:		.25em 0 .25em .75em;
-	margin:			0 4em 1em 1em;
+	margin:			0 2em 1em 1em;
 	font-family:	@ini_alt_fonts;
 	font-size:		1.1rem;
 }
 main blockquote * {
 	font-family:	@ini_alt_fonts;
 	font-size:		1.1rem;
+}
+
+main svg {
+	display:			block;
+	fill-rule:			evenodd;
+	clip-rule:			evenodd;
+	stroke-linejoin:	round;
+	stroke-miterlimit:	1.5;
+}
+main svg.math {
+	margin-left:		15px
 }
 
 /*  tables */

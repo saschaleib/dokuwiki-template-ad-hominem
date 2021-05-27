@@ -41,10 +41,11 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 					$logoSize = array();
 					$logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/sitelogo.svg'), false, $logoSize);
 					tpl_link( wl(),
-						'<img src="'.$logo.'" '.$logoSize[3].' alt="' . htmlentities($conf['title']) . '" width="64" height="64" />', 'accesskey="h" title="[H]" class="logo"');
+						'<img src="'.$logo.'" ' . $logoSize[3] . ' alt="' . htmlentities($conf['title']) . '" />', 'accesskey="h" title="[H]" class="logo"');
 				?>
+
 				<h2 class="title"><?php tpl_link( wl(), htmlentities($conf['title']), ''); ?></h2>
-				<p class="claim">Irrtümer und Trugschlüsse <i lang="fr">en gros</i> und <i lang="fr">en detail</i></p>
+				<p class="claim"><?php echo $conf['tagline']; ?></p>
 			</div>
 			<div id="globalTools">
 				<div id="gUserTools">
@@ -62,9 +63,10 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 		</header>
 	</div>
     <div id="main-layout"<?php echo ($showSidebar && $hasSidebar ? ' class="showSidebar hasSidebar"' : ''); ?>>
-		<div id="sidebar">
-			<h4><?php echo $lang['sidebar'] ?></h4>
-			<div class="content">
+		<div id="sidebar" class="toggle mclosed">
+			<button class="tg_button" title="<?php echo $lang['sidebar'] ?>"><?php echo $lang['sidebar'] ?></button>
+			<div class="tg_content">
+				<h4><?php echo $lang['sidebar'] ?></h4>
 				<nav id="sbNavigation">
 <!-- - - - - - - - - SIDEBAR CONTENT - - - - - - - -->
 <?php
@@ -73,14 +75,16 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 			tpl_include_page($conf['sidebar'], true, true);
 			tpl_includeFile('sidebarfooter.html');
 ?>				</nav>
-<!-- - - - - - - - - END OF SIDEBAR  - - - - - - - -->
+<!-- - - - - - - - - END OF SIDEBAR CONTENT  - - - - - - - -->
+				<div id="sbBreadcrumbs">
 <?php		if($conf['breadcrumbs']) { my_breadcrumbs(str_repeat(chr(9),4)); } ?>
+				</div>
 			</div>
 		</div>
-		<main>
+		<main id="dokuwiki__top">
 <?php		my_toc(str_repeat(chr(9),3));
 			if($conf['youarehere']) { my_youarehere(str_repeat(chr(9),3)); }
-?>			<article id="main-content" itemscope itemtype="https://schema.org/Article">
+?>			<article id="main-content">
 
 <!-- - - - - - - - - ARTICLE CONTENT - - - - - - - -->
 <?php tpl_flush() ?>
@@ -97,16 +101,9 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 			</footer>
 		</main>
 	</div>
-	<div id="docinfo-layout">
-	</div>
-
 	<div id="footer-layout">
 		<footer>
-			<div id="ftMobileTools" class="ftSection">
-				<h4><?php echo $lang['site_tools']; ?></h4>
-				<?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
-
-			</div>
+			<div id="ftPlaceholder" class="ftSection"></div>
 			<div id="ftInclude" class="ftSection">
 <?php tpl_includeFile('footer.html'); ?>
 			</div>
