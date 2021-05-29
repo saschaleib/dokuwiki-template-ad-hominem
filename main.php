@@ -62,11 +62,11 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 			<div id="phInclude"><?php tpl_includeFile('header.html') ?></div>
 		</header>
 	</div>
-    <div id="main-layout"<?php echo ($showSidebar && $hasSidebar ? ' class="showSidebar hasSidebar"' : ''); ?>>
-		<div id="sidebar" class="toggle mclosed">
-			<button class="tg_button" title="<?php echo $lang['sidebar'] ?>"><?php echo $lang['sidebar'] ?></button>
+    <div id="main-layout">
+		<div id="sidebar" class="toggle <?php
+        echo ( $showSidebar ? 'auto' : 'hide' ); ?>">
+			<button class="tg_button" title="<?php echo $lang['sidebar'] ?>"><span><?php echo $lang['sidebar'] ?></span></button>
 			<div class="tg_content">
-				<h4><?php echo $lang['sidebar'] ?></h4>
 				<nav id="sbNavigation">
 <!-- - - - - - - - - SIDEBAR CONTENT - - - - - - - -->
 <?php

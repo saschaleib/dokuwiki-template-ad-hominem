@@ -6,11 +6,11 @@
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
  ?>			<div id="ftLicenseButtons">
-				<hr />
+				<hr class="noprint" />
 				<p class="license">
 					<?php tpl_license('', false, false, false); tpl_includeFile('licenseinfo.html'); ?>
 				</p>
-<?php if($conf['license'] != null): ?>				<div class="buttons">
+<?php if($conf['license'] != null): ?>				<div class="buttons noprint">
 					<?php
 						tpl_license('button', true, false, false);
 					

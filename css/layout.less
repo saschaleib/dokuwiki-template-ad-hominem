@@ -73,6 +73,7 @@ div.no {
 	grid-template-rows:		auto auto auto;
 	justify-items:			stretch;
 }
+
 #siteLogo {
 	grid-column:		1;
 	grid-row:			1 / span 3;
@@ -225,16 +226,16 @@ div.no {
 	max-width:			@ini_site_width;
 	margin:				0 auto;
 	display:			grid;
-	grid-template-columns:	@ini_sidebar_width auto;
+	grid-template-columns:	auto auto;
 	place-items:		stretch;
 }
 
 #sidebar {
-	padding:			1em .25em 0 1em;
+	width:				@ini_sidebar_width;
 }
-#sidebar .content {
-	line-height:		1.7em;
-	font-size:			small;
+#sidebar.toggle.hide,
+#sidebar.toggle.alt {
+	width:				1em;
 }
 #sidebar p,
 #sidebar ul {
@@ -247,6 +248,23 @@ div.no {
 	color:				@ini_text_alt;
 	padding:			.1em 0;
 }
+#sidebar dl dt {
+	font-weight:		bold;
+}
+#sidebar a:link,
+#sidebar a:visited {
+	color:		@ini_link;
+}
+
+#sidebar .home a::before {
+	content:	' ';
+	display:	inline-block;
+	width:		10pt;
+	height:		1em;
+	background:	transparent url('/denkfehler.online/de/lib/tpl/ad-hominem/images/home.svg') no-repeat left bottom;
+	background-size:	.8em;
+	padding-right:	2pt;
+}
 #sidebar .curid {
 	font-weight:		bold;
 }
@@ -254,9 +272,52 @@ div.no {
 	font-size:			1rem;
 	margin:				0.5em;
 }
-#sidebar .tg_button {
-	display:			none;
+#sidebar>button.tg_button {
+	display:				grid;
+	grid-template-columns:	auto 17pt;
+	width:					100%;
+	height:					1.75em;
+	padding:				.25em;
+	text-align:				left;
+	font-size:				1.25rem;
+	font-weight:			bold;
+	color:					@ini_text_neu;
+	background-color:		transparent;
+	border:					transparent none 0;
 }
+#sidebar>button.tg_button span {
+	font-family:			@ini_alt_fonts;
+}
+#sidebar.hide>button.tg_button,
+#sidebar.alt>button.tg_button {
+	margin-left:			0;
+}
+#sidebar>button.tg_button span {
+
+}
+#sidebar>button.tg_button::after {
+	content:				'\2039';
+	color:					@ini_link;
+	display:				block;
+	width:					1.25em;
+	height:					1.25em;
+	text-align:				center;
+}
+#sidebar.hide>button.tg_button span,
+#sidebar.alt>button.tg_button span {
+	display:				none;
+}
+#sidebar.hide>button.tg_button::after,
+#sidebar.alt>button.tg_button::after {
+	content:				'\203A';
+	width:					auto;
+}
+
+#sidebar .tg_content {
+	line-height:		1.5em;
+	font-size:			11.5pt;
+}
+
 #sidebar hr {
     border:				0;
     height:				1pt;
@@ -266,7 +327,7 @@ div.no {
 }
 
 #sbNavigation {
-	margin-bottom:		1.5em;
+	margin:				.25em .25em 0 1em;
 }
 #navBreadCrumbs ol {
 	list-style:			decimal outside;
@@ -344,7 +405,7 @@ main {
 	display:		inline-block;
 	width:			14px;
 	height:			1em;
-	background:		transparent url('images/home.svg') no-repeat left center;
+	background:		transparent url('images/home.svg') no-repeat left bottom;
 }
 
 body.home #navYouAreHere {
@@ -400,20 +461,13 @@ main>footer p.docInfo {
 	line-height:		1.5em;
 	border-left:		@ini_border solid 1pt;
 }
-#toc.closed h3 {
-}
-#toc.mobile.closed h3 {
-}
 #toc h3::before {
 	content:			'\2013';
 	display:			inline-block;
 	width:				1.5em;
 	text-align:			center;
 }
-#toc.closed h3::before {
-	content:			'\2630';
-}
-#toc.mobile.closed h3::before {
+#toc.hide h3::before {
 	content:			'\2013';
 }
 
@@ -534,7 +588,13 @@ main .math * {
 	color:			@ini_link;
 	cursor:			pointer;
 }
-.toggle.closed .tg_content {
+.toggle .tg_content,
+.toggle.auto .tg_content,
+.toggle.show .tg_content {
+	display:		initial;
+}
+.toggle.hide .tg_content,
+.toggle.alt .tg_content {
 	display:		none;
 }
 
@@ -582,7 +642,7 @@ main .math * {
 		display:			block;
 	}
 	
-	#sidebar {
+	#sidebar.toggle {
 		width:					100%;
 		margin-left:			.5em;
 		padding:				0;
@@ -590,37 +650,24 @@ main .math * {
 		top:					-2.25em;
 		height:					.25em;
 	}
-
-	#sidebar .tg_button {
-		display:				block;
-		font-size:				1.5em;
-		width:					2em;
-		height:					1.5em;
-		overflow:				hidden;
-		color:					@ini_link;
-		background-color:		@ini_border;
-		border:					transparent none 0;
-		border-radius:			.5em .5em 0 0;
+	#sidebar>button.tg_button {
+		width:					1.5em;
 	}
-	#sidebar.closed .tg_button {
-		background-color:		transparent;
+	#sidebar>button.tg_button span {
+		display:				none;
 	}
 
-	#sidebar .tg_button::before {
-		content:				'\2715';
-		display:				inline-block;
-		width:					2em;
-		height:					2em;
-		color:					@ini_link;
-		text-align:				center;
-	}
-	#sidebar.closed .tg_button::before {
+	#sidebar>button.tg_button::after {
 		content:				'\2630';
+	} 
+	#sidebar.hide>button.tg_button::after,
+	#sidebar.alt>button.tg_button::after {
+		content:				'\2335';
 	}
 
 	#sidebar .tg_content {
-		width:					97%;
-		min-width:				@ini_sidebar_width;	
+		min-width:				@ini_sidebar_width;
+		padding-right:			1em;
 		background-color:		@ini_background_site;
 		position:				absolute;
 		z-index:				18;
@@ -628,14 +675,11 @@ main .math * {
 		-moz-box-shadow:		2px 2px 2px @ini_border;
 		-webkit-box-shadow:		2px 2px 2px @ini_border;
 		box-shadow:				2px 2px 2px @ini_border;
-
 	}
+
 	#sbNavigation {
 		padding-left:		.5em
 	}
-	
-
-
 	#sidebar h3,
 	#sidebar h4	{
 		font-size:			1rem;
@@ -656,10 +700,14 @@ main .math * {
 		box-shadow:			0 0 0 0 transparent;
 	}
 
-	.toggle.mobile.closed .tg_content {
+	.toggle .tg_content,
+	.toggle.alt .tg_content,
+	.toggle.show .tg_content {
+		display:		initial;
+	}
+	.toggle.auto .tg_content {
 		display:		none;
 	}
-
 
 	#footer-layout>footer {
 		grid-template-columns: 12pt 1fr 1fr 1fr;
