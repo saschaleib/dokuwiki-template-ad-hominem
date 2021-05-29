@@ -13,9 +13,10 @@ $p = {
 	init:	function() {
 		
 		$p.linkinfo.init();
+		$p.search.init();
 		$p.togglers.init();
-	},
 
+	},
 	
 	/* link information */
 	linkinfo: {
@@ -113,7 +114,60 @@ $p = {
 		}
 	},
 
+	/* anything related to the search */
+	search: {
+		
+		/* initializer */
+		init: function() {
+			$p.search.gui.init();
+		},
+		
+		/* the search gui */
+		gui: {
+			
+			_container: null,
+			_elements: { field: null, clear: null, search: null },
+						
+			/* init the gui */
+			init: function() {
+				
+				/* find all the search elements: */
+				var form = document.getElementById('dw__search');
+				
+				var div = form.getElementsByClassName('search-field')[0];
+				$p.search.gui._container = div;
+				
+				var field = div.getElementsByTagName('input')[0];
+				$p.search.gui._elements.field = field;
+				field.addEventListener('focus', $p.search.gui.__elementFocus);
+				field.addEventListener('blur', $p.search.gui.__elementBlur);
 
+				var buttons = div.getElementsByTagName('button');
+				Array.prototype.forEach.call(buttons, function(b) {
+					var type = b.getAttribute('type');
+					if (type == 'reset') { 
+						$p.search.gui._elements.clear = b;
+					} else if (type == 'submit') { 
+						$p.search.gui._elements.search = b;
+					}
+					b.addEventListener('focus', $p.search.gui.__elementFocus);
+					b.addEventListener('blur', $p.search.gui.__elementBlur);
+				});
+
+			},
+			
+			/* call back for fields */
+			__elementFocus: function() {
+				$p.search.gui._container.classList.add("focus"); 
+			},
+			__elementBlur: function() {
+				$p.search.gui._container.classList.remove("focus"); 
+
+			}
+		}
+	},
+
+	/* expaning sections, for menus, etc. */
 	togglers: {
 		
 		/* initialize togglers */
@@ -121,7 +175,7 @@ $p = {
 
 			const togglers = document.getElementsByClassName("toggle");
 
-			Array.prototype.forEach.call(togglers, function (t) {
+			Array.prototype.forEach.call(togglers, function(t) {
 			
 				/* add default state  */
 				if (!(t.classList.contains('show') || (t.classList.contains('hide')))) {
@@ -130,7 +184,7 @@ $p = {
 
 				/* add a callback to the toggler buttons */
 				var btn = t.getElementsByClassName('tg_button');
-				Array.prototype.forEach.call(btn, function (b) {
+				Array.prototype.forEach.call(btn, function(b) {
 					b.addEventListener('click', $p.togglers._buttonCallback);
 					b.classList.add('active');
 				});
@@ -140,7 +194,6 @@ $p = {
 		
 		/* callback for the toggler button click */
 		_buttonCallback: function() {
-			console.log("Button clicked: " + Date.now());
 			
 			var t = this.parentNode;
 			
@@ -149,7 +202,6 @@ $p = {
 			if (t.classList.contains('show')) state = 'show';
 			if (t.classList.contains('hide')) state = 'hide';
 			if (t.classList.contains('alt')) state = 'alt';
-			console.log(" - state = " + state);
 		
 			/* set new state: */
 			var newState = 'alt';
@@ -160,7 +212,6 @@ $p = {
 			} else if (state == 'alt') {
 				newState = 'auto';
 			}
-			console.log(" - new state = " + newState);
 			
 			t.classList.remove(state); t.classList.add(newState);
 

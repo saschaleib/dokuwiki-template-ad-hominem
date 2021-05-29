@@ -15,7 +15,32 @@ body {
 }
 
 #skip-link {
-	display:		none;
+	position:			fixed;
+	left:				4pt;
+	top:				4pt;
+	width:				auto;
+	z-index:			9999;
+}
+#skip-link a {
+    position:			absolute;
+	background-color:	@ini_background_neu;
+	font-size:			1.25em;
+    color:				@ini_link;
+    height:				1px;
+    overflow:			hidden;
+	clip:				rect(1px, 1px, 1px, 1px);
+}
+#skip-link a:focus {
+	position:			static;
+	display:			inline-block;
+    padding:			8px;
+	height:				auto;
+	clip:				auto;
+	overflow:			visible;
+    outline: 			2px solid @ini_focus_color;
+}
+#skip-link:focus {
+	display:		block;
 }
 
 .sronly {
@@ -133,6 +158,11 @@ div.no {
 	-moz-box-shadow:		inset 0 0 3pt @ini_border;
 	-webkit-box-shadow:		inset 0 0 3pt @ini_border;
 	box-shadow:				inset 0 0 3pt @ini_border;
+	outline:			transparent solid 2pt;
+
+}
+#phSearch form>div.search-field.focus {
+	outline-color:		@ini_focus_color;
 }
 #phSearch form>div input {
 	grid-column:		1;
@@ -143,10 +173,6 @@ div.no {
 	border:				transparent none 0;
 	border-radius:		3pt;
 	background-color:	transparent;
-	outline:			transparent solid 2pt;
-}
-#phSearch form>div input:focus {
-	outline-color:		@ini_focus_color;
 }
 #phSearch form>div button {
 	border:				transparent solid 1pt;
@@ -171,8 +197,7 @@ div.no {
 	border-color:		@ini_border;
 }
 #phSearch form>div button:focus {
-	outline-color:		@ini_focus_color;
-	border-color:		@ini_border;
+	background-color:	@ini_background_neu;
 }
 
 #phSearch form .search-popup {
@@ -275,8 +300,9 @@ div.no {
 #sidebar>button.tg_button {
 	display:				grid;
 	grid-template-columns:	auto 17pt;
-	width:					100%;
+	width:					e("calc(100% - 4px)");
 	height:					1.75em;
+	margin:					0 2px;
 	padding:				.25em;
 	text-align:				left;
 	font-size:				1.25rem;
@@ -284,6 +310,9 @@ div.no {
 	color:					@ini_text_neu;
 	background-color:		transparent;
 	border:					transparent none 0;
+}
+#sidebar>button:focus {
+	outline:	@ini_focus_color solid 2px;
 }
 #sidebar>button.tg_button span {
 	font-family:			@ini_alt_fonts;
