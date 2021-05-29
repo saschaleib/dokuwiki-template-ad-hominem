@@ -1,0 +1,197 @@
+/**
+ * This contains the print layouts and styles
+ * @author Sascha Leib <sascha@leib.be>
+ */
+
+@page { margin: 2cm 4cm 3cm 2.5cm; }
+
+.noprint {
+	display:		none !important;
+}
+
+html, body, * {
+	font-family:	@ini_print_default_fonts;
+	margin:			0;
+	padding:		0;
+	background-color:	transparent;
+}
+
+body {
+	font-size:				12pt;
+	box-decoration-break:	clone;
+}
+
+/* hide unneded page elements */
+#globalTools, #phSearch, #phTools, #phTools,
+#sidebar, #toc, #navYouAreHere,
+#footer-layout .ftSection {
+	display:		none;
+}
+#header-layout {
+	display: 		table-header-group;
+	margin-bottom:	1em;
+}
+#siteLogo {
+	grid-template-columns:	14pt auto;
+	padding:		0 0 .5em 0;
+}
+#siteLogo .logo img {
+	width:			14pt;
+}
+#siteLogo .title {
+	font-size:		14pt;
+	font-weight:	normal;
+}
+#siteLogo .title a:link,
+#siteLogo .title a:visited {
+	font-family:	@ini_print_title_fonts;
+	color:			#000;
+	text-decoration: none;
+}
+#siteLogo .claim {
+	display:		none;
+}
+#main-layout {
+	display: 		table-row-group;
+}
+
+#footer-layout {
+	border:			#CCC solid 1px;
+	display:		table-footer-group;
+}
+main .docInfo {
+}
+
+/* tweak the header */
+#header-layout>header {
+	border-bottom:	#000 solid 1pt;
+}
+
+/* reset main borders and margins: */
+main {
+	display:			table-row-group;
+	padding:			0;
+	border-width:		0;
+	line-height:		1.5em;
+	border:				none 0;
+	-moz-box-shadow:	0 0 0 0 transparent;
+	-webkit-box-shadow:	0 0 0 0 transparent;
+	box-shadow:			0 0 0 0 transparent;
+}
+
+/* headlines */
+main h1, main h2, main h3, main h4, main h5, main h6 {
+	font-family:		@ini_print_title_fonts;
+	color:				@ini_print_title_color;
+	margin:				1em 0 .75em 0;
+	padding:			0 0 .25em 0;
+	break-inside:		avoid;
+	break-after:		avoid;
+}
+main h1 { font-size: 24pt; }
+main h2 { font-size: 16pt; }
+main h3 { font-size: 14pt; }
+main h4 { font-size: 12pt; }
+main h5 { font-size: 12pt; font-style: italic; }
+main h6 { font-size: 11pt; font-weight: normal; font-style: italic; }
+
+main h1 + div, main h2 + div, main h3 + div, main h4 + div, main h5 + div, main h6 + div {
+	page-break-before:		avoid;
+	break-before:			avoid;
+}
+
+/* paragraph-level blocks */
+main p, main ul, main ol {
+	margin:					.5em 0;
+	widows:					2;
+	orphans:				2;
+}
+main li {
+	margin-left:		2.5em;
+}
+main blockquote {
+	border-left:	@ini_blockquote solid 3pt;
+	padding:		.25em 0 .25em .75em;
+	margin:			0 2em 1em 1em;
+}
+
+/* links overrides */
+main a:link,
+main a:visited {
+	color:				@ini_print_title_color;
+	text-decoration:	none;
+}
+/* add URL after external links - optional!
+main a.interwiki:after,
+main a.urlextern:after {
+  content: ' <' attr(href) '>';
+  font-size: 90%;
+  color: #333;
+} */
+
+/* table styles */
+main table {
+	max-width:			100%;
+	border:				#000 solid .25pt;
+	border-collapse:	collapse;
+	font-size:			10pt;
+	margin:				.5em auto;
+	box-decoration-break:	clone;
+	page-break-inside:	avoid;
+	break-inside:		avoid;
+}
+main table th,
+main table th * {
+	font-family:		@ini_print_title_fonts;
+	font-size:			9pt;
+	color:				@ini_print_title_color;
+}
+main table th {
+	border-right:		#000 solid .5pt;
+	padding:			0 3pt;
+}
+main table td {
+	border-right:		#000 solid .25pt;
+	padding:			0 3pt;
+}
+main table thead {
+	break-inside:		avoid;
+	break-after:		avoid;
+}
+main table thead tr {
+	background-color:	#EEE;
+	border-bottom:		#000 solid .5pt;
+}
+main table thead tr th,
+main table thead tr td {
+	vertical-align:		bottom;
+}
+main table thead tr th:last-child,
+main table thead tr td:last-child {
+	border-right:		none 0;
+}
+main table tbody tr:nth-child(even) {
+	background-color:	#EEE;
+}
+main table tbody th {
+	vertical-align:		top;
+}
+main table a:link {
+	text-decoration:	none;
+}
+
+main table.layout,
+main table.layout th,
+main table.layout td {
+	border:			transparent none 0;
+}
+
+/* allow user to force keep-together rules: */
+.keep-together {
+	page-break-inside:	avoid;
+	break-inside:	avoid;
+}
+.break-before {
+	page-break-before:	always;
+	break-before:	always;
+}
