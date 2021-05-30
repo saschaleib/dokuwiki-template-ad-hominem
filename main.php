@@ -9,8 +9,6 @@
  * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
 
-ini_set('display_errors', '1');
-
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 
 require_once('my_template.php');

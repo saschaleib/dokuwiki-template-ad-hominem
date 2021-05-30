@@ -132,6 +132,7 @@ div.no {
 	grid-row:				2;
 	align-self:				start;
 	font-size:				10pt;
+	padding-right:			.5em;
 }
 
 #globalTools {
@@ -642,6 +643,28 @@ main .math * {
 	display:		none;
 }
 
+/* config overrides */
+#config__manager #dw__configform p:last-child {
+	position:			-webkit-sticky; /* Safari */
+	position:			sticky;
+	bottom:				0;
+	box-sizing:			border-box;
+	background:			rgba(255,255,255,.67);
+	border:				@ini_border solid 2pt;
+	padding:			.5em 0;
+	z-index:			9;
+	display:			grid;
+	grid-template-columns: auto auto;
+	justify-items:		center;
+}
+#config__manager #dw__configform p:last-child button {
+	border:				@ini_border solid 2pt;
+	padding:			.25em .5em;
+}
+#config__manager #dw__configform p:last-child button[type=submit] {
+	background-color:	#ccddff;
+}
+
 /* tablet break point */
 @media all and (max-width: @ini_tablet_width) {
 	#header-layout>header {
@@ -827,4 +850,13 @@ main .math * {
 		margin-bottom:		.5em;
 	}
 
+	main blockquote {
+		margin-left:	.15em;
+		margin-right:	0;
+	}
+	main ul, main ol {
+		margin-left:	.5em;
+		margin-right:	0;
+		padding-left:	.75em;
+	}
 }
