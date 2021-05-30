@@ -45,7 +45,7 @@ body {
 }
 #siteLogo .title a:link,
 #siteLogo .title a:visited {
-	font-family:	@ini_print_title_fonts;
+	/* font-family:	@ini_print_title_fonts; */
 	color:			#000;
 	text-decoration: none;
 }
@@ -84,7 +84,7 @@ main {
 
 /* headlines */
 main h1, main h2, main h3, main h4, main h5, main h6 {
-	font-family:		@ini_print_title_fonts;
+	/* font-family:		@ini_print_title_fonts; */
 	color:				@ini_print_title_color;
 	margin:				1em 0 .75em 0;
 	padding:			0 0 .25em 0;
@@ -145,7 +145,7 @@ main table {
 }
 main table th,
 main table th * {
-	font-family:		@ini_print_title_fonts;
+	/* font-family:		@ini_print_title_fonts; */
 	font-size:			9pt;
 	color:				@ini_print_title_color;
 }
@@ -184,9 +184,15 @@ main table a:link {
 }
 
 main table.layout,
+main table.layout tr,
 main table.layout th,
 main table.layout td {
-	border:			transparent none 0;
+	border:			none !important;
+	background:		transparent none !important;
+}
+
+main blockquote table {
+	margin-left:	0;
 }
 
 /* allow user to force keep-together rules: */

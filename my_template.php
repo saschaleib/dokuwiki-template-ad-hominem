@@ -404,7 +404,7 @@ function my_toc($prefix = '') {
 	/* Build the hierarchical list of headline links: */
 	if (count($toc) >= intval($conf['tocminheads'])) {
 		echo $prefix . "<aside id=\"toc\" class=\"toggle\">\n";
-		echo $prefix . "\t<h3 class=\"tg_button\">" . htmlentities($lang['toc']) . "</h3>\n" . $prefix . "\t<div class=\"tg_content\">";
+		echo $prefix . "\t<h3 class=\"tg_button\" title=\"" . htmlentities($lang['toc']) . '"><span>' . htmlentities($lang['toc']) . "</span></h3>\n" . $prefix . "\t<div class=\"tg_content\">";
 		$level = intval("0");
 		foreach($toc as $it) {
 

@@ -25,15 +25,15 @@ body {
     position:			absolute;
 	background-color:	@ini_background_neu;
 	font-size:			1.25em;
-    color:				@ini_link;
-    height:				1px;
-    overflow:			hidden;
+	color:				@ini_link;
+	height:				1px;
+	overflow:			hidden;
 	clip:				rect(1px, 1px, 1px, 1px);
 }
 #skip-link a:focus {
 	position:			static;
 	display:			inline-block;
-    padding:			8px;
+	padding:			8px;
 	height:				auto;
 	clip:				auto;
 	overflow:			visible;
@@ -47,9 +47,9 @@ body {
 	display:		none;
 }
 div.no {
-    display: inline;
-    margin: 0;
-    padding: 0;
+	display: inline;
+	margin: 0;
+	padding: 0;
 }
 
 #globalTools a:link {
@@ -109,41 +109,41 @@ div.no {
 	grid-template-rows:	auto auto;
 }
 #siteLogo .logo {
-	grid-column:		1;
-	grid-row:			1 / span 2;
+	grid-column:			1;
+	grid-row:				1 / span 2;
 }
 #siteLogo .logo img {
-	width:	64px;
-	height:	auto;
+	width:					64px;
+	height:					auto;
 }
 #siteLogo .title {
-	grid-column:		2;
-	grid-row:			1;
-	align-self:			center;
-	font-size:			14pt;
-	line-height:		1em;
-	margin:				0;
+	grid-column:			2;
+	grid-row:				1;
+	align-self:				center;
+	font-size:				14pt;
+	line-height:			1em;
+	margin:					0;
 }
 #siteLogo .title * {
-	font-family:		@ini_alt_fonts;
+	font-family:			@ini_alt_fonts;
 }
 #siteLogo .claim {
-	grid-column:		2;
-	grid-row:			2;
-	align-self:			start;
-	font-size:			10pt;
+	grid-column:			2;
+	grid-row:				2;
+	align-self:				start;
+	font-size:				10pt;
 }
 
 #globalTools {
-	grid-column:		2 / span 2;
-	grid-row:			1;
-	text-align:			right;
-	font-size:			10pt;
+	grid-column:			2 / span 2;
+	grid-row:				1;
+	text-align:				right;
+	font-size:				10pt;
 }
 #phSearch {
-	grid-column:		2;
-	grid-row:			2;
-	padding:			.5em 0;
+	grid-column:			2;
+	grid-row:				2;
+	padding:				.5em 0;
 }
 #phSearch form {
 }
@@ -158,8 +158,7 @@ div.no {
 	-moz-box-shadow:		inset 0 0 3pt @ini_border;
 	-webkit-box-shadow:		inset 0 0 3pt @ini_border;
 	box-shadow:				inset 0 0 3pt @ini_border;
-	outline:			transparent solid 2pt;
-
+	outline:				transparent solid 2pt;
 }
 #phSearch form>div.search-field.focus {
 	outline-color:		@ini_focus_color;
@@ -173,6 +172,9 @@ div.no {
 	border:				transparent none 0;
 	border-radius:		3pt;
 	background-color:	transparent;
+}
+#phSearch form>div input:focus {
+	outline:		transparent none 0;
 }
 #phSearch form>div button {
 	border:				transparent solid 1pt;
@@ -283,19 +285,19 @@ div.no {
 
 #sidebar .home a::before {
 	content:	' ';
-	display:	inline-block;
-	width:		10pt;
-	height:		1em;
-	background:	transparent url('/denkfehler.online/de/lib/tpl/ad-hominem/images/home.svg') no-repeat left bottom;
+	display:			inline-block;
+	width:				10pt;
+	height:				1em;
+	background:			transparent url('images/home.svg') no-repeat left bottom;
 	background-size:	.8em;
-	padding-right:	2pt;
+	padding-right:		2pt;
 }
 #sidebar .curid {
 	font-weight:		bold;
 }
 #sidebar h4 {
 	font-size:			1rem;
-	margin:				0.5em;
+	margin:				0.25em 2pt;
 }
 #sidebar>button.tg_button {
 	display:				grid;
@@ -343,20 +345,23 @@ div.no {
 }
 
 #sidebar .tg_content {
-	line-height:		1.5em;
-	font-size:			11.5pt;
+	line-height:			1.5em;
+	font-size:				11.5pt;
 }
 
 #sidebar hr {
-    border:				0;
-    height:				1pt;
-    background:			@ini_text_alt;
-    background-image:	linear-gradient(to right, @ini_background_alt, @ini_text_alt, @ini_background_alt);
-	margin:				.5em 1em .5em 0;
+	border:					0;
+	height:					1pt;
+	background:				@ini_text_alt;
+	background-image:		linear-gradient(to right, @ini_background_alt, @ini_text_alt, @ini_background_alt);
+	margin:					.5em 1em .5em 0;
 }
 
 #sbNavigation {
 	margin:				.25em .25em 0 1em;
+}
+#navBreadCrumbs {
+	margin-left:		.5em;
 }
 #navBreadCrumbs ol {
 	list-style:			decimal outside;
@@ -435,6 +440,7 @@ main {
 	width:			14px;
 	height:			1em;
 	background:		transparent url('images/home.svg') no-repeat left bottom;
+	filter:			hue-rotate(-80deg);
 }
 
 body.home #navYouAreHere {
@@ -458,19 +464,19 @@ main>footer p.docInfo {
 #toc {
 	clear:				both;
 	float:				right;
-    width:				auto;
-    max-width:			@ini_sidebar_width;
-	background-color:	transparent;
+	width:				auto;
 	line-height:		1.5em;
+	max-width:			@ini_sidebar_width;
+	background-color:	transparent;
+	border-left:		@ini_border solid 1pt;
 }
 #toc ol {
 	list-style:			none inside;
-	padding:			0 .5em;
+	padding:			0 .75em;
 	margin:				0;
 }
 #toc>div {
-	padding:			.5em 0 .5em .5em;
-	border-left:		@ini_border solid 1pt;
+	
 }
 #toc ol li {
 	font-size:			small;
@@ -481,29 +487,37 @@ main>footer p.docInfo {
 }
 #toc h3 {
 	margin:				0;
-    width:				@ini_sidebar_width;
+	padding:			.25em 0 .5em .5em;
+	width:				auto;
 	height:				1.2em;
-	font-family:		@ini_default_fonts;
+	font-family:		@ini_alt_fonts;
 	font-size:			small;
 	overflow:			hidden;
 	font-weight:		bold;
 	line-height:		1.5em;
-	border-left:		@ini_border solid 1pt;
+	color:				@ini_text_neu;
 }
-#toc h3::before {
-	content:			'\2013';
+#toc h3::after {
+	content:			'\203A';
 	display:			inline-block;
 	width:				1.5em;
 	text-align:			center;
 }
-#toc.hide h3::before {
-	content:			'\2013';
+#toc.hide h3::after,
+#toc.alt h3::after {
+	content:			'\2630';
+} 
+
+#toc.hide h3>span,
+#toc.alt h3>span {
+	display:			none;
 }
+
 
 /* edit buttons */
 main .secedit {
-    float:				right;
-    margin-top:			-22pt;
+	float:				right;
+	margin-top:			-22pt;
 	line-height:		0;
 }
 main .secedit button {
@@ -539,8 +553,8 @@ main .secedit button:hover::before {
 
 main .section_highlight {
 	background-color:	@ini_highlight;
-    border:				solid @ini_highlight;
-    border-width:		0 .5em;
+	border:				solid @ini_highlight;
+	border-width:		0 .5em;
 	border-radius:		.5em;
 	margin:				0 -.5em;
 }
@@ -597,10 +611,10 @@ main .math * {
 	padding-top:		1em;
 }
 #ftLicenseButtons hr {
-    border:				0;
-    height:				1pt;
-    background:			#333;
-    background-image:	linear-gradient(to right, @ini_background_alt, @ini_text_alt, @ini_background_alt);
+	border:				0;
+	height:				1pt;
+	background:			#333;
+	background-image:	linear-gradient(to right, @ini_background_alt, @ini_text_alt, @ini_background_alt);
 }
 #ftLicenseButtons p.license {
 	margin:				.5em 0 1em 0;
@@ -712,7 +726,7 @@ main .math * {
 	#sidebar h3,
 	#sidebar h4	{
 		font-size:			1rem;
-		padding:			.25em 0 .25em 1em;
+		padding:			.25em 0 .25em 2pt;
 	}
 	#sidebar ul,
 	#sidebar ol	{
@@ -737,6 +751,23 @@ main .math * {
 	.toggle.auto .tg_content {
 		display:		none;
 	}
+
+	#toc.hide h3::after,
+	#toc.auto h3::after {
+		content:			'\2630';
+	}
+	#toc.alt h3::after {
+		content:			'\203A';
+	}
+
+	#toc.hide h3>span,
+	#toc.auto h3>span {
+		display:			none;
+	}
+	#toc.alt h3>span {
+		display:			inline-block;
+	}
+
 
 	#footer-layout>footer {
 		grid-template-columns: 12pt 1fr 1fr 1fr;
