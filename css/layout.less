@@ -204,22 +204,20 @@ div.no {
 
 #phSearch form .search-popup {
 	height:				5pt;
-	margin-right:		38pt;
+	margin-right:		21pt;
 }
-#phSearch form #qsearch__out {
+#qsearch__out {
+	z-index:			20;
+	position:			relative;
 	left:				0;
 	width:				auto;
 	padding:			0;
+	white-space:		nowrap;
+	font-size:			1rem;
+	background-color:	@ini_background_site;
 	-moz-box-shadow:	2px 2px 2px 0 rgba(0,0,0,.5);
 	-webkit-box-shadow:	2px 2px 2px 0 rgba(0,0,0,.5);
 	box-shadow:			2px 2px 2px 0 rgba(0,0,0,.5);
-}
-
-#qsearch__out {
-	position:			relative;
-	white-space:		nowrap;
-	font-size:			small;
-	background-color:	@ini_background_site;
 }
 #qsearch__out strong {
 	display:			none;
@@ -227,18 +225,20 @@ div.no {
 	font-weight:		normal;
 }
 #qsearch__out ul {
-	background-color:	@ini_background_neu;
 	border:				@ini_border solid 1px;
 	border-top-width:	0;
 	max-height:			11em;
-	overflow:			hidden auto;
 }
 #qsearch__out li {
 	border-top:			@ini_border solid 1px;
 }
-#qsearch__out li a {
+#qsearch__out a {
 	display:			block;
-	padding:			4pt 0 4pt 6pt;
+	padding:			2pt 0 2pt 4pt;
+    border: 			transparent solid 2px;
+}
+#qsearch__out a:focus {
+    border-color: 		@ini_focus_color;
 }
 
 #phTools{
@@ -466,13 +466,14 @@ main>footer p.docInfo {
 	float:				right;
 	width:				auto;
 	line-height:		1.5em;
-	max-width:			@ini_sidebar_width;
+	text-align:			left;
+	max-width:			@ini_toc_width;
 	background-color:	transparent;
 	border-left:		@ini_border solid 1pt;
 }
 #toc ol {
 	list-style:			none inside;
-	padding:			0 .75em;
+	padding:			0 0 0 1em;
 	margin:				0;
 }
 #toc>div {
@@ -480,14 +481,14 @@ main>footer p.docInfo {
 }
 #toc ol li {
 	font-size:			small;
-	text-indent:		-1em;
-	padding-left:		1em;
+	/* text-indent:		-1em;
+	padding-left:		1em; */
 	line-height:		1.25em;
 	margin:				.5em 0;
 }
 #toc h3 {
 	margin:				0;
-	padding:			.25em 0 .5em .5em;
+	padding:			0 0 .5em .5em;
 	width:				auto;
 	height:				1.2em;
 	font-family:		@ini_alt_fonts;

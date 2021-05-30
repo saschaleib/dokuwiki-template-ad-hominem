@@ -49,12 +49,29 @@ main li::marker {
 	color:			#666;
 }
 
+main ul ul, main ul ol,
+main ol ul, main ol ol {
+	margin-bottom:		0;
+	padding-left:		.25em;
+}
+
+
 /* horizontal rules */
 main hr {
 	border:				#666 solid 0;
 	border-top-width:	1pt;
 	height:				0;
 	margin:				3pt 0;
+}
+
+main tt, main blockquote tt,
+main code, main blockquote code {
+	font-family:	@ini_mono_fonts;
+}
+main code, main blockquote code {
+	border:			@ini_border solid 1px;
+	border-radius:	3pt;
+	padding:		0 2pt;
 }
 
 /* quotes: */
@@ -118,4 +135,22 @@ main table.inline tr:hover td {
 
 main table.inline tr:hover th {
     background-color:	@ini_border;
+}
+
+/* asides */
+main aside {
+	width:			33.3%;
+	max-width:		150px;
+	float:			right;
+	text-align:		center;
+	font-size:		smaller;
+}
+main aside footer {
+	line-height:	1.1em;
+}
+
+/* images */
+main img {
+	max-width:		100%;
+	height:			auto;
 }

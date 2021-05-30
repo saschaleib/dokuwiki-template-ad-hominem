@@ -90,6 +90,7 @@ main h1, main h2, main h3, main h4, main h5, main h6 {
 	padding:			0 0 .25em 0;
 	break-inside:		avoid;
 	break-after:		avoid;
+	clear:				both;
 }
 main h1 { font-size: 24pt; }
 main h2 { font-size: 16pt; }
@@ -131,6 +132,31 @@ main a.urlextern:after {
   font-size: 90%;
   color: #333;
 } */
+
+/* fixed-width elements: */
+main tt, main blockquote tt,
+main code, main blockquote code {
+	font-family:	@ini_mono_fonts;
+}
+
+/* text attributes */
+main s {
+	text-decoration:			line-through rgba(255,0,0,0.5) solid 1pt;
+	-webkit-text-decoration:	line-through rgba(255,0,0,0.5) solid 1pt;
+}
+
+main u {
+	text-decoration:			underline #F30 wavy .7pt;
+	-webkit-text-decoration:	underline #F30 wavy .7pt;
+}
+
+/* horizontal rules */
+main hr {
+	border:				#000 solid 0;
+	border-top-width:	1pt;
+	height:				0;
+	margin:				3pt 0;
+}
 
 /* table styles */
 main table {
@@ -195,6 +221,20 @@ main blockquote table {
 	margin-left:	0;
 }
 
+/* image-related */
+main aside {
+	float:			right;
+	width:			auto;
+	max-width:		40%;
+	margin:			.5em 0 .5em 1em;
+	text-align:		center;
+	font-size:		smaller;
+}
+main img {
+	max-width:		100%;
+	height:			auto;
+}
+
 /* allow user to force keep-together rules: */
 .keep-together {
 	page-break-inside:	avoid;
@@ -203,4 +243,12 @@ main blockquote table {
 .break-before {
 	page-break-before:	always;
 	break-before:	always;
+}
+
+/* boxes */
+main .info-box,
+main .wrap_info-box {
+	border:				@ini_border solid 1px;
+	background-color:	@ini_background_alt;
+	padding:			0 1em;
 }
