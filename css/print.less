@@ -11,6 +11,9 @@
 .nobreak {
 	white-space:	nowrap !important;
 }
+.printonly {
+	display:		initial;
+}
 
 html, body, * {
 	font-family:	@ini_print_default_fonts;
@@ -279,7 +282,36 @@ main img {
 	break-before:		always;
 }
 .print-wide {
-	column-span:		all;
+	clear:			both;
+	column-span:	all;
+}
+.print-outline {
+	margin-top:		1em;
+	border:			#666 solid 1pt;
+	border-radius:	1em;
+	padding:		0 1em;
+}
+
+/* site-banners */
+.site-banner {
+	clear:			both;
+	column-span:	all;
+	margin-top:		1em;
+	border:			#666 solid 1pt;
+	border-radius:	1em;
+	padding:		0 1em;
+}
+.site-banner h4 {
+	margin:				.75em 0 .5em 0;
+	font-family:		'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size:			14pt;
+}
+.site-banner p {
+	font-size:			11pt;
+	line-height:		17pt;
+}
+.site-banner img {
+	margin:			0 .25em .25em .5em;
 }
 
 /* boxes */

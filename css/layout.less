@@ -43,7 +43,8 @@ body {
 	display:		block;
 }
 
-.sronly {
+.sronly,
+.printonly {
 	display:		none;
 }
 div.no {
@@ -264,12 +265,13 @@ div.no {
 }
 
 #sidebar {
+	width:				100%;
 	max-width:			@ini_sidebar_width;
 	flex-grow:			0;
 }
 #sidebar.toggle.hide,
 #sidebar.toggle.alt {
-	width:				1em;
+	max-width:			1em;
 }
 #sidebar p,
 #sidebar ul {
@@ -738,12 +740,13 @@ main .math * {
 	}
 	#sidebar.hide>button.tg_button::after,
 	#sidebar.alt>button.tg_button::after {
-		content:				'\2335';
+		content:				'\2715';
 	}
 
 	#sidebar .tg_content {
 		min-width:				@ini_sidebar_width;
 		padding-right:			1em;
+		margin-top:				10px;
 		background-color:		@ini_background_site;
 		position:				absolute;
 		z-index:				18;
@@ -751,6 +754,33 @@ main .math * {
 		-moz-box-shadow:		2px 2px 2px @ini_border;
 		-webkit-box-shadow:		2px 2px 2px @ini_border;
 		box-shadow:				2px 2px 2px @ini_border;
+	}
+
+	#sidebar .tg_content:before {
+		content:				' ';
+		z-index:				19;
+		width:					0; 
+		height:					0; 
+		position:				absolute;
+		top:					-10px;
+		left:					7px;
+		border-width:			0 10px 10px;
+		border-style:			solid;
+		border-color:			transparent;
+		border-bottom-color:	@ini_border;
+	}
+	#sidebar .tg_content:after {
+		content:				' ';
+		z-index:				20;
+		width:					0; 
+		height:					0; 
+		position:				absolute;
+		top:					-8px;
+		left:					8px;
+		border-width:			0 9px 8px;
+		border-style:			solid;
+		border-color:			transparent;
+		border-bottom-color:	@ini_background_site;
 	}
 
 	#sbNavigation {
