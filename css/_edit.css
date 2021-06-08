@@ -9,11 +9,21 @@
 .dokuwiki div.editBox {
 }
 
+.dokuwiki div.editBox button {
+	border:				#666 solid 1px;
+	border-radius:		0;
+	padding:			3pt 6pt;
+}
+
+#edbtn__save {
+	background-color:	#15395B;
+	color:				#FFF;
+}
+
 /*____________ toolbar ____________*/
 
 .dokuwiki div.toolbar {
     display: inline-block;
-    margin-bottom: .5em;
 }
 #draft__status {
     float: right;
@@ -32,12 +42,13 @@
 
 /* buttons inside of toolbar */
 .dokuwiki div.toolbar button.toolbutton {
+	margin:		0 1pt;
 }
 /* picker popups (outside of .dokuwiki) */
 div.picker {
     width: 300px;
-    border: 1px solid @ini_border;
-    background-color: @ini_background_alt;
+    border: 1px solid #CCC;
+    background-color: #EEE;
     color: inherit;
 }
 /* picker for headlines */
@@ -57,6 +68,10 @@ div.picker button.toolbutton {
 .dokuwiki textarea.edit {
     width: 100%;
     margin-bottom: .5em;
+	background-color: #EEE;
+	font-family: 'Source Code Pro',Menlo,Consolas,'Courier New',Courier,monospace;
+	font-size: 12pt;
+	line-height: 17pt;
 }
 
 /*____________ below the textarea ____________*/
@@ -112,7 +127,7 @@ div.picker button.toolbutton {
 ********************************************************************/
 
 .dokuwiki div.preview {
-    border: dotted @ini_border;
+    border: dotted #CCC;
     border-width: .2em 0;
     padding: 1.4em 0;
     margin-bottom: 1.4em;

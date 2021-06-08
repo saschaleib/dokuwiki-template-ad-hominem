@@ -21,6 +21,14 @@
     font-size: 100%;
     cursor: pointer;
     margin: 1px 1px 5px;
+	background-color: #15395B;
+	padding: 2pt 20pt;
+	color: #FFF;
+	cursor: pointer;
+}
+#mediamanager__upload_button {
+	padding: 3pt 6pt;
+	border: #666 solid 1px;
 }
 
 .qq-upload-button-focus {
@@ -104,4 +112,12 @@ div.qq-uploader ul {
 }
 .qq-overwrite-check input {
     margin-left: 10px;
+}
+
+/* media tree overrides */
+#media__tree ul li div.li {
+	display:	grid;
+}
+#mediamanager__page .ui-resizable-e {
+	background-color: #EEE;
 }
