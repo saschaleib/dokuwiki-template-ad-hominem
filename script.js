@@ -4,7 +4,6 @@
  * @author     Sascha Leib <sascha@leib.be>
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
-'use strict';
 
 /* everything is contained in the $p namespace: */
 $p = {
@@ -205,19 +204,16 @@ $p = {
 		
 			/* set new state: */
 			var newState = 'alt';
-			if (state == 'show') {
-				newState = 'hide';
-			} else if (state == 'hide') {
-				newState = 'show';
-			} else if (state == 'alt') {
-				newState = 'auto';
-			}
+			if (state == 'show') { newState = 'hide' }
+			else if (state == 'hide') { newState = 'show' }
+			else if (state == 'alt') { newState = 'auto' }
 			
-			t.classList.remove(state); t.classList.add(newState);
+			t.classList.remove(state);
+			t.classList.add(newState);
 
 		}
 	}
-}
+};
 
 /* load the script when the DOM is ready */ 
 

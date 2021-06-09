@@ -80,22 +80,22 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 			</div>
 		</div>
 		<main id="dokuwiki__top">
-<?php		my_toc(str_repeat(chr(9),3));
-			if($conf['youarehere']) { my_youarehere(str_repeat(chr(9),3)); }
-?>			<article id="main-content">
-
+			<header>
+<?php			my_toc(str_repeat(chr(9),4)); 
+				tpl_flush();
+				tpl_includeFile('pageheader.html');
+				if($conf['youarehere']) { my_youarehere(str_repeat(chr(9),4)); }
+?>			</header>
+			<article id="main-content">
 <!-- - - - - - - - - ARTICLE CONTENT - - - - - - - -->
-<?php tpl_flush() ?>
-<?php tpl_includeFile('pageheader.html') ?>
 <?php tpl_content(false) ?>
-<?php tpl_includeFile('pagefooter.html') ?>
 <!-- - - - - - - - - END OF ARTICLE  - - - - - - - -->
-
 			</article>
 			<footer>
 				<p class="docInfo">
 <?php my_lastchange(str_repeat(chr(9),5));
 ?>				</p>				
+<?php tpl_includeFile('pagefooter.html') ?>
 			</footer>
 		</main>
 	</div>
