@@ -380,9 +380,9 @@ main {
 	line-height:		1.5em;
 	padding:			1.5em 5% .75em 5%;
 	border:				@ini_border solid 1px;
-	-moz-box-shadow:	2px 2px 2px 2px rgba(0,0,0,.5);
+/*	-moz-box-shadow:	2px 2px 2px 2px rgba(0,0,0,.5);
 	-webkit-box-shadow:	2px 2px 2px 2px rgba(0,0,0,.5);
-	box-shadow:			2px 2px 2px 2px rgba(0,0,0,.5);
+	box-shadow:			2px 2px 2px 2px rgba(0,0,0,.5); */
 }
 
 #navYouAreHere {
@@ -573,6 +573,32 @@ main .math * {
 	font-family:		@ini_math_fonts;
 	font-size:			12pt;
 	line-height:		1em;
+}
+
+/* figure block */
+main figure {
+	background-color:	#EEE;
+	border:				#999 solid 1px;
+	padding:			.5em;
+}
+main figure figcaption {
+}
+main figure>*:first-child {
+	margin-top:			.25em;
+}
+
+body.mediadetail figure img {
+	background:			transparent url('images/transparency.gif');
+}
+body.mediadetail figure table.img_detail,
+body.mediadetail figure table.img_detail th,
+body.mediadetail figure table.img_detail td {
+	border:			none;
+}
+body.mediadetail figure table.img_detail th {
+	text-align:		right;
+	white-space:	nowrap;
+	border:			none;
 }
 
 #footer-layout {

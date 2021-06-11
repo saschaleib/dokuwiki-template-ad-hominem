@@ -130,29 +130,36 @@ $p = {
 			/* init the gui */
 			init: function() {
 				
-				/* find all the search elements: */
-				var form = document.getElementById('dw__search');
+				try {
 				
-				var div = form.getElementsByClassName('search-field')[0];
-				$p.search.gui._container = div;
-				
-				var field = div.getElementsByTagName('input')[0];
-				$p.search.gui._elements.field = field;
-				field.addEventListener('focus', $p.search.gui.__elementFocus);
-				field.addEventListener('blur', $p.search.gui.__elementBlur);
+					/* find all the search elements: */
+					var form = document.getElementById('dw__search');
+					
+					
+					var div = form.getElementsByClassName('search-field')[0];
+					$p.search.gui._container = div;
+					
+					var field = div.getElementsByTagName('input')[0];
+					$p.search.gui._elements.field = field;
+					field.addEventListener('focus', $p.search.gui.__elementFocus);
+					field.addEventListener('blur', $p.search.gui.__elementBlur);
 
-				var buttons = div.getElementsByTagName('button');
-				Array.prototype.forEach.call(buttons, function(b) {
-					var type = b.getAttribute('type');
-					if (type == 'reset') { 
-						$p.search.gui._elements.clear = b;
-					} else if (type == 'submit') { 
-						$p.search.gui._elements.search = b;
-					}
-					b.addEventListener('focus', $p.search.gui.__elementFocus);
-					b.addEventListener('blur', $p.search.gui.__elementBlur);
-				});
-
+					var buttons = div.getElementsByTagName('button');
+					Array.prototype.forEach.call(buttons, function(b) {
+						var type = b.getAttribute('type');
+						if (type == 'reset') { 
+							$p.search.gui._elements.clear = b;
+						} else if (type == 'submit') { 
+							$p.search.gui._elements.search = b;
+						}
+						b.addEventListener('focus', $p.search.gui.__elementFocus);
+						b.addEventListener('blur', $p.search.gui.__elementBlur);
+					});
+					
+				} catch (e) {
+					console.warn("Can’t initialize search form.");
+					console.error(e);
+				}
 			},
 			
 			/* call back for fields */

@@ -29,8 +29,31 @@ main h4 { font-size: 1em; }
 main h5 { font-size: .875em; }
 main h6 { font-size: .75em; }
 
+main h1 *,
+main h2 *,
+main h3 *,
+main h4 *,
+main h5 *,
+main h6 * {
+	font-family:	inherit;
+	font-size:		inherit;
+	color:			inherit;
+	margin:			inherit;
+	line-height:	inherit;
+}
+
 /* on the homepage only, reduce the H1 top margin: */
 body.home h1:first-child { margin-top: .5em; }
+
+/* make strike-through and underline more useful! */
+u {
+	-webkit-text-decoration: underline #F30 wavy .7pt;
+	text-decoration: underline #F30 wavy .7pt;
+}
+s {
+	-webkit-text-decoration: line-through rgba(255,0,0,.5) solid 1pt; 
+	text-decoration: line-through rgba(255,0,0,.5) solid 1pt;
+}
 
 /* lists: */
 main ul, main ol {
@@ -110,6 +133,7 @@ main table {
     border-spacing:		0;
 	font-size:			smaller;
     border:				1px solid @ini_border;
+	margin-bottom:		1em;
 }
 
 main table.inline {

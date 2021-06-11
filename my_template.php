@@ -455,3 +455,29 @@ function my_lastchange($prefix = '') {
 	/* user name for last change (is this really interesting to the visitor?) */
 	/* echo $prefix .'<span class="editorname" tabindex="0">' . $lang['by'] . ' <bdi>' . editorinfo($INFO['editor']) . "</bdi></span>\n"; */
 }
+
+/**
+ * Returns a description list of the metatags of the current image
+ *
+ * @return string html of description list
+ */
+function my_img_meta($prefix = '') {
+    global $lang;
+
+	$format = '%Y-%m-%dT%T%z';	/* e.g. 2021-21-05T16:45:12+02:00 */
+
+    $tags = tpl_get_img_meta();
+
+    foreach($tags as $tag) {
+        $label = $lang[$tag['langkey']];
+        if(!$label) $label = $tag['langkey'] . ':';
+
+        echo $prefix . '<tr><th>'.$label.'</th><td>';
+        if ($tag['type'] == 'date') {
+            echo '<time datetime="' . strftime($format, $tag['value']) . '">' . dformat($tag['value']) . '</time>';
+        } else {
+            echo hsc($tag['value']);
+        }
+        echo "</td></tr>\n";
+    }
+}

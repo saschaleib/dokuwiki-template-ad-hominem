@@ -71,11 +71,6 @@ body {
 main .docInfo {
 }
 
-/* tweak the header */
-#header-layout>header {
-	border-bottom:	#000 solid 1pt;
-}
-
 /* reset main borders and margins: */
 main {
 	display:			table-row-group;
@@ -197,6 +192,7 @@ main table {
 	border:				#000 solid .25pt;
 	border-collapse:	collapse;
 	font-size:			10pt;
+	line-height:		16pt;
 	margin:				.5em 0;
 	box-decoration-break:	clone;
 	page-break-inside:	avoid;
@@ -270,6 +266,15 @@ main aside {
 main img {
 	max-width:		100%;
 	height:			auto;
+}
+
+/* media detail */
+body.mediadetail figure {
+	border:		none;
+	background:	transparent none;
+}
+body.mediadetail figure table ul {
+	margin:		0;
 }
 
 /* allow user to force keep-together rules: */
