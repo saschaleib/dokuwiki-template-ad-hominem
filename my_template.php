@@ -50,10 +50,10 @@ function my_metaheaders($alt = true) {
 		$head['meta'][] = array('property' => 'og:title', 'content' => tpl_pagetitle($ID, true));
 		$head['meta'][] = array('property' => 'og:site_name ', 'content' => $conf['title']);
 		$head['meta'][] = array('property' => 'og:type', 'content' => 'website');
-		$head['meta'][] = array('property' => 'og:url', 'content' => wl($ID));
+		$head['meta'][] = array('property' => 'og:url', 'content' => wl($ID, '', true, '&'));
 	
 		$parts = explode("\n", $meta['description']['abstract']);
-		$head['meta'][] = array('property' => 'og:description ', 'content' => $parts[2]);
+		$head['meta'][] = array('property' => 'og:description', 'content' => $parts[2]);
 	}
 
     // the usual stuff
@@ -213,10 +213,6 @@ function my_metaheaders($alt = true) {
  */
 function _my_metaheaders_action($data) {
     foreach($data as $tag => $inst) {
-        /* if($tag == 'script') {
-            echo "\t<!--[if gte IE 9]><!-->\n"; // no scripts for old IE
-        } NO LONGER NEEDED */
-
         foreach($inst as $attr) {
             if ( empty($attr) ) { continue; }
             echo "\t<", $tag, ' ', buildAttributes($attr);
@@ -232,9 +228,6 @@ function _my_metaheaders_action($data) {
             }
             echo "\n";
         }
-        /* if($tag == 'script') {
-            echo "\t<!--<![endif]-->\n";
-        } -- Not Needed Any Longer */
     }
 }
 
@@ -480,4 +473,53 @@ function my_img_meta($prefix = '') {
         }
         echo "</td></tr>\n";
     }
+}
+
+/**
+ * Creates the Site logo image link
+ *
+ */
+function my_sitelogo() {
+    global $conf;
+
+	// get logo either out of the template images folder or data/media folder
+	$logoSize = array();
+	$logo = tpl_getMediaFile(array(':logo.svg', ':wiki:logo.svg', ':logo.png', ':wiki:logo.png', 'images/sitelogo.svg'), false, $logoSize);
+	tpl_link( wl(),
+		'<img src="'.$logo.'" ' . $logoSize[3] . ' alt="' . htmlentities($conf['title']) . '" />', 'accesskey="h" title="[H]" class="logo"');
+}
+
+/**
+ * Creates the various favicon and similar links:
+ *
+ * @param  string $color overwrite the theme color.
+ *
+ * @return null
+ */
+function my_favicons($color = null) {
+
+	$logoSize = array();
+
+	// Theme color:
+	if ($color == null) {
+		
+		/* get the style config */
+		$styleUtil = new \dokuwiki\StyleUtils();
+		$styleIni = $styleUtil->cssStyleini();
+		$replacements = $styleIni['replacements'];
+		$color = $replacements['__theme_color__x'];
+		
+		if ($color== null) { $color = '#2b73b7'; }
+	}
+	echo "\t<meta name=\"theme-color\" content=\"" . $color . "\" />\n";
+
+	// get the favicon:
+	$link = tpl_getMediaFile(array(':favicon.ico', ':favicon.png', ':favicon.svg', ':wiki:favicon.ico', ':wiki:favicon.png', ':wiki:favicon.svg'), false, $logoSize);
+	echo "\t<link rel=\"icon\" href=\"" . $link . "\" />\n";
+
+	// Apple Touch Icon
+	$logoSize = array();
+	$link = tpl_getMediaFile(array(':apple-touch-icon.png', ':wiki:apple-touch-icon.png', 'images/apple-touch-icon.png'), false, $logoSize);
+	echo "\t<link rel=\"apple-touch-icon\" href=\"" . $link . "\" />\n";
+
 }

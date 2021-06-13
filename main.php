@@ -16,6 +16,7 @@ require_once('my_template.php');
 $hasSidebar = page_findnearest($conf['sidebar']);
 $showSidebar = $hasSidebar && ($ACT=='show');
 
+// get the language information:
 $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="'. $lang['direction'] : '') . '"';
 
 ?><!DOCTYPE html>
@@ -24,7 +25,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 	<meta charset="UTF-8" />
 	<title><?php tpl_pagetitle() ?> &ndash; <?php echo str_replace(' ', ' ', strip_tags($conf['title'])) ?></title>
 <?php my_metaheaders() ?>
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
+<?php my_favicons() ?>
 <?php tpl_includeFile('meta.html') ?>
 </head>
 <body class="site <?php echo trim(tpl_classes()); ?>">
@@ -34,13 +35,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 	<div id="header-layout">
 		<header>
 			<div id="siteLogo">
-				<?php
-					// get logo either out of the template images folder or data/media folder
-					$logoSize = array();
-					$logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/sitelogo.svg'), false, $logoSize);
-					tpl_link( wl(),
-						'<img src="'.$logo.'" ' . $logoSize[3] . ' alt="' . htmlentities($conf['title']) . '" />', 'accesskey="h" title="[H]" class="logo"');
-				?>
+				<?php my_sitelogo(); ?>
 
 				<h2 class="title"><?php tpl_link( wl(), htmlentities($conf['title']), ''); ?></h2>
 				<p class="claim"><?php echo $conf['tagline']; ?></p>
