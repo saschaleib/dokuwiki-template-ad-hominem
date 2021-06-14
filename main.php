@@ -25,6 +25,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 	<meta charset="UTF-8" />
 	<title><?php tpl_pagetitle() ?> &ndash; <?php echo str_replace(' ', ' ', strip_tags($conf['title'])) ?></title>
 <?php my_metaheaders() ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <?php my_favicons() ?>
 <?php tpl_includeFile('meta.html') ?>
 </head>
