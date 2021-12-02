@@ -33,3 +33,14 @@ $lang['__math_fonts__']    = 'Mathematik-Schriftarten (z.B. für Formeln)';
 $lang['__print_default_fonts__']	= 'Standardschriftarten für Druck';
 $lang['__print_title_fonts__']		= 'Überschriften-Schriftarten für Druck';
 $lang['__print_title_color__']		= 'Überschriftenfarbe für Druck';
+
+$lang['__background_site_dark__'] = 'Seitenhintergrund (Nachtmodus)';
+$lang['__background_dark__'] = 'Hintergrund des Inhaltsbereichs (Nachtmodus)';
+$lang['__background_alt_dark__'] = 'Alternative Hintergrundfarbe (Nachtmodus)';
+$lang['__headlines_dark__'] = 'Farbe der Überschriften (Nachtmodus)';
+$lang['__text_dark__'] = 'Textfarbe (Nachtmodus)';
+$lang['__link_dark__'] = 'Farbe externe Links (Nachtmodus)';
+$lang['__existing_dark__'] = 'Farbe Links zu existierenden Artikeln (Nachtmodus)';
+$lang['__missing_dark__'] = 'Farbe Links zu fehlenden Artikeln (Nachtmodus)';
+$lang['__border_dark__'] = 'Umrandungsfarbe (Nachtmodus)';
+$lang['__sb_link_dark__'] = 'Farbe von Links in Navigationsleiste (Nachtmodus)';

@@ -25,3 +25,10 @@ a.wikilink2:link,
 a.wikilink2:visited {
 	color:				@ini_missing;
 }
+
+/* dark mode overrides */
+@media (prefers-color-scheme: dark) {
+	a:link, a:visited { color: @ini_link_dark; }
+	a.wikilink1:link, a.wikilink1:visited { color: @ini_existing_dark; }
+	a.wikilink2:link, a.wikilink2:visited { color: @ini_missing_dark; }
+}
