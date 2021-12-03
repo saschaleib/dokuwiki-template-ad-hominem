@@ -7,6 +7,7 @@ A clean and lightweight HTML5 template for DokuWiki
   * Developed from and extending the original DokuWiki template
   * Cleaned up the HTML5 and CSS code
   * Reduced overhead: small and fast download times!
+  * Follows the user-side "dark mode" settings as set by the client OS
 
 ## Localizations
 
@@ -14,4 +15,4 @@ As the template uses only the original DokuWiki template strings, it should work
   
 ## Work in Progress
 
-This is a "work in progress". For most of you this is not a template you want to use in a production system as it is now. 
+This is a "work in progress". Additional features,  
