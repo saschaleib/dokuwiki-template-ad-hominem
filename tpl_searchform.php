@@ -1,6 +1,6 @@
 <?php
 /**
- * Search Form Include
+ * Search Form Include 
  */
 
 // must be run from within DokuWiki

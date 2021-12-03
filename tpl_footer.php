@@ -1,6 +1,6 @@
 <?php
 /**
- * Template footer, included in the main and detail files
+ * Template footer, included in the main and detail files 
  */
 
 // must be run from within DokuWiki

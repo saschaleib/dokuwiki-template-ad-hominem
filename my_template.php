@@ -11,7 +11,7 @@ use dokuwiki\Extension\Event;
 
 /**
  * Print the specific HTML meta headers
- *
+ * 
  * Overrides the original version by modifying the headers and the way it is printed
  *
  * @author Sascha Leib <sascha@leib.be>

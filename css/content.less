@@ -10,12 +10,7 @@ main div.table {
 }
 
 /* headlines: */
-main h1,
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
+main h1, main h2, main h3, main h4, main h5, main h6 {
 	font-family:	@ini_alt_fonts;
 	color:			@ini_headlines;
 	margin:			1em 0 1em 0;
@@ -29,12 +24,7 @@ main h4 { font-size: 1em; }
 main h5 { font-size: .875em; }
 main h6 { font-size: .75em; }
 
-main h1 *,
-main h2 *,
-main h3 *,
-main h4 *,
-main h5 *,
-main h6 * {
+main h1 *, main h2 *, main h3 *, main h4 *, main h5 *, main h6 * {
 	font-family:	inherit;
 	font-size:		inherit;
 	color:			inherit;
@@ -88,6 +78,7 @@ main hr {
 }
 
 main tt, main blockquote tt,
+main pre, main pre *,
 main code, main blockquote code {
 	font-family:	@ini_mono_fonts;
 }

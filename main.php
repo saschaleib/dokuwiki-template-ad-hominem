@@ -1,7 +1,7 @@
 <?php
 /**
  * Ad Hominem Template
- *
+ * 
  * @link     https://ad.hominem.info/
  * @author   Sascha Leib <sascha@leib.be>
  * @author   Anika Henke <anika@selfthinker.org>

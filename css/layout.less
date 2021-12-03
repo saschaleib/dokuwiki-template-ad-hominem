@@ -276,8 +276,6 @@ div.no {
 }
 #sidebar p,
 #sidebar ul {
-}
-#sidebar ul {
 	list-style:			square outside;
 	padding-left:		1.25em;
 }
@@ -300,7 +298,7 @@ div.no {
 	height:				1em;
 	background:			transparent url('images/home.svg') no-repeat no-repeat 0 4px;
 	background-size:	.8em;
-	padding-right:		2pt;
+	padding-right:		3pt;
 }
 #sidebar .curid {
 	font-weight:		bold;
@@ -679,7 +677,7 @@ body.mediadetail figure table.img_detail th {
 	position:			sticky;
 	bottom:				0;
 	box-sizing:			border-box;
-	background:			rgba(255,255,255,.67);
+	background-color:	rgba(255,255,255,.67);
 	border:				@ini_border solid 2pt;
 	padding:			.5em 0;
 	z-index:			9;
@@ -695,8 +693,20 @@ body.mediadetail figure table.img_detail th {
 	background-color:	#ccddff;
 }
 
+#config__manager fieldset {
+	background-color:	transparent;
+	color:				inherit;
+}
+
+#config__manager table, #config__manager table th, #config__manager table td {
+	border: none;
+}
+#config__manager td.label span.outkey {
+	background-color:		inherit;
+}
+
 /* dark mode overrides */
-@media (prefers-color-scheme: dark) {
+@media all and (prefers-color-scheme: dark) {
 	
 	html { color:				@ini_text_dark; }
 	body { background-color:	@ini_background_site_dark; }
@@ -716,7 +726,20 @@ body.mediadetail figure table.img_detail th {
 
 	main .section_highlight { background-color: transparent; border-color: transparent; outline: @ini_highlight dashed 3px; }
 
-
+	#config__manager #dw__configform p:last-child {
+		background-color: rgba(57,57,61,.67);
+		border-color:	@ini_border_dark;
+	}
+	#config__manager #dw__configform p:last-child button {
+		background-color:	@ini_background_dark;
+		border-color:		@ini_border_dark;
+		color:				@ini_missing_dark;
+	}
+	#config__manager #dw__configform p:last-child button[type=submit] {
+		border-color:		@ini_existing_dark;
+		background-color:	@ini_background_dark;
+		color:				@ini_existing_dark;
+	}
 }
 
 /* tablet break point */
@@ -794,8 +817,9 @@ body.mediadetail figure table.img_detail th {
 
 	#sidebar .tg_content {
 		min-width:				@ini_sidebar_width;
-		padding-right:			1em;
+		padding-right:			0;
 		margin-top:				10px;
+		padding-bottom:			1em;
 		background-color:		@ini_background_site;
 		position:				absolute;
 		z-index:				18;
@@ -833,16 +857,19 @@ body.mediadetail figure table.img_detail th {
 	}
 
 	#sbNavigation {
-		padding-left:		.5em
+		padding-left:		.5em;
+		margin-left:		0;
 	}
 	#sidebar h3,
 	#sidebar h4	{
 		font-size:			1rem;
 		padding:			.25em 0 .25em 2pt;
 	}
-	#sidebar ul,
-	#sidebar ol	{
-		margin-left:		1em;
+	#sidebar ul, #sidebar ol	{
+		margin-left:		.5em;
+	}
+	#sidebar ul ul, #sidebar ol ol, #sidebar ul ol, #sidebar ol ul {
+		margin-left:		0;
 	}
 	#sidebar p,
 	#sidebar li	{
@@ -882,6 +909,52 @@ body.mediadetail figure table.img_detail th {
 
 	#footer-layout>footer {
 		grid-template-columns: 12pt 1fr 1fr 1fr;
+	}
+	
+	/* admin interface */
+	.dokuwiki div.ui-admin ul.admin_tasks {
+		float: none;
+		width: auto;
+	}
+	.dokuwiki div.ui-admin #admin__version {
+		display: none;
+	}
+	
+	/* Extension Manager: */
+	#extension__manager .panelHeader {
+		background-color: @ini_background_alt_dark;
+	}
+	#extension__manager ul.tabs li a {
+		background-color: @ini_background_dark;
+		border-color: @ini_border_dark;
+		color: @ini_text_dark
+	}
+	#extension__manager ul.tabs li.active a {
+		background-color: @ini_background_alt_dark;
+		border-color: @ini_text_dark;
+	}
+	#extension__list ul.extensionList li {
+		color: @ini_text_dark
+	}
+}
+
+@media all and (max-width: @ini_tablet_width) and (prefers-color-scheme: dark) {
+	#sidebar .tg_content {
+		background-color:	@ini_background_dark;
+		border-color:		@ini_border_dark;
+		-moz-box-shadow:		3px 3px 3px @ini_background_site_dark;
+		-webkit-box-shadow:		3px 3px 3px @ini_background_site_dark;
+		box-shadow:				3px 3px 3px @ini_background_site_dark;
+	}
+	#sidebar .tg_content:before {
+		border-bottom-color:	@ini_border_dark;
+	}
+	#sidebar .tg_content:after {
+		border-bottom-color:	@ini_background_dark;
+	}
+	#sidebar hr {
+		background:				@ini_sb_link_dark;
+		background-image:		linear-gradient(to right, @ini_background_dark, @ini_headlines_dark, @ini_background_dark);
 	}
 }
 
