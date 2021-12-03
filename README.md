@@ -15,4 +15,4 @@ As the template uses only the original DokuWiki template strings, it should work
   
 ## Work in Progress
 
-This is a "work in progress". Additional features,  
+This is a "work in progress". Additional features are being rolled out still... stay tuned!
