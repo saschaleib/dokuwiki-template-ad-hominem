@@ -67,6 +67,7 @@ div.picker button.toolbutton {
 
 .dokuwiki textarea.edit {
     width: 100%;
+	padding: 1px 0 0 2px;
     margin-bottom: .5em;
 	background-color: #EEE;
 	font-family: 'Source Code Pro',Menlo,Consolas,'Courier New',Courier,monospace;

@@ -67,11 +67,11 @@
     background-color: #eee;
     color: inherit;
 }
-.dokuwiki table.diff td.diff-addedline strong,
+.dokuwiki table.diff td.diff-addedline strong {
+    color: #080;
+}
 .dokuwiki table.diff td.diff-deletedline strong {
-    color: #f00;
-    background-color: inherit;
-    font-weight: bold;
+    color: #C00;
 }
 
 /* diff options */
@@ -134,4 +134,22 @@
 
 .dokuwiki .diffnav select option[selected] {
     font-weight: bold;
+}
+
+/* dark mode overrides */
+@media (prefers-color-scheme: dark) {
+	
+	.dokuwiki table.diff th, .dokuwiki table.diff td {
+		background-color:	rgba(255,255,255,0.05);
+		color:				@ini_text_dark;
+	}
+	.dokuwiki table.diff td.diff-context {
+		background-color:	@ini_background_alt_dark;
+	}
+	.dokuwiki table.diff .diff-deletedline {
+		background-color:	#3a2626;
+	}
+	.dokuwiki table.diff .diff-addedline {
+		background-color:	#182918;
+	}
 }

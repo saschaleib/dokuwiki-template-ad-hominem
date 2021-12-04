@@ -59,10 +59,13 @@ $p = {
 
 			var a = jQuery(this);
 			var hi = jQuery.data(this, 'has-info');
+			var wid = jQuery(this).data('wiki-id');
 			var url = null;
 			
+			console.log('hi: "' + hi + '" - ' + Date.now() );
+			
 			/* only if the info hasn't been set yet: */
-			if (hi == undefined || hi == '') {
+			if ((hi == undefined || hi == '') && wid !== undefined) {
 				
 				// remember that we are now working on it:
 				jQuery.data(this, 'has-info', '0');
@@ -81,7 +84,7 @@ $p = {
 					
 					var rp = {
 						'basedir': BASEDIR,
-						'id': jQuery(this).data('wiki-id'),
+						'id': wid,
 						'ln': href.substring(href.lastIndexOf('/')+1)
 					};
 					

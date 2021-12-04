@@ -574,8 +574,8 @@ main .math * {
 
 /* figure block */
 main figure {
-	background-color:	#EEE;
-	border:				#999 solid 1px;
+	background-color:	@ini_background_alt;
+	border:				@ini_border solid 1px;
 	padding:			.5em;
 }
 main figure figcaption {
@@ -740,6 +740,28 @@ body.mediadetail figure table.img_detail th {
 		background-color:	@ini_background_dark;
 		color:				@ini_existing_dark;
 	}
+
+	/* Extension Manager: */
+	#extension__manager .panelHeader {
+		background-color: @ini_background_alt_dark;
+	}
+	#extension__manager ul.tabs li a {
+		background-color: @ini_background_dark;
+		border-color: @ini_border_dark;
+		color: @ini_text_dark
+	}
+	#extension__manager ul.tabs li.active a {
+		background-color: @ini_background_alt_dark;
+		border-color: @ini_text_dark;
+	}
+	#extension__list ul.extensionList li {
+		color: @ini_text_dark
+	}
+	main figure {
+		background-color: @ini_background_alt_dark;
+		border-color: @ini_border_dark;
+	}
+
 }
 
 /* tablet break point */
@@ -919,23 +941,6 @@ body.mediadetail figure table.img_detail th {
 	.dokuwiki div.ui-admin #admin__version {
 		display: none;
 	}
-	
-	/* Extension Manager: */
-	#extension__manager .panelHeader {
-		background-color: @ini_background_alt_dark;
-	}
-	#extension__manager ul.tabs li a {
-		background-color: @ini_background_dark;
-		border-color: @ini_border_dark;
-		color: @ini_text_dark
-	}
-	#extension__manager ul.tabs li.active a {
-		background-color: @ini_background_alt_dark;
-		border-color: @ini_text_dark;
-	}
-	#extension__list ul.extensionList li {
-		color: @ini_text_dark
-	}
 }
 
 @media all and (max-width: @ini_tablet_width) and (prefers-color-scheme: dark) {
@@ -1018,5 +1023,5 @@ body.mediadetail figure table.img_detail th {
 		margin-left:	.5em;
 		margin-right:	0;
 		padding-left:	.75em;
-	}
+	}	
 }

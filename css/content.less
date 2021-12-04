@@ -155,7 +155,7 @@ main table.inline tr:hover th {
 /* asides */
 main aside {
 	width:			33.3%;
-	max-width:		150px;
+	max-width:		220px;
 	float:			right;
 	text-align:		center;
 	font-size:		smaller;
@@ -179,4 +179,12 @@ main img {
 	main code, main blockquote code { border-color: @ini_border_dark; }
 	main table.inline tr:hover th { background-color: @ini_border_dark; }
 
+}
+
+/* medium break point: */
+@media all and (max-width: @ini_phone_width) {
+	
+	main aside {
+		border: red dotted 1px;
+	}
 }
