@@ -400,7 +400,7 @@ function my_toc($prefix = '') {
 		echo $prefix . "\t<h3 class=\"tg_button\" title=\"" . htmlentities($lang['toc']) . '"><span>' . htmlentities($lang['toc']) . "</span></h3>\n" . $prefix . "\t<div class=\"tg_content\">";
 		$level = intval("0");
 		foreach($toc as $it) {
-
+			
 			$nl = intval($it['level']);
 			$cp = ($nl <=> $level);
 
@@ -412,7 +412,9 @@ function my_toc($prefix = '') {
 				echo "</li>\n";
 			}
 			
-			echo $prefix . str_repeat("\t", $nl*2 + 1) . "<li><a href=\"#" . $it['hid'] . '">' . htmlentities($it['title']) . "</a>";
+			$href = $it['link'] . $it['hid'];
+			
+			echo $prefix . str_repeat("\t", $nl*2 + 1) . '<li><a href="' . $href . '">' . htmlentities($it['title']) . "</a>";
 			$level = $nl;
 		}
 		
