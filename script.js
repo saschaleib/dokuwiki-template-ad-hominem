@@ -61,9 +61,7 @@ $p = {
 			var hi = jQuery.data(this, 'has-info');
 			var wid = jQuery(this).data('wiki-id');
 			var url = null;
-			
-			console.log('hi: "' + hi + '" - ' + Date.now() );
-			
+
 			/* only if the info hasn't been set yet: */
 			if ((hi == undefined || hi == '') && wid !== undefined) {
 				

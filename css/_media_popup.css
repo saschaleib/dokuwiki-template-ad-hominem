@@ -206,3 +206,11 @@ html.popup {
 }
 #dw__mediasearch button {
 }
+
+/* dark mode overrides */
+@media (prefers-color-scheme: dark) {
+
+	#media__content .odd {
+		background-color: @ini_background_dark;
+	}
+}

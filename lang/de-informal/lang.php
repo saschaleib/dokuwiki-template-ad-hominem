@@ -43,4 +43,4 @@ $lang['__link_dark__'] = 'Farbe externe Links (Nachtmodus)';
 $lang['__existing_dark__'] = 'Farbe Links zu existierenden Artikeln (Nachtmodus)';
 $lang['__missing_dark__'] = 'Farbe Links zu fehlenden Artikeln (Nachtmodus)';
 $lang['__border_dark__'] = 'Umrandungsfarbe (Nachtmodus)';
-$lang['__sb_link_dark__'] = 'Farbe von Links in Navigationsleiste (Nachtmodus)';
+$lang['__blockquote_dark__'] = 'Markierung von Zitatblöcken (Nachtmodus)';

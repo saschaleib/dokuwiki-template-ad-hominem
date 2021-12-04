@@ -38,4 +38,4 @@ $lang['__link_dark__'] = 'External link colour (dark mode)';
 $lang['__existing_dark__'] = 'Existing article link colour (dark mode)';
 $lang['__missing_dark__'] = 'Missing article link colour (dark mode)';
 $lang['__border_dark__'] = 'Border colour (dark mode)';
-$lang['__sb_link_dark__'] = 'Sidebar-links colour (dark mode)';
+$lang['__blockquote_dark__'] = 'Blockquote marker (dark mode)';

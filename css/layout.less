@@ -556,11 +556,8 @@ main .secedit button:hover::before {
 }
 
 main .section_highlight {
-	background-color:	@ini_highlight;
-	border:				solid @ini_highlight;
-	border-width:		0 .5em;
 	border-radius:		.5em;
-	margin:				0 -.5em;
+	outline: 			orange dashed 3px;
 }
 
 /* math fonts */
@@ -718,13 +715,12 @@ body.mediadetail figure table.img_detail th {
 	#sbNavigation h1, #sbNavigation h2, #sbNavigation h3, #sbNavigation h4, #sbNavigation h5, #sbNavigation h6 {	color: 				@ini_headlines_dark; }
 	#sidebar hr { background-image:	linear-gradient(to right, @ini_background_site_dark, @ini_text_alt, @ini_background_site_dark); }
 	#ftLicenseButtons hr {		background-image:	linear-gradient(to right, @ini_background_site_dark, @ini_text_dark, @ini_background_site_dark); }
-	#sidebar a:link, #sidebar a:visited { color: @ini_sb_link_dark; }
+	#sidebar a:link, #sidebar a:visited { color: @ini_link_dark; }
+	#footer-layout>footer h4 { color: @ini_headlines_dark; }
 
 	#phSearch form>div.search-field { border-color: @ini_border_dark; background: @ini_background_dark; }
 	#phSearch form>div input { color: @ini_text_dark; }
 	#phSearch form > div button[type="reset"] {border-right-color: @ini_border_dark; }
-
-	main .section_highlight { background-color: transparent; border-color: transparent; outline: @ini_highlight dashed 3px; }
 
 	#config__manager #dw__configform p:last-child {
 		background-color: rgba(57,57,61,.67);
@@ -739,6 +735,17 @@ body.mediadetail figure table.img_detail th {
 		border-color:		@ini_existing_dark;
 		background-color:	@ini_background_dark;
 		color:				@ini_existing_dark;
+	}
+	
+	#toc { border-left-color: @ini_border_dark; }
+	#toc h3 { color: @ini_headlines_dark; }
+
+	#qsearch__out {
+		background-color:	@ini_background_site_dark;
+	}
+	#qsearch__out ul,
+	#qsearch__out li {
+		border-color:	@ini_border_dark;
 	}
 
 	/* Extension Manager: */
@@ -758,7 +765,7 @@ body.mediadetail figure table.img_detail th {
 		color: @ini_text_dark
 	}
 	main figure {
-		background-color: @ini_background_alt_dark;
+		background-color: rgba(0,0,0,.2);
 		border-color: @ini_border_dark;
 	}
 
@@ -958,7 +965,7 @@ body.mediadetail figure table.img_detail th {
 		border-bottom-color:	@ini_background_dark;
 	}
 	#sidebar hr {
-		background:				@ini_sb_link_dark;
+		background:				@ini_link_dark;
 		background-image:		linear-gradient(to right, @ini_background_dark, @ini_headlines_dark, @ini_background_dark);
 	}
 }

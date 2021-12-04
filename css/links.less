@@ -26,9 +26,16 @@ a.wikilink2:visited {
 	color:				@ini_missing;
 }
 
+/* special cases: included section in footer: */
+footer #ftInclude a.wikilink1:link,
+footer #ftInclude a.wikilink1:visited {
+	color:		@ini_link;
+}
+
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
 	a:link, a:visited { color: @ini_link_dark; }
 	a.wikilink1:link, a.wikilink1:visited { color: @ini_existing_dark; }
 	a.wikilink2:link, a.wikilink2:visited { color: @ini_missing_dark; }
+	#ftInclude a.wikilink1:link, #ftInclude a.wikilink1:visited { color: @ini_link_dark; }
 }
