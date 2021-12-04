@@ -63,7 +63,7 @@
 #mediamanager__page .panelContent {
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 0;
+    padding: 3px 0 0 0;
     margin: 0 10px 10px 0;
     position: relative;
 }
@@ -197,18 +197,18 @@
 }
 
 #mediamanager__page .panelHeader ul li.ui-controlgroup-horizontal {
-    padding-left: 30px;
+    padding-left: 2px;
     margin: 0 0 0 5px;
 }
-#mediamanager__page .panelHeader ul li.listType {
+/* #mediamanager__page .panelHeader ul li.listType {
     background: url('../../images/icon-list.png') 3px 1px no-repeat;
 }
 #mediamanager__page .panelHeader ul li.sortBy {
     background: url('../../images/icon-sort.png') 3px 1px no-repeat;
-}
+} */
 [dir=rtl] #mediamanager__page .panelHeader ul li.ui-controlgroup-horizontal {
     padding-left: 0;
-    padding-right: 30px;
+    padding-right: 2px;
     margin: 0 5px 0 0;
     background-position: right 1px;
 }
@@ -562,4 +562,6 @@
 	[dir=rtl] #mediamanager__page .ui-resizable-w:hover { background-color: @ini_background_alt_dark; }
 	#mediamanager__page .file dl dt { background-color:	rgba(0,0,0,.5); }
 	#mediamanager__page .file dl dd { background-color:	rgba(0,0,0,.2); }
+	#mediamanager__page .namespaces ul .selected { background-color: @ini_background_alt_dark; }
+
 }

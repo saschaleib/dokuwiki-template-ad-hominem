@@ -50,28 +50,33 @@
 }
 .dokuwiki table.diff .diff-lineheader,
 .dokuwiki table.diff td {
-    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Bitstream Vera Sans Mono", "Nimbus Mono L", Monaco, "Courier New", monospace;
+    font-family: @ini_mono_fonts;
+	background-color:	#F6F8FA;
 }
 .dokuwiki table.diff td.diff-blockheader {
     font-weight: bold;
 }
 .dokuwiki table.diff .diff-addedline {
-    background-color: #cfc;
+    background-color: #E4FFEE;
     color: inherit;
 }
 .dokuwiki table.diff .diff-deletedline {
-    background-color: #fdd;
+    background-color: #FFEEF0;
     color: inherit;
 }
 .dokuwiki table.diff td.diff-context {
-    background-color: #eee;
+    background-color: #FFF;
     color: inherit;
 }
 .dokuwiki table.diff td.diff-addedline strong {
-    color: #080;
+    color:				#23292E;
+	background-color:	#A5F2C1;
+	font-weight:		normal;
 }
 .dokuwiki table.diff td.diff-deletedline strong {
-    color: #C00;
+    color:				#23292E;
+	background-color:	#FFB7BF;
+	font-weight:		normal;
 }
 
 /* diff options */
@@ -139,17 +144,34 @@
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
 	
-	.dokuwiki table.diff th, .dokuwiki table.diff td {
-		background-color:	rgba(255,255,255,0.05);
-		color:				@ini_text_dark;
+	.dokuwiki table.diff .diff-lineheader, .dokuwiki table.diff th, .dokuwiki table.diff td {
+		background-color:	#1C2125;
+		color:				#D0D5DA;
 	}
 	.dokuwiki table.diff td.diff-context {
-		background-color:	@ini_background_alt_dark;
+		background-color:	#23292E;
 	}
 	.dokuwiki table.diff .diff-deletedline {
-		background-color:	#3a2626;
+		background-color:	#49090F;
 	}
 	.dokuwiki table.diff .diff-addedline {
-		background-color:	#182918;
+		background-color:	#0A3A1E;
+	}
+	.dokuwiki table.diff td.diff-addedline strong {
+		color:				#FFF;
+		background-color:	#038642;
+	}
+	.dokuwiki table.diff td.diff-deletedline strong {
+		color:				#FFF;
+		background-color:	#BB0E27;
+	}
+	.dokuwiki .diffnav a::before {
+		color:				@ini_text_dark;
+		border:				transparent none 0;
+	}
+	.dokuwiki .diffnav select {
+		background-color:	@ini_background_site_dark;
+		color:				@ini_text_dark;
+		border:				transparent none 0;
 	}
 }
