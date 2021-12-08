@@ -598,7 +598,7 @@ body.mediadetail figure table.img_detail th {
 #footer-layout {
 	padding-top:		1.5em;
 }
-#footer-layout>footer {
+#footer-layout > footer {
 	width:				100%;
 	max-width:			@ini_site_width;
 	margin:				0 auto;
@@ -608,25 +608,28 @@ body.mediadetail figure table.img_detail th {
 	grid-gap:			6pt;
 	align-items:		stretch;
 }
-#footer-layout>footer .ftSection {
+#footer-layout > footer .ftSection {
 	padding-left:		1em;
 }
-#footer-layout>footer .ftSection ul {
+#footer-layout > footer .ftSection ul {
 	list-style:			none inside;
 	padding-left:		.5em;
 }
-#footer-layout>footer .ftSection ul li {
+#footer-layout > footer .ftSection ul li {
 	margin-bottom:		.5em;
 	font-size:			small;
 }
-#footer-layout>footer h4 {
+#footer-layout > footer .ftSection ul li a {
+	white-space: nowrap;
+}
+#footer-layout > footer h4 {
 	color:				@ini_headlines;
 	margin:				0 0 1em 0;
 	font-family:		@ini_alt_fonts;
 	font-size:			1rem;
 }
 
-#footer-layout>footer #ftPlaceholder>* {
+#footer-layout > footer #ftPlaceholder>* {
 	display:			none;
 }
 
@@ -988,7 +991,7 @@ body.mediadetail figure table.img_detail th {
 		padding-left:	0;
 	}
 	#footer-layout>footer .ftSection li {
-		display:		inline;
+		display:		inline-block;
 	}
 	#footer-layout>footer .ftSection li::before {
 		content:		'\00B7';

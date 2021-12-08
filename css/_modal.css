@@ -4,6 +4,8 @@
 
 .dokuwiki .ui-widget {
     font-size: 100%;
+	min-width: 290px;
+	min-height: 285px;
 }
 
 
@@ -11,21 +13,57 @@
 ********************************************************************/
 
 #link__wiz {
+	resize:	both;
+	max-width: 80%;
+	max-height: 512px;
+	-webkit-box-shadow: 2px 2px 3px 2px rgba(0,0,0,.5);
+	-moz-box-shadow: 2px 2px 3px 2px rgba(0,0,0,.5);
+	box-shadow: 2px 2px 3px 2px rgba(0,0,0,.5);
 }
 
 [dir=rtl] #link__wiz_close {
     float: left;
 }
 
+#link__wiz .ui-dialog-content {
+	width:	100%;
+	height: ~"calc(100% - 22px)";
+	overflow: hidden;
+	color: @ini_text_alt;
+	font-size: small;
+}
+
+#link__wiz button.ui-dialog-titlebar-close {
+	width:		16px;
+	height:		16px;
+	min-width:	16px;
+	min-height:	16px;
+	background-color: @ini_background;
+	border:		@ini_border solid 1px;
+}
+
+#link__wiz #link__wiz_entry {
+	width: ~"calc(100% - 5em)";
+	border-color: @ini_border;
+	background-color: @ini_background;
+	color: @ini_text;
+	font-family: @ini_mono_fonts;
+	font-size: 11pt;
+}
+#link__wiz #link__wiz_entry:focus {
+	outline: @ini_focus_color solid 2px;
+}
+
 #link__wiz_result {
     background-color: @ini_background;
-    width:  293px;
-    height: 193px;
+    width:  ~"calc(100% - 2px)";
+    height: ~"calc(100% - 68px)";
     overflow: auto;
     border: 1px solid @ini_border;
     margin: 3px auto;
     text-align: left;
-    line-height: 1;
+	font-size: medium;
+    line-height: 1em;
 }
 [dir=rtl] #link__wiz_result {
     text-align: right;
@@ -37,23 +75,28 @@
 
 #link__wiz_result div a {
     display: block;
-    padding-left: 22px;
+    padding-left: 1.3em;
     min-height: 16px;
     background: transparent 3px center no-repeat;
+	background-size: 1em;
 }
 [dir=rtl] #link__wiz_result div a {
     padding: 3px 22px 3px 3px;
     background-position: 257px 3px;
 }
 
-#link__wiz_result div.type_u a {
-    background-image: url(../../images/up.png);
+#link__wiz_result div.type_u a:link,
+#link__wiz_result div.type_u a:visited {
+    background-image: url(./images/editor/browse-parent.svg);
+	color: @ini_link;
 }
 #link__wiz_result div.type_f a {
-    background-image: url(../../images/page.png);
+    background-image: url(./images/editor/browse-link.svg);
 }
-#link__wiz_result div.type_d a {
-    background-image: url(../../images/ns.png);
+#link__wiz_result div.type_d a:link,
+#link__wiz_result div.type_d a:visited {
+    background-image: url(./images/editor/browse-folder.svg);
+	color: @ini_link;
 }
 
 #link__wiz_result div.even {
@@ -70,6 +113,15 @@
     margin-left: 22px;
 }
 
+#link__wiz .ui-button {
+	background-color:	transparent;
+	border-color:		transparent;
+}
+
+#link__wiz .ui-icon-closethick {
+	background:			transparent url(images/editor/close.svg) center no-repeat;
+	background-size:	16px;
+}
 
 /* media option wizard (opens when inserting media in the media popup)
 ********************************************************************/
@@ -96,10 +148,40 @@
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
 
-	#link__wiz_result {
+	#link__wiz {
+		background-color: @ini_background_dark;
+		border-color: @ini_border_dark;
+	}
+	#link__wiz .ui-widget-header {
+		background: @ini_background_alt_dark none;
+		border-color: @ini_border_dark;
+	}
+	#link__wiz .ui-widget-header .ui-dialog-title {
+		color: @ini_headlines_dark;
+	}
+	#link__wiz #link__wiz_entry {
+		border-color: @ini_border_dark;
+		background-color: @ini_background_alt_dark;
+		color: @ini_text_dark;
+	}
+	#link__wiz_result div.type_u a:link,
+	#link__wiz_result div.type_u a:visited,
+	#link__wiz_result div.type_u a:link,
+	#link__wiz_result div.type_u a:visited {
+		color: @ini_link_dark;
+	}
+	#link__wiz button.ui-dialog-titlebar-close {
+		border-color: @ini_border_dark;
+	}
+	#link__wiz .ui-icon-closethick {
 		background-color: @ini_background_dark;
 	}
+
+	#link__wiz_result {
+		background-color: rgba(0,0,0,.2);
+		border-color: @ini_border_dark;
+	}
 	#link__wiz_result div.even {
-		background-color: @ini_background_alt_dark;
+		background-color: @ini_background_dark;
 	}
 }
