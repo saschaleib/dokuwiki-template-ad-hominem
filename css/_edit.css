@@ -6,10 +6,10 @@
 /* edit view
 ********************************************************************/
 
-.dokuwiki div.editBox {
+.mode_edit div.editBox {
 }
 
-.dokuwiki div.editBox button {
+.mode_edit div.editBox button {
 	border:				#666 solid 1px;
 	border-radius:		1px;
 	padding:			3pt 6pt;
@@ -17,10 +17,10 @@
 	cursor:				pointer;
 }
 
-.dokuwiki div.editButtons button:hover {
+.mode_edit div.editButtons button:hover {
 	text-decoration:	underline;
 }
-.dokuwiki div.editBox button:focus {
+.mode_edit div.editBox button:focus {
 	outline:			@ini_focus_color solid 2px;
 	background-color:	@ini_background;
 }
@@ -36,7 +36,7 @@
 
 /*____________ toolbar ____________*/
 
-.dokuwiki div.toolbar {
+.mode_edit div.toolbar {
     display: inline-block;
 }
 #draft__status {
@@ -98,8 +98,8 @@
 #tool__bar button:nth-child(9) { background-image: url('images/editor/format-header-menu.svg'); }
 #tool__bar button[accesskey="l"] { background-image: url('images/editor/insert-link.svg');margin-left:4pt; }
 #tool__bar button:nth-child(11) { background-image: url('images/editor/insert-external-link.svg'); }
-#tool__bar button[accesskey="-"] { background-image: url('images/editor/format-list-bulleted.svg');  margin-left:4pt;}
-#tool__bar button[accesskey="."] { background-image: url('images/editor/format-list-numbered.svg'); }
+#tool__bar button[accesskey="-"] { background-image: url('images/editor/format-list-numbered.svg');  margin-left:4pt;}
+#tool__bar button[accesskey="."] { background-image: url('images/editor/format-list-bulleted.svg'); }
 #tool__bar button:nth-child(14) { background-image: url('images/editor/insert-hr.svg');margin-left:4pt;}
 #tool__bar button:nth-child(15) { background-image: url('images/editor/insert-media.svg');margin-left:4pt; }
 #tool__bar button:nth-child(16) { background-image: url('images/editor/insert-emoticon.svg');margin-left:4pt; }
@@ -107,7 +107,7 @@
 #tool__bar button[accesskey="y"] { background-image: url('images/editor/insert-signature.svg');margin-left:4pt; }
 
 /* buttons inside of toolbar */
-.dokuwiki div.toolbar button.toolbutton {
+.mode_edit div.toolbar button.toolbutton {
 	margin:		0;
 }
 /* picker popups (outside of .dokuwiki) */
@@ -229,20 +229,20 @@ div.picker button.toolbutton {
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
 
-	.dokuwiki textarea.edit {
+	body.mode_edit.darkmode  textarea.edit {
 		background-color:	@ini_background_alt_dark;
 		border:				@ini_headlines_dark solid 1px;
 		color:				@ini_text_dark;
 	}
 
-	.dokuwiki div.editBox button {
+	body.mode_edit.darkmode div.editBox button {
 		background-color:	@ini_headlines_dark;
 		border-color:		@ini_border_dark;
 	}
-	.dokuwiki div.editBox button#edbtn__save {
+	body.mode_edit.darkmode div.editBox button#edbtn__save {
 		filter:				invert(.9);
 	}
-	#tool__bar button {
+	body.mode_edit.darkmode #tool__bar button {
 		border-color:	@ini_border_dark;
 		filter: invert(.8);
 	}

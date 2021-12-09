@@ -3,12 +3,12 @@
  * differences between two versions of a page (?do=diff).
  */
 
-.dokuwiki table.diff {
+.mode_diff table.diff {
     width: 100%;
     border-width: 0;
 }
-.dokuwiki table.diff th,
-.dokuwiki table.diff td {
+.mode_diff table.diff th,
+.mode_diff table.diff td {
     vertical-align: top;
     padding: 0;
     border-width: 0;
@@ -18,62 +18,62 @@
 }
 
 /* table header */
-.dokuwiki table.diff th {
+.mode_diff table.diff th {
     border-bottom: 1px solid @ini_border;
     font-size: 110%;
     font-weight: normal;
 }
-.dokuwiki table.diff th a {
+.mode_diff table.diff th a {
     font-weight: bold;
 }
-.dokuwiki table.diff th span.user {
+.mode_diff table.diff th span.user {
     font-size: .9em;
 }
-.dokuwiki table.diff th span.sum {
+.mode_diff table.diff th span.sum {
     font-size: .9em;
     font-weight: bold;
 }
-.dokuwiki table.diff th.minor {
+.mode_diff table.diff th.minor {
     color: #999;
 }
-.dokuwiki table.diff_sidebyside th {
+.mode_diff table.diff_sidebyside th {
     width: 50%;
 }
 
 /* table body */
-.dokuwiki table.diff .diff-lineheader {
+.mode_diff table.diff .diff-lineheader {
     width: .7em;
     text-align: right;
 }
-[dir=rtl] .dokuwiki table.diff .diff-lineheader {
+[dir=rtl] .mode_diff table.diff .diff-lineheader {
     text-align: left;
 }
-.dokuwiki table.diff .diff-lineheader,
-.dokuwiki table.diff td {
+.mode_diff table.diff .diff-lineheader,
+.mode_diff table.diff td {
     font-family: @ini_mono_fonts;
 	background-color:	#F6F8FA;
 }
-.dokuwiki table.diff td.diff-blockheader {
+.mode_diff table.diff td.diff-blockheader {
     font-weight: bold;
 }
-.dokuwiki table.diff .diff-addedline {
+.mode_diff table.diff .diff-addedline {
     background-color: #E4FFEE;
     color: inherit;
 }
-.dokuwiki table.diff .diff-deletedline {
+.mode_diff table.diff .diff-deletedline {
     background-color: #FFEEF0;
     color: inherit;
 }
-.dokuwiki table.diff td.diff-context {
+.mode_diff table.diff td.diff-context {
     background-color: #FFF;
     color: inherit;
 }
-.dokuwiki table.diff td.diff-addedline strong {
+.mode_diff table.diff td.diff-addedline strong {
     color:				#23292E;
 	background-color:	#A5F2C1;
 	font-weight:		normal;
 }
-.dokuwiki table.diff td.diff-deletedline strong {
+.mode_diff table.diff td.diff-deletedline strong {
     color:				#23292E;
 	background-color:	#FFB7BF;
 	font-weight:		normal;
@@ -81,34 +81,34 @@
 
 /* diff options */
 
-.dokuwiki .diffoptions form {
+.mode_diff .diffoptions form {
     float: left;
 }
-.dokuwiki .diffoptions p {
+.mode_diff .diffoptions p {
     float: right;
 }
 
 /* diff nav */
 
-.dokuwiki table.diff_sidebyside td.diffnav {
+.mode_diff table.diff_sidebyside td.diffnav {
     padding-bottom: .7em;
 }
-.dokuwiki .diffnav a {
+.mode_diff .diffnav a {
     display: inline-block;
     vertical-align: middle;
 }
-.dokuwiki .diffnav a span {
+.mode_diff .diffnav a span {
     display: none;
 }
 
-.dokuwiki .diffnav a:hover,
-.dokuwiki .diffnav a:active,
-.dokuwiki .diffnav a:focus {
+.mode_diff .diffnav a:hover,
+.mode_diff .diffnav a:active,
+.mode_diff .diffnav a:focus {
     background-color: @ini_background_alt;
     text-decoration: none;
 }
 
-.dokuwiki .diffnav a:before {
+.mode_diff .diffnav a:before {
     display: inline-block;
     line-height: 1;
     padding: .2em .4em;
@@ -117,59 +117,61 @@
     color: @ini_text;
 }
 
-.dokuwiki .diffnav a.diffprevrev:before {
+.mode_diff .diffnav a.diffprevrev:before {
     content: '\25C0'; /* left triangle */
 }
-.dokuwiki .diffnav a.diffnextrev:before,
-.dokuwiki .diffnav a.difflastrev:before {
+.mode_diff .diffnav a.diffnextrev:before,
+.mode_diff .diffnav a.difflastrev:before {
     content: '\25B6'; /* right triangle */
 }
-.dokuwiki .diffnav a.diffbothprevrev:before {
+.mode_diff .diffnav a.diffbothprevrev:before {
     content: '\25C0\25C0';
 }
-.dokuwiki .diffnav a.diffbothnextrev:before {
+.mode_diff .diffnav a.diffbothnextrev:before {
     content: '\25B6\25B6';
 }
 
-.dokuwiki .diffnav select {
+.mode_diff .diffnav select {
     width: 60%;
     min-width: 9em;
     height: 1.5em; /* height is necessary for longer options in Webkit */
 }
 
-.dokuwiki .diffnav select option[selected] {
+.mode_diff .diffnav select option[selected] {
     font-weight: bold;
 }
 
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
 	
-	.dokuwiki table.diff .diff-lineheader, .dokuwiki table.diff th, .dokuwiki table.diff td {
+	body.mode_diff.darkmode  table.diff .diff-lineheader,
+	body.mode_diff.darkmode  table.diff th,
+	body.mode_diff.darkmode  table.diff td {
 		background-color:	#1C2125;
 		color:				#D0D5DA;
 	}
-	.dokuwiki table.diff td.diff-context {
+	body.mode_diff.darkmode table.diff td.diff-context {
 		background-color:	#23292E;
 	}
-	.dokuwiki table.diff .diff-deletedline {
+	body.mode_diff.darkmode  table.diff .diff-deletedline {
 		background-color:	#49090F;
 	}
-	.dokuwiki table.diff .diff-addedline {
+	body.mode_diff.darkmode  table.diff .diff-addedline {
 		background-color:	#0A3A1E;
 	}
-	.dokuwiki table.diff td.diff-addedline strong {
+	body.mode_diff.darkmode  table.diff td.diff-addedline strong {
 		color:				#FFF;
 		background-color:	#038642;
 	}
-	.dokuwiki table.diff td.diff-deletedline strong {
+	body.mode_diff.darkmode  table.diff td.diff-deletedline strong {
 		color:				#FFF;
 		background-color:	#BB0E27;
 	}
-	.dokuwiki .diffnav a::before {
+	body.mode_diff.darkmode  .diffnav a::before {
 		color:				@ini_text_dark;
 		border:				transparent none 0;
 	}
-	.dokuwiki .diffnav select {
+	body.mode_diff.darkmode  .diffnav select {
 		background-color:	@ini_background_site_dark;
 		color:				@ini_text_dark;
 		border:				transparent none 0;

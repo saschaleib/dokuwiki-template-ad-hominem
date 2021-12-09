@@ -34,8 +34,10 @@ footer #ftInclude a.wikilink1:visited {
 
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
-	a:link, a:visited { color: @ini_link_dark; }
-	a.wikilink1:link, a.wikilink1:visited { color: @ini_existing_dark; }
-	a.wikilink2:link, a.wikilink2:visited { color: @ini_missing_dark; }
-	#ftInclude a.wikilink1:link, #ftInclude a.wikilink1:visited { color: @ini_link_dark; }
+
+	body.darkmode a:link, body.darkmode a:visited { color: @ini_link_dark; }
+	body.darkmode a.wikilink1:link, body.darkmode a.wikilink1:visited { color: @ini_existing_dark; }
+	body.darkmode a.wikilink2:link, body.darkmode a.wikilink2:visited { color: @ini_missing_dark; }
+	body.darkmode #ftInclude a.wikilink1:link, body.darkmode #ftInclude a.wikilink1:visited { color: @ini_link_dark; }
+
 }

@@ -210,7 +210,7 @@ html.popup {
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
 
-	#media__content .odd {
+	body.darkmode #media__content .odd {
 		background-color: @ini_background_dark;
 	}
 }

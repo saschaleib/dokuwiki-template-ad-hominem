@@ -36,11 +36,11 @@ main h1 *, main h2 *, main h3 *, main h4 *, main h5 *, main h6 * {
 body.home h1:first-child { margin-top: .5em; }
 
 /* make strike-through and underline more useful! */
-u {
+main u {
 	-webkit-text-decoration: underline #F30 wavy .7pt;
 	text-decoration: underline #F30 wavy .7pt;
 }
-s {
+main s {
 	-webkit-text-decoration: line-through rgba(255,0,0,.5) solid 1pt; 
 	text-decoration: line-through rgba(255,0,0,.5) solid 1pt;
 }
@@ -100,7 +100,7 @@ main blockquote {
 main blockquote * {
 	font-family:	@ini_alt_fonts;
 	font-size:		1.1rem;
-}
+} 
 
 main svg {
 	display:			block;
@@ -172,13 +172,15 @@ main img {
 
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
-	main h1, main h2, main h3, main h4, main h5, main h6 { color: @ini_headlines_dark; }
-	main table { border-color: @ini_border_dark; }
-	main table th { background-color: rgba(255,255,255,0.05); }
-	main table.inline tr:hover td { background-color: rgba(255,255,255,0.1); }
-	main code, main blockquote code { border-color: @ini_border_dark; }
-	main table.inline tr:hover th { background-color: @ini_border_dark; }
-	main blockquote { border-left-color: @ini_blockquote_dark };
+	body.darkmode main h1, main h2, main h3, main h4, main h5, main h6 { color: @ini_headlines_dark; }
+	body.darkmode main table { border-color: @ini_border_dark; }
+	body.darkmode main table th { background-color: rgba(255,255,255,0.05); }
+	body.darkmode main table.inline tr:hover td { background-color: rgba(255,255,255,0.1); }
+	body.darkmode main code, main blockquote code { border-color: @ini_border_dark; }
+	body.darkmode main table.inline tr:hover th { background-color: @ini_border_dark; }
+	body.darkmode main blockquote { border-left-color: @ini_blockquote_dark }
+	body.darkmode main s { -webkit-text-decoration-thickness: 1.5pt; text-decoration-thickness: 1.5pt; }
+
 }
 
 /* medium break point: */

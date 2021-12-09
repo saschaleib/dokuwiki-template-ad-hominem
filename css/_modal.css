@@ -148,40 +148,40 @@
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
 
-	#link__wiz {
+	body.darkmode #link__wiz {
 		background-color: @ini_background_dark;
 		border-color: @ini_border_dark;
 	}
-	#link__wiz .ui-widget-header {
+	body.darkmode #link__wiz .ui-widget-header {
 		background: @ini_background_alt_dark none;
 		border-color: @ini_border_dark;
 	}
-	#link__wiz .ui-widget-header .ui-dialog-title {
+	body.darkmode #link__wiz .ui-widget-header .ui-dialog-title {
 		color: @ini_headlines_dark;
 	}
-	#link__wiz #link__wiz_entry {
+	body.darkmode #link__wiz #link__wiz_entry {
 		border-color: @ini_border_dark;
 		background-color: @ini_background_alt_dark;
 		color: @ini_text_dark;
 	}
-	#link__wiz_result div.type_u a:link,
-	#link__wiz_result div.type_u a:visited,
-	#link__wiz_result div.type_u a:link,
-	#link__wiz_result div.type_u a:visited {
+	body.darkmode #link__wiz_result div.type_u a:link,
+	body.darkmode #link__wiz_result div.type_u a:visited,
+	body.darkmode #link__wiz_result div.type_u a:link,
+	body.darkmode #link__wiz_result div.type_u a:visited {
 		color: @ini_link_dark;
 	}
-	#link__wiz button.ui-dialog-titlebar-close {
+	body.darkmode #link__wiz button.ui-dialog-titlebar-close {
 		border-color: @ini_border_dark;
 	}
-	#link__wiz .ui-icon-closethick {
+	body.darkmode #link__wiz .ui-icon-closethick {
 		background-color: @ini_background_dark;
 	}
 
-	#link__wiz_result {
+	body.darkmode #link__wiz_result {
 		background-color: rgba(0,0,0,.2);
 		border-color: @ini_border_dark;
 	}
-	#link__wiz_result div.even {
+	body.darkmode #link__wiz_result div.even {
 		background-color: @ini_background_dark;
 	}
 }

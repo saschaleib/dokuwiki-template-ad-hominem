@@ -536,32 +536,34 @@
 
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
-	#mediamanager__page .panelHeader,
-	.dokuwiki .tabs > ul li a, .dokuwiki ul.tabs li strong, .dokuwiki ul.tabs li a {
+	body.darkmode #mediamanager__page .panelHeader,
+	body.darkmode .tabs > ul li a,
+	body.darkmode ul.tabs li strong,
+	body.darkmode ul.tabs li a {
 		background-color:	transparent;
 		border-color:		@ini_text_dark;
 		color:				@ini_text_dark;
 	}
 
-	#mediamanager__page .namespaces h2 {
+	body.darkmode #mediamanager__page .namespaces h2 {
 		background-color:	@ini_background_dark;
 		border-color:		@ini_text_dark;
 		border-bottom-color: @ini_background_dark;
 		color:				@ini_headlines_dark;
 	}
-	#mediamanager__page .filelist .thumbs li {
+	body.darkmode #mediamanager__page .filelist .thumbs li {
 		background-color:	@ini_background_alt_dark;
 		color:				@ini_text_dark;
 	}
-	#mediamanager__page .filelist .panelContent ul li:hover {
+	body.darkmode #mediamanager__page .filelist .panelContent ul li:hover {
 		background-color:	rgba(0,0,0,.2);
 	}
 
-	#mediamanager__page .ui-resizable-e { background-color:	@ini_background_dark; }
-	#mediamanager__page .ui-resizable-e:hover,
-	[dir=rtl] #mediamanager__page .ui-resizable-w:hover { background-color: @ini_background_alt_dark; }
-	#mediamanager__page .file dl dt { background-color:	rgba(0,0,0,.5); }
-	#mediamanager__page .file dl dd { background-color:	rgba(0,0,0,.2); }
-	#mediamanager__page .namespaces ul .selected { background-color: @ini_background_alt_dark; }
+	body.darkmode #mediamanager__page .ui-resizable-e { background-color:	@ini_background_dark; }
+	body.darkmode #mediamanager__page .ui-resizable-e:hover,
+	body.darkmode [dir=rtl] #mediamanager__page .ui-resizable-w:hover { background-color: @ini_background_alt_dark; }
+	body.darkmode #mediamanager__page .file dl dt { background-color:	rgba(0,0,0,.5); }
+	body.darkmode #mediamanager__page .file dl dd { background-color:	rgba(0,0,0,.2); }
+	body.darkmode #mediamanager__page .namespaces ul .selected { background-color: @ini_background_alt_dark; }
 
 }

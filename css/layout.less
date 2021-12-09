@@ -707,67 +707,66 @@ body.mediadetail figure table.img_detail th {
 
 /* dark mode overrides */
 @media all and (prefers-color-scheme: dark) {
-	
-	html { color:				@ini_text_dark; }
-	body { background-color:	@ini_background_site_dark; }
-	main { background-color:	@ini_background_dark;
+
+	body.darkmode { background-color: @ini_background_site_dark; color: @ini_text_dark; }
+	body.darkmode main { background-color:	@ini_background_dark;
 		   color:				@ini_text_dark;
 		   border-color:		@ini_background_dark}
-	main h1, main h2, main h3, main h4, main h5, main h6
-		 { color: 				@ini_headlines_dark; }
-	#sbNavigation h1, #sbNavigation h2, #sbNavigation h3, #sbNavigation h4, #sbNavigation h5, #sbNavigation h6 {	color: 				@ini_headlines_dark; }
-	#sidebar hr { background-image:	linear-gradient(to right, @ini_background_site_dark, @ini_text_alt, @ini_background_site_dark); }
-	#ftLicenseButtons hr {		background-image:	linear-gradient(to right, @ini_background_site_dark, @ini_text_dark, @ini_background_site_dark); }
-	#sidebar a:link, #sidebar a:visited { color: @ini_link_dark; }
-	#footer-layout>footer h4 { color: @ini_headlines_dark; }
+	body.darkmode main h1, body.darkmode main h2, body.darkmode main h3, body.darkmode main h4, body.darkmode main h5, body.darkmode main h6
+		 { color: @ini_headlines_dark; }
+	body.darkmode #sbNavigation h1, body.darkmode #sbNavigation h2, body.darkmode #sbNavigation h3, body.darkmode #sbNavigation h4, body.darkmode #sbNavigation h5, body.darkmode #sbNavigation h6 {	color: @ini_headlines_dark; }
+	body.darkmode #sidebar hr { background-image:	linear-gradient(to right, @ini_background_site_dark, @ini_text_alt, @ini_background_site_dark); }
+	body.darkmode #ftLicenseButtons hr {		background-image:	linear-gradient(to right, @ini_background_site_dark, @ini_text_dark, @ini_background_site_dark); }
+	body.darkmode #sidebar a:link, #sidebar a:visited { color: @ini_link_dark; }
+	body.darkmode #footer-layout>footer h4 { color: @ini_headlines_dark; }
 
-	#phSearch form>div.search-field { border-color: @ini_border_dark; background: @ini_background_dark; }
-	#phSearch form>div input { color: @ini_text_dark; }
-	#phSearch form > div button[type="reset"] {border-right-color: @ini_border_dark; }
+	body.darkmode #phSearch form>div.search-field { border-color: @ini_border_dark; background: @ini_background_dark; }
+	body.darkmode #phSearch form>div input { color: @ini_text_dark; }
+	body.darkmode #phSearch form > div button[type="reset"] {border-right-color: @ini_border_dark; }
 
-	#config__manager #dw__configform p:last-child {
+	body.darkmode #config__manager #dw__configform p:last-child {
 		background-color: rgba(57,57,61,.67);
 		border-color:	@ini_border_dark;
 	}
-	#config__manager #dw__configform p:last-child button {
+	body.darkmode #config__manager #dw__configform p:last-child button {
 		background-color:	@ini_background_dark;
 		border-color:		@ini_border_dark;
 		color:				@ini_missing_dark;
 	}
-	#config__manager #dw__configform p:last-child button[type=submit] {
+	body.darkmode #config__manager #dw__configform p:last-child button[type=submit] {
 		border-color:		@ini_existing_dark;
 		background-color:	@ini_background_dark;
 		color:				@ini_existing_dark;
 	}
 	
-	#toc { border-left-color: @ini_border_dark; }
-	#toc h3 { color: @ini_headlines_dark; }
+	body.darkmode #toc { border-left-color: @ini_border_dark; }
+	body.darkmode #toc h3 { color: @ini_headlines_dark; }
 
-	#qsearch__out {
+	body.darkmode #qsearch__out {
 		background-color:	@ini_background_site_dark;
 	}
-	#qsearch__out ul,
-	#qsearch__out li {
+	body.darkmode #qsearch__out ul,
+	body.darkmode #qsearch__out li {
 		border-color:	@ini_border_dark;
 	}
 
 	/* Extension Manager: */
-	#extension__manager .panelHeader {
+	body.darkmode #extension__manager .panelHeader {
 		background-color: @ini_background_alt_dark;
 	}
-	#extension__manager ul.tabs li a {
+	body.darkmode #extension__manager ul.tabs li a {
 		background-color: @ini_background_dark;
 		border-color: @ini_border_dark;
 		color: @ini_text_dark
 	}
-	#extension__manager ul.tabs li.active a {
+	body.darkmode #extension__manager ul.tabs li.active a {
 		background-color: @ini_background_alt_dark;
 		border-color: @ini_text_dark;
 	}
-	#extension__list ul.extensionList li {
+	body.darkmode #extension__list ul.extensionList li {
 		color: @ini_text_dark
 	}
-	main figure {
+	body.darkmode main figure {
 		background-color: rgba(0,0,0,.2);
 		border-color: @ini_border_dark;
 	}
@@ -954,20 +953,20 @@ body.mediadetail figure table.img_detail th {
 }
 
 @media all and (max-width: @ini_tablet_width) and (prefers-color-scheme: dark) {
-	#sidebar .tg_content {
+	body.darkmode #sidebar .tg_content {
 		background-color:	@ini_background_dark;
 		border-color:		@ini_border_dark;
 		-moz-box-shadow:		3px 3px 3px @ini_background_site_dark;
 		-webkit-box-shadow:		3px 3px 3px @ini_background_site_dark;
 		box-shadow:				3px 3px 3px @ini_background_site_dark;
 	}
-	#sidebar .tg_content:before {
+	body.darkmode #sidebar .tg_content:before {
 		border-bottom-color:	@ini_border_dark;
 	}
-	#sidebar .tg_content:after {
+	body.darkmode #sidebar .tg_content:after {
 		border-bottom-color:	@ini_background_dark;
 	}
-	#sidebar hr {
+	body.darkmode #sidebar hr {
 		background:				@ini_link_dark;
 		background-image:		linear-gradient(to right, @ini_background_dark, @ini_headlines_dark, @ini_background_dark);
 	}
