@@ -412,15 +412,13 @@ main {
 	overflow:			scroll hidden;
 }
 #navYouAreHere ol li {
+	color:			@ini_headlines;
 	display:			inline;
 	margin-bottom:		0;
 }
 #navYouAreHere ol li.home {
 	min-width:		14px;
 	overflow:		hidden;
-}
-#navYouAreHere ol li .curid {
-	display:		none;
 }
 
 #navYouAreHere ol li:before {
@@ -468,6 +466,7 @@ main>footer p.docInfo {
 	clear:				both;
 	float:				right;
 	width:				auto;
+	min-width:			32px;
 	line-height:		1.5em;
 	text-align:			left;
 	max-width:			@ini_toc_width;
@@ -706,18 +705,27 @@ body.mediadetail figure table.img_detail th {
 }
 
 /* dark mode overrides */
-@media all and (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: dark) {
 
 	body.darkmode { background-color: @ini_background_site_dark; color: @ini_text_dark; }
-	body.darkmode main { background-color:	@ini_background_dark;
-		   color:				@ini_text_dark;
-		   border-color:		@ini_background_dark}
-	body.darkmode main h1, body.darkmode main h2, body.darkmode main h3, body.darkmode main h4, body.darkmode main h5, body.darkmode main h6
-		 { color: @ini_headlines_dark; }
-	body.darkmode #sbNavigation h1, body.darkmode #sbNavigation h2, body.darkmode #sbNavigation h3, body.darkmode #sbNavigation h4, body.darkmode #sbNavigation h5, body.darkmode #sbNavigation h6 {	color: @ini_headlines_dark; }
+	body.darkmode main { background-color: @ini_background_dark; color: @ini_text_dark; border-color: @ini_background_dark; }
+	body.darkmode #navYouAreHere ol li { color: @ini_headlines_dark; }
+	body.darkmode main h1,
+	body.darkmode main h2,
+	body.darkmode main h3,
+	body.darkmode main h4,
+	body.darkmode main h5,
+	body.darkmode main h6 { color: @ini_headlines_dark; }
+	body.darkmode #sbNavigation h1,
+	body.darkmode #sbNavigation h2,
+	body.darkmode #sbNavigation h3,
+	body.darkmode #sbNavigation h4,
+	body.darkmode #sbNavigation h5,
+	body.darkmode #sbNavigation h6 { color: @ini_headlines_dark; }
 	body.darkmode #sidebar hr { background-image:	linear-gradient(to right, @ini_background_site_dark, @ini_text_alt, @ini_background_site_dark); }
-	body.darkmode #ftLicenseButtons hr {		background-image:	linear-gradient(to right, @ini_background_site_dark, @ini_text_dark, @ini_background_site_dark); }
-	body.darkmode #sidebar a:link, #sidebar a:visited { color: @ini_link_dark; }
+	body.darkmode #ftLicenseButtons hr { background-image: linear-gradient(to right, @ini_background_site_dark, @ini_text_dark, @ini_background_site_dark); }
+	body.darkmode #sidebar a:link,
+	body.darkmode #sidebar a:visited { color: @ini_link_dark; }
 	body.darkmode #footer-layout>footer h4 { color: @ini_headlines_dark; }
 
 	body.darkmode #phSearch form>div.search-field { border-color: @ini_border_dark; background: @ini_background_dark; }
@@ -770,7 +778,6 @@ body.mediadetail figure table.img_detail th {
 		background-color: rgba(0,0,0,.2);
 		border-color: @ini_border_dark;
 	}
-
 }
 
 /* tablet break point */

@@ -291,6 +291,7 @@ function my_youarehere($prefix = '') {
 
     $parts = explode(':', $ID);
     $count = count($parts);
+	$isdir = ( $parts[$count-1] == $conf['start']);
 
 	echo $prefix . "<nav id=\"navYouAreHere\">\n";
 	echo $prefix . "\t<h4>" . $lang['youarehere'] . "</h4>\n";
@@ -304,18 +305,29 @@ function my_youarehere($prefix = '') {
     for($i = 0; $i < $count - 1; $i++) {
         $part .= $parts[$i].':';
         $page = $part;
-        if($page == $conf['start']) continue; // Skip startpage
-
-        // output
-        echo $prefix . "\t\t<li>" . tpl_pagelink($page, null, true) . "</li>\n";
+        //if($page !== $conf['start']) { // Skip startpage
+		
+			if ($i == $count-2 && $isdir)  break; // Skip last if it is an index page
+		
+			echo $prefix . "\t\t<li>" . tpl_pagelink($page, null, true) . "</li>\n";
+		//}
     }
 
-    // print current page, skipping start page, skipping for namespace index
-    /* resolve_pageid('', $page, $exists);
-    if ( !(isset($page) && $page == $part.$parts[$i])
-		|| !($page == $conf['start']) ) {
-		echo "\t\t\t\t\t<li>" . tpl_pagelink($page, null, true) . "</li>\n";
-	} */
+    // chould the current page be included in the listing?
+	$trail = tpl_getConf('navtrail');
+
+	if ($trail !== 'none' && $trail !== '') {
+		resolve_pageid('', $page, $exists);
+		//if ( !(isset($page) && $page == $part.$parts[$i]) || !($page == $conf['start']) ) {
+			echo $prefix . "\t\t<li>";
+			if ($trail == 'text') {
+				echo tpl_pagetitle(null, true);
+			} else if ($trail == 'link') {
+				echo tpl_pagelink($ID, null, true);
+			}
+			echo "</li>\n";
+		//}
+	}
 	
 	echo $prefix . "\t</ol>\n";
 	echo $prefix . "</nav>\n";
@@ -509,7 +521,7 @@ function my_favicons($color = null) {
 		$styleUtil = new \dokuwiki\StyleUtils();
 		$styleIni = $styleUtil->cssStyleini();
 		$replacements = $styleIni['replacements'];
-		$color = $replacements['__theme_color__x'];
+		$color = $replacements['__theme_color__'];
 		
 		if ($color== null) { $color = '#2b73b7'; }
 	}

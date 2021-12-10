@@ -154,8 +154,9 @@ main table.inline tr:hover th {
 
 /* asides */
 main aside {
-	width:			33.3%;
+	width:			50%;
 	max-width:		220px;
+	min-width:		150px;
 	float:			right;
 	text-align:		center;
 	font-size:		smaller;
@@ -168,6 +169,16 @@ main aside footer {
 main img {
 	max-width:		100%;
 	height:			auto;
+}
+
+/* tablet break point: */
+@media (max-width: @ini_phone_width) {
+	
+	main aside {
+		width:			100%;
+		max-width:		initial;
+		float:			none;
+	}
 }
 
 /* dark mode overrides */
@@ -183,10 +194,3 @@ main img {
 
 }
 
-/* medium break point: */
-@media all and (max-width: @ini_phone_width) {
-	
-	main aside {
-		border: red dotted 1px;
-	}
-}
