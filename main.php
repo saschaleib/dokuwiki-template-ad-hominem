@@ -91,7 +91,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 				<p class="docInfo">
 <?php my_lastchange(str_repeat(chr(9),5));
 ?>				</p>				
-<?php tpl_includeFile('pagefooter.html') ?>
+<?php tpl_includeFile('pagefooter.html'); ?>
 			</footer>
 		</main>
 	</div>
@@ -115,9 +115,10 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 
 				</ul>
 			</div>
-<?php include('tpl_footer.php') ?>
+<?php include('tpl_footer.php'); ?>
 		</footer>
 	</div>
+<?php my_cookiebanner("\t"); ?>
 	<div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
 	<div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
 </body>

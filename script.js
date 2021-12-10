@@ -12,6 +12,7 @@ $p = {
 	init:	function() {
 		
 		$p.linkinfo.init();
+		$p.cookie_banner.init();
 		$p.search.init();
 		$p.togglers.init();
 
@@ -19,7 +20,7 @@ $p = {
 	
 	/* link information */
 	linkinfo: {
-		init:	function() {
+		init: function() {
 			
 			/* find all links in the main section */
 			var main = document.getElementsByTagName("main")[0];
@@ -219,6 +220,35 @@ $p = {
 			t.classList.remove(state);
 			t.classList.add(newState);
 
+		}
+	},
+	
+	/* Cookies info banner */
+	cookie_banner: {
+
+		/* initialize Cookies info banner */	
+		init: function() {
+			
+			// find the cookiebanner button:
+			var btn = jQuery('#cookiebanner button');
+			
+			if (btn.length >= 1) { // if found only
+			
+				// assign callback:
+				jQuery(btn).click($p.cookie_banner._buttonCallback);
+				
+				// set focus:
+				jQuery(btn).first().focus();
+			}
+		},
+		
+		/* callback for the "OK" button */
+		_buttonCallback: function() {
+
+			const date = new Date();
+			date.setFullYear(date.getFullYear() + 1);
+			document.cookie = 'cookielaw=1; path=' + BASEDIR + '; expires=' + date.toUTCString() + '; SameSite=Lax';
+			jQuery('#cookiebanner').remove();
 		}
 	}
 };

@@ -537,3 +537,38 @@ function my_favicons($color = null) {
 	echo "\t<link rel=\"apple-touch-icon\" href=\"" . $link . "\" />\n";
 
 }
+
+/**
+ * inserts the Cookies banner, if appropriate.
+ * This is based on Michal Koutny’s "cookielaw" plugin
+ *
+ * @param  string $prefix to be added before each line
+ */
+function my_cookiebanner($prefix = '') {
+
+	// if the cookie is already set, do nothing.
+	if (isset($_COOKIE['cookielaw'])) {
+		return;
+	}
+
+	// get the configuration settings:
+	$msg = tpl_getConf('cookiemsg', '(no message configured)');
+	$position = tpl_getConf('cookiepos', 'bottom');
+	$link = tpl_getConf('cookielink', 'about:cookies');
+	
+	// output the HTML code:
+	echo $prefix . "<div id=\"cookiebanner\" class=\"cb_" . $position . "\">\n";
+	echo $prefix . "\t<p class=\"cb_info\"><span class=\"cb_icon\"></span>\n";
+	echo $prefix . "\t\t<span class=\"cb_msg\">". $msg . "</span>\r";
+	echo $prefix . "\t</p>\n";
+	echo $prefix . "\t<p class=\"cb_action\">\n";
+	echo $prefix . "\t\t<button>" . hsc(tpl_getLang('cookie_consent')) . "</button>\n";
+	echo $prefix . "\t\t";
+	if ( substr($link, 0, 7) == 'http://' || substr($link, 0, 8) == 'https://') {
+		echo '<a href="' . $link . '" target="_blank">' . hsc(tpl_getLang('cookie_linktext')) . '</a>';
+	} else {
+		tpl_pagelink($link, tpl_getLang('cookie_linktext'));
+	}
+	echo $prefix . "\n\t</p>\n" . $prefix . "</div>\n";
+
+}

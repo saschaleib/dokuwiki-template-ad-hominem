@@ -11,3 +11,11 @@ $meta['darkmode'] = array(
 $meta['navtrail'] = array(
 						'multichoice',
 						'_choices' => array ('none', 'text', 'link'));
+
+$meta['cookiepos'] = array(
+						'multichoice',
+						'_choices' => array ('hide', 'top', 'bottom'));
+
+$meta['cookiemsg'] = array('');
+
+$meta['cookielink'] = array('string');
