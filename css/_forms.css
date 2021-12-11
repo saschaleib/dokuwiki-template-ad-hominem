@@ -61,9 +61,13 @@
   padding: 0.1em 0;
 }
 
-
 .dokuwiki button {
     vertical-align: middle;
+}
+.dokuwiki input:focus,
+.dokuwiki select:focus,
+.dokuwiki button:focus {
+	outline:	@ini_focus_color solid 2px;
 }
 /**
  * Styles for auth forms

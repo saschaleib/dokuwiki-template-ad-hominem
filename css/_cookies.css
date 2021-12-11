@@ -6,12 +6,13 @@
 	position: fixed;
 	left: 0;
 	width: 100%;
-	color: #333;
-	background-color: #EEE;
+	color: @ini_text;
+	background-color: @ini_background_alt;
 	z-index: 1000;
 	padding: 10px;
 	box-sizing: border-box;
 	box-shadow: 0px 0px 10px #666;
+	border-top: @ini_border solid 1px;
 }
 
 #cookiebanner.cb_top { top: 0; }
@@ -19,12 +20,13 @@
 #cookiebanner.cb_bottom { bottom: 0; }
 
 #cookiebanner p {
+	clear:		both;
 	margin:		0 auto;
 	max-width:	910pt;
 }
 
 #cookiebanner .cb_info {
-	margin-bottom:	1em;
+	margin-bottom:	6pt;
 }
 #cookiebanner .cb_icon {
 	float: left;
@@ -50,8 +52,8 @@
 #cookiebanner .cb_action button {
 	background-color:	rgba(0,0,0,0.1);
 	background-image:	none;
-	border: #666 solid 2pt;
-	color:	#333;
+	border: @ini_border solid 2pt;
+	color:	@ini_text;
 	padding: .25em .5em;
 	cursor: pointer;
 }
@@ -59,13 +61,14 @@
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
 	body.darkmode #cookiebanner {
-		color: #CCC;
-		background-color: #39393D;
-		box-shadow: transparent none 0;
+		color: @ini_text_dark;
+		background-color: @ini_background_dark;
+		box-shadow: 0 0 10px @ini_background_site_dark;
+		border-top-color: @ini_border_dark;
 	}
 	body.darkmode #cookiebanner .cb_action button {
 		background-color:	rgba(0,0,0,0.25);
-		border-color: 		#CCC;
-		color:				#CCC;
+		border-color: 		@ini_border_dark;
+		color:				@ini_text_dark;
 	}
 }

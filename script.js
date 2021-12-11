@@ -247,7 +247,10 @@ $p = {
 
 			const date = new Date();
 			date.setFullYear(date.getFullYear() + 1);
-			document.cookie = 'cookielaw=1; path=' + BASEDIR + '; expires=' + date.toUTCString() + '; SameSite=Lax';
+			
+			var path = ( typeof BASEDIR !== 'undefined' ? BASEDIR : '/');
+			
+			document.cookie = 'cookielaw=1; path=' + path + '; expires=' + date.toUTCString() + '; SameSite=Lax';
 			jQuery('#cookiebanner').remove();
 		}
 	}
