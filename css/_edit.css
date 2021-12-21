@@ -140,7 +140,7 @@ div.picker button.toolbutton {
 	font-family: 'Source Code Pro',Menlo,Consolas,'Courier New',Courier,monospace;
 	font-size: 12pt;
 	line-height: 17pt;
-	caret-color: @ini_focus_color;
+	caret-color: #0078D7;
 }
 .dokuwiki textarea.edit:focus {
 	outline: transparent none 0;
