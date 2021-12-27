@@ -37,11 +37,17 @@ body.home h1:first-child { margin-top: .5em; }
 
 /* make strike-through and underline more useful! */
 main u {
-	-webkit-text-decoration: underline #F30 wavy .7pt;
+	-webkit-text-decoration-color: #F30;
+	-webkit-text-decoration-line: underline;
+	-webkit-text-decoration-style: wavy;
+	-webkit-text-decoration-thickness: .7pt;
 	text-decoration: underline #F30 wavy .7pt;
 }
 main s {
-	-webkit-text-decoration: line-through rgba(255,0,0,.5) solid 1pt; 
+	-webkit-text-decoration-color: rgba(255,0,0,.5);
+	-webkit-text-decoration-line: line-through;
+	-webkit-text-decoration-style: solid;
+	-webkit-text-decoration-thickness: 1pt;
 	text-decoration: line-through rgba(255,0,0,.5) solid 1pt;
 }
 
@@ -160,6 +166,7 @@ main aside {
 	float:			right;
 	text-align:		center;
 	font-size:		smaller;
+	margin-left:	.5em;
 }
 main aside footer {
 	line-height:	1.1em;
@@ -174,23 +181,28 @@ main img {
 /* tablet break point: */
 @media (max-width: @ini_phone_width) {
 	
+	.nophone {
+		display:		none !important;
+	}
+	
 	main aside {
 		width:			100%;
 		max-width:		initial;
 		float:			none;
+		margin-left:	0;
 	}
 }
 
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
-	body.darkmode main h1, main h2, main h3, main h4, main h5, main h6 { color: @ini_headlines_dark; }
+	body.darkmode main h1, body.darkmode main h2,
+	body.darkmode main h3, body.darkmode main h4,
+	body.darkmode main h5, body.darkmode main h6 { color: @ini_headlines_dark; }
 	body.darkmode main table { border-color: @ini_border_dark; }
 	body.darkmode main table th { background-color: rgba(255,255,255,0.05); }
 	body.darkmode main table.inline tr:hover td { background-color: rgba(255,255,255,0.1); }
 	body.darkmode main code, main blockquote code { border-color: @ini_border_dark; }
 	body.darkmode main table.inline tr:hover th { background-color: @ini_border_dark; }
 	body.darkmode main blockquote { border-left-color: @ini_blockquote_dark }
-	body.darkmode main s { -webkit-text-decoration-thickness: 1.5pt; text-decoration-thickness: 1.5pt; }
-
 }
 
