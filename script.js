@@ -82,7 +82,7 @@ $p = {
 					var href = jQuery(this).attr('href');
 					
 					var rp = {
-						'basedir': BASEDIR,
+						'basedir': ( typeof BASEDIR !== 'undefined' ? BASEDIR : '/'),
 						'id': wid,
 						'ln': href.substring(href.lastIndexOf('/')+1)
 					};
