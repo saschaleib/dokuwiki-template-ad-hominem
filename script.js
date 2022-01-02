@@ -133,15 +133,12 @@ $p = {
 						wid = href.substring(href.lastIndexOf('/')+1);
 						break;
 					case 'ahtpl': // Other sites with this template
-						wid = href.substring($p.linkinfo._restURLs[cls].base.length).replace('/', ':');
+						wid = href.substring($p.linkinfo._restURLs[cls].base.length).replaceAll('/', ':');
 						break;
 					default: // unknown -> skip
 						return;
 				}
-				
-				console.log('href=' + href);
-				console.log('wid=' + wid);
-				
+
 				// URL found?
 				if (url !== null) {
 
