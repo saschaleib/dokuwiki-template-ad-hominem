@@ -36,13 +36,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 	<div id="header-layout">
 		<header>
 			<div id="siteLogo">
-				<?php
-					// get logo either out of the template images folder or data/media folder
-					$logoSize = array();
-					$logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/sitelogo.svg'), false, $logoSize);
-					tpl_link( wl(),
-						'<img src="'.$logo.'" ' . $logoSize[3] . ' alt="' . htmlentities($conf['title']) . '" />', 'accesskey="h" title="[H]" class="logo"');
-				?>
+				<?php my_sitelogo(); ?>
 
 				<h2 class="title"><?php tpl_link( wl(), htmlentities($conf['title']), ''); ?></h2>
 				<p class="claim"><?php echo $conf['tagline']; ?></p>
