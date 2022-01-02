@@ -179,10 +179,28 @@ main img {
 }
 
 /* tablet break point: */
+@media (max-width: @ini_tablet_width) {
+
+	/* use hyphenation rules */
+	main p {
+		hyphens: auto;
+		-webkit-hyphens: auto;
+		-moz-hyphens: auto;
+		-ms-hyphens: auto;
+		hyphenate-limit-chars: 6 2 3;
+		-ms-hyphenate-limit-chars: 6 2 3;
+		-webkit-hyphenate-limit-before: 2;
+		-webkit-hyphenate-limit-after: 3;
+		hyphenate-limit-lines: 3;
+		-ms-hyphenate-limit-lines: 3;
+	}
+}
+
+/* phone break point: */
 @media (max-width: @ini_phone_width) {
-	
+
 	.nophone {
-		display:		none !important;
+		display: none !important;
 	}
 	
 	main aside {
