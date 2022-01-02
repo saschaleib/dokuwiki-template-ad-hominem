@@ -7,6 +7,7 @@
  */
 
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
 
 //ini_set('display_errors', '1');
 
@@ -75,8 +76,8 @@ if ($id !== null) {
 		$result['extract'] = 'Error: page does not exist.';
 		$result['extract_html'] = '<p><strong>' . $result['extract'] . '</strong></p>';
 	}
-	 $result['conf'] = $conf;
-	// $result['meta'] = $meta;
+	// $result['conf'] = $conf; /* WARNING: this may expose your configuration to the Internet. Use only for debugging! */
+	// $result['meta'] = $meta; /* uncomment if you need additional meta information */
 } 
 
 /* output the result: */
