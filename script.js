@@ -41,61 +41,116 @@ $p = {
 		/* - basedir = this site's basedir (e.g. "/"), */
 		/* - id = the data id of the link (internal only) */
 		/* - ln = the link name (e.g. for Wikipedia links) */
+		/* types can be 'internal', 'wikimedia', or 'ahtpl' */
+		/*  for other sites using this template. */
 		_restURLs : {
-				'wikilink1'	: '%basedir%lib/tpl/ad-hominem/rest/pageinfo.php?id=%id%&v=preview',
-				'iw_wp'		: 'https://en.wikipedia.org/api/rest_v1/page/summary/%ln%',
-				'iw_wpfr' 	: 'https://fr.wikipedia.org/api/rest_v1/page/summary/%ln%',
-				'iw_wpde' 	: 'https://de.wikipedia.org/api/rest_v1/page/summary/%ln%',
-				'iw_wpes' 	: 'https://es.wikipedia.org/api/rest_v1/page/summary/%ln%',
-				'iw_wppl' 	: 'https://pl.wikipedia.org/api/rest_v1/page/summary/%ln%',
-				'iw_wpja' 	: 'https://it.wikipedia.org/api/rest_v1/page/summary/%ln%',
-				'iw_wpru' 	: 'https://ru.wikipedia.org/api/rest_v1/page/summary/%ln%',
-				'iw_meta' 	: 'https://meta.wikipedia.org/api/rest_v1/page/summary/%ln%'
+			'wikilink1'	: {
+				url: '%basedir%lib/tpl/ad-hominem/rest/pageinfo.php?id=%id%&v=preview',
+				type:'internal'
+			},	
+			'iw_wp'		: {
+				url:'https://en.wikipedia.org/api/rest_v1/page/summary/%id%',
+				type:'wikimedia'
+			},
+			'iw_wpfr' 	: {
+				url:'https://fr.wikipedia.org/api/rest_v1/page/summary/%id%',
+				type:'wikimedia'
+			},
+			'iw_wpde' 	: {
+				url:'https://de.wikipedia.org/api/rest_v1/page/summary/%id%',
+				type:'wikimedia'
+			},
+			'iw_wpes' 	: {
+				url:'https://es.wikipedia.org/api/rest_v1/page/summary/%id%',
+				type:'wikimedia'
+			},
+			'iw_wppl' 	: {
+				url:'https://pl.wikipedia.org/api/rest_v1/page/summary/%id%',
+				type:'wikimedia'
+			},
+			'iw_wpja' 	: {
+				url:'https://it.wikipedia.org/api/rest_v1/page/summary/%id%',
+				type:'wikimedia'
+			},
+			'iw_wpru' 	: {
+				url:'https://ru.wikipedia.org/api/rest_v1/page/summary/%id%',
+				type:'wikimedia'
+			},
+			'iw_meta' 	: {
+				url:'https://meta.wikipedia.org/api/rest_v1/page/summary/%id%',
+				type:'wikimedia'
+			},
+			'iw_ah' 	: {
+				url:'https://ad.hominem.info/de/lib/tpl/ad-hominem/rest/pageinfo.php?id=%id%&v=preview',
+				type:'ahtpl',
+				base:'https://ad.hominem.info/de/'
+			},
+			'iw_ahen' 	: {
+				url:'https://ad.hominem.info/en/lib/tpl/ad-hominem/rest/pageinfo.php?id=%id%&v=preview',
+				type:'ahtpl',
+				base:'https://ad.hominem.info/en/'
+			},
+			'iw_dfo' 	: {
+				url:'https://denkfehler.online/lib/tpl/ad-hominem/rest/pageinfo.php?id=%id%&v=preview',
+				type:'ahtpl',
+				base:'https://denkfehler.online/'
+			}
 		},
-		
+				
 		/* callback for the onhover event of links: */
 		_linkHoverCallback: function() {
 
-			/* TODO: remove jQuery dependency! */
-
 			var a = jQuery(this);
 			var hi = jQuery.data(this, 'has-info');
-			var wid = jQuery(this).data('wiki-id');
+			var href = jQuery(this).attr('href');
+			var wid = null;
 			var url = null;
+			var type = '';
 
 			/* only if the info hasn't been set yet: */
-			if ((hi == undefined || hi == '') && wid !== undefined) {
+			if (hi == undefined || hi == '') {
 				
-				// remember that we are now working on it:
+				// remember that we are now working on the link:
 				jQuery.data(this, 'has-info', '0');
 
+				// find the URL to query:
 				for (var cls in $p.linkinfo._restURLs) {
 					if (a.hasClass(cls)) {
-						url = $p.linkinfo._restURLs[cls];
+						url = $p.linkinfo._restURLs[cls].url;
+						type = $p.linkinfo._restURLs[cls].type;
 						break;
 					}
 				};
-
-				if (url !== null) {
 				
-					/* modify the URLs: */
-					var href = jQuery(this).attr('href');
+				/* get the ID to request: */
+				switch(type) {
 					
-					var rp = {
-						'basedir': ( typeof BASEDIR !== 'undefined' ? BASEDIR : '/'),
-						'id': wid,
-						'ln': href.substring(href.lastIndexOf('/')+1)
-					};
-					
-					for (var p in rp) {
-						url = url.replace('%'+p+'%', rp[p]);
-					}
+					case 'internal': // internal links
+						url = url.replace('%basedir%', (typeof BASEDIR!=='undefined'?BASEDIR:'/'));
+						wid = jQuery(this).data('wiki-id');
+						break;
+					case 'wikimedia': // wikipedia sites
+						wid = href.substring(href.lastIndexOf('/')+1);
+						break;
+					case 'ahtpl': // Other sites with this template
+						wid = href.substring($p.linkinfo._restURLs[cls].base.length).replace('/', ':');
+						break;
+					default: // unknown -> skip
+						return;
+				}
+				
+				console.log('href=' + href);
+				console.log('wid=' + wid);
+				
+				// URL found?
+				if (url !== null) {
 
 					/* load the page info */
 					jQuery.ajax({
-						url:		url,
+						url:		url.replace('%id%', encodeURIComponent(wid)),
 						context:	a,
 						dataType:	'json',
+						crossDomain: true,
 						error:		function(xhr, msg, e) {
 										console.error(msg);
 									},
