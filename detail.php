@@ -151,6 +151,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 <?php include('tpl_footer.php') ?>
 		</footer>
 	</div>
+<?php my_cookiebanner("\t"); ?>
 	<div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
 	<div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
 </body>
