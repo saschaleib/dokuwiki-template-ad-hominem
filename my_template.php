@@ -546,15 +546,15 @@ function my_favicons($color = null) {
  */
 function my_cookiebanner($prefix = '') {
 
-	// if the cookie is already set, do nothing.
-	if (isset($_COOKIE['cookielaw'])) {
-		return;
-	}
-
 	// get the configuration settings:
 	$msg = tpl_getConf('cookiemsg', '(no message configured)');
 	$position = tpl_getConf('cookiepos', 'bottom');
 	$link = tpl_getConf('cookielink', 'about:cookies');
+
+	// if the cookie is already set or position is set to hide, do nothing.
+	if ( isset($_COOKIE['cookielaw']) or $position == 'hide') {
+		return;
+	}
 	
 	// output the HTML code:
 	echo $prefix . "<div id=\"cookiebanner\" class=\"cb_" . $position . "\">\n";
