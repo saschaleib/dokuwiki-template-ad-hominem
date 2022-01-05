@@ -351,11 +351,19 @@ function my_userinfo($prefix = '') {
 	$items = (new \dokuwiki\Menu\UserMenu())->getItems();
 	foreach($items as $it) {
 		$typ = $it->getType();
+		
+		if ($typ === 'profile') { // special case for user profile:
+		
+			echo $prefix . '<li class="action profile"><span class="sronly">' . $lang['loggedinas'] .
+				' </span><a href="' . htmlentities($it->getLink()) . '" title="' . $it->getTitle() . '">' .
+				userlink() . "</a></li>\n";
 
-		// special case for user profile, otherwise just write the items out:
-		echo $prefix . "<li class=\"action $typ\"><span class=\"sronly\">" . $lang['loggedinas'] .
-			' </span><a href="' . htmlentities($it->getLink()) . '" title="' . $it->getTitle() . '">' .
-			($typ === 'profile'? userlink() : $it->getLabel() ) . "</a></li>\n";
+		} else {
+
+			echo $prefix . "<li class=\"action $typ\"><a href=\"" . htmlentities($it->getLink()) .
+				'" title="' . $it->getTitle() . '">' . ($typ === 'profile'? userlink() : $it->getLabel() ) .
+				"</a></li>\n";
+		}
 	}
 }
 
