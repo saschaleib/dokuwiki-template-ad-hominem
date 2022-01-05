@@ -351,11 +351,16 @@ function my_userinfo($prefix = '') {
 	$items = (new \dokuwiki\Menu\UserMenu())->getItems();
 	foreach($items as $it) {
 		$typ = $it->getType();
+
+		// $it->getLabel() returns just the string "User profile" in the configured language.
+		// Using userlink() shows the full username instead and gives an indication of the currently logged in user account.k
 		if ($typ === 'profile') {
-			echo $prefix . "<li class=\"action $typ\"><span class=\"sronly\">" . $lang['loggedinas'] . ' </span>' . userlink() . "</li>\n";
+		    $label = userlink();
 		} else {
-			echo $prefix . "<li class=\"action $typ\"><a href=\"" . htmlentities($it->getLink()) . '" title="' . $it->getTitle() . '">' . $it->getLabel() . "</a></li>\n";
+		    $label = $it->getLabel();
 		}
+
+		echo $prefix . "<li class=\"action $typ\"><a href=\"" . htmlentities($it->getLink()) . '" title="' . $it->getTitle() . '">' . $label . "</a></li>\n";
 	}
 
 }
