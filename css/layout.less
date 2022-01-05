@@ -413,12 +413,15 @@ main {
 }
 #navYouAreHere ol li {
 	color:			@ini_headlines;
-	display:			inline;
-	margin-bottom:		0;
+	display:		inline;
+	margin-bottom:	0;
+	max-width:		20em;
+	min-width:		2.2em;
+	overflow:		hidden;
+	text-overflow:	'\202F...';
 }
 #navYouAreHere ol li.home {
 	min-width:		14px;
-	overflow:		hidden;
 }
 
 #navYouAreHere ol li:before {

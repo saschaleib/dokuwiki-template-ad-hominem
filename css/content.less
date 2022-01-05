@@ -70,6 +70,8 @@ main ol ol { list-style-type: lower-alpha; }
 main ol ol ol { list-style-type: lower-roman; }
 main ol ol ol ol { list-style-type: lower-greek; }
 main ol ol ol ol ol { list-style-type: decimal-leading-zero; }
+main ul ul ul ol li { margin-left: 0; }
+main ul ul ul ol li:before { display: none; content: ''; }
 
 main li::marker {
 	color:			#666;
