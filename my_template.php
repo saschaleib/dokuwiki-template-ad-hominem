@@ -352,17 +352,11 @@ function my_userinfo($prefix = '') {
 	foreach($items as $it) {
 		$typ = $it->getType();
 
-		// $it->getLabel() returns just the string "User profile" in the configured language.
-		// Using userlink() shows the full username instead and gives an indication of the currently logged in user account.k
-		if ($typ === 'profile') {
-		    $label = userlink();
-		} else {
-		    $label = $it->getLabel();
-		}
-
-		echo $prefix . "<li class=\"action $typ\"><a href=\"" . htmlentities($it->getLink()) . '" title="' . $it->getTitle() . '">' . $label . "</a></li>\n";
+		// special case for user profile, otherwise just write the items out:
+		echo $prefix . "<li class=\"action $typ\"><span class=\"sronly\">" . $lang['loggedinas'] .
+			' </span><a href="' . htmlentities($it->getLink()) . '" title="' . $it->getTitle() . '">' .
+			($typ === 'profile'? userlink() : $it->getLabel() ) . "</a></li>\n";
 	}
-
 }
 
 /**
