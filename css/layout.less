@@ -420,8 +420,17 @@ main {
 	overflow:		hidden;
 	text-overflow:	'\202F...';
 }
+
+#navYouAreHere ol li:last-child() { flex-shrink: 1; }
+#navYouAreHere ol li:nth-last-child(2) { flex-shrink: 2; }
+#navYouAreHere ol li:nth-last-child(3) { flex-shrink: 3; }
+#navYouAreHere ol li:nth-last-child(4) { flex-shrink: 4; }
+#navYouAreHere ol li:nth-last-child(5) { flex-shrink: 5; }
+#navYouAreHere ol li:nth-last-child(6) { flex-shrink: 6; }
+
 #navYouAreHere ol li.home {
 	min-width:		14px;
+	flex-shrink:	0 !important;
 }
 
 #navYouAreHere ol li:before {
