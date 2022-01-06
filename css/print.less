@@ -38,12 +38,16 @@ body {
 	padding-bottom:	.25em;
 	margin-bottom:	.5em;
 }
+#header-layout > header {
+	grid-template-columns: 27pt auto;
+	border-bottom: transparent solid 1em;
+}
 #siteLogo {
-	grid-template-columns:	14pt auto;
-	padding:		0 0 .5em 0;
+	display:		contents;
+	width:			27pt;
 }
 #siteLogo .logo img {
-	width:			14pt;
+	width:			24pt;
 }
 #siteLogo .title {
 	font-size:		14pt;
@@ -56,7 +60,14 @@ body {
 	text-decoration: none;
 }
 #siteLogo .claim {
-	display:		none;
+	max-width:		100%;
+	margin:			5pt 0;
+	font-size:		x-small;
+}
+
+#header-layout #phInclude {
+	grid-column: 1 / span 2;
+	border-bottom: #000 solid .5pt;
 }
 
 #main-layout {
@@ -278,8 +289,11 @@ main aside {
 	font-size:		smaller;
 	page-break-inside:	avoid;
 	break-inside:	avoid;
+	font-size:		small;
+	line-height:	1.5em;
 }
 main img {
+	width:			100%;
 	max-width:		100%;
 	height:			auto;
 }
