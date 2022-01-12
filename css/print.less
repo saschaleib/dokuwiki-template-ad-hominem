@@ -176,6 +176,11 @@ main a:visited {
 	color:				@ini_print_title_color;
 	text-decoration:	none;
 }
+main a:link.text-link,
+main a:visited.text-link {
+	color:				#000;
+}
+
 /* add URL after external links - optional!
 main a.interwiki:after,
 main a.urlextern:after {
@@ -196,8 +201,16 @@ main s {
 	-webkit-text-decoration:	line-through rgba(255,0,0,0.5) solid 1pt;
 }
 main u {
-	text-decoration:			underline #F30 wavy .7pt;
-	-webkit-text-decoration:	underline #F30 wavy .7pt;
+	-webkit-text-decoration-color: @ini_missing;
+	-webkit-text-decoration-line: underline;
+	-webkit-text-decoration-style: wavy;
+	-webkit-text-decoration-thickness: .7pt;
+	text-decoration: underline @ini_missing wavy .7pt;
+}
+main u.valid {
+	-webkit-text-decoration-color: @ini_existing;
+	text-decoration-color: @ini_existing;
+	text-decoration-style: dashed;
 }
 main abbr {
 	text-decoration:		none;
@@ -362,6 +375,7 @@ main .wrap_info-box {
 	font-size:			small;
 	line-height:		1.5em;
 }
+
 main aside.info-box,
 main aside .wrap_info-box {
 	border:				none;
