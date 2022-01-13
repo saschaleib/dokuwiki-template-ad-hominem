@@ -184,7 +184,6 @@ main aside footer {
 
 /* images */
 main img {
-	width:			100%;
 	max-width:		100%;
 	height:			auto;
 }
@@ -230,9 +229,13 @@ main img {
 	body.darkmode main table { border-color: @ini_border_dark; }
 	body.darkmode main table th { background-color: rgba(255,255,255,0.05); }
 	body.darkmode main table.inline tr:hover td,
-	body.darkmode #acl_manager table tr:hover	{ background-color: rgba(255,255,255,0.1); }
+	body.darkmode #acl_manager table tr:hover { background-color: rgba(255,255,255,0.1); }
 	body.darkmode main code, main blockquote code { border-color: @ini_border_dark; }
 	body.darkmode main table.inline tr:hover th { background-color: @ini_border_dark; }
 	body.darkmode main blockquote { border-left-color: @ini_blockquote_dark }
+	
+	body.darkmode div.error { background-color: #4B2F36; color: #FFB3D2; border-color: #743E4C; }
+	body.darkmode div.success { background-color: #28381F; color: #FBE2A1; border-color: #37562E; }
+	body.darkmode div.notify { background-color: #42381F; color: #FCE2A1; border-color: #56562E; }
 }
 
