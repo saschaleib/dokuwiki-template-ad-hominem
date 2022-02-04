@@ -717,6 +717,11 @@ body.mediadetail figure table.img_detail th {
 	background-color:		inherit;
 }
 
+#config__manager tr.default .input,
+#config__manager tr .input {
+	background-color:	transparent;
+}
+
 /* dark mode overrides */
 @media screen and (prefers-color-scheme: dark) {
 
@@ -790,6 +795,10 @@ body.mediadetail figure table.img_detail th {
 	body.darkmode main figure {
 		background-color: rgba(0,0,0,.2);
 		border-color: @ini_border_dark;
+	}
+	body.darkmode #config__manager tr.default .input,
+	body.darkmode #config__manager tr .input {
+		color:	@ini_text_dark;
 	}
 }
 

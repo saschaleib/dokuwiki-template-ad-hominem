@@ -5,6 +5,8 @@
 
 /*____________ list of revisions / recent changes ____________*/
 
+/* added dark mode overrides -- SL
+
 /* select type of revisions (media/pages) */
 .dokuwiki .changeType {
     margin-bottom: .5em;
@@ -72,4 +74,18 @@
 .dokuwiki div.pagenav-next {
     display: inline;
     margin: 0 .5em;
+}
+
+/* dark mode overrides */
+@media (prefers-color-scheme: dark) {
+	.dokuwiki form.changes li .sizechange {
+		background-color:	#0C0C0D;
+		color:				#D0D5DA;
+	}
+	.dokuwiki form.changes li .sizechange.positive {
+		background-color:	#0A3A1E;
+	}
+	.dokuwiki form.changes li .sizechange.negative {
+		background-color:	#49090F;
+	}
 }
