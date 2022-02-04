@@ -60,7 +60,7 @@
 }
 
 #tool__bar button {
-	background:	#E9E9ED none center no-repeat;
+	background:	#E9E9ED url('images/editor/default.svg') center no-repeat;
 	background-size: 20px;
 	padding: 3pt 6pt;
 	border:	@ini_border solid 1px;
