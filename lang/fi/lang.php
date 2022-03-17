@@ -43,3 +43,5 @@ $lang['__blockquote_dark__']   = 'Lohkolausemerkintä (tumma tila)';
 
 $lang['cookie_consent']        = 'OK';
 $lang['cookie_linktext']       = 'Lisätietoja';
+
+$lang['homepage']				= 'Kotisivu';

@@ -47,3 +47,5 @@ $lang['__blockquote_dark__']   = 'Marcador de cita en bloque (modo oscuro)';
 
 $lang['cookie_consent']        = 'OK';
 $lang['cookie_linktext']       = 'Más información';
+
+$lang['homepage']				= 'Página de inicio';

@@ -21,3 +21,5 @@ $lang['cookiepos_o_bottom'] = 'Unten anzeigen';
 
 $lang['cookiemsg']          = 'Text auf dem Cookie-Banner (HTML erlaubt)';
 $lang['cookielink']         = 'Link zu weiteren Informationen (interner oder externer Link)';
+
+$lang['homelink']         = 'Link zu übergeordneter Homepage (leer für Standardverhalten)';

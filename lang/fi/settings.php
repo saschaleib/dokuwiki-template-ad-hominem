@@ -21,3 +21,5 @@ $lang['cookiepos_o_bottom'] = 'Näytä sivun alareunassa';
 
 $lang['cookiemsg']          = 'Evästeiden bannerissa näytettävä viesti (voi sisältää HTML-tunnisteita)';
 $lang['cookielink']         = 'Linkki ”Lisätietoja”-sivulle (sisäinen tai ulkoinen)';
+
+$lang['homelink']         = 'Linkki ylemmän tason kotisivulle (tyhjä oletusarvoisesti)';

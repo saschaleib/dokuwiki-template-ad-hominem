@@ -48,3 +48,5 @@ $lang['__blockquote_dark__']     = 'Markierung von Zitatblöcken (Nachtmodus)';
 
 $lang['cookie_consent']        = 'OK';
 $lang['cookie_linktext']       = 'Mehr Info';
+
+$lang['homepage']				= 'Startseite';

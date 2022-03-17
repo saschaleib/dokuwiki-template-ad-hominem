@@ -21,3 +21,5 @@ $lang['cookiepos_o_bottom'] = 'Afficher en bas de la page';
 
 $lang['cookiemsg']          = 'Le message à afficher dans le bandeau de messages sur les cookies (peut contenir du HTML)';
 $lang['cookielink']         = 'Lien vers la page « Plus d’informations » (interne ou externe)';
+
+$lang['homelink']         = 'Remplacer le lien de la page d’accueil (vide pour le comportement par défaut)';

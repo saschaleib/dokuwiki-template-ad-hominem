@@ -19,3 +19,5 @@ $meta['cookiepos'] = array(
 $meta['cookiemsg'] = array('');
 
 $meta['cookielink'] = array('string');
+
+$meta['homelink'] = array('string');

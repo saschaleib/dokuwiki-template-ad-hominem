@@ -232,6 +232,28 @@ function _my_metaheaders_action($data) {
 }
 
 /**
+ * get a link to the homepage.
+ *
+ * wraps the original wl() function to allow overriding in the options
+ *
+ * @author Sascha Leib <sascha@leib.be>
+ *
+ * @returns string (link)
+ */
+function my_homelink() {
+    global $conf;
+	
+	$hl = trim(tpl_getConf('homelink'));
+
+	if ( $hl !== '' ) {
+		return $hl;
+	} else {
+		return wl(); // default homelink
+	}
+}
+
+
+/**
  * Print the breadcrumbs trace
  *
  * Cleanup of the original code to create neater and more accessible HTML
@@ -292,13 +314,20 @@ function my_youarehere($prefix = '') {
     $parts = explode(':', $ID);
     $count = count($parts);
 	$isdir = ( $parts[$count-1] == $conf['start']);
+	
+	$hl = trim(tpl_getConf('homelink'));
 
 	echo $prefix . "<nav id=\"navYouAreHere\">\n";
 	echo $prefix . "\t<h4>" . $lang['youarehere'] . "</h4>\n";
 	echo $prefix . "\t<ol>\n";
 
     // always print the startpage
-    echo $prefix . "\t\t<li class=\"home\">" . tpl_pagelink(':'.$conf['start'], null, true) . "</li>\n";
+	if ( $hl !== '' ) {
+		echo $prefix . "\t\t<li class=\"home\">" . tpl_link( $hl, htmlentities(tpl_getLang('homepage')), ' title="' . htmlentities(tpl_getLang('homepage')) . '"', true) . "</li>\n";
+		echo $prefix . "\t\t<li>" . tpl_pagelink(':'.$conf['start'], null, true) . "</li>\n";
+	} else {
+		echo $prefix . "\t\t<li class=\"home\">" . tpl_pagelink(':'.$conf['start'], null, true) . "</li>\n";
+	}
 
     // print intermediate namespace links
     $part = '';
@@ -506,7 +535,7 @@ function my_sitelogo() {
 	// get logo either out of the template images folder or data/media folder
 	$logoSize = array();
 	$logo = tpl_getMediaFile(array(':logo.svg', ':wiki:logo.svg', ':logo.png', ':wiki:logo.png', 'images/sitelogo.svg'), false, $logoSize);
-	tpl_link( wl(),
+	tpl_link( my_homelink(),
 		'<img src="'.$logo.'" ' . $logoSize[3] . ' alt="' . htmlentities($conf['title']) . '" />', 'accesskey="h" title="[H]" class="logo"');
 }
 

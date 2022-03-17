@@ -38,7 +38,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 			<div id="siteLogo">
 				<?php my_sitelogo(); ?>
 
-				<h2 class="title"><?php tpl_link( wl(), htmlentities($conf['title']), ''); ?></h2>
+				<h2 class="title"><?php tpl_link( my_homelink(), htmlentities($conf['title']), ''); ?></h2>
 				<p class="claim"><?php echo $conf['tagline']; ?></p>
 			</div>
 			<div id="globalTools">

@@ -43,3 +43,5 @@ $lang['__blockquote_dark__']   = 'Blockquote marker (dark mode)';
 
 $lang['cookie_consent']        = 'OK';
 $lang['cookie_linktext']       = 'More information';
+
+$lang['homepage']				= 'Homepage';

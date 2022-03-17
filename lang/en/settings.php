@@ -21,3 +21,5 @@ $lang['cookiepos_o_bottom'] = 'Show on bottom of page';
 
 $lang['cookiemsg']          = 'The message to display on the Cookie banner (may contain HTML tags)';
 $lang['cookielink']         = 'Link to the “More information” page (internal or external)';
+
+$lang['homelink']         = 'Override the homepage link (empty for default behaviour)';
