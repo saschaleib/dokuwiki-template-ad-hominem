@@ -252,7 +252,6 @@ function my_homelink() {
 	}
 }
 
-
 /**
  * Print the breadcrumbs trace
  *
