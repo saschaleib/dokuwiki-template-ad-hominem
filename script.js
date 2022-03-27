@@ -36,7 +36,7 @@ $p = {
 			});
 		},
 		
-		/* list of REST API URLs for different sites. */
+		/* pre-defined REST API URLs for different sites. */
 		/* variables are enclosed in %, allowed vars are: */
 		/* - basedir = this site's basedir (e.g. "/"), */
 		/* - id = the data id of the link (internal only) */
@@ -79,23 +79,14 @@ $p = {
 			'iw_meta' 	: {
 				url:'https://meta.wikipedia.org/api/rest_v1/page/summary/%id%',
 				type:'wikimedia'
-			},
-			'iw_ah' 	: {
-				url:'https://ad.hominem.info/de/lib/tpl/ad-hominem/rest/pageinfo.php?id=%id%&v=preview',
-				type:'ahtpl',
-				base:'https://ad.hominem.info/de/'
-			},
-			'iw_ahen' 	: {
-				url:'https://ad.hominem.info/en/lib/tpl/ad-hominem/rest/pageinfo.php?id=%id%&v=preview',
-				type:'ahtpl',
-				base:'https://ad.hominem.info/en/'
-			},
-			'iw_dfo' 	: {
-				url:'https://denkfehler.online/lib/tpl/ad-hominem/rest/pageinfo.php?id=%id%&v=preview',
-				type:'ahtpl',
-				base:'https://denkfehler.online/'
 			}
 		},
+		/* note: this covers the internal links and the most common
+		   wikipedia lang versions. If you know about any other 
+		   relevant sites to be added here, let the author of this
+		   template know (ad@hominem.info) */
+		   
+		/* TODO: mechanism to dynamically add sites by site admin */
 				
 		/* callback for the onhover event of links: */
 		_linkHoverCallback: function() {
@@ -281,13 +272,18 @@ $p = {
 		/* initialize Cookies info banner */	
 		init: function() {
 			
-			// find the cookiebanner button:
+			// find the cookiebanner elements:
 			var btn = jQuery('#cookiebanner button');
 			
-			if (btn.length >= 1) { // if found only
+			var cookie = jQuery.cookie('cookielaw');
+			
+			if ( (cookie !== '1') && (btn.length >= 1) ) { // if found only
 			
 				// assign callback:
 				jQuery(btn).click($p.cookie_banner._buttonCallback);
+				
+				// show the banner
+				jQuery('#cookiebanner').show();
 				
 				// set focus:
 				jQuery(btn).first().focus();

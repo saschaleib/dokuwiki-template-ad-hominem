@@ -251,6 +251,7 @@ div.no {
 #phInclude {
 	grid-column:		2 / span 2;
 	grid-row:			3;
+	margin-right:		2pt;
 }
 
 #main-layout {
@@ -275,14 +276,19 @@ div.no {
 	max-width:			1em;
 }
 #sidebar p,
-#sidebar ul {
-	list-style:			square outside;
+#sidebar ul,
+#sidebar ol {
 	padding-left:		1.25em;
 }
-#sidebar ul ~ ul {
+#sidebar ul {
+	list-style:			square outside;
+}
+#sidebar ul ~ ul, #sidebar ul ~ ol,
+#sidebar ol ~ ul, #sidebar ol ~ ol {
 	margin-top:			.5em;
 }
-#sidebar ul li {
+#sidebar ul li,
+#sidebar ol li {
 	color:				@ini_text_alt;
 	padding:			.1em 0;
 }
@@ -840,6 +846,7 @@ body.mediadetail figure table.img_detail th {
 	#header-layout>header #phInclude {
 		grid-row:			4;
 		grid-column:		1 / span 2;
+		margin:				0 6pt 5pt 64px;
 	}
 
 	#qsearch__out ul {
@@ -929,10 +936,11 @@ body.mediadetail figure table.img_detail th {
 		font-size:			1rem;
 		padding:			.25em 0 .25em 2pt;
 	}
-	#sidebar ul, #sidebar ol	{
+	#sidebar ul, #sidebar ol {
 		margin-left:		.5em;
 	}
-	#sidebar ul ul, #sidebar ol ol, #sidebar ul ol, #sidebar ol ul {
+	#sidebar ul ul, #sidebar ol ol,
+	#sidebar ul ol, #sidebar ol ul {
 		margin-left:		0;
 	}
 	#sidebar p,
