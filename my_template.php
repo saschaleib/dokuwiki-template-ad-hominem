@@ -8,6 +8,7 @@
  */
 
 use dokuwiki\Extension\Event;
+use dokuwiki\File\PageResolver;
 
 /**
  * Print the specific HTML meta headers
@@ -332,32 +333,28 @@ function my_youarehere($prefix = '') {
 	}
 
     // print intermediate namespace links
-    $part = '';
+    $page = '';
     for($i = 0; $i < $count - 1; $i++) {
-        $part .= $parts[$i].':';
-        $page = $part;
-        //if($page !== $conf['start']) { // Skip startpage
-		
-			if ($i == $count-2 && $isdir)  break; // Skip last if it is an index page
-		
-			echo $prefix . "\t\t<li>" . tpl_pagelink($page, null, true) . "</li>\n";
-		//}
+        $part = $parts[$i];
+        $page .= $part . ':';
+
+		if ($i == $count-2 && $isdir)  break; // Skip last if it is an index page
+	
+		echo $prefix . "\t\t<li>" . tpl_pagelink($page, null, true) . "</li>\n";
     }
 
     // chould the current page be included in the listing?
 	$trail = tpl_getConf('navtrail');
-
+	
 	if ($trail !== 'none' && $trail !== '') {
-		resolve_pageid('', $page, $exists);
-		//if ( !(isset($page) && $page == $part.$parts[$i]) || !($page == $conf['start']) ) {
-			echo $prefix . "\t\t<li>";
-			if ($trail == 'text') {
-				echo tpl_pagetitle(null, true);
-			} else if ($trail == 'link') {
-				echo tpl_pagelink($ID, null, true);
-			}
-			echo "</li>\n";
-		//}
+
+		echo $prefix . "\t\t<li class=\"current\">";
+		if ($trail == 'text') {
+			echo tpl_pagetitle($page . $parts[$count-1], true);
+		} else if ($trail == 'link') {
+			echo tpl_pagelink($page . $parts[$count-1], null, true);
+		}
+		echo "</li>\n";
 	}
 	
 	echo $prefix . "\t</ol>\n";
