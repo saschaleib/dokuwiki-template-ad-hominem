@@ -54,10 +54,13 @@ function my_metaheaders($alt = true) {
 		$head['meta'][] = array('property' => 'og:url', 'content' => wl($ID, '', true, '&'));
 	
 		$parts = explode("\n", $meta['description']['abstract']);
-		$head['meta'][] = array('property' => 'og:description', 'content' => $parts[2]);
 		
-		// Bing insists in a non-og description:
-		$head['meta'][] = array('property' => 'description', 'content' => $parts[2]);
+		if (is_array($parts) && array_key_exists(2, $parts)) {
+			$head['meta'][] = array('property' => 'og:description', 'content' => $parts[2]);
+		
+			// Bing insists in a non-og description:
+			$head['meta'][] = array('property' => 'description', 'content' => $parts[2]);
+		}
 	}
 
     // the usual stuff
@@ -535,7 +538,7 @@ function my_sitelogo() {
 	$logoSize = array();
 	$logo = tpl_getMediaFile(array(':logo.svg', ':wiki:logo.svg', ':logo.png', ':wiki:logo.png', 'images/sitelogo.svg'), false, $logoSize);
 	tpl_link( my_homelink(),
-		'<img src="'.$logo.'" ' . $logoSize[3] . ' alt="' . htmlentities($conf['title']) . '" />', 'accesskey="h" title="[H]" class="logo"');
+		'<img src="'.$logo.'" ' . (is_array($logoSize) && array_key_exists(3, $logoSize) ? $logoSize[3] : '') . ' alt="' . htmlentities($conf['title']) . '" />', 'accesskey="h" title="[H]" class="logo"');
 }
 
 /**
