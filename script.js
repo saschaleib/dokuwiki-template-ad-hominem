@@ -11,8 +11,8 @@ $p = {
 	/* called to initialize the entire script */
 	init:	function() {
 		
-		$p.linkinfo.init();
 		$p.cookie_banner.init();
+		$p.linkinfo.init();
 		$p.search.init();
 		$p.togglers.init();
 
