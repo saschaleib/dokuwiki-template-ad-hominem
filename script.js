@@ -23,7 +23,7 @@ $p = {
 		init: function() {
 			
 			/* find all links in the main section */
-			var main = document.getElementsByTagName("main")[0];
+			var main = document.getElementById("main-layout");
 			var al = main.getElementsByTagName("a");
 			Array.prototype.forEach.call(al, function (a) {
 				
@@ -80,18 +80,19 @@ $p = {
 				url:'https://meta.wikipedia.org/api/rest_v1/page/summary/%id%',
 				type:'wikimedia'
 			},
-			'iw_fo' 	: {
+			'iw_en' 	: {
 				url:'https://fallacies.online/wiki/lib/tpl/ad-hominem/rest/pageinfo.php?id=%id%&v=preview',
+				base:'https://fallacies.online/wiki/',
 				type:'ahtpl'
 			},
-			'iw_dfo' 	: {
+			'iw_de' 	: {
 				url:'https://denkfehler.online/wiki/lib/tpl/ad-hominem/rest/pageinfo.php?id=%id%&v=preview',
+				base:'https://denkfehler.online/wiki/',
 				type:'ahtpl'
 			}
 		},
 		/* note: this covers the internal links and the most common
-		   wikipedia lang versions, as well as my own "denkfehler.online"
-		   and "fallacies.online" sites. If you know about any other 
+		   wikipedia lang versions. If you know about any other 
 		   relevant sites to be added here, let the author of this
 		   template know (ad@hominem.info) */
 		   
@@ -114,14 +115,16 @@ $p = {
 				jQuery.data(this, 'has-info', '0');
 
 				// find the URL to query:
-				for (var cls in $p.linkinfo._restURLs) {
-					if (a.hasClass(cls)) {
-						url = $p.linkinfo._restURLs[cls].url;
-						type = $p.linkinfo._restURLs[cls].type;
-						break;
-					}
-				};
-				
+				try {
+					for (var cls in $p.linkinfo._restURLs) {
+						if (a.hasClass(cls)) {
+							url = $p.linkinfo._restURLs[cls].url;
+							type = $p.linkinfo._restURLs[cls].type;
+							break;
+						}
+					};
+				} catch (e) {}
+
 				/* get the ID to request: */
 				switch(type) {
 					
@@ -153,8 +156,10 @@ $p = {
 									},
 						success:	function(data, msg, xhr) {
 										// build the new title for the element:
-										jQuery(this).attr('title', data.title + "\n" + data.extract);
-										jQuery.data(this, 'has-info', '1')
+										if (typeof data.title !== 'undefined') {
+											jQuery(this).attr('title', data.title + "\n" + data.extract);
+											jQuery.data(this, 'has-info', '1');
+										}
 									},
 						complete:	function() {
 										if (jQuery.data(this, 'has-info') == '0') {
