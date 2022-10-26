@@ -79,10 +79,19 @@ $p = {
 			'iw_meta' 	: {
 				url:'https://meta.wikipedia.org/api/rest_v1/page/summary/%id%',
 				type:'wikimedia'
+			},
+			'iw_fo' 	: {
+				url:'https://fallacies.online/wiki/lib/tpl/ad-hominem/rest/pageinfo.php?id=%id%&v=preview',
+				type:'ahtpl'
+			},
+			'iw_dfo' 	: {
+				url:'https://denkfehler.online/wiki/lib/tpl/ad-hominem/rest/pageinfo.php?id=%id%&v=preview',
+				type:'ahtpl'
 			}
 		},
 		/* note: this covers the internal links and the most common
-		   wikipedia lang versions. If you know about any other 
+		   wikipedia lang versions, as well as my own "denkfehler.online"
+		   and "fallacies.online" sites. If you know about any other 
 		   relevant sites to be added here, let the author of this
 		   template know (ad@hominem.info) */
 		   
