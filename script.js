@@ -142,8 +142,8 @@ $p = {
 						return;
 				}
 
-				// URL found?
-				if (url !== null) {
+				// URL & ID found?
+				if (url !== null && typeof wid !== 'undefined') {
 
 					/* load the page info */
 					jQuery.ajax({
