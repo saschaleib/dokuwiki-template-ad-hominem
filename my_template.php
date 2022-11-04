@@ -462,8 +462,8 @@ function my_toc($prefix = '') {
 				echo "</li>\n";
 			}
 			
-			$href = $it['link'];
-			if	(array_key_exists("hid", $it)) {
+			$href = ( array_key_exists('link', $it) ? $it['link'] : '');
+			if	(array_key_exists('hid', $it)) {
 				$href .= '#' . $it['hid'];
 			}
 
