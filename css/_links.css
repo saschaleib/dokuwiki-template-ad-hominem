@@ -27,6 +27,10 @@
 }
 
 /* override some link icons */
+a.interwiki {
+	background-size: 1.0em;
+}
+
 a.iw_google_de {
   background-image: url(/lib/images/interwiki/google.svg);
 }
