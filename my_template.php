@@ -47,7 +47,7 @@ function my_metaheaders($alt = true) {
 
 	// Open Graph information
 	$meta = p_get_metadata($ID);
-	if ($meta['title'] !== null) {
+	if (is_array($meta) && array_key_exists('title', $meta) && $meta['title'] !== null) {
 		$head['meta'][] = array('property' => 'og:title', 'content' => tpl_pagetitle($ID, true));
 		$head['meta'][] = array('property' => 'og:site_name ', 'content' => $conf['title']);
 		$head['meta'][] = array('property' => 'og:type', 'content' => 'website');
