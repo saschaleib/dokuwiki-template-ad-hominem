@@ -467,7 +467,7 @@ function my_toc($prefix = '') {
 			}
 			
 			$href = ( array_key_exists('link', $it) ? $it['link'] : '');
-			$href .= (array_key_exists('hid', $it)) ? '#' . $it['hid'] : '');
+			$href .= (array_key_exists('hid', $it) ? '#' . $it['hid'] : '');
 
 			echo $prefix . str_repeat("\t", $nl*2 + 1) . '<li><a href="' . $href . '">' . htmlentities($it['title']) . "</a>";
 			$level = $nl;
