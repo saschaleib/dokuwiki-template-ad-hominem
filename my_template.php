@@ -53,13 +53,17 @@ function my_metaheaders($alt = true) {
 		$head['meta'][] = array('property' => 'og:type', 'content' => 'website');
 		$head['meta'][] = array('property' => 'og:url', 'content' => wl($ID, '', true, '&'));
 	
-		$parts = explode("\n", $meta['description']['abstract']);
-		
-		if (is_array($parts) && array_key_exists(2, $parts)) {
-			$head['meta'][] = array('property' => 'og:description', 'content' => $parts[2]);
-		
-			// Bing insists in a non-og description:
-			$head['meta'][] = array('property' => 'description', 'content' => $parts[2]);
+		if (array_key_exists('description', $meta) && is_array($meta['description'])) {
+			if (array_key_exists('abstract', $meta['description'])) {
+				$parts = explode("\n", $meta['description']['abstract']);
+				
+				if (is_array($parts) && array_key_exists(2, $parts)) {
+					$head['meta'][] = array('property' => 'og:description', 'content' => $parts[2]);
+				
+					// Bing insists in a non-og description:
+					$head['meta'][] = array('property' => 'description', 'content' => $parts[2]);
+				}
+			}
 		}
 	}
 
