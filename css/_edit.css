@@ -237,6 +237,10 @@ div.picker button.toolbutton {
 }
 
 .dokuwiki .editBar .summary #edit__summary {
+	background-color: @ini_background_alt;
+	border-color: @ini_border;
+	color: @ini_text;
+	border-radius: 3pt;
 	margin-left: 0;
 	width: 100%;
 }
@@ -290,7 +294,7 @@ div.picker button.toolbutton {
 		width: ~"calc(100% - 8px)";
 	}
 	.dokuwiki .editBar .summary label:last-child {
-		text-align: right;
+		/*text-align: right;*/
 	}
 }
 @media (max-width: @ini_phone_width) {
@@ -321,35 +325,49 @@ div.picker button.toolbutton {
 		background-color:	@ini_background_dark;
 	}
 
-	body.mode_edit.darkmode textarea.edit {
+	body.mode_edit.darkmode textarea.edit,
+	body.mode_preview.darkmode textarea.edit {
 		background-color:	@ini_background_alt_dark;
 		border:				@ini_headlines_dark solid 1px;
 		color:				@ini_text_dark;
 	}
 
-	body.mode_edit.darkmode div.editBox button {
+	body.mode_edit.darkmode div.editBox button,
+	body.mode_preview.darkmode div.editBox button {
 		background-color: @ini_headlines_dark;
 		border-color: @ini_border_dark;
 	}
-	body.mode_edit.darkmode .dokuwiki .editBar .editButtons button {
+	body.mode_edit.darkmode .editBar .editButtons button::before,
+	body.mode_preview.darkmode .editBar .editButtons button::before {
 		filter: invert(.9); 
 	}
-	body.mode_edit.darkmode #tool__bar button {
+	.dokuwiki .editBar .editButtons button#edbtn__save {
+		background-color: #334466;
+		color: #CCDDFF;
+	}
+	.dokuwiki .editBar .editButtons button#edbtn__preview {
+		background-color: #226633;
+		color: #CCFFDD;
+	}
+	.dokuwiki .editBar .editButtons button[name="do[cancel]"] {
+		background-color: #663344;
+		color: #FFCCDD;
+	}
+
+	body.mode_edit.darkmode #tool__bar button,
+	body.mode_preview.darkmode #tool__bar button {
 		border-color:	@ini_border_dark;
 		filter: invert(.8);
 	}
-
-	body.mode_edit.darkmode .dokuwiki .editBar .editButtons button {
+	body.mode_edit.darkmode .editBar .editButtons button,
+	body.mode_preview.darkmode .editBar .editButtons button {
 		border-color: @ini_border_dark;
 	}
-	/*body.mode_edit.darkmode .dokuwiki .editBar .editButtons button#edbtn__save {
-		background-color: #aabbcc;
-	}
-	body.mode_edit.darkmode .dokuwiki .editBar .editButtons button#edbtn__preview {
-		background-color: #aaccbb;
-	}
-	body.mode_edit.darkmode .dokuwiki .editBar .editButtons button[name="do[cancel]"] {
-		background-color: #ccaabb;
-	}*/
 	
+	body.mode_edit.darkmode .editBar .summary #edit__summary,
+	body.mode_preview.darkmode .editBar .summary #edit__summary {
+		background-color:	@ini_background_alt_dark;
+		border-color: @ini_headlines_dark;
+		color: @ini_text_dark;
+	}
 }
