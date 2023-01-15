@@ -308,7 +308,11 @@ form.search {
 
 /* license note under edit window */
 .dokuwiki div.license {
-    font-size: 93.75%;
+    font-size: small;
+    line-height: 1.5em;
+    padding: 3pt;
+    background-color: @ini_background_alt;
+    border: @ini_border solid 1px;
 }
 
 [dir=rtl] .dokuwiki .docInfo {
@@ -357,4 +361,12 @@ form.search {
 
 [dir=rtl] #dokuwiki__footer .license img {
     margin: 0 0 0 .5em;
+}
+
+/* dark mode overrides */
+@media (prefers-color-scheme: dark) {
+    .dokuwiki div.license {
+        background-color: @ini_background_alt_dark;
+        border-color: @ini_border_dark;
+    }
 }

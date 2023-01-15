@@ -36,7 +36,20 @@
 
 /*____________ toolbar ____________*/
 
-.mode_edit div.toolbar {
+.mode_edit .editBox > .toolbar,
+.mode_preview .editBox > .toolbar {
+    display: block;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	background-color:	@ini_background;
+	padding-bottom: 2px;
+	z-index: 9;
+}
+
+
+.mode_edit div.toolbar,
+.mode_preview div.toolbar {
     display: inline-block;
 }
 #draft__status {
@@ -88,7 +101,7 @@
 }
 
 /* import the new icons */
-#tool__bar button[accesskey="b"] { background-image: url('images/editor/format-bold.svg'); }
+#tool__bar button[accesskey="b"] { background-image: url('images/editor/format-bold.svg'); margin-left: 1.5pt; }
 #tool__bar button[accesskey="i"] { background-image: url('images/editor/format-italic.svg'); }
 #tool__bar button[accesskey="u"] { background-image: url('images/editor/format-underline.svg'); }
 #tool__bar button[accesskey="m"] { background-image: url('images/editor/format-monospace.svg'); }
@@ -149,16 +162,17 @@ div.picker button.toolbutton {
 /*____________ below the textarea ____________*/
 
 .dokuwiki div.editBar {
-    overflow: hidden;
+    display: grid;
+	grid-template-columns: 320px minmax(500px, 1fr) auto;
+	align-items: start;
     margin-bottom: .5em;
 }
 
 /* size and wrap controls */
 #size__ctl {
-    float: right;
-}
-[dir=rtl] #size__ctl {
-    float: left;
+	grid-row: 1;
+    grid-column: 3;
+	min-width: 64px;
 }
 #size__ctl img {
     cursor: pointer;
@@ -166,26 +180,82 @@ div.picker button.toolbutton {
 
 /* edit buttons */
 .dokuwiki .editBar .editButtons {
-    display: inline;
-    margin-right: 1em;
+	grid-row: 1;
+	grid-column: 1;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 }
 [dir=rtl] .dokuwiki .editBar .editButtons {
     margin-right: 0;
     margin-left: 1em;
 }
 .dokuwiki .editBar .editButtons button {
+	border: #CCC solid 1.5pt;
+	padding: .25em .5em;
+	margin: 0 2pt;
+}
+.dokuwiki .editBar .editButtons button::before {
+	content: ' ';
+	display: inline-block;
+	position: relative;
+	top: .1em;
+	width: 1em;
+	height: 1em;
+	background: none center bottom no-repeat;
+	background-size: 1em;
+	margin-right: 4px;
+}
+
+.dokuwiki .editBar .editButtons button#edbtn__save {
+	background-color: #ccddff;
+}
+.dokuwiki .editBar .editButtons button#edbtn__save::before {
+	background-image: url('images/editor/edit-save.svg');
+}
+.dokuwiki .editBar .editButtons button#edbtn__preview {
+	background-color: #ccffdd;
+}
+.dokuwiki .editBar .editButtons button#edbtn__preview::before {
+	background-image: url('images/editor/edit-preview.svg');
+}
+.dokuwiki .editBar .editButtons button[name="do[cancel]"] {
+	background-color: #ffccdd;
+}
+.dokuwiki .editBar .editButtons button[name="do[cancel]"]::before {
+	background-image: url('images/editor/edit-cancel.svg');
 }
 
 /* summary input and minor changes checkbox */
 .dokuwiki .editBar .summary {
-    display: inline;
+	grid-row: 1;
+	grid-column: 2;
+    display: grid;
+	grid-template-columns: 1fr auto;
+	line-height: 1em;
+	padding-top: 2pt;
+	padding-right: 5pt;
 }
+
+.dokuwiki .editBar .summary #edit__summary {
+	margin-left: 0;
+	width: 100%;
+}
+
 .dokuwiki .editBar .summary label {
-    vertical-align: middle;
     white-space: nowrap;
 }
+.dokuwiki .editBar .summary label:last-child  {
+	padding: 2pt 0 2pt 4pt;
+}
+.dokuwiki .editBar .summary > label:first-child {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	column-gap: 10px;
+	padding: 2pt 5pt 0 0;
+}
 .dokuwiki .editBar .summary label span {
-    vertical-align: middle;
+    font-size: small;
+	margin: 0 1pt 0 3pt;
 }
 .dokuwiki .editBar .summary input {
 }
@@ -205,46 +275,81 @@ div.picker button.toolbutton {
     margin-bottom: 1.4em;
 }
 
-/* section edit buttons
-********************************************************************/
+/* narrow screen overrides: */
+@media (max-width: @ini_tablet_width) {
 
-/* .dokuwiki .secedit {
-    float: right;
-    margin-top: -1.4em;
-} */
-[dir=rtl] .dokuwiki .secedit {
-    float: left;
+	.dokuwiki div.editBar {
+		grid-template-columns: 1fr 5px auto;
+	}
+	.dokuwiki div.editBar .summary {
+		grid-row: 2;
+		grid-column: 1 / span 3;
+	}
+	.dokuwiki .editBar .summary #edit__summary {
+		margin-left: 8pt;
+		width: ~"calc(100% - 8px)";
+	}
+	.dokuwiki .editBar .summary label:last-child {
+		text-align: right;
+	}
 }
-/*.dokuwiki .secedit button {
-    font-size: 75%;
-}*/
+@media (max-width: @ini_phone_width) {
 
-/* style for section highlighting
-.dokuwiki div.section_highlight {
-    margin: 0 -1em;
-    padding: 0 .5em;
-    border: solid @ini_background_alt;
-    border-width: 0 .5em;
-} */
+	.dokuwiki .editBar .summary,
+	.dokuwiki .editBar .summary > label:first-child {
+		grid-template-columns: 100%;
+	}
+}
+@media (max-width: 390px) {
 
+	.dokuwiki .editBar .editButtons button {
+		overflow: hidden;
+		height: 30px;
+		line-height: 24px;
+	}
+	.dokuwiki .editBar .summary #edit__summary {
+		margin-left: 4px;
+		width: 100%;
+	}
+
+}
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
 
-	body.mode_edit.darkmode  textarea.edit {
+	body.mode_edit.darkmode .editBox > .toolbar,
+	body.mode_preview.darkmode .editBox > .toolbar {
+		background-color:	@ini_background_dark;
+	}
+
+	body.mode_edit.darkmode textarea.edit {
 		background-color:	@ini_background_alt_dark;
 		border:				@ini_headlines_dark solid 1px;
 		color:				@ini_text_dark;
 	}
 
 	body.mode_edit.darkmode div.editBox button {
-		background-color:	@ini_headlines_dark;
-		border-color:		@ini_border_dark;
+		background-color: @ini_headlines_dark;
+		border-color: @ini_border_dark;
 	}
-	body.mode_edit.darkmode div.editBox button#edbtn__save {
-		filter:				invert(.9);
+	body.mode_edit.darkmode .dokuwiki .editBar .editButtons button {
+		filter: invert(.9); 
 	}
 	body.mode_edit.darkmode #tool__bar button {
 		border-color:	@ini_border_dark;
 		filter: invert(.8);
 	}
+
+	body.mode_edit.darkmode .dokuwiki .editBar .editButtons button {
+		border-color: @ini_border_dark;
+	}
+	/*body.mode_edit.darkmode .dokuwiki .editBar .editButtons button#edbtn__save {
+		background-color: #aabbcc;
+	}
+	body.mode_edit.darkmode .dokuwiki .editBar .editButtons button#edbtn__preview {
+		background-color: #aaccbb;
+	}
+	body.mode_edit.darkmode .dokuwiki .editBar .editButtons button[name="do[cancel]"] {
+		background-color: #ccaabb;
+	}*/
+	
 }
