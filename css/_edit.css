@@ -25,15 +25,6 @@
 	background-color:	@ini_background;
 }
 
-/* #edbtn__save {
-	color:				#000;
-	font-weight:		bold;
-	background:			#CCC url('images/material/cloud-upload-outline.svg') no-repeat 6pt center;
-	background-size:	1.5em;
-	filter:				invert(.8);
-	padding-left:		2.65em;
-} */
-
 /*____________ toolbar ____________*/
 
 .mode_edit .editBox > .toolbar,
@@ -341,15 +332,15 @@ div.picker button.toolbutton {
 	body.mode_preview.darkmode .editBar .editButtons button::before {
 		filter: invert(.9); 
 	}
-	.dokuwiki .editBar .editButtons button#edbtn__save {
+	body.darkmode .editBar .editButtons button#edbtn__save {
 		background-color: #334466;
 		color: #CCDDFF;
 	}
-	.dokuwiki .editBar .editButtons button#edbtn__preview {
+	body.darkmode .editBar .editButtons button#edbtn__preview {
 		background-color: #226633;
 		color: #CCFFDD;
 	}
-	.dokuwiki .editBar .editButtons button[name="do[cancel]"] {
+	body.darkmode .editBar .editButtons button[name="do[cancel]"] {
 		background-color: #663344;
 		color: #FFCCDD;
 	}
