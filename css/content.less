@@ -108,12 +108,13 @@ main code, main blockquote code {
 	padding:		0 2pt;
 }
 main pre {
-  overflow: auto;
-  word-wrap: normal;
-  border: 1px solid @ini_border;
-  border-radius: 2px;
-  box-shadow: inset 0 0 .5em @ini_border;
-  padding: .3em;
+	max-width: calc(@ini_site_width - @ini_sidebar_width);
+	overflow: auto;
+	word-wrap: normal;
+	border: 1px solid @ini_border;
+	border-radius: 2px;
+	box-shadow: inset 0 0 .5em @ini_border;
+	padding: .3em;
 }
 
 /* quotes: */
