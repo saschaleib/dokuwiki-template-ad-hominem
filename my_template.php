@@ -451,7 +451,7 @@ function my_toc($prefix = '') {
 	/* Build the hierarchical list of headline links: */
 	if (count($toc) >= intval($conf['tocminheads'])) {
 		echo $prefix . "<aside id=\"toc\" class=\"toggle hide\">\n";
-		echo $prefix . "\t<h3 id=\"toc-menubutton\" class=\"tg_button\" title=\"" . htmlentities($lang['toc']) . '" tabindex="0" role="button" aria-haspopup="true" aria-controls="toc-menu"><span>' . htmlentities($lang['toc']) . "</span></h3>\n" . $prefix . "\t<div id=\"toc-menu\" class=\"tg_content\" role=\"menu\" aria-labelledby=\"toc-menubutton\">";
+		echo $prefix . "\t<button id=\"toc-menubutton\" class=\"tg_button\" title=\"" . htmlentities($lang['toc']) . '" aria-haspopup="true" aria-controls="toc-menu"><span>' . htmlentities($lang['toc']) . "</span></button>\n" . $prefix . "\t<div id=\"toc-menu\" class=\"tg_content\" role=\"menu\" aria-labelledby=\"toc-menubutton\">";
 		$level = intval("0");
 		foreach($toc as $it) {
 			

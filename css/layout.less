@@ -498,6 +498,7 @@ main>footer p.docInfo {
 	float: right;
 	width: auto;
 	min-width: 32px;
+	padding-left: .25em;
 	line-height: 1.5em;
 	text-align: left;
 	max-width: @ini_toc_width;
@@ -514,35 +515,36 @@ main>footer p.docInfo {
 	line-height: 1.25em;
 	margin: .5em 0;
 }
-#toc h3 {
-	margin: 0;
-	padding: 0 0 .5em .5em;
+#toc-menubutton {
+	background: transparent;
+	margin-left: .5em;
+	padding: 0 .25em;
 	width: auto;
-	height: 1.2em;
-	font-family: @ini_alt_fonts;
-	font-size: small;
+	height: auto;
 	overflow: hidden;
-	font-weight: bold;
-	line-height: 1.5em;
+	border: transparent 0 none;
 	border-radius: 3pt;
-	color: @ini_text_neu;
 }
-#toc h3::after {
+#toc-menubutton > span {
+	font-family: @ini_alt_fonts;
+	line-height: 1.5em;
+	font-weight: bold;
+	color: @ini_headlines;
+}
+#toc-menubutton::after {
 	content: '\203A';
 	display: inline-block;
 	width: 1.5em;
 	text-align: center;
 }
-#toc h3:focus {
-	outline: @ini_focus_color solid 2px;
-}
-#toc.hide h3::after,
-#toc.alt h3::after {
+
+.hide #toc-menubutton::after,
+.alt #toc-menubutton::after {
 	content: '\2630';
 }
 
-#toc.hide h3>span,
-#toc.alt h3>span {
+.hide #toc-menubutton>span,
+.alt #toc-menubutton>span {
 	display: none;
 }
 
@@ -783,7 +785,8 @@ body.mediadetail figure table.img_detail th {
 	}
 	
 	body.darkmode #toc { border-left-color: @ini_border_dark; }
-	body.darkmode #toc h3 { color: @ini_headlines_dark; }
+	body.darkmode #toc-menubutton,
+	body.darkmode #toc-menubutton span { color: @ini_headlines_dark; }
 
 	body.darkmode #qsearch__out {
 		background-color:	@ini_background_site_dark;
