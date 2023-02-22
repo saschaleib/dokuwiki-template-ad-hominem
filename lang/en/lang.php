@@ -35,6 +35,7 @@ $lang['__background_dark__']   = 'Content background (dark mode)';
 $lang['__background_alt_dark__'] = 'Alternative background color (dark mode)';
 $lang['__headlines_dark__']    = 'Headlines color (dark mode)';
 $lang['__text_dark__']         = 'Text color (dark mode)';
+$lang['__text_alt_dark__']     = 'Alternative Text color (dark mode)';
 $lang['__link_dark__']         = 'External link color (dark mode)';
 $lang['__existing_dark__']     = 'Existing article link color (dark mode)';
 $lang['__missing_dark__']      = 'Missing article link color (dark mode)';

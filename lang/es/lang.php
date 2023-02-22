@@ -39,6 +39,7 @@ $lang['__background_dark__']   = 'Fondo del contenido (modo oscuro)';
 $lang['__background_alt_dark__'] = 'Color de fondo alternativo (modo oscuro)';
 $lang['__headlines_dark__']    = 'Color de los titulares (modo oscuro)';
 $lang['__text_dark__']         = 'Color del texto (modo oscuro)';
+$lang['__text_alt_dark__']     = 'Color del texto alternativo (modo oscuro)';
 $lang['__link_dark__']         = 'Color del enlace externo (modo oscuro)';
 $lang['__existing_dark__']     = 'Color del enlace del artículo existente (modo oscuro)';
 $lang['__missing_dark__']      = 'Color del enlace del artículo que falta (modo oscuro)';

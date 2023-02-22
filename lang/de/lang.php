@@ -40,6 +40,7 @@ $lang['__background_dark__']     = 'Hintergrund des Inhaltsbereichs (Nachtmodus)
 $lang['__background_alt_dark__'] = 'Alternative Hintergrundfarbe (Nachtmodus)';
 $lang['__headlines_dark__']      = 'Farbe der Überschriften (Nachtmodus)';
 $lang['__text_dark__']           = 'Textfarbe (Nachtmodus)';
+$lang['__text_alt_dark__']       = 'Alternative Textfarbe (Nachtmodus)';
 $lang['__link_dark__']           = 'Farbe externe Links (Nachtmodus)';
 $lang['__existing_dark__']       = 'Farbe Links zu existierenden Artikeln (Nachtmodus)';
 $lang['__missing_dark__']        = 'Farbe Links zu fehlenden Artikeln (Nachtmodus)';

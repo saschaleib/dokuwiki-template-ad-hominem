@@ -35,6 +35,7 @@ $lang['__background_dark__']   = 'Sisällön tausta (tumma tila)';
 $lang['__background_alt_dark__'] = 'Vaihtoehtoinen taustaväri (tumma tila)';
 $lang['__headlines_dark__']    = 'Otsikoiden väri (tumma tila)';
 $lang['__text_dark__']         = 'Tekstin väri (tumma tila)';
+$lang['__text_alt_dark__']     = 'Vaihtoehtoinen tekstiväri (tumma tila)';
 $lang['__link_dark__']         = 'Ulkoisen linkin väri (tumma tila)';
 $lang['__existing_dark__']     = 'Olemassa olevan artikkelin linkin väri (tumma tila)';
 $lang['__missing_dark__']      = 'Puuttuva artikkelilinkin väri (tumma tila)';

@@ -451,7 +451,7 @@ function my_toc($prefix = '') {
 	/* Build the hierarchical list of headline links: */
 	if (count($toc) >= intval($conf['tocminheads'])) {
 		echo $prefix . "<aside id=\"toc\" class=\"toggle hide\">\n";
-		echo $prefix . "\t<h3 class=\"tg_button\" title=\"" . htmlentities($lang['toc']) . '"><span>' . htmlentities($lang['toc']) . "</span></h3>\n" . $prefix . "\t<div class=\"tg_content\">";
+		echo $prefix . "\t<h3 id=\"toc-menubutton\" class=\"tg_button\" title=\"" . htmlentities($lang['toc']) . '" tabindex="0" role="button" aria-haspopup="true" aria-controls="toc-menu"><span>' . htmlentities($lang['toc']) . "</span></h3>\n" . $prefix . "\t<div id=\"toc-menu\" class=\"tg_content\" role=\"menu\" aria-labelledby=\"toc-menubutton\">";
 		$level = intval("0");
 		foreach($toc as $it) {
 			
@@ -466,8 +466,7 @@ function my_toc($prefix = '') {
 				echo "</li>\n";
 			}
 			
-			$href = ( array_key_exists('link', $it) ? $it['link'] : '');
-			$href .= (array_key_exists('hid', $it) ? '#' . $it['hid'] : '');
+			$href = $it['link'] . ( $it['hid'] == '' ? '' : '#' . $it['hid'] );
 
 			echo $prefix . str_repeat("\t", $nl*2 + 1) . '<li><a href="' . $href . '">' . htmlentities($it['title']) . "</a>";
 			$level = $nl;

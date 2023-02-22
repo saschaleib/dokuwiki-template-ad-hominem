@@ -40,6 +40,7 @@ $lang['__background_dark__']     = 'Arrière-plan du contenu (mode sombre)';
 $lang['__background_alt_dark__'] = 'Couleur de l’arrière-plan alternatif (mode sombre)';
 $lang['__headlines_dark__']      = 'Couleur des titres (mode sombre)';
 $lang['__text_dark__']           = 'Couleur du texte (mode sombre)';
+$lang['__text_alt_dark__']       = 'Couleur alternative du texte (mode sombre)';
 $lang['__link_dark__']           = 'Couleur des liens externes (mode sombre)';
 $lang['__existing_dark__']       = 'Couleur du lien de l’article existant (mode sombre)';
 $lang['__missing_dark__']        = 'Couleur du lien vers l’article manquant (mode sombre)';
