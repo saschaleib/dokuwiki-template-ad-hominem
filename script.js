@@ -80,12 +80,12 @@ $p = {
 				url:'https://meta.wikipedia.org/api/rest_v1/page/summary/%id%',
 				type:'wikimedia'
 			},
-			'iw_en' 	: {
+			'iw_fo' 	: {
 				url:'https://fallacies.online/wiki/lib/tpl/ad-hominem/rest/pageinfo.php?id=%id%&v=preview',
 				base:'https://fallacies.online/wiki/',
 				type:'ahtpl'
 			},
-			'iw_de' 	: {
+			'iw_dfo' 	: {
 				url:'https://denkfehler.online/wiki/lib/tpl/ad-hominem/rest/pageinfo.php?id=%id%&v=preview',
 				base:'https://denkfehler.online/wiki/',
 				type:'ahtpl'
@@ -182,19 +182,18 @@ $p = {
 		
 		/* the search gui */
 		gui: {
-			
+
 			_container: null,
 			_elements: { field: null, clear: null, search: null },
-						
+
 			/* init the gui */
 			init: function() {
-				
+
 				try {
-				
+
 					/* find all the search elements: */
 					var form = document.getElementById('dw__search');
-					
-					
+
 					var div = form.getElementsByClassName('search-field')[0];
 					$p.search.gui._container = div;
 					
@@ -220,7 +219,7 @@ $p = {
 					console.error(e);
 				}
 			},
-			
+
 			/* call back for fields */
 			__elementFocus: function() {
 				$p.search.gui._container.classList.add("focus"); 
