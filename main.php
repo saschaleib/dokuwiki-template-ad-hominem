@@ -29,7 +29,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 <?php my_favicons() ?>
 <?php tpl_includeFile('meta.html') ?>
 </head>
-<body class="site <?php echo trim(tpl_classes()) . (tpl_getConf('darkmode') == 'allow' ? ' darkmode' : ''); ?>">
+<body class="site <?php echo trim(tpl_classes()) . (tpl_getConf('darkmode') == 'allow' ? ' darkmode' : '') . (tpl_getConf('printstyle') !== 'basic' ? ' print-' . tpl_getConf('printstyle') : ''); ?>">
 	<div id="skip-link">
 		<a href="#main-content"><?php echo $lang['skip_to_content']; ?></a>
 	</div>

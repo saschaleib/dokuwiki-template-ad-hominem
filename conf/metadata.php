@@ -21,3 +21,7 @@ $meta['cookiemsg'] = array('');
 $meta['cookielink'] = array('string');
 
 $meta['homelink'] = array('string');
+
+$meta['printstyle'] = array(
+						'multichoice',
+						'_choices' => array ('basic', 'compact'));

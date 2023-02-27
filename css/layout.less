@@ -50,7 +50,8 @@ body {
 	overflow: hidden;
 	display: block;
 }
-.printonly {
+.printonly,
+.wrap_printonly {
 	display:		none;
 }
 div.no {
@@ -597,7 +598,9 @@ main .section_highlight {
 /* math fonts */
 main math,
 main .math,
-main .math * {
+main .math *,
+main .wrap_math,
+main .wrap_math * {
 	font-family:		@ini_math_fonts;
 	font-size:			12pt;
 	line-height:		1em;
@@ -610,10 +613,24 @@ main figure {
 	padding:			.5em;
 }
 main figure figcaption {
+	margin-top: .5em;
 }
-main figure>*:first-child {
+main figure figcaption p {
+	margin-bottom: 0;
+}
+main figure > *:first-child {
 	margin-top:			.25em;
 }
+main figure table {
+	background-color: @ini_background;
+	margin: 0;
+}
+main figure div.table {
+	margin: 0;
+}
+main figure > p {
+	margin: 0;
+}	
 
 body.mediadetail figure img {
 	background:			transparent url('images/transparency.gif');
@@ -808,6 +825,10 @@ body.mediadetail figure table.img_detail th {
 	}
 	body.darkmode #ftLicenseButtons p.license {
 		color: @ini_text_alt_dark;
+	}
+
+	body.darkmode main figure table	{
+		background-color: @ini_background_dark;
 	}
 
 	/* Extension Manager: */

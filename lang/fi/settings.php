@@ -23,3 +23,7 @@ $lang['cookiemsg']          = 'Evästeiden bannerissa näytettävä viesti (voi 
 $lang['cookielink']         = 'Linkki ”Lisätietoja”-sivulle (sisäinen tai ulkoinen)';
 
 $lang['homelink']         = 'Linkki ylemmän tason kotisivulle (tyhjä oletusarvoisesti)';
+
+$lang['printstyle']         = 'Painotyylin vaihtelu';
+$lang['printstyle_o_basic']	= 'perus';
+$lang['printstyle_o_compact']	= 'kompakti';

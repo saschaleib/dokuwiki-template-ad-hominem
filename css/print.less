@@ -5,143 +5,142 @@
 
 @page { margin: 2cm 4cm 3cm 2.5cm; }
 
-.noprint {
-	display:		none !important;
+.noprint,
+.wrap_noprint {
+	display: none !important;
 }
-.nobreak {
+.nobreak,
+.wrap_nobreak {
 	white-space:	nowrap !important;
 }
-.printonly {
-	display:		initial;
+.printonly,
+.wrap_nobreak {
+	display: initial;
 }
 
 html, body, * {
-	font-family:	@ini_print_default_fonts;
-	margin:			0;
-	padding:		0;
-	background-color:	transparent;
+	font-family: @ini_print_default_fonts;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
 }
 
 body {
-	font-size:				12pt;
-	box-decoration-break:	clone;
+	font-size: 12pt;
+	box-decoration-break: clone;
 }
 
 /* hide unneded page elements */
 #globalTools, #phSearch, #phTools, #phTools,
 #sidebar, #toc, #navYouAreHere,
 #footer-layout .ftSection {
-	display:		none;
+	display: none;
 }
 #header-layout {
-	display: 		table-header-group;
-	padding-bottom:	.25em;
-	margin-bottom:	.5em;
+	display: table-header-group;
+	padding-bottom: .25em;
+	margin-bottom: 1em;
 }
 #header-layout > header {
-	grid-template-columns: 27pt auto;
-	border-bottom: transparent solid 1em;
+	display: block;
+	padding-bottom: .25em;
+	border-bottom: #000 solid .5pt;
+	margin-bottom: 1em;
 }
 #siteLogo {
-	display:		contents;
-	width:			27pt;
+	display: grid;
+	grid-template-columns: min-content max-content auto;
+	align-items: center;
+}
+#siteLogo .logo {
+	grid-row: 1;
 }
 #siteLogo .logo img {
-	width:			24pt;
+	width: 12pt;
+	height: auto;
 }
 #siteLogo .title {
-	font-size:		14pt;
-	font-weight:	normal;
+	font-size: 10pt;
+	line-height: 1.2em;
+	font-weight: bold;
 }
 #siteLogo .title a:link,
 #siteLogo .title a:visited {
-	/* font-family:	@ini_print_title_fonts; */
-	color:			#000;
+	font-family: @ini_print_title_fonts;
+	color: @ini_print_title_color;
 	text-decoration: none;
 }
 #siteLogo .claim {
-	max-width:		100%;
-	margin:			5pt 0;
-	font-size:		x-small;
+	grid-row: 1; grid-column: 3;
+	align-self: center;
+	max-width: 100%;
+	font-size: 10pt;
+	line-height: 1.2em;
 }
 
 #header-layout #phInclude {
-	grid-column: 1 / span 2;
-	border-bottom: #000 solid .5pt;
+	display: none;
 }
 
 #main-layout {
-	padding-top:	.5em;
-	display: 		table-row-group;
+	padding-top: .5em;
+	display: table-row-group;
 }
 
 #footer-layout {
-	border:			#CCC solid 1px;
-	display:		table-footer-group;
+	display: block;
+	padding-top: 0;
 }
-main .docInfo {
+#footer-layout footer {
+	display: block;
+	width: auto;
 }
 
 /* reset main borders and margins: */
 main {
-	display:			table-row-group;
-	padding:			0;
-	border-width:		0;
-	line-height:		1.5em;
-	border:				none 0;
-	word-break:			break-word;
-	-moz-box-shadow:	0 0 0 0 transparent;
-	-webkit-box-shadow:	0 0 0 0 transparent;
-	box-shadow:			0 0 0 0 transparent;
+	display: table-row-group;
+	padding: 0;
+	border-width: 0;
+	line-height: 1.5em;
+	border: none 0;
+	word-break: break-word;
+	-moz-box-shadow: 0 0 0 0 transparent;
+	-webkit-box-shadow: 0 0 0 0 transparent;
+	box-shadow: 0 0 0 0 transparent;
 }
 
 /* headlines */
 main h1, main h2, main h3, main h4, main h5, main h6 {
-	/* font-family:		@ini_print_title_fonts; */
-	color:				@ini_print_title_color;
-	line-height:		1.2em;
-	margin:				1em 0 .5em 0;
-	padding:			0 0 .25em 0;
-	break-inside:		avoid;
-	page-break-inside:	avoid;
-	break-after:		avoid;
-	page-break-after:	avoid;
-	clear:				both;
+	font-family: @ini_print_title_fonts;
+	color: @ini_print_title_color;
+	line-height: 1.2em;
+	margin: 1em 0 .5em 0;
+	padding: 0 0 .25em 0;
+	break-inside: avoid;
+	page-break-inside: avoid;
+	break-after: avoid;
+	page-break-after: avoid;
+	clear: both;
+	position: relative;
 }
-main h1 { font-size: 28pt; }
-main h2 { font-size: 14pt; }
+main h1 { font-size: 18pt; margin-bottom: .5em; }
+main h2 { font-size: 14pt; margin-top: 2em; }
 main h3 { font-size: 12pt; }
 main h4 { font-size: 12pt; font-style: italic; }
 main h5 { font-size: 12pt; font-weight: normal; font-style: italic; }
 main h6 { font-size: 11pt; font-weight: normal; font-style: italic; }
 
 main h1 + div, main h2 + div, main h3 + div, main h4 + div, main h5 + div, main h6 + div {
-	page-break-before:		avoid;
-	break-before:			avoid;
+	page-break-before: avoid;
+	break-before: avoid;
 }
-
-/* two column layout */
-#main-content {
-	columns:		2;
-	font-size:		90%;
-}
-#main-content h1 {
-	column-span:	all;
-	margin-bottom:	.5em;
-}
-#main-content h1 + div p:first-child {
-	column-span:	all;
-	font-weight:	600;
-	margin-bottom:	1em;
-}
-
 
 /* paragraph-level blocks */
 main p, main ul, main ol {
-	margin:				.5em 0;
-	widows:				2;
-	orphans:			2;
-	hyphens:			auto;
+	margin: .5em 0;
+	widows: 2;
+	orphans: 2;
+	hyphens: auto;
 }
 main ul { list-style: square outside; }
 main ul ul { list-style-type: disc; }
@@ -160,27 +159,68 @@ main ul ul ul ol li { margin-left: 0; }
 main ul ul ul ol li:before { display: none; content: ''; }
 
 main li {
-	margin-left:		1.5em;
+	margin-left: 1.5em;
 }
 main blockquote {
-	border-left:	@ini_blockquote solid 3pt;
-	padding:		.25em 0 .25em .5em;
-	margin:			0 .25em 1em .25em;
-	font-size:		small;
-	widows:			2;
-	orphans:		2;
-	hyphens:		auto;
+	border-left: @ini_blockquote solid 3pt;
+	padding: .25em 0 .25em .5em;
+	margin: 0 .25em 1em .25em;
+	widows: 2;
+	orphans: 2;
+	hyphens: auto;
+}
+
+main figure {
+	break-inside: avoid;
+	page-break-inside: avoid;
+	background-color: transparent;
+	border: #666 solid .5pt;
+	margin: .5em 0;
+}
+main figure figcaption {
+	font-family: @ini_print_title_fonts;
+	margin-top: .5em;
+	font-size: small;
+	text-align: left;
+}
+main figure figcaption p,
+main figure figcaption li {
+	font-family: @ini_print_title_fonts;
+}
+body.print-compact main figure figcaption p {
+	text-indent: 0;
+}
+body.print-compact main figure table {
+	max-width: 100%;
+	border: #000 solid .5pt;
+}
+main footer {
+	margin-top: 2em;
+	border-top: #000 solid .5pt;
+	page-break-before: avoid;
+	break-before: avoid;
+}
+main footer p.docInfo,
+body.print-compact main p.docInfo {
+	display: block;
+	border: none;
+	padding: 0;
+	text-align: right;
+	color: #000;
+}
+#ftLicenseButtons p.license {
+	color: #000;
 }
 
 /* links overrides */
 main a:link,
 main a:visited {
-	color:				@ini_print_title_color;
-	text-decoration:	none;
+	text-decoration: underline;
+	text-decoration-style: dotted;
 }
 main a:link.text-link,
 main a:visited.text-link {
-	color:				#000;
+	color: #000;
 }
 
 /* add URL after external links - optional!
@@ -199,8 +239,8 @@ main code, main blockquote code {
 
 /* text attributes */
 main s {
-	text-decoration:			line-through rgba(255,0,0,0.5) solid 1pt;
-	-webkit-text-decoration:	line-through rgba(255,0,0,0.5) solid 1pt;
+	text-decoration: line-through rgba(255,0,0,0.5) solid 1pt;
+	-webkit-text-decoration: line-through rgba(255,0,0,0.5) solid 1pt;
 }
 main u {
 	-webkit-text-decoration-color: @ini_missing;
@@ -215,172 +255,276 @@ main u.valid {
 	text-decoration-style: dashed;
 }
 main abbr {
-	text-decoration:		none;
-	font-size:				97%;
-	letter-spacing:			.05em;
+	text-decoration: none;
+	font-size: 97%;
+	letter-spacing: .05em;
 }
 
 /* horizontal rules */
 main hr {
-	border:				#000 solid 0;
-	border-top-width:	1pt;
-	height:				0;
-	margin:				3pt 0;
+	border: #000 solid 0;
+	border-top-width: 1pt;
+	height: 0;
+	margin: 3pt 0;
 }
 
 /* table styles */
 main table {
-	max-width:			100%;
-	border:				#000 solid .25pt;
-	border-collapse:	collapse;
-	font-size:			10pt;
-	line-height:		16pt;
-	margin:				.5em 0;
-	box-decoration-break:	clone;
-	page-break-inside:	avoid;
-	break-inside:		avoid;
+	max-width: 100%;
+	border: #000 solid .5pt;
+	border-collapse: collapse;
+	line-height: 1.25em;
+	margin: .5em 0;
+	box-decoration-break: clone;
+	page-break-inside: avoid;
+	break-inside: avoid;
+	font-size: small;
 }
 main table td,
 main table th {
-	border-right:		#666 solid 1px;
-	padding:			0 3pt;
-	vertical-align:		top;
+	padding: 2pt 3pt;
+	vertical-align: top;
 }
-
 main table th,
 main table th * {
-	/* font-family:		@ini_print_title_fonts; */
-	font-size:			9pt;
-	color:				@ini_print_title_color;
-}
-main table th {
-}
-main table td {
+	font-family: @ini_print_title_fonts;
+	color: @ini_print_title_color;
 }
 main table thead {
-	break-inside:		avoid;
-	break-after:		avoid;
+	break-inside: avoid;
+	break-after: avoid;
 }
 main table thead tr {
-	background-color:	#EEE;
-	border-bottom:		#666 solid 1px;
+	background-color: #EEE;
+	border-bottom: #000 solid .5pt;
+	text-align: left;
 }
 main table thead tr th,
 main table thead tr td {
-	vertical-align:		bottom;
+	vertical-align: bottom;
+	border-right: #000 solid .5pt;
 }
 main table thead tr th:last-child,
 main table thead tr td:last-child {
-	border-right:		none 0;
+	border-right: none 0;
+}
+main table tbody tr {
+	border-bottom: #000 dashed .5pt;
 }
 main table tbody tr:nth-child(even) {
-	background-color:	#EEE;
+	background-color: #EEE;
 }
 main table tbody th {
-	vertical-align:		top;
+	vertical-align: top;
+	border-right: #000 solid .5pt;
+}
+main table tbody td {
+	border-right: #000 dashed .5pt;
 }
 main table a:link {
-	text-decoration:	none;
+	text-decoration: none;
 }
 
 main table.layout,
 main table.layout tr,
 main table.layout th,
 main table.layout td {
-	border:			none !important;
-	background:		transparent none !important;
+	border: none !important;
+	background: transparent none !important;
 }
 
 main blockquote table {
-	margin:		0;
+	margin: 0;
 }
 
 /* image-related */
 main aside {
-	float:			none;
-	width:			100%;
-	margin:			.5em 0;
-	text-align:		center;
-	font-size:		smaller;
-	page-break-inside:	avoid;
-	break-inside:	avoid;
-	font-size:		small;
-	line-height:	1.5em;
+	float: none;
+	width: 100%;
+	margin: .5em 0;
+	text-align: center;
+	font-size: smaller;
+	page-break-inside: avoid;
+	break-inside: avoid;
+	font-size: small;
+	line-height: 1.5em;
 }
 main img {
-	width:			100%;
-	max-width:		100%;
-	height:			auto;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	break-inside: avoid;
+	page-break-inside: avoid;
 }
 
+/* alternative compact style: */
+body.print-compact #main-content {
+	columns: 2;
+	column-gap: 1.2em;
+	column-rule: .25pt solid #666;
+	font-size: 11pt;
+}
+body.print-compact main h1,
+body.print-compact main h2,
+body.print-compact main figure {
+	column-span: all;
+}
+body.print-compact main figure.print-narrow {
+	column-span: none;
+}
+
+#main-content h1 + div > p:first-child {
+	column-span: all;
+	font-weight: 600;
+	margin-bottom: 1.5em;
+	text-indent: 0;
+}
+
+body.print-compact main p {
+	margin: 0;
+	text-align: justify;
+	text-indent: 1.5em;
+}
+body.print-compact main h1 + div > p:first-child + p,
+body.print-compact main h2 + div > p:first-child,
+body.print-compact main h3 + div > p:first-child,
+body.print-compact main h4 + div > p:first-child,
+body.print-compact main h5 + div > p:first-child,
+body.print-compact main h6 + div > p:first-child,
+body.print-compact main figure + p + p,
+body.print-compact main div.table + p,
+body.print-compact main aside + p + p,
+body.print-compact main ul + p,
+body.print-compact main ol + p,
+body.print-compact main blockquote + p,
+body.print-compact main p.info-box,
+body.print-compact main p.info-box + p + p {
+	text-indent: 0;
+}
+
+body.print-compact main table {
+	border: none;
+}
+body.print-compact main figure {
+	border: none;
+	margin: 1em 0 .5em 0;
+	padding: .5em 0;
+}
+body.print-compact main blockquote {
+	margin: .5em 0;
+	padding: 0 0 0 .5em;
+}
+body.print-compact main figure blockquote {
+	margin: 0;
+}
+body.print-compact main p.info-box {
+	margin: .5em 0;
+}
+body.print-compact main ul,
+body.print-compact main ol {
+	margin-left: .5em;
+	margin: 0;
+	padding: 0;
+	list-style-position: inside;
+}
+body.print-compact main ul > li,
+body.print-compact main ol > li {
+	margin-left: 0;
+}
+body.print-compact main ul ul,
+body.print-compact main ul ol,
+body.print-compact main ol ul,
+body.print-compact main ol ol,
+body.print-compact main ul ul li,
+body.print-compact main ul ol li,
+body.print-compact main ol ul li,
+body.print-compact main ol ol li {
+	margin-left: .5em;
+}
+body.print-compact main ul li::marker,
+body.print-compact main ol li::marker {
+	display: inline-block;
+	float: none;
+}
+body.print-compact main ul li div.li,
+body.print-compact main ol li div.li {
+	display: inline;
+}
+body.print-compact main ul div.li,
+body.print-compact main ol div.li {
+	text-align: justify;
+}
 /* media detail */
 body.mediadetail figure {
-	border:		none;
+	border: none;
 	background:	transparent none;
 }
 body.mediadetail figure table ul {
-	margin:		0;
+	margin: 0;
 }
 
 /* allow user to force keep-together rules: */
-.keep-together {
-	page-break-inside:	avoid;
-	break-inside:		avoid;
+.keep-together,
+.wrap_keep-together {
+	page-break-inside: avoid;
+	break-inside: avoid;
 }
-.break-before {
-	page-break-before:	always;
-	break-before:		always;
+.break-before,
+.wrap_break-before {
+	page-break-before: always;
+	break-before: always;
 }
-.print-wide {
-	clear:			both;
-	column-span:	all;
+.print-wide,
+.wrap_print-wide {
+	clear: both;
+	column-span: all;
 }
 .print-outline {
-	margin-top:		1em;
-	border:			#666 solid 1pt;
+	margin-top: 1em;
+	border: #666 solid .5pt;
 	border-radius:	1em;
-	padding:		0 1em;
+	padding: 0 1em;
 }
 
 /* site-banners */
 .site-banner {
-	clear:				both;
-	column-span:		all;
-	margin-top:			1em;
-	border:				#666 solid 1pt;
-	border-radius:		1em;
-	padding:			0 1em;
-	page-break-inside:	avoid;
-	break-inside:		avoid;
-	text-align:			left;
+	clear: both;
+	column-span: all;
+	margin-top: 1em;
+	border: #666 solid 1pt;
+	border-radius: 1em;
+	padding: 0 1em;
+	page-break-inside: avoid;
+	break-inside: avoid;
+	text-align: left;
 }
 .site-banner h4 {
-	margin:				.75em 0 .15em 0;
-	font-family:		'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size:			11pt;
-	font-style:			normal;
+	margin: .75em 0 .15em 0;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 11pt;
+	font-style: normal;
 }
 .site-banner p {
-	font-size:			9pt;
-	line-height:		13pt;
+	font-size: 9pt;
+	line-height: 13pt;
 }
 .site-banner img {
-	margin:			0 .25em .25em .5em;
+	margin: 0 .25em .25em .5em;
 }
 
 /* boxes */
 main .info-box,
 main .wrap_info-box {
-	border:				#666 solid 1px;
-	background-color:	@ini_background_alt;
-	padding:			.5em .25em .5em .5em;
-	font-size:			small;
-	line-height:		1.5em;
+	border: #666 solid 1px;
+	background-color: @ini_background_alt;
+	padding: .5em .25em .5em .5em;
+	font-size: small;
+	line-height: 1.5em;
 }
 
 main aside.info-box,
 main aside .wrap_info-box {
-	border:				none;
-	background-color:	transparent;
+	border: none;
+	background-color: transparent;
 }
 	

@@ -23,3 +23,7 @@ $lang['cookiemsg']          = 'Le message à afficher dans le bandeau de message
 $lang['cookielink']         = 'Lien vers la page « Plus d’informations » (interne ou externe)';
 
 $lang['homelink']         = 'Remplacer le lien de la page d’accueil (vide pour le comportement par défaut)';
+
+$lang['printstyle']         = 'Variations du style d’impression';
+$lang['printstyle_o_basic']	= 'basique';
+$lang['printstyle_o_compact']	= 'compact';

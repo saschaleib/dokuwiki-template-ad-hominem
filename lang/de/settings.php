@@ -23,3 +23,7 @@ $lang['cookiemsg']          = 'Die Nachricht, die auf dem Banner angezeigt werde
 $lang['cookielink']         = 'Link zu weiteren Informationen (interner oder externer Link)';
 
 $lang['homelink']         = 'Link zu übergeordneter Homepage (leer für Standardverhalten)';
+
+$lang['printstyle']         = 'Variationen im Druckstil';
+$lang['printstyle_o_basic']	= 'Einfach';
+$lang['printstyle_o_compact']	= 'Kompakt';

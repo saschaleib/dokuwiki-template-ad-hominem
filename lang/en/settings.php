@@ -23,3 +23,7 @@ $lang['cookiemsg']          = 'The message to display on the Cookie banner (may 
 $lang['cookielink']         = 'Link to the “More information” page (internal or external)';
 
 $lang['homelink']         = 'Override the homepage link (empty for default behaviour)';
+
+$lang['printstyle']         = 'Variations of the print style';
+$lang['printstyle_o_basic']	= 'Basic';
+$lang['printstyle_o_compact']	= 'Compact';
