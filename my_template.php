@@ -493,13 +493,17 @@ function my_lastchange($prefix = '') {
 	
     global $lang;
     global $INFO;
+    global $conf;
 
-	$format = '%Y-%m-%dT%T%z';	/* e.g. 2021-21-05T16:45:12+02:00 */
+	$lastmod = $INFO['lastmod'];
 
-	$date = $INFO['lastmod'];
+	if (intval($lastmod) > 0) { // is valid date?
 
-	echo $prefix . '<bdi>' . $lang['lastmod'] . "</bdi>\n";
-	echo $prefix . '<time datetime="' . strftime($format, $date) . '">' . dformat($date) . "</time>\n";
+		echo $prefix . "<p class=\"docInfo\">\n";
+		echo $prefix . "\t<bdi>" . $lang['lastmod'] . "</bdi>\n";
+		echo $prefix . "\t<time datetime=\"" . date('c', $lastmod) . '">' . htmlentities(dformat($lastmod)) . "</time>\n";
+		echo $prefix . "</p>\n";
+	}
 	
 	/* user name for last change (is this really interesting to the visitor?) */
 	/* echo $prefix .'<span class="editorname" tabindex="0">' . $lang['by'] . ' <bdi>' . editorinfo($INFO['editor']) . "</bdi></span>\n"; */

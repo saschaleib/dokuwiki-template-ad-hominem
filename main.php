@@ -88,9 +88,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 <!-- - - - - - - - - END OF ARTICLE  - - - - - - - -->
 			</article>
 			<footer>
-				<p class="docInfo">
-<?php my_lastchange(str_repeat(chr(9),5));
-?>				</p>				
+<?php my_lastchange(str_repeat(chr(9),4)); ?>
 <?php tpl_includeFile('pagefooter.html'); ?>
 			</footer>
 		</main>
