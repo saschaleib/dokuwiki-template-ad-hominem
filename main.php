@@ -59,7 +59,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
     <div id="main-layout">
 		<div id="sidebar" class="toggle <?php
         echo ( $showSidebar ? 'auto' : 'hide' ); ?>">
-			<button class="tg_button" title="<?php echo $lang['sidebar'] ?>"><span><?php echo $lang['sidebar'] ?></span></button>
+			<button type="button" class="tg_button" title="<?php echo $lang['sidebar'] ?>"><span><?php echo $lang['sidebar'] ?></span></button>
 			<div class="tg_content">
 				<nav id="sbNavigation">
 <!-- - - - - - - - - SIDEBAR CONTENT - - - - - - - -->

@@ -451,7 +451,7 @@ function my_toc($prefix = '') {
 	/* Build the hierarchical list of headline links: */
 	if (count($toc) >= intval($conf['tocminheads'])) {
 		echo $prefix . "<aside id=\"toc\" class=\"toggle hide\">\n";
-		echo $prefix . "\t<button id=\"toc-menubutton\" class=\"tg_button\" title=\"" . htmlentities($lang['toc']) . '" aria-haspopup="true" aria-controls="toc-menu"><span>' . htmlentities($lang['toc']) . "</span></button>\n" . $prefix . "\t<div id=\"toc-menu\" class=\"tg_content\" role=\"menu\" aria-labelledby=\"toc-menubutton\">";
+		echo $prefix . "\t<button type=\"button\" id=\"toc-menubutton\" class=\"tg_button\" title=\"" . htmlentities($lang['toc']) . '" aria-haspopup="true" aria-controls="toc-menu"><span>' . htmlentities($lang['toc']) . "</span></button>\n" . $prefix . "\t<div id=\"toc-menu\" class=\"tg_content\" role=\"menu\" aria-labelledby=\"toc-menubutton\">";
 		$level = intval("0");
 		foreach($toc as $it) {
 			
@@ -499,9 +499,11 @@ function my_lastchange($prefix = '') {
 
 	if (intval($lastmod) > 0) { // is valid date?
 
+		$longDate = htmlentities(dformat($lastmod));
+
 		echo $prefix . "<p class=\"docInfo\">\n";
 		echo $prefix . "\t<bdi>" . $lang['lastmod'] . "</bdi>\n";
-		echo $prefix . "\t<time datetime=\"" . date('c', $lastmod) . '">' . htmlentities(dformat($lastmod)) . "</time>\n";
+		echo $prefix . "\t<time datetime=\"" . date('c', $lastmod) . '" title="' . $longDate . '"><span class="print-only">' . $longDate . '</span><span class="noprint">' . datetime_h($lastmod) . "</span></time>\n";
 		echo $prefix . "</p>\n";
 	}
 	
