@@ -92,7 +92,10 @@ function my_metaheaders($alt = true) {
     $styleIni = $styleUtil->cssStyleini();
     $replacements = $styleIni['replacements'];
     if (!empty($replacements['__theme_color__'])) {
-        $head['meta'][] = array('name' => 'theme-color', 'content' => $replacements['__theme_color__']);
+        $head['meta'][] = array(
+			'name' => 'theme-color',
+			'content' => $replacements['__theme_color__']
+		);
     }
 
     if($alt) {
@@ -562,10 +565,10 @@ function my_favicons($color = null) {
 
 	$logoSize = array();
 
-	// Theme color:
+	/* Theme color:
 	if ($color == null) {
 		
-		/* get the style config */
+		// get the style config:
 		$styleUtil = new \dokuwiki\StyleUtils();
 		$styleIni = $styleUtil->cssStyleini();
 		$replacements = $styleIni['replacements'];
@@ -573,7 +576,7 @@ function my_favicons($color = null) {
 		
 		if ($color== null) { $color = '#2b73b7'; }
 	}
-	echo "\t<meta name=\"theme-color\" content=\"" . $color . "\" />\n";
+	echo "\t<meta name=\"theme-color\" content=\"" . $color . "\" />\n"; */
 
 	// get the favicon:
 	$link = tpl_getMediaFile(array(':favicon.ico', ':favicon.png', ':favicon.svg', ':wiki:favicon.ico', ':wiki:favicon.png', ':wiki:favicon.svg'), false, $logoSize);
