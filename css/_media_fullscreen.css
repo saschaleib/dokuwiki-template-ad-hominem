@@ -282,6 +282,7 @@
     text-overflow: ellipsis;
     width: 90px;
     white-space: nowrap;
+	font-size: 10pt;
 }
 #mediamanager__page .filelist .thumbs li .name {
     padding: 5px 0;
@@ -557,6 +558,14 @@
 	}
 	body.darkmode #mediamanager__page .filelist .panelContent ul li:hover {
 		background-color:	rgba(0,0,0,.2);
+	}
+
+	body.darkmode #mediamanager__page .filelist .rows li {
+		background-color: @ini_background_dark;
+		color: @ini_text_dark;
+	}
+	body.darkmode #mediamanager__page .filelist .rows li:nth-child(2n+1) {
+		background-color: @ini_background_alt_dark;
 	}
 
 	body.darkmode #mediamanager__page .ui-resizable-e { background-color:	@ini_background_dark; }

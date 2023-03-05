@@ -108,7 +108,7 @@ main code, main blockquote code {
 	padding:		0 2pt;
 }
 main pre {
-	max-width: calc(@ini_site_width - @ini_sidebar_width);
+	max-width: calc(@ini_site_width - @ini_sidebar_width - .5em);
 	overflow: auto;
 	word-wrap: normal;
 	border: 1px solid @ini_border;
@@ -117,6 +117,10 @@ main pre {
 	padding: .3em;
 }
 
+/* overwrite pre styling for CodeMirror plugin: */
+main .CodeMirror pre {
+	max-width: 100%;
+}
 /* quotes: */
 main blockquote {
 	border-left:	@ini_blockquote solid .4em;
@@ -254,7 +258,7 @@ main img {
 	body.darkmode div.error { background-color: #4B2F36; color: #FFB3D2; border-color: #743E4C; }
 	body.darkmode div.success { background-color: #28381F; color: #FBE2A1; border-color: #37562E; }
 	body.darkmode div.notify { background-color: #42381F; color: #FCE2A1; border-color: #56562E; }
-	body.darkmode main pre { border-color: @ini_border_dark; box-shadow: inset 0 0 .5em @ini_border_dark;}
+	body.darkmode main pre { border-color: @ini_border_dark; box-shadow: inset 0 0 .5em @ini_background_site_dark;}
 
 }
 
