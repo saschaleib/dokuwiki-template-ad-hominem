@@ -145,10 +145,27 @@ div.picker button.toolbutton {
 	font-size: 12pt;
 	line-height: 17pt;
 	caret-color: #0078D7;
+	resize: vertical;
 }
 .dokuwiki textarea.edit:focus {
 	outline: transparent none 0;
 }
+
+.dokuwiki textarea::-webkit-scrollbar-track {
+	background: @ini_background_alt; 
+}
+.dokuwiki textarea::-webkit-scrollbar-thumb {
+	background: @ini_blockquote; 
+}
+.dokuwiki textarea::-webkit-scrollbar-thumb:hover {
+	background: @ini_separator; 
+}
+.dokuwiki textarea::-webkit-resizer {
+	background-color: @ini_background_alt;
+	background: linear-gradient(135deg, @ini_background_alt 0%, @ini_background_alt 50%, @ini_blockquote 50%, @ini_blockquote 100%);
+}
+
+.dokuwiki textarea { scrollbar-color: @ini_blockquote @ini_background_alt; }
 
 /*____________ below the textarea ____________*/
 
@@ -311,16 +328,28 @@ div.picker button.toolbutton {
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
 
-	body.mode_edit.darkmode .editBox > .toolbar,
-	body.mode_preview.darkmode .editBox > .toolbar {
+	body.darkmode .editBox > .toolbar {
 		background-color:	@ini_background_dark;
 	}
-
-	body.mode_edit.darkmode textarea.edit,
-	body.mode_preview.darkmode textarea.edit {
+	body.darkmode textarea.edit {
 		background-color:	@ini_background_alt_dark;
 		border:				@ini_headlines_dark solid 1px;
 		color:				@ini_text_dark;
+	}
+
+	body.darkmode textarea::-webkit-scrollbar-track {
+		background: @ini_background_alt_dark; 
+	}
+	body.darkmode textarea::-webkit-scrollbar-thumb {
+		background: @ini_background_dark; 
+	}
+	body.darkmode textarea::-webkit-scrollbar-thumb:hover {
+		background: @ini_background_site_dark; 
+	}
+	body.darkmode  textarea { scrollbar-color: @ini_background_dark @ini_background_alt_dark; }
+	.dokuwiki textarea::-webkit-resizer {
+		background-color: @ini_background_alt_dark;
+		background: linear-gradient(135deg, @ini_background_alt_dark 0%, @ini_background_alt_dark 50%, @ini_text_alt_dark 50%, @ini_text_alt_dark 100%);
 	}
 
 	body.mode_edit.darkmode div.editBox button,

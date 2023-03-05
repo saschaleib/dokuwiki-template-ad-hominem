@@ -7,11 +7,33 @@ html, body, * {
 	font-family:	@ini_default_fonts;
 	margin:			0;
 	padding:		0;
+	scrollbar-gutter: auto;
+	scrollbar-width: thin;
 }
 body {
 	background-color:	@ini_background_site;
 	font-size:			@ini_default_font_size;
 	letter-spacing:		@ini_default_letter_spacing;
+}
+
+/* scrollbar styles */
+::-webkit-scrollbar {
+	width: .5rem;
+}
+::-webkit-scrollbar-track {
+	background: @ini_background_site;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: .25rem;
+	background: @ini_blockquote;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: @ini_separator;
+}
+* {
+	scrollbar-gutter: auto;
+	scrollbar-color: @ini_blockquote @ini_background_site;
+	scrollbar-width: thin;
 }
 
 #skip-link {
@@ -856,6 +878,19 @@ body.mediadetail figure table.img_detail th {
 	body.darkmode #config__manager tr .input {
 		color:	@ini_text_dark;
 	}
+
+	/* dark scrollbar styles for webkit browsers: */
+	::-webkit-scrollbar-track {
+		background: @ini_background_site_dark; 
+	}
+	::-webkit-scrollbar-thumb {
+		background: @ini_background_alt_dark; 
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: @ini_background_dark;
+	}
+	/* dark scrollbars for firefox: */
+	* { scrollbar-color: @ini_background_alt_dark @ini_background_site_dark; }
 }
 
 /* tablet break point */
