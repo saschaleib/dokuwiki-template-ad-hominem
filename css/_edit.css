@@ -111,6 +111,10 @@
 #tool__bar button:nth-child(17) { background-image: url('images/editor/insert-symbol.svg'); }
 #tool__bar button[accesskey="y"] { background-image: url('images/editor/insert-signature.svg');margin-left:4pt; }
 
+/* set icons for known plugins: */
+#tool__bar #tbbtn_adhoctagsInline { background-image: url('../../plugins/adhoctags/images/code-tags.svg');margin-left:4pt; }
+#tool__bar #tbbtn_adhoctagsBlocks { background-image: url('../../plugins/adhoctags/images/code-brackets.svg'); }
+
 /* buttons inside of toolbar */
 .mode_edit div.toolbar button.toolbutton {
 	margin:		0;

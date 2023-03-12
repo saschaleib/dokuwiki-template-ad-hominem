@@ -2,8 +2,8 @@
 /**
  * DokuWiki Information about a page in JSON format
  *
- * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
- * @author     Sascha Leib <sascha@leib.be>
+ * @license		GPL 2 (http://www.gnu.org/licenses/gpl.html)
+ * @author		Sascha Leib <sascha.leib (at) kolmio.com>
  */
 
 header('Content-Type: application/json');
