@@ -187,15 +187,29 @@ main table.inline tr:hover th {
 
 /* asides */
 main aside {
-	width:			50%;
-	max-width:		220px;
-	min-width:		150px;
-	float:			right;
-	text-align:		center;
-	font-size:		smaller;
-	margin-left:	.5em;
-	font-size:		small;
-	line-height:	1.5em;
+	border: @ini_border solid 1px;
+	background: @ini_background_site;
+	padding: .5em;
+}
+
+main aside > * {
+	margin: .25em 0;
+}
+main aside.float-left,
+main aside.float-right {
+	width: 50%;
+	max-width: 220px;
+	min-width: 150px;
+	font-size: smaller;
+	line-height: 1.5em;
+}
+main aside.float-left {
+	float: left;
+	margin-right: .5em;
+}
+main aside.float-right {
+	float: right;
+	margin-left: .5em;
 }
 main aside footer {
 	line-height:	1.1em;
@@ -205,6 +219,34 @@ main aside footer {
 main img {
 	max-width:		100%;
 	height:			auto;
+}
+
+/* extra styles for ad-hoc tags: */
+main kbd {
+	padding: .15em .25em;
+	margin: 0 .1em;
+	font-size: 85%;
+	color: @ini_headlines;
+	border: @ini_border solid 1px;
+	border-radius: .25em;
+	display: inline-block;
+	white-space: nowrap;
+	line-height: 1.2em;
+	letter-spacing: .03em;
+}
+main kbd kbd {
+	background-color: @ini_background_alt;
+	-webkit-box-shadow: 0 .1em 0 rgba(0,0,0,0.25);
+	box-shadow: 0 .1em 0 rgba(0,0,0,0.25);
+}
+
+main samp {
+	background-color: @ini_background_alt;
+	font-family: @ini_mono_fonts;
+	white-space: nowrap;
+}
+main mark {
+	background-color: @ini_highlight;
 }
 
 /* tablet break point: */
@@ -255,10 +297,28 @@ main img {
 	body.darkmode main table.inline tr:hover th { background-color: @ini_border_dark; }
 	body.darkmode main blockquote { border-left-color: @ini_blockquote_dark }
 	
-	body.darkmode div.error { background-color: #4B2F36; color: #FFB3D2; border-color: #743E4C; }
-	body.darkmode div.success { background-color: #28381F; color: #FBE2A1; border-color: #37562E; }
-	body.darkmode div.notify { background-color: #42381F; color: #FCE2A1; border-color: #56562E; }
-	body.darkmode main pre { border-color: @ini_border_dark; box-shadow: inset 0 0 .5em @ini_background_site_dark;}
+	body.darkmode main kbd {color: @ini_headlines_dark;border-color: @ini_border_dark;}
+	body.darkmode main kbd kbd {background-color: @ini_background_alt_dark;}
+	body.darkmode main samp {background-color: @ini_background_alt_dark;}
+
+	body.darkmode div.error {background-color: #4B2F36; color: #FFB3D2; border-color: #743E4C;}
+	body.darkmode div.success {background-color: #28381F; color: #FBE2A1; border-color: #37562E;}
+	body.darkmode div.notify {background-color: #42381F; color: #FCE2A1; border-color: #56562E;}
+	body.darkmode main pre {border-color: @ini_border_dark; box-shadow: inset 0 0 .5em @ini_background_site_dark;}
+
+	body.darkmode main aside {border-color: @ini_border_dark; background-color: @ini_background_site_dark;}
+	
+	/* colour overrides for Wrap Plugin */
+	body.darkmode .wrap_hi {background-color: @ini_highlight; color: #000;}
+	body.darkmode .wrap_box, body.darkmode .box {background-color: @ini_background_alt_dark; color: inherit;}
+	body.darkmode .wrap_tip {background-color: #47391B;}
+	body.darkmode .wrap_important {background-color: #603000;}
+	body.darkmode .wrap_alert, body.darkmode .wrap_danger {background-color: #4C0909;}
+	body.darkmode .wrap_help,body.darkmode .wrap_info {background-color: #112847;}
+	body.darkmode .wrap_download, body.darkmode .wrap_safety {background-color: #1C3802;}
+	body.darkmode .wrap_todo, body.darkmode .wrap_notice {background-color: #004A7F;}
+	body.darkmode .wrap_caution {background-color: #fcffaa;}
+	body.darkmode .wrap_warning {background-color: #FFC9AA;}
 
 }
 
