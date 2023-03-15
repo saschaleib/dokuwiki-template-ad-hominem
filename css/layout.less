@@ -521,7 +521,7 @@ main>footer p.docInfo {
 }
 
 /* Table of Contents */
-#toc {
+.dokuwiki #toc {
 	clear: both;
 	float: right;
 	width: auto;
@@ -531,14 +531,15 @@ main>footer p.docInfo {
 	text-align: left;
 	max-width: @ini_toc_width;
 	background-color: transparent;
+	border: transparent none 0;
 	border-left: @ini_border solid 1pt;
 }
-#toc ol {
+.dokuwiki #toc ol {
 	list-style: none inside;
 	padding: 0 0 0 1em;
 	margin: 0;
 }
-#toc ol li {
+.dokuwiki #toc ol li {
 	font-size: small;
 	line-height: 1.25em;
 	margin: .5em 0;
