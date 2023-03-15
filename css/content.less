@@ -187,9 +187,6 @@ main table.inline tr:hover th {
 
 /* asides */
 main aside {
-	border: @ini_border solid 1px;
-	background: @ini_background_site;
-	padding: .5em;
 }
 
 main aside > * {
@@ -204,10 +201,12 @@ main aside.float-right {
 	line-height: 1.5em;
 }
 main aside.float-left {
+	clear: left;
 	float: left;
 	margin-right: .5em;
 }
 main aside.float-right {
+	clear: right;
 	float: right;
 	margin-left: .5em;
 }
