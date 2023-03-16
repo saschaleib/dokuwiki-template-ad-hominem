@@ -7,253 +7,246 @@ body {
 	overflow: hidden auto;
 }
 
-main p,
-main blockquote,
-main div.table {
-	margin-bottom:	1em;
-}
+main {
+	p,
+	blockquote,
+	div.table {
+		margin-bottom:	1em;
+	}
 
 /* headlines: */
-main h1, main h2, main h3, main h4, main h5, main h6 {
-	font-family:	@ini_alt_fonts;
-	color:			@ini_headlines;
-	margin:			1em 0 1em 0;
-	line-height:	1.1em;
-}
+	h1, h2, h3, h4, h5, h6 {
+		font-family:	@ini_alt_fonts;
+		color:			@ini_headlines;
+		margin:			1em 0 1em 0;
+		line-height:	1.1em;
+	}
+	h1 { font-size: 2em; }
+	h2 { font-size: 1.5em; }
+	h3 { font-size: 1.125em; }
+	h4 { font-size: 1em; }
+	h5 { font-size: .875em; }
+	h6 { font-size: .75em; }
+	h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
+		font-family:	inherit;
+		font-size:		inherit;
+		color:			inherit;
+		margin:			inherit;
+		line-height:	inherit;
+	}
 
-main h1 { font-size: 2em; }
-main h2 { font-size: 1.5em; }
-main h3 { font-size: 1.125em; }
-main h4 { font-size: 1em; }
-main h5 { font-size: .875em; }
-main h6 { font-size: .75em; }
+	/* make strike-through and underline more useful! */
+	u {
+		-webkit-text-decoration-color: #F30;
+		-webkit-text-decoration-line: underline;
+		-webkit-text-decoration-style: wavy;
+		-webkit-text-decoration-thickness: .7pt;
+		text-decoration: underline #F30 wavy .7pt;
+	}
+	s, del {
+		-webkit-text-decoration-color: rgba(255,0,0,.5);
+		-webkit-text-decoration-line: line-through;
+		-webkit-text-decoration-style: solid;
+		-webkit-text-decoration-thickness: .1em;
+		text-decoration: line-through rgba(255,0,0,.5) solid .1em;
+	}
 
-main h1 *, main h2 *, main h3 *, main h4 *, main h5 *, main h6 * {
-	font-family:	inherit;
-	font-size:		inherit;
-	color:			inherit;
-	margin:			inherit;
-	line-height:	inherit;
+	/* lists: */
+	ul, ol {
+		margin:			0 2em 1em 1em;
+		padding-left:	1.75em;
+	}
+	ul { list-style: square outside; }
+	ul ul { list-style-type: disc; }
+	ul ul ul { list-style-type: none; }
+	ul ul ul li {margin-left: 1em; }
+	ul ul ul li:before { display: block; content: '\2043'; text-align:center; float: left; width: 1em; margin-left: -1em; }
+	ul ul ul ul li:before { content: '\FE63' }
+	ul ul ul ul ul li:before { content: '\00B7' }
+
+	/* numbered lists vary by nestling: */
+	ol { list-style: decimal outside; }
+	ol ol { list-style-type: lower-alpha; }
+	ol ol ol { list-style-type: lower-roman; }
+	ol ol ol ol { list-style-type: lower-greek; }
+	ol ol ol ol ol { list-style-type: decimal-leading-zero; }
+	ul ul ul ol li { margin-left: 0; }
+	ul ul ul ol li:before { display: none; content: ''; }
+
+	li::marker {
+		color:			#666;
+	}
+
+	ul ul, ul ol,
+	ol ul, ol ol {
+		margin-bottom:		0;
+		padding-left:		.25em;
+	}
+
+	/* horizontal rules */
+	hr {
+		border:				#666 solid 0;
+		border-top-width:	1pt;
+		height:				0;
+		margin:				3pt 0;
+	}
+
+	tt, blockquote tt,
+	pre, pre *,
+	code, code *,
+	blockquote code {
+		font-family:	@ini_mono_fonts;
+	}
+	code, blockquote code {
+		border:			@ini_border solid 1px;
+		border-radius:	3pt;
+		padding:		0 2pt;
+	}
+	pre {
+		max-width: calc(@ini_site_width - @ini_sidebar_width - .5em);
+		overflow: auto;
+		word-wrap: normal;
+		border: 1px solid @ini_border;
+		border-radius: 2px;
+		box-shadow: inset 0 0 .5em @ini_border;
+		padding: .3em;
+	}
+
+	/* overwrite pre styling for CodeMirror plugin: */
+	.CodeMirror pre {
+		max-width: 100%;
+	}
+	/* quotes: */
+	blockquote {
+		border-left:	@ini_blockquote solid .4em;
+		border-radius:	.5em;
+		padding:		.25em 0 .25em .75em;
+		margin:			0 2em 1em 1em;
+		font-family:	@ini_alt_fonts;
+		font-size:		1.1rem;
+	}
+	blockquote * {
+		font-family:	@ini_alt_fonts;
+		font-size:		1.1rem;
+	} 
+
+	svg {
+		display:			block;
+		fill-rule:			evenodd;
+		clip-rule:			evenodd;
+		stroke-linejoin:	round;
+		stroke-miterlimit:	1.5;
+	}
+	svg.math {
+		margin-left:		15px
+	}
+
+	/*  tables */
+	div.table {
+		overflow-x:			auto;
+	}
+	table {
+		& {
+			border-collapse:	collapse;
+			empty-cells:		show;
+			border-spacing:		0;
+			font-size:			smaller;
+			border:				1px solid @ini_border;
+			margin-bottom:		1em;
+		}
+		th, td {
+			padding:			.5em .3em;
+			vertical-align:		top;
+			border:				1px solid @ini_border;
+			line-height:		1.25em;
+		}
+		th {
+			font-weight:		bold;
+			background-color:	@ini_background_alt;
+			text-align:			left;
+		}
+		&.inline {
+			min-width:			50%;
+		}
+		&.inline tr:hover td {
+			background-color:	@ini_background_alt;
+		}
+		&.inline tr:hover th {
+			background-color:	@ini_border;
+		}
+	}
+
+	/* asides */
+	aside {
+		& > * {
+			margin: .25em 0;
+		}
+		&.float-left, &.float-right {
+			width: 50%;
+			max-width: 220px;
+			min-width: 150px;
+			font-size: smaller;
+			line-height: 1.5em;
+		}
+		&.float-left {
+			clear: left;
+			float: left;
+			margin-right: .5em;
+		}
+		&.float-right {
+			clear: right;
+			float: right;
+			margin-left: .5em;
+		}
+		& footer {
+			line-height:	1.1em;
+		}
+	}
+
+	/* images */
+	img {
+		max-width:		100%;
+		height:			auto;
+	}
+
+	/* extra styles for ad-hoc tags: */
+	kbd {
+		padding: .15em .25em;
+		margin: 0 .1em;
+		font-size: 85%;
+		color: @ini_headlines;
+		border: @ini_border solid 1px;
+		border-radius: .25em;
+		display: inline-block;
+		white-space: nowrap;
+		line-height: 1.2em;
+		letter-spacing: .03em;
+	}
+	kbd kbd {
+		background-color: @ini_background_alt;
+		-webkit-box-shadow: 0 .1em 0 rgba(0,0,0,0.25);
+		box-shadow: 0 .1em 0 rgba(0,0,0,0.25);
+		font-weight: bold;
+	}
+	samp {
+		background-color: @ini_background_alt;
+		font-family: @ini_mono_fonts;
+		white-space: nowrap;
+	}
+	mark {
+		background-color: @ini_highlight;
+	}
+
+	/* box / notification classes */
+	.box {
+		padding: 1pt .5em;
+		margin: .5em 0;
+		background-color: @ini_background_alt;
+	}
 }
 
 /* on the homepage only, reduce the H1 top margin: */
 body.home h1:first-child { margin-top: .5em; }
-
-/* make strike-through and underline more useful! */
-main u {
-	-webkit-text-decoration-color: #F30;
-	-webkit-text-decoration-line: underline;
-	-webkit-text-decoration-style: wavy;
-	-webkit-text-decoration-thickness: .7pt;
-	text-decoration: underline #F30 wavy .7pt;
-}
-main s,
-main del {
-	-webkit-text-decoration-color: rgba(255,0,0,.5);
-	-webkit-text-decoration-line: line-through;
-	-webkit-text-decoration-style: solid;
-	-webkit-text-decoration-thickness: .1em;
-	text-decoration: line-through rgba(255,0,0,.5) solid .1em;
-}
-
-/* lists: */
-main ul, main ol {
-	margin:			0 2em 1em 1em;
-	padding-left:	1.75em;
-}
-main ul { list-style: square outside; }
-main ul ul { list-style-type: disc; }
-main ul ul ul { list-style-type: none; }
-main ul ul ul li {margin-left: 1em; }
-main ul ul ul li:before { display: block; content: '\2043'; text-align:center; float: left; width: 1em; margin-left: -1em; }
-main ul ul ul ul li:before { content: '\FE63' }
-main ul ul ul ul ul li:before { content: '\00B7' }
-
-/* numbered lists vary by nestling: */
-main ol { list-style: decimal outside; }
-main ol ol { list-style-type: lower-alpha; }
-main ol ol ol { list-style-type: lower-roman; }
-main ol ol ol ol { list-style-type: lower-greek; }
-main ol ol ol ol ol { list-style-type: decimal-leading-zero; }
-main ul ul ul ol li { margin-left: 0; }
-main ul ul ul ol li:before { display: none; content: ''; }
-
-main li::marker {
-	color:			#666;
-}
-
-main ul ul, main ul ol,
-main ol ul, main ol ol {
-	margin-bottom:		0;
-	padding-left:		.25em;
-}
-
-/* horizontal rules */
-main hr {
-	border:				#666 solid 0;
-	border-top-width:	1pt;
-	height:				0;
-	margin:				3pt 0;
-}
-
-main tt, main blockquote tt,
-main pre, main pre *,
-main code, main code *,
-main blockquote code {
-	font-family:	@ini_mono_fonts;
-}
-main code, main blockquote code {
-	border:			@ini_border solid 1px;
-	border-radius:	3pt;
-	padding:		0 2pt;
-}
-main pre {
-	max-width: calc(@ini_site_width - @ini_sidebar_width - .5em);
-	overflow: auto;
-	word-wrap: normal;
-	border: 1px solid @ini_border;
-	border-radius: 2px;
-	box-shadow: inset 0 0 .5em @ini_border;
-	padding: .3em;
-}
-
-/* overwrite pre styling for CodeMirror plugin: */
-main .CodeMirror pre {
-	max-width: 100%;
-}
-/* quotes: */
-main blockquote {
-	border-left:	@ini_blockquote solid .4em;
-	border-radius:	.5em;
-	padding:		.25em 0 .25em .75em;
-	margin:			0 2em 1em 1em;
-	font-family:	@ini_alt_fonts;
-	font-size:		1.1rem;
-}
-main blockquote * {
-	font-family:	@ini_alt_fonts;
-	font-size:		1.1rem;
-} 
-
-main svg {
-	display:			block;
-	fill-rule:			evenodd;
-	clip-rule:			evenodd;
-	stroke-linejoin:	round;
-	stroke-miterlimit:	1.5;
-}
-main svg.math {
-	margin-left:		15px
-}
-
-/*  tables */
-main div.table {
-    overflow-x:			auto;
-}
-
-main table {
-    border-collapse:	collapse;
-    empty-cells:		show;
-    border-spacing:		0;
-	font-size:			smaller;
-    border:				1px solid @ini_border;
-	margin-bottom:		1em;
-}
-
-main table.inline {
-    min-width:			50%;
-}
-
-main table th,
-main table td {
-	padding:			.5em .3em;
-	vertical-align:		top;
-	border:				1px solid @ini_border;
-	line-height:		1.25em;
-}
-main table th {
-	font-weight:		bold;
-	background-color:	@ini_background_alt;
-	text-align:			left;
-}
-
-main table.inline tr:hover td {
-    background-color:	@ini_background_alt;
-}
-
-main table.inline tr:hover th {
-    background-color:	@ini_border;
-}
-
-/* asides */
-main aside {
-}
-
-main aside > * {
-	margin: .25em 0;
-}
-main aside.float-left,
-main aside.float-right {
-	width: 50%;
-	max-width: 220px;
-	min-width: 150px;
-	font-size: smaller;
-	line-height: 1.5em;
-}
-main aside.float-left {
-	clear: left;
-	float: left;
-	margin-right: .5em;
-}
-main aside.float-right {
-	clear: right;
-	float: right;
-	margin-left: .5em;
-}
-main aside footer {
-	line-height:	1.1em;
-}
-
-/* images */
-main img {
-	max-width:		100%;
-	height:			auto;
-}
-
-/* extra styles for ad-hoc tags: */
-main kbd {
-	padding: .15em .25em;
-	margin: 0 .1em;
-	font-size: 85%;
-	color: @ini_headlines;
-	border: @ini_border solid 1px;
-	border-radius: .25em;
-	display: inline-block;
-	white-space: nowrap;
-	line-height: 1.2em;
-	letter-spacing: .03em;
-}
-main kbd kbd {
-	background-color: @ini_background_alt;
-	-webkit-box-shadow: 0 .1em 0 rgba(0,0,0,0.25);
-	box-shadow: 0 .1em 0 rgba(0,0,0,0.25);
-}
-
-main samp {
-	background-color: @ini_background_alt;
-	font-family: @ini_mono_fonts;
-	white-space: nowrap;
-}
-main mark {
-	background-color: @ini_highlight;
-}
-
-/* box / notification classes */
-main .box {
-	padding: 1pt .5em;
-	margin: .5em 0;
-	background-color: @ini_background_alt;
-}
 
 
 /* tablet break point: */
@@ -293,39 +286,48 @@ main .box {
 
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
-	body.darkmode main h1, body.darkmode main h2,
-	body.darkmode main h3, body.darkmode main h4,
-	body.darkmode main h5, body.darkmode main h6 { color: @ini_headlines_dark; }
-	body.darkmode main table { border-color: @ini_border_dark; }
-	body.darkmode main table th { background-color: rgba(255,255,255,0.05); }
-	body.darkmode main table.inline tr:hover td,
-	body.darkmode #acl_manager table tr:hover { background-color: rgba(255,255,255,0.1); }
-	body.darkmode main code, main blockquote code { border-color: @ini_border_dark; }
-	body.darkmode main table.inline tr:hover th { background-color: @ini_border_dark; }
-	body.darkmode main blockquote { border-left-color: @ini_blockquote_dark }
-	
-	body.darkmode main kbd {color: @ini_headlines_dark;border-color: @ini_border_dark;}
-	body.darkmode main kbd kbd {background-color: @ini_background_alt_dark;}
-	body.darkmode main samp {background-color: @ini_background_alt_dark;}
 
-	body.darkmode div.error {background-color: #4B2F36; color: #FFB3D2; border-color: #743E4C;}
-	body.darkmode div.success {background-color: #28381F; color: #FBE2A1; border-color: #37562E;}
-	body.darkmode div.notify {background-color: #42381F; color: #FCE2A1; border-color: #56562E;}
-	body.darkmode main pre {border-color: @ini_border_dark; box-shadow: inset 0 0 .5em @ini_background_site_dark;}
+	body.darkmode {
+		main {
+			h1, h2, h3, h4, h5, h6 { color: @ini_headlines_dark; }
+			table {
+				& { border-color: @ini_border_dark; }
+				&.inline tr:hover td,
+				&.inline tr:hover th { background-color: @ini_border_dark; }
+				th { background-color: rgba(255,255,255,0.05); }
+			}
+			#acl_manager table tr:hover { background-color: rgba(255,255,255,0.1); }
+			code,
+			blockquote code { border-color: @ini_border_dark; }
+			blockquote { border-left-color: @ini_blockquote_dark }
+			kbd {color: @ini_headlines_dark;border-color: @ini_border_dark;}
+			kbd kbd {background-color: @ini_background_alt_dark;}
+			samp {background-color: @ini_background_alt_dark;}
+			pre {border-color: @ini_border_dark; box-shadow: inset 0 0 .5em @ini_background_site_dark;}
 
-	body.darkmode main aside {border-color: @ini_border_dark; background-color: @ini_background_site_dark;}
-	
-	/* colour overrides for Wrap Plugin */
-	body.darkmode .wrap_hi {background-color: @ini_highlight; color: #000;}
-	body.darkmode .wrap_box, body.darkmode .box {background-color: @ini_background_alt_dark; color: inherit;}
-	body.darkmode .wrap_tip {background-color: #47391B;}
-	body.darkmode .wrap_important {background-color: #603000;}
-	body.darkmode .wrap_alert, body.darkmode .wrap_danger {background-color: #4C0909;}
-	body.darkmode .wrap_help,body.darkmode .wrap_info {background-color: #112847;}
-	body.darkmode .wrap_download, body.darkmode .wrap_safety {background-color: #1C3802;}
-	body.darkmode .wrap_todo, body.darkmode .wrap_notice {background-color: #004A7F;}
-	body.darkmode .wrap_caution {background-color: #fcffaa;}
-	body.darkmode .wrap_warning {background-color: #FFC9AA;}
+			/* overrides for code blocks: */
+			pre.code {
+				.me1 {color: #3C3;}
+				.kw2 {color: #0C7;}
+				.kw3 {color: #0CF;}
+			}
 
+			div.error {background-color: #4B2F36; color: #FFB3D2; border-color: #743E4C;}
+			div.success {background-color: #28381F; color: #FBE2A1; border-color: #37562E;}
+			div.notify {background-color: #42381F; color: #FCE2A1; border-color: #56562E;}
+
+			/* colour overrides for Wrap Plugin */
+			.wrap_hi {background-color: @ini_highlight; color: #000;}
+			.wrap_box, .box {background-color: @ini_background_alt_dark; color: inherit;}
+			.wrap_tip {background-color: #47391B;}
+			.wrap_important {background-color: #603000;}
+			.wrap_alert, .wrap_danger {background-color: #4C0909;}
+			.wrap_help, .wrap_info {background-color: #112847;}
+			.wrap_download, .wrap_safety {background-color: #1C3802;}
+			.wrap_todo, .wrap_notice {background-color: #004A7F;}
+			.wrap_caution {background-color: #fcffaa;}
+			.wrap_warning {background-color: #FFC9AA;}
+		}
+	}
 }
 
