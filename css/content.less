@@ -96,12 +96,12 @@ main {
 	pre, pre *,
 	code, code *,
 	blockquote code {
-		font-family:	@ini_mono_fonts;
+		font-family: @ini_mono_fonts;
 	}
 	code, blockquote code {
-		border:			@ini_border solid 1px;
-		border-radius:	3pt;
-		padding:		0 2pt;
+		border: @ini_border solid 1px;
+		border-radius: 3pt;
+		padding: 0 2pt;
 	}
 	pre {
 		max-width: calc(@ini_site_width - @ini_sidebar_width - .5em);
@@ -119,61 +119,62 @@ main {
 	}
 	/* quotes: */
 	blockquote {
-		border-left:	@ini_blockquote solid .4em;
-		border-radius:	.5em;
-		padding:		.25em 0 .25em .75em;
-		margin:			0 2em 1em 1em;
-		font-family:	@ini_alt_fonts;
-		font-size:		1.1rem;
+		border: @ini_blockquote solid 0;
+		border-width: 0 0 0 .4em;
+		border-radius: .5em;
+		padding: .25em 0 .25em .75em;
+		margin: 0 2em 1em 1em;
+		font-family: @ini_alt_fonts;
+		font-size: 1.1rem;
 	}
 	blockquote * {
-		font-family:	@ini_alt_fonts;
-		font-size:		1.1rem;
+		font-family: @ini_alt_fonts;
+		font-size: 1.1rem;
 	} 
 
 	svg {
-		display:			block;
-		fill-rule:			evenodd;
-		clip-rule:			evenodd;
-		stroke-linejoin:	round;
-		stroke-miterlimit:	1.5;
+		display: block;
+		fill-rule: evenodd;
+		clip-rule: evenodd;
+		stroke-linejoin: round;
+		stroke-miterlimit: 1.5;
 	}
 	svg.math {
-		margin-left:		15px
+		margin-left: 15px
 	}
 
 	/*  tables */
 	div.table {
-		overflow-x:			auto;
+		overflow-x: auto;
 	}
 	table {
 		& {
-			border-collapse:	collapse;
-			empty-cells:		show;
-			border-spacing:		0;
-			font-size:			smaller;
-			border:				1px solid @ini_border;
-			margin-bottom:		1em;
+			border-collapse: collapse;
+			empty-cells: show;
+			border-spacing: 0;
+			font-size: smaller;
+			border: 1px solid @ini_border;
+			margin-bottom: 1em;
 		}
 		th, td {
-			padding:			.5em .3em;
-			vertical-align:		top;
-			border:				1px solid @ini_border;
-			line-height:		1.25em;
+			padding: .5em .3em;
+			vertical-align: top;
+			border: 1px solid @ini_border;
+			line-height: 1.25em;
 		}
 		th {
-			font-weight:		bold;
-			background-color:	@ini_background_alt;
-			text-align:			left;
+			font-weight: bold;
+			background-color: @ini_background_alt;
+			text-align: left;
 		}
 		&.inline {
-			min-width:			50%;
+			min-width: 50%;
 		}
 		&.inline tr:hover td {
-			background-color:	@ini_background_alt;
+			background-color: @ini_background_alt;
 		}
 		&.inline tr:hover th {
-			background-color:	@ini_border;
+			background-color: @ini_border;
 		}
 	}
 
@@ -200,14 +201,14 @@ main {
 			margin-left: .5em;
 		}
 		& footer {
-			line-height:	1.1em;
+			line-height: 1.1em;
 		}
 	}
 
 	/* images */
 	img {
-		max-width:		100%;
-		height:			auto;
+		max-width: 100%;
+		height: auto;
 	}
 
 	/* extra styles for ad-hoc tags: */
@@ -261,6 +262,16 @@ main {
 body.home h1:first-child { margin-top: .5em; }
 
 
+[dir=rtl] {
+	main {
+		blockquote {
+			border-width: 0 .4em 0 0;
+			padding: .25em .75em .25em 0;
+			margin: 0 1em 1em 2em;
+		}
+	}
+}
+
 /* tablet break point: */
 @media (max-width: @ini_tablet_width) {
 	
@@ -299,8 +310,8 @@ body.home h1:first-child { margin-top: .5em; }
 			}
 			#acl_manager table tr:hover { background-color: rgba(255,255,255,0.1); }
 			code,
+			blockquote { border-color: @ini_blockquote_dark }
 			blockquote code { border-color: @ini_border_dark; }
-			blockquote { border-left-color: @ini_blockquote_dark }
 			kbd {color: @ini_headlines_dark;border-color: @ini_border_dark;}
 			kbd kbd {background-color: @ini_background_alt_dark;}
 			samp {background-color: @ini_background_alt_dark;}

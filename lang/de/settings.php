@@ -26,4 +26,4 @@ $lang['homelink']         = 'Link zu übergeordneter Homepage (leer für Standar
 
 $lang['printstyle']         = 'Variationen im Druckstil';
 $lang['printstyle_o_basic']	= 'Einfach';
-$lang['printstyle_o_compact']	= 'Kompakt';
+$lang['printstyle_o_compact'] = 'Kompakt';
