@@ -1,0 +1,8 @@
+base     adhoctags
+author   Sascha Leib
+email    sascha.leib(at)kolmio.com
+date     2023-03-23
+name     Ad-Hoc Tags Plugin
+desc     A secure but flexible way to insert HTML tags into DokuWiki (under development!)
+url      https://www.dokuwiki.org/plugin:adhoctags
+
