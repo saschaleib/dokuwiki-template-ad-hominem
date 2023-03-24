@@ -11,7 +11,8 @@ main {
 	p,
 	blockquote,
 	div.table {
-		margin-bottom:	1em;
+		margin-bottom: .5em;
+		margin-top: .5em;
 	}
 
 /* headlines: */
@@ -245,27 +246,27 @@ main {
 	}
 }
 
+/* hyphenation only in the main-content */
+#main-content p, #main-content li {
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	hyphens: auto;
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphenate-limit-chars: 6 2 3;
+}
+
 /* on the homepage only, reduce the H1 top margin: */
 body.home h1:first-child { margin-top: .5em; }
 
 
 /* tablet break point: */
 @media (max-width: @ini_tablet_width) {
-
-	/* use hyphenation rules */
-	main p {
-		hyphens: auto;
-		-webkit-hyphens: auto;
-		hyphenate-limit-chars: 6 2 3;
-		-ms-hyphenate-limit-chars: 6 2 3;
-		-webkit-hyphenate-limit-before: 2;
-		-webkit-hyphenate-limit-after: 3;
-		hyphenate-limit-lines: 3;
-		-ms-hyphenate-limit-lines: 3;
-		hyphenate-limit-last: always;
-		-ms-hyphenate-limit-last: always;
-		hyphenate-limit-zone: 8%;
-		-ms-hyphenate-limit-zone: 8%;
+	
+	/* tighter hyphenation for narrower screens */
+	#main-content p, #main-content li {
+		hyphenate-limit-chars: 5 2 2;
 	}
 }
 

@@ -139,9 +139,17 @@ main h1 + div, main h2 + div, main h3 + div, main h4 + div, main h5 + div, main 
 /* paragraph-level blocks */
 main p, main ul, main ol {
 	margin: .5em 0;
+}
+main p, main li {
 	widows: 2;
 	orphans: 2;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
 	hyphens: auto;
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphenate-limit-chars: 6 2 3;
 }
 main ul { list-style: square outside; }
 main ul ul { list-style-type: disc; }
