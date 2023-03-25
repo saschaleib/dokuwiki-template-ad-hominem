@@ -70,7 +70,8 @@ main {
 	ol ol { list-style-type: lower-alpha; }
 	ol ol ol { list-style-type: lower-roman; }
 	ol ol ol ol { list-style-type: lower-greek; }
-	ol ol ol ol ol { list-style-type: decimal-leading-zero; }
+	ol ol ol ol ol { list-style-type: decimal-leading-zero; font-size: .96em;}
+	ol ol ol ol ol ol { list-style-type: upper-alpha; font-size: .96em;}
 	ul ul ul ol li { margin-left: 0; }
 	ul ul ul ol li:before { display: none; content: ''; }
 
@@ -126,6 +127,7 @@ main {
 		margin: 0 2em 1em 1em;
 		font-family: @ini_alt_fonts;
 		font-size: 1.1rem;
+		hanging-punctuation: first allow-end;
 	}
 	blockquote * {
 		font-family: @ini_alt_fonts;
@@ -210,6 +212,12 @@ main {
 		max-width: 100%;
 		height: auto;
 	}
+	
+	/* abbbreviations a reslightly widened and made smaller */
+	abbr {
+		letter-spacing: .01em;
+		font-size: 97%;
+	}
 
 	/* extra styles for ad-hoc tags: */
 	kbd {
@@ -245,18 +253,19 @@ main {
 		margin: .5em 0;
 		background-color: @ini_background_alt;
 	}
+	
+	/* hyphenation only in the main-content */
+	p, li {
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		hyphens: auto;
+		-ms-hyphens: auto;
+		-moz-hyphens: auto;
+		-webkit-hyphens: auto;
+		hyphenate-limit-chars: 6 2 3;
+	}
 }
 
-/* hyphenation only in the main-content */
-#main-content p, #main-content li {
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	hyphens: auto;
-	-ms-hyphens: auto;
-	-moz-hyphens: auto;
-	-webkit-hyphens: auto;
-	hyphenate-limit-chars: 6 2 3;
-}
 
 /* on the homepage only, reduce the H1 top margin: */
 body.home h1:first-child { margin-top: .5em; }
@@ -269,6 +278,23 @@ body.home h1:first-child { margin-top: .5em; }
 			padding: .25em .75em .25em 0;
 			margin: 0 1em 1em 2em;
 		}
+
+		ul, ol {
+			margin-left: 0;
+			margin-right: .5em;
+			padding-left: 0;
+			padding-right: .25em;
+		}
+		ul li, ol li {
+			width: 100%;
+		}
+		
+		ul ul ul li:before {
+			float: right;
+			margin-left: 0;
+			margin-right: -1em;
+		}
+
 	}
 }
 
