@@ -26,7 +26,6 @@ $lang['__separator__']      = 'Farbe von Linien';
 
 $lang['__default_fonts__']  = 'Schriftarten für Inhaltstext und Navigation';
 $lang['__default_font_size__'] = 'Standard-Schriftgröße';
-$lang['__default_letter_spacing__'] = 'Zeichenabstand';
 
 $lang['__alt_fonts__']      = 'Alternative Schriftarten (z.B. für Überschriften)';
 $lang['__mono_fonts__']     = 'Schriftarten mit fester Laufweite (z.B. für Code)';

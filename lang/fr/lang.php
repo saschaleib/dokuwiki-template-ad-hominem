@@ -26,7 +26,6 @@ $lang['__separator__']         = 'Couleur du séparateur de ligne';
 
 $lang['__default_fonts__']     = 'Liste des polices par défaut (utilisées pour le contenu et la navigation)';
 $lang['__default_font_size__'] = 'Taille de police par défaut';
-$lang['__default_letter_spacing__'] = 'Espacement des lettres par défaut';
 
 $lang['__alt_fonts__']         = 'Polices alternatives (utilisées, par exemple, pour les titres)';
 $lang['__mono_fonts__']        = 'Polices mono-espacées (pour le code, par exemple)';

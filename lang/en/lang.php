@@ -21,7 +21,6 @@ $lang['__separator__']         = 'Line separator color';
 
 $lang['__default_fonts__']     = 'Default fonts list (used for content and navigation)';
 $lang['__default_font_size__'] = 'Default font size';
-$lang['__default_letter_spacing__'] = 'Default letter-spacing';
 
 $lang['__alt_fonts__']         = 'Alternative fonts (used e.g. for headlines)';
 $lang['__mono_fonts__']        = 'Monospaced fonts (e.g. for code)';

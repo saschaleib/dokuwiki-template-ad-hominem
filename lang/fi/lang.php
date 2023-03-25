@@ -21,7 +21,6 @@ $lang['__separator__']         = 'Rivin erottimen väri';
 
 $lang['__default_fonts__']     = 'Oletusfonttien luettelo (käytetään sisällössä ja navigoinnissa)';
 $lang['__default_font_size__'] = 'Fontin oletuskoko';
-$lang['__default_letter_spacing__'] = 'Oletuskirjainväli';
 
 $lang['__alt_fonts__']         = 'Vaihtoehtoiset fontit (käytetään esim. otsikoissa)';
 $lang['__mono_fonts__']        = 'Yksiväripainotteiset fontit (esim. koodissa)';
