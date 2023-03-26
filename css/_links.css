@@ -5,24 +5,24 @@
 /*____________ links to wiki pages ____________*/
 
 /* existing wikipage */
-.dokuwiki a.wikilink1 {
+a.wikilink1 {
 }
 /* not existing wikipage */
-.dokuwiki a.wikilink2 {
+a.wikilink2 {
     text-decoration: none;
 }
-.dokuwiki a.wikilink2:link,
-.dokuwiki a.wikilink2:visited {
+a.wikilink2:link,
+a.wikilink2:visited {
     border-bottom: 1px dashed;
 }
-.dokuwiki a.wikilink2:hover,
-.dokuwiki a.wikilink2:active,
-.dokuwiki a.wikilink2:focus {
+a.wikilink2:hover,
+a.wikilink2:active,
+a.wikilink2:focus {
     border-bottom-width: 0;
 }
 
 /* any link to current page */
-.dokuwiki span.curid a {
+span.curid a {
     font-weight: bold;
 }
 
@@ -31,52 +31,67 @@ a.interwiki {
 	background-size: 1.0em;
 }
 
+/* Wikipedia Links */
+a.iw_wp, a.iw_wpfr, a.iw_wpde, a.iw_wpes, a.iw_wppl, a.iw_wpjp, a.iw_wpmeta {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTAwJTI1JyBoZWlnaHQ9JzEwMCUyNScgdmlld0JveD0nMCAwIDUxMiA1MTInIHZlcnNpb249JzEuMScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48Y2lyY2xlIGN4PScyNTYnIGN5PScyNTYnIHI9JzI1MCcgc3R5bGU9J2ZpbGw6I2ViZWJlYjtzdHJva2U6IzMzMztzdHJva2Utd2lkdGg6MTBweDsnLz48cGF0aCBkPSdNNjUsMTUybDAsOGMwLDIgMSwzIDQsM2MyMCwxIDIwLDUgMjgsMjNsOTAsMTk2YzcsMTQgMTYsMTYgMjUsLTFsNDUsLTg4bDQyLDg4YzgsMTUgMTYsMTYgMjQsMGw4NiwtMTk0YzgsLTE3IDE5LC0yNCAzNiwtMjRjMiwwIDIsLTEgMiwtM2wwLC04bC04MCwwbC0xLDFsMCw3YzAsMiAyLDMgNCwzYzEwLDAgMjksMiAyMSwxOWwtNzAsMTY2bC0zLC0xbC00MywtODhsMzcsLTcyYzgsLTE1IDEwLC0yNCAyNSwtMjRjMiwwIDQsLTEgNCwtM2wwLC03bC0xLC0xbC02NCwwbC0xLDFsMCw3YzAsMyA0LDMgNywzYzE4LDEgMTYsOCAxMCwxOWwtMjcsNTZsLTI1LC01MmMtOSwtMTYgLTExLC0yMSAyLC0yMmMzLC0xIDgsLTEgOCwtNGwwLC03bC0xLC0xbC02OSwwbC0xLDFsMCw4YzAsMiAyLDIgNSwyYzEyLDIgMTIsMyAyMywyNmw0MCw4NGwtMzcsNzVsLTMsLTFsLTc2LC0xNjdjLTgsLTE3IDIsLTE2IDE4LC0xN2MzLDAgMywtMSAzLC0zbDAsLTdsLTEsLTFsLTg2LDBaJyBzdHlsZT0nZmlsbDojMzMzOycvPjwvc3ZnPg==");
+}
+
 a.iw_google_de {
   background-image: url(/lib/images/interwiki/google.svg);
 }
 
-a.interwiki.iw_twitter {
+a.iw_twitter {
 	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAYAAAAmL5yKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHWSURBVDhPjVI9aFNRGD3nvgbS1kREB6E00RgKFkcRFQR/BhERHMTJ1tGppVsHZ5EqiJuDg/hsFt101w6CkrGg4GKJUKhYSc2LjaV57+u5L0+xxUoOnMf3ffee891370f0gdKzVtGMBwnLAVzOD9japjFAzpHlMNqrPcfE943JQpwq/kI5bI8ZbM7MzijNE3wL2mMZVUC8dInZUbFmwEx13gZ6sh7OvjFK+ES8qnS/OCyzi2Z4Adh5HX/UybGrhUFtursRR69Gw9a5cq0z5A2WltePSHDKxztAA7/JaJGHa+1iN06ewuC7eDRBftKOuo4Yyfh2Vt8Gkhe+TBZeuzi2kewUnd4S9sHspDpP7yYWNrS+6gNHh6aSquJBX+gTn9X0uw9c40ZhxYFTihd9oU8sBMx99YFLU8MHOdYVraf5/xER7tHSRN7/dmZAtPRdECNRL7orurq8By7gxyyXNENpvu2Q2AnJZ3UnV1QKeit/sKlTPieCW42bQz+zGlgKo4oRhzQxVYkvq/0l1TWy29BU54eku9+YGP79WikczK0xwbgG45rEx1VLxF/iilgncc85ng4Q3Nkp9kh/oRJ2GKNblPKACnpOfw30Jj9G8ntW313XWP0TwBYiI7IuEdRzyAAAAABJRU5ErkJggg==);
 }
 
 /*____________ other link types ____________*/
 
-.dokuwiki a.urlextern,
-.dokuwiki a.windows,
-.dokuwiki a.mail,
-.dokuwiki a.mediafile,
-.dokuwiki a.interwiki {
+a.urlextern,
+a.windows,
+a.mail,
+a.mediafile,
+a.interwiki {
     background-repeat: no-repeat;
     background-position: 0 center;
     padding: 0 0 0 21px;
 }
 /* external link */
-.dokuwiki a.urlextern {
+a.urlextern {
     background-image: url(../../images/external-link.png);
 }
 /* windows share */
-.dokuwiki a.windows {
+a.windows {
     background-image: url(../../images/unc.png);
 }
 /* email link */
-.dokuwiki a.mail {
+a.mail {
     background-image: url(../../images/email.png);
 }
 
 /* icons of the following are set by dokuwiki in lib/exe/css.php */
 /* link to some embedded media */
-.dokuwiki a.mediafile {
+a.mediafile {
 }
 /* interwiki link */
-.dokuwiki a.interwiki {
+a.interwiki {
 }
 
 /* RTL corrections; if link icons don't work as expected, remove the following lines */
-[dir=rtl] .dokuwiki a.urlextern,
-[dir=rtl] .dokuwiki a.windows,
-[dir=rtl] .dokuwiki a.mail,
-[dir=rtl] .dokuwiki a.interwiki,
-[dir=rtl] .dokuwiki a.mediafile {
+[dir=rtl] a.urlextern,
+[dir=rtl] a.windows,
+[dir=rtl] a.mail,
+[dir=rtl] a.interwiki,
+[dir=rtl] a.mediafile {
     background-position: right center;
     padding: 0 18px 0 0;
+}
+
+
+/* dark mode overrides */
+@media (prefers-color-scheme: dark) {
+
+	a.iw_wp, a.iw_wpfr, a.iw_wpde, a.iw_wpes, a.iw_wppl, a.iw_wpjp, a.iw_wpmeta {
+		background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyB2aWV3Qm94PScwIDAgNTEyIDUxMicgdmVyc2lvbj0nMS4xJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxjaXJjbGUgY3g9JzI1NicgY3k9JzI1Nicgcj0nMjUwJyBzdHlsZT0nZmlsbDojMzMzO3N0cm9rZTojZWJlYmViO3N0cm9rZS13aWR0aDoxMHB4OycvPjxwYXRoIGQ9J002NSwxNTJsMCw4YzAsMiAxLDMgNCwzYzIwLDEgMjAsNSAyOCwyM2w5MCwxOTZjNywxNCAxNiwxNiAyNSwtMWw0NSwtODhsNDIsODhjOCwxNSAxNiwxNiAyNCwwbDg2LC0xOTRjOCwtMTcgMTksLTI0IDM2LC0yNGMyLDAgMiwtMSAyLC0zbDAsLThsLTgwLDBsLTEsMWwwLDdjMCwyIDIsMyA0LDNjMTAsMCAyOSwyIDIxLDE5bC03MCwxNjZsLTMsLTFsLTQzLC04OGwzNywtNzJjOCwtMTUgMTAsLTI0IDI1LC0yNGMyLDAgNCwtMSA0LC0zbDAsLTdsLTEsLTFsLTY0LDBsLTEsMWwwLDdjMCwzIDQsMyA3LDNjMTgsMSAxNiw4IDEwLDE5bC0yNyw1NmwtMjUsLTUyYy05LC0xNiAtMTEsLTIxIDIsLTIyYzMsLTEgOCwtMSA4LC00bDAsLTdsLTEsLTFsLTY5LDBsLTEsMWwwLDhjMCwyIDIsMiA1LDJjMTIsMiAxMiwzIDIzLDI2bDQwLDg0bC0zNyw3NWwtMywtMWwtNzYsLTE2N2MtOCwtMTcgMiwtMTYgMTgsLTE3YzMsMCAzLC0xIDMsLTNsMCwtN2wtMSwtMWwtODYsMFonIHN0eWxlPSdmaWxsOiNlYmViZWI7Jy8+PC9zdmc+");
+	}
+
 }
