@@ -243,8 +243,8 @@ main a.urlextern:after {
 } */
 
 /* fixed-width elements: */
-main tt, main blockquote tt,
-main code, main blockquote code {
+main tt, main code, main pre,
+main blockquote tt, main blockquote code, main blockquote pre {
 	font-family:	@ini_mono_fonts;
 }
 
@@ -353,12 +353,8 @@ main aside {
 	float: none;
 	width: 100%;
 	margin: .5em 0;
-	text-align: center;
-	font-size: smaller;
 	page-break-inside: avoid;
 	break-inside: avoid;
-	font-size: small;
-	line-height: 1.5em;
 }
 main img {
 	width: auto;
@@ -524,18 +520,11 @@ body.mediadetail figure table ul {
 }
 
 /* boxes */
-main .info-box,
-main .wrap_info-box {
+main .box,
+main .wrap_box {
 	border: #666 solid 1px;
 	background-color: @ini_background_alt;
 	padding: .5em .25em .5em .5em;
 	font-size: small;
 	line-height: 1.5em;
 }
-
-main aside.info-box,
-main aside .wrap_info-box {
-	border: none;
-	background-color: transparent;
-}
-	

@@ -61,7 +61,7 @@ function my_metaheaders($alt = true) {
 					$head['meta'][] = array('property' => 'og:description', 'content' => $parts[2]);
 				
 					// Bing insists in a non-og description:
-					$head['meta'][] = array('property' => 'description', 'content' => $parts[2]);
+					$head['meta'][] = array('name' => 'description', 'content' => $parts[2]);
 				}
 			}
 		}
