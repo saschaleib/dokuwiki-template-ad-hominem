@@ -248,18 +248,27 @@ main {
 	}
 
 	/* box / notification classes */
-	.box,
-	.outline {
+	.box, .wrap_box,
+	.outline, .wrap_outline {
 		padding: 1pt .5em;
 		margin: .5em 0;
 	}
-	.box {
+	.box, .wrap_box {
 		background-color: @ini_background_alt;
 	}
-	.outline {
+	.outline, .wrap_outline {
 		border: @ini_border 1px solid;
 	}
-	
+	.rounded, .wrap_rounded {
+		border-radius: .5em;
+	}
+	.red, .wrap_red {
+		color: #B71C1C;
+	}
+	.green, .wrap_green {
+		color: #1B5E20;
+	}
+
 	/* hyphenation only in the main-content */
 	p, li {
 		word-wrap: break-word;
@@ -364,6 +373,8 @@ body.home h1:first-child { margin-top: .5em; }
 			.wrap_hi {background-color: @ini_highlight; color: #000;}
 			.wrap_box, .box {background-color: @ini_background_alt_dark; color: inherit;}
 			.wrap_outline, .outline {border-color: @ini_border_dark; color: inherit}
+			.red, .wrap_red { color: #E53935; }
+			.green, .wrap_green { color: #00E676; }
 			.wrap_tip {background-color: #47391B;}
 			.wrap_important {background-color: #603000;}
 			.wrap_alert, .wrap_danger {background-color: #4C0909;}
