@@ -5,7 +5,7 @@
 	"type": "project",
 	"license": "GPL v2",
 	"require": {
-		"php": ">=7.2",
+		"php": ">=8.0",
 		"ext-json": "*",
 		"splitbrain/dokuwiki": ">=2020-07-29"
 	},
