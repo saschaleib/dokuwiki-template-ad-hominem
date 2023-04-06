@@ -19,7 +19,7 @@ A clean and lightweight HTML5 template for DokuWiki.
   * Improvements to the default functionality, e.g. a resizeable internal link selection widget, etc.
   * Configuration to override the "home"-link (see below)
   * Integrated "Cookies" banner functionality
-  * Compatible with PHP8 and DokuWiki “Igor”.
+  * Compatible with PHP8 as well as DokuWiki “Igor” and “Jack Jackrum”.
   * Support for global RTL (right-to-left) site direction.
 
 
