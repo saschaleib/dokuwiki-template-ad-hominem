@@ -6,14 +6,23 @@
 	"license": "GPL v2",
 	"require": {
 		"php": ">=8.0",
-		"ext-json": "*",
-		"splitbrain/dokuwiki": ">=2020-07-29"
+		"ext-json": "*"
 	},
+	"require-dev": {
+		"dokuwiki/dokuwiki": ">=2020-07-29"
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/dokuwiki/dokuwiki"
+		}
+	],
 	"config": {
 		"platform": {
 			"php": "8.0"
 		}
 	},
 	"suggest": {},
+	"minimum-stability": "dev",
 	"prefer-stable": true
 }
