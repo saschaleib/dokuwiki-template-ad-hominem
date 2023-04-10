@@ -639,13 +639,17 @@ main {
 			overflow: hidden;
 		}
 		figcaption {
+			clear: left;
 			margin-top: .5em;
 			font-size: smaller;
 		}
 		figcaption p {
 			margin-bottom: 0;
 		}
-		> *:first-child {
+		figcaption.centered {
+			text-align: center;
+		}
+		& > *:first-child {
 			margin-top: .25em;
 		}
 		table {
@@ -655,7 +659,7 @@ main {
 		div.table {
 			margin: 0;
 		}
-		> p {
+		& > p {
 			margin: 0;
 		}
 	}
@@ -890,13 +894,18 @@ body.mediadetail {
 	#sbNavigation {
 		margin: 1em 1em 0 .25em;
 	}
+	main {
+		figure figcaption {
+			clear: right;
+		}
 	
-	main > footer {
-		text-align: left;
-	}
-	main > footer p.docInfo {
-		padding-left: 0;
-		padding-right: 5%;
+		& > footer {
+			text-align: left;
+		}
+		& > footer p.docInfo {
+			padding-left: 0;
+			padding-right: 5%;
+		}
 	}
 }
 
