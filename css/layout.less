@@ -624,6 +624,18 @@ main {
 		outline: orange dashed 3px;
 	}
 
+	/* Definition List styles: */
+	dt { font-weight: bold; }
+	dd { margin-left: 1.25em; margin-bottom: .5em; }
+	dl.compact {
+		display: grid;
+		grid-template-columns: min-content auto;
+	}
+	dl.compact dt { grid-column-start: 1; }
+	dl.compact dd { grid-column-start: 2; margin-bottom: 0; }
+	
+	dd.nowrap { white-space: nowrap; }
+
 	/* math fonts */
 	math, .math, .math *,
 	.wrap_math, .wrap_math * {
@@ -642,6 +654,7 @@ main {
 			clear: left;
 			margin-top: .5em;
 			font-size: smaller;
+			line-height: 1.4em;
 		}
 		figcaption p {
 			margin-bottom: 0;
