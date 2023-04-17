@@ -29,11 +29,21 @@ main {
 	h5 { font-size: .875em; }
 	h6 { font-size: .75em; }
 	h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
-		font-family:	inherit;
-		font-size:		inherit;
-		color:			inherit;
-		margin:			inherit;
-		line-height:	inherit;
+		font-family: inherit;
+		font-size: inherit;
+		color: inherit;
+		margin: inherit;
+		line-height: inherit;
+	}
+	/* Definition Terms are like Headlines in many ways */
+	dl dt {
+		font-family: @ini_alt_fonts;
+		color: @ini_headlines;
+	}
+	dl.compact dl { /* except in compact mode */
+		font-weight: 600;
+		font-family: inherit;
+		color: inherit;
 	}
 
 	/* make strike-through and underline more useful! */
