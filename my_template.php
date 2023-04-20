@@ -451,8 +451,6 @@ function my_toc($prefix = '') {
         }
     }
 
-	//echo "<!-- " . print_r($toc, true) . " -->\n";
-
 	/* Build the hierarchical list of headline links: */
 	if (count($toc) >= intval($conf['tocminheads'])) {
 		echo $prefix . "<aside id=\"toc\" class=\"toggle hide\">\n";
