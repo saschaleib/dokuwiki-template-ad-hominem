@@ -451,27 +451,35 @@ function my_toc($prefix = '') {
         }
     }
 
+	//echo "<!-- " . print_r($toc, true) . " -->\n";
+
 	/* Build the hierarchical list of headline links: */
 	if (count($toc) >= intval($conf['tocminheads'])) {
 		echo $prefix . "<aside id=\"toc\" class=\"toggle hide\">\n";
 		echo $prefix . "\t<button type=\"button\" id=\"toc-menubutton\" class=\"tg_button\" title=\"" . htmlentities($lang['toc']) . '" aria-haspopup="true" aria-controls="toc-menu"><span>' . htmlentities($lang['toc']) . "</span></button>\n" . $prefix . "\t<div id=\"toc-menu\" class=\"tg_content\" role=\"menu\" aria-labelledby=\"toc-menubutton\">";
-		$level = intval("0");
+		$level = 0;
 		foreach($toc as $it) {
 			
 			$nl = intval($it['level']);
 			$cp = ($nl <=> $level);
 
 			if ($cp > 0) {
-				echo "\n" . $prefix . str_repeat("\t", $level*2 + 2) . "<ol>\n";
+				while ($level < $nl) {
+					echo "\n" . $prefix . str_repeat("\t", $level*2 + 2) . "<ol>\n";
+					$level++;
+				}
 			} else if ($cp < 0) {
-				echo "\n" . $prefix . str_repeat("\t", $level*2) . "</ol></li>\n";
+				while ($level > $nl) {
+					echo "\n" . $prefix . str_repeat("\t", $level*2) . "</ol>\n" . $prefix . str_repeat("\t", $level*2-1) . "</li>\n";
+					$level--;
+				}
 			} else {
 				echo "</li>\n";
 			}
 			
 			$href = ( array_key_exists('link', $it ) ? $it['link'] : '' ) . ( array_key_exists('hid', $it) && $it['hid'] !== '' ? '#' . $it['hid'] : '' );
 
-			echo $prefix . str_repeat("\t", $nl*2 + 1) . '<li><a href="' . $href . '">' . htmlentities($it['title']) . "</a>";
+			echo $prefix . str_repeat("\t", $nl*2 + 1) . '<li  role="presentation"><a role="menuitem" href="' . $href . '">' . htmlentities($it['title']) . "</a>";
 			$level = $nl;
 		}
 		
