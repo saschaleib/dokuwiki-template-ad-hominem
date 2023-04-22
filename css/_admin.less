@@ -80,7 +80,11 @@
 		width: calc(100% - 6em);
 	}
 	form.install input[name=overwrite] { width: auto; margin-left: 2em;}
-	form.install button[type=submit] { border: #CCC solid 1.5pt;padding: .5em .75em;background-color: #cdf;}
+	form.install button[type=submit] {
+		border: #CCC solid 1.5pt;
+		padding: .5em .75em;
+		background-color: #cdf;
+	}
 	form.install button[type=submit]::before {
 		content: ' ';
 		display: inline-block;
@@ -92,4 +96,14 @@
 		margin-right: .25em;
 	}
 }
-	
+
+/* dark mode overrides */
+@media (prefers-color-scheme: dark) {
+	body.darkmode.dokuwiki #extension__manager form.install { background-color: #39393D; }
+	body.darkmode.dokuwiki #extension__manager form.install button[type=submit] {	
+		color: #CDF;
+		background-color: #346;
+		border-color: #90909B;
+	}
+	body.darkmode.dokuwiki #extension__manager form.install button[type=submit]::before { filter: invert(.9); }
+}
