@@ -309,8 +309,12 @@ div.no {
 	width: 100%;
 	max-width: @ini_site_width;
 	margin: 0 auto;
-	display: grid;
-	grid-template-columns: @ini_sidebar_width auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: flex-start;
 }
 
 #sidebar {
