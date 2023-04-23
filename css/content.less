@@ -115,7 +115,7 @@ main {
 		padding: 0 2pt;
 	}
 	pre {
-		max-width: calc(~ "@ini_site_width - @ini_sidebar_width - .5em");
+		max-width: calc(~"@{ini_site_width} - @{ini_sidebar_width} - .5em");
 		overflow: auto;
 		word-wrap: normal;
 		border: 1px solid @ini_border;
@@ -343,7 +343,7 @@ body.home h1:first-child { margin-top: .5em; }
 
 	body.darkmode {
 		main {
-			h1, h2, h3, h4, h5, h6 { color: @ini_headlines_dark; }
+			h1, h2, h3, h4, h5, h6, dt { color: @ini_headlines_dark; }
 			table {
 				& { border-color: @ini_border_dark; }
 				&.inline tr:hover td,

@@ -309,17 +309,13 @@ div.no {
 	width: 100%;
 	max-width: @ini_site_width;
 	margin: 0 auto;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	align-items: stretch;
-	align-content: flex-start;
+	display: grid;
+	grid-template-columns: @ini_sidebar_width auto;
 }
 
 #sidebar {
 	& {
-		width: 100%;
+		width: @ini_sidebar_width;
 		max-width: @ini_sidebar_width;
 		flex-grow: 0;
 	}
