@@ -7,7 +7,7 @@ body {
 	overflow: hidden auto;
 }
 
-main {
+.dokuwiki main {
 	p,
 	blockquote,
 	div.table {
@@ -280,6 +280,33 @@ main {
 		-webkit-hyphens: auto;
 		hyphenate-limit-chars: 6 2 3;
 	}
+	
+	/* footnotes section */
+	div.footnotes {
+		border-top: transparent 0 none;
+		margin-top: 1.5em;
+		font-size: smaller;
+	}
+	div.footnotes:before {
+		content: ' ';
+		display: block;
+		width: 33%;
+		min-width: 5em;
+		border-top: @ini_border solid 1.5pt;
+		height: .5em;
+	}
+	div.footnotes div.fn {
+		margin-left: 1em;
+	}		
+}
+
+/* footnotes and similar poups: */
+.JSpopup {
+	background-color: @ini_background;
+	color: @ini_text;
+	border: @ini_border solid 1px;
+	padding: .25em;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
 }
 
 
@@ -385,6 +412,14 @@ body.home h1:first-child { margin-top: .5em; }
 			.wrap_todo, .wrap_notice {background-color: #004A7F;}
 			.wrap_caution {background-color: #fcffaa;}
 			.wrap_warning {background-color: #FFC9AA;}
+		}
+		
+		/* footnote and similar poups: */
+		.JSpopup {
+			background-color: @ini_background_site_dark;
+			color: @ini_text_dark;
+			border-color: @ini_border_dark;
+			box-shadow: 2px 2px 4px #000;
 		}
 	}
 }

@@ -364,6 +364,32 @@ main img {
 	page-break-inside: avoid;
 }
 
+/* footnotes */
+main div.footnotes {
+	margin-top: 1.5em;
+	font-size: smaller;
+}
+main div.footnotes div.fn {
+	display: grid;
+	grid-template-columns: 1.5em auto;
+	grid-gap: .25em;
+}
+main div.footnotes div.fn > sup {
+	vertical-align: baseline;
+	font-size: smaller;
+	text-align: right;
+}
+
+main div.footnotes:before {
+	content: ' ';
+	display: block;
+	width: 33%;
+	min-width: 5em;
+	border-top: @ini_text solid .5pt;
+	height: .5em;
+}
+
+
 /* alternative compact style: */
 body.print-compact #main-content {
 	columns: 2;
@@ -461,6 +487,7 @@ body.print-compact main ul div.li,
 body.print-compact main ol div.li {
 	text-align: justify;
 }
+
 /* media detail */
 body.mediadetail figure {
 	border: none;
