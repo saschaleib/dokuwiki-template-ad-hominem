@@ -3,5 +3,5 @@ author   Sascha Leib
 email    ad@hominem.info
 date     2023-05-04
 name     Ad Hominem Template
-desc     A simple, lightweight but modernised version of the default template (optimized for Jack Jackrum)
+desc     A simple, lightweight and modernised version of the default template optimized "[Jack Jackrum(https://www.dokuwiki.org/changes)" (2023-04-04a).
 url      https://www.dokuwiki.org/template:ad-hominem
