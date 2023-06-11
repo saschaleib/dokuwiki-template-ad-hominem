@@ -117,10 +117,10 @@ main h1, main h2, main h3, main h4, main h5, main h6 {
 	line-height: 1.2em;
 	margin: 1em 0 .5em 0;
 	padding: 0 0 .25em 0;
-	break-inside: avoid;
 	page-break-inside: avoid;
-	break-after: avoid;
+	break-inside: avoid;
 	page-break-after: avoid;
+	break-after: avoid;
 	clear: both;
 	position: relative;
 }
@@ -130,6 +130,17 @@ main h3 { font-size: 12pt; }
 main h4 { font-size: 12pt; font-style: italic; }
 main h5 { font-size: 12pt; font-weight: normal; font-style: italic; }
 main h6 { font-size: 11pt; font-weight: normal; font-style: italic; }
+
+/* workaround: force headlines to keep with the next paragraph: */
+main h1::after, main h2::after, main h3::after, main h4::after, main h5::after, main h6::after,
+main dl:not(.compact) dt::after {
+	content: '';
+	display: block;
+	height: 4.5em;
+	margin-bottom: -4.5em;
+	page-break-inside: avoid;
+	break-inside: avoid;
+}
 
 main h1 + div, main h2 + div, main h3 + div, main h4 + div, main h5 + div, main h6 + div {
 	page-break-before: avoid;
