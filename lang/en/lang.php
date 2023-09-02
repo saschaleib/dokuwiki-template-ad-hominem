@@ -22,7 +22,9 @@ $lang['__separator__']         = 'Line separator color';
 $lang['__default_fonts__']     = 'Default fonts list (used for content and navigation)';
 $lang['__default_font_size__'] = 'Default font size';
 
-$lang['__alt_fonts__']         = 'Alternative fonts (used e.g. for headlines)';
+$lang['__alt_fonts__']         = 'Alternative fonts (used e.g. for blockquotes)';
+$lang['__alt_font_size__']     = 'Base size for alternative font (use rem or % for best results)';
+$lang['__headline_fonts__']    = 'Fonts to use for headlines';
 $lang['__mono_fonts__']        = 'Monospaced fonts (e.g. for code)';
 $lang['__math_fonts__']        = 'Math fonts (e.g. for formulas, etc.)';
 $lang['__print_default_fonts__'] = 'Default fonts for printing';

@@ -26,7 +26,9 @@ $lang['__separator__']         = 'Color del separador de líneas';
 $lang['__default_fonts__']     = 'Lista de fuentes por defecto (utilizadas para el contenido y la navegación)';
 $lang['__default_font_size__'] = 'Tamaño de letra por defecto';
 
-$lang['__alt_fonts__']         = 'Fuentes alternativas (utilizadas, por ejemplo, para los titulares)';
+$lang['__alt_fonts__']         = 'Fuentes alternativas (utilizadas, por ejemplo, para las citas en bloque)';
+$lang['__alt_font_size__']    = 'Tamaño base de la fuente alternativa (utilice rem o % para obtener mejores resultados)';
+$lang['__headline_fonts__']    = 'Fuentes para titulares';
 $lang['__mono_fonts__']        = 'Fuentes monoespaciadas (por ejemplo, para el código)';
 $lang['__math_fonts__']        = 'Fuentes matemáticas (por ejemplo, para fórmulas, etc.)';
 $lang['__print_default_fonts__'] = 'Fuentes por defecto para la impresión';

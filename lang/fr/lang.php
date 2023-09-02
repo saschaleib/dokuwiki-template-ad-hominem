@@ -27,7 +27,9 @@ $lang['__separator__']         = 'Couleur du séparateur de ligne';
 $lang['__default_fonts__']     = 'Liste des polices par défaut (utilisées pour le contenu et la navigation)';
 $lang['__default_font_size__'] = 'Taille de police par défaut';
 
-$lang['__alt_fonts__']         = 'Polices alternatives (utilisées, par exemple, pour les titres)';
+$lang['__alt_fonts__']         = 'Polices alternatives (utilisées, par exemple pour les blocs de citations)';
+$lang['__alt_font_size__']    = 'Taille de base de la police alternative (utilisez rem ou % pour de meilleurs résultats)';
+$lang['__headline_fonts__']    = 'Polices à utiliser pour les titres';
 $lang['__mono_fonts__']        = 'Polices mono-espacées (pour le code, par exemple)';
 $lang['__math_fonts__']        = 'Polices mathématiques (par exemple, pour les formules, etc.)';
 $lang['__print_default_fonts__'] = 'Polices par défaut pour l’impression';

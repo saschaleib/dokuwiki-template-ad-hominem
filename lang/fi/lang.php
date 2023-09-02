@@ -22,7 +22,9 @@ $lang['__separator__']         = 'Rivin erottimen väri';
 $lang['__default_fonts__']     = 'Oletusfonttien luettelo (käytetään sisällössä ja navigoinnissa)';
 $lang['__default_font_size__'] = 'Fontin oletuskoko';
 
-$lang['__alt_fonts__']         = 'Vaihtoehtoiset fontit (käytetään esim. otsikoissa)';
+$lang['__alt_fonts__']         = 'Vaihtoehtoiset fontit (käytetään esim. lainausmerkeissä)';
+$lang['__alt_font_size__']    = 'Vaihtoehtoisen fontin peruskoko (käytä rem tai % parhaan tuloksen saamiseksi)';
+$lang['__headline_fonts__']    = 'Otsikoissa käytettävät fontit';
 $lang['__mono_fonts__']        = 'Yksiväripainotteiset fontit (esim. koodissa)';
 $lang['__math_fonts__']        = 'Matemaattiset fontit (esim. kaavoissa jne.)';
 $lang['__print_default_fonts__'] = 'Oletusfontit tulostusta varten';

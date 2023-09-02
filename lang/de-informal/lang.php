@@ -27,7 +27,9 @@ $lang['__separator__']      = 'Farbe von Linien';
 $lang['__default_fonts__']  = 'Schriftarten für Inhaltstext und Navigation';
 $lang['__default_font_size__'] = 'Standard-Schriftgröße';
 
-$lang['__alt_fonts__']      = 'Alternative Schriftarten (z.B. für Überschriften)';
+$lang['__alt_fonts__']      = 'Alternative Schriftarten (z.B. für Blockzitate)';
+$lang['__alt_font_size__']    = 'Basisgröße für alternative Schriftart (verwenden Sie rem oder % für beste Ergebnisse)';
+$lang['__headline_fonts__']    = 'Schriftarten für Überschriften';
 $lang['__mono_fonts__']     = 'Schriftarten mit fester Laufweite (z.B. für Code)';
 $lang['__math_fonts__']     = 'Mathematik-Schriftarten (z.B. für Formeln)';
 $lang['__print_default_fonts__'] = 'Standardschriftarten für Druck';
