@@ -57,15 +57,14 @@
 
     /* DokuWiki version */
     #admin__version {
-        clear: left;
+		display: block;
+		width: 100%;
+        clear: both;
         float: right;
         color: @ini_text_neu;
-        background-color: inherit;
-    }
-    [dir=rtl] & #admin__version {
-        clear: right;
-        float: left;
-    }
+		background-color: @ini_background_alt;
+		padding: .25em 0 .25em 1em;
+	}
 }
 
 /* style the extension manager items: */
@@ -106,4 +105,5 @@
 		border-color: #90909B;
 	}
 	body.darkmode.dokuwiki #extension__manager form.install button[type=submit]::before { filter: invert(.9); }
+	body.darkmode.dokuwiki div.ui-admin #admin__version { color: @ini_text_alt_dark; background-color: @ini_background_alt_dark; }
 }
