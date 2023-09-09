@@ -282,6 +282,42 @@ div.picker button.toolbutton {
     background-color: #ffcccc;
 }
 
+/* toolbar popups */
+.dokuwiki div.picker {
+	& {
+		background-color: @ini_background_alt;
+		border: @ini_border solid 1px;
+		padding: .125rem;
+		-webkit-box-shadow: .125rem .125rem .5rem 0 rgba(0,0,0,.2);
+		-moz-box-shadow: .125rem .125rem .5rem 0 rgba(0,0,0,.2);
+		box-shadow: .125rem .125rem .5rem 0 rgba(0,0,0,.2);
+	}
+	button {
+		& {
+			color: @ini_text;
+			background-color: @ini_background;
+			border: @ini_border solid 1px;
+			min-width: 24px; min-height: 24px;
+			cursor: pointer;
+			margin: 1px;
+		}
+		&:hover {
+			background-color: @ini_text;
+			color: @ini_background;
+		}
+	}
+	&#picker1 {
+		/* width: 308px; max-width: 308px; min-width: 308px; */
+		resize: both;
+		overflow: auto;
+	}
+	&#picker2 {
+		/* width: 585px; max-width: 585px; min-width: 585px; */
+		resize: both;
+		overflow: auto;
+	}
+}	
+
 /* preview
 ********************************************************************/
 
@@ -395,4 +431,23 @@ div.picker button.toolbutton {
 		border-color: @ini_headlines_dark;
 		color: @ini_text_dark;
 	}
+
+	body.darkmode div.picker {
+		& {
+			background-color: @ini_background_dark;
+			border: @ini_border_dark solid 1px;
+		}
+		button {
+			& {
+				color: @ini_text_dark;
+				background-color: @ini_background_alt_dark;
+				border-color: @ini_border_dark;
+			}
+			&:hover {
+				background-color: @ini_text_dark;
+				color: @ini_background_alt_dark;
+			}
+		}
+	}	
+
 }
