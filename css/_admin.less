@@ -1,15 +1,31 @@
 .dokuwiki div.ui-admin {
+	
+	& {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	
+	h1.first-child,
+	div.level1	{
+		grid-column: 1 / span 2;
+		margin-bottom: 1em;
+	}
 
     /* main task grouped in two columns */
     ul.admin_tasks {
-        float: left;
-        width: 40%;
-        list-style-type: none;
-        font-size: 1.125em;
+		grid-column: 2;
+		list-style-type: none;
+		font-size: 1.125em;
+		margin: 0;
     }
-    [dir=rtl] & ul.admin_tasks {
-        float: right;
-    }
+    ul.admin_tasks:first-of-type {
+		grid-row: 3 / span 4;
+		grid-column: 1;
+	}
+	ul.admin_plugins {
+		grid-row: 6;
+		grid-column: 2;
+	}	
 
     /* general menu item styling */
     ul {
@@ -58,12 +74,12 @@
     /* DokuWiki version */
     #admin__version {
 		display: block;
-		width: 100%;
-        clear: both;
-        float: right;
+		width: 100%; height: 1.5em;
         color: @ini_text_neu;
-		background-color: @ini_background_alt;
-		padding: .25em 0 .25em 1em;
+		background: @ini_background_alt url('images/info.svg') .25em center no-repeat;
+		background-size: 1em;
+		padding: .25em 0 .25em 1.75em;
+		border-radius: 1em;
 	}
 }
 
@@ -106,4 +122,8 @@
 	}
 	body.darkmode.dokuwiki #extension__manager form.install button[type=submit]::before { filter: invert(.9); }
 	body.darkmode.dokuwiki div.ui-admin #admin__version { color: @ini_text_alt_dark; background-color: @ini_background_alt_dark; }
+}
+/* below tablet size */
+@media (max-width: @ini_tablet_width) {
+	.dokuwiki div.ui-admin { display: block; }
 }
