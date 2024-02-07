@@ -118,8 +118,9 @@
 /*____________ site tools ____________*/
 
 #dokuwiki__sitetools {
-    text-align: right;
-
+    & {
+		text-align: right;
+	}
     form.search {
         font-size: 0.875em;
     }
@@ -141,11 +142,12 @@ form.search {
 
     button {
         background: transparent url(images/search.png) no-repeat 0 0;
+		background-size: 16px;
         border-width: 0;
-        width: 19px;
-        height: 14px;
+        width: 16px;
+        height: 16px;
         text-indent: -99999px;
-        margin-left: -20px;
+        margin-left: -28px;
         box-shadow: none;
         padding: 0;
     }

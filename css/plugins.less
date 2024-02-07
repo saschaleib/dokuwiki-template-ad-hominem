@@ -1,0 +1,28 @@
+/**
+ * This file contains style overrides for selected plugins
+ * @author Sascha Leib <sascha@leib.be>
+ */
+
+/* upgrade plugin */
+#plugin__upgrade_meter {
+	& {
+		height: 26px;
+	}
+	ol li {
+		.stage {
+		color: #444;
+		}
+		.step {
+			color: #444;
+		}
+		&.active {
+			height: 26px;
+		}
+	}
+}
+#plugin__upgrade_form {
+	button {
+		padding: .25em .5em;
+		cursor: pointer;
+	}
+}
