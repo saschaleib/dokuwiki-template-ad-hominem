@@ -70,12 +70,20 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 			tpl_includeFile('sidebarfooter.html');
 ?>				</nav>
 <!-- - - - - - - - - END OF SIDEBAR CONTENT  - - - - - - - -->
-				<div id="sbBreadcrumbs">
-<?php		if($conf['breadcrumbs']) { my_breadcrumbs(str_repeat(chr(9),4)); } ?>
-				</div>
 			</div>
 		</div>
 		<main id="dokuwiki__top">
+    <!-- BREADCRUMBS -->
+  <?php if ($conf['breadcrumbs'] || $conf['youarehere']) : ?>
+      <div class="breadcrumbs">
+          <?php if ($conf['youarehere']) : ?>
+              <div class="youarehere"><?php tpl_youarehere() ?></div>
+          <?php endif ?>
+          <?php if ($conf['breadcrumbs']) : ?>
+              <div class="trace"><?php tpl_breadcrumbs() ?></div>
+          <?php endif ?>
+      </div>
+  <?php endif ?>
 			<header>
 <?php			my_toc(str_repeat(chr(9),4)); 
 				tpl_flush();

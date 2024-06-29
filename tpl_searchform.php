@@ -5,7 +5,7 @@
 
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
-?>				<form action="<?php echo wl(); ?>" method="get" role="search" class="search doku_form" id="dw__search" accept-charset="utf-8">
+?>				<form action="<?php echo wl(); ?>" method="get" role="search" class="search doku_form" id="dw__search" accept-charset="utf-8" style="padding-left: 705px;">
 					<input type="hidden" name="do" value="search" />
 					<input type="hidden" name="id" value="<?php echo htmlentities($ID); ?>" />
 					<div class="search-field">
