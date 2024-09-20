@@ -10,7 +10,7 @@ if (!defined('DOKU_INC')) die();
 					<input type="hidden" name="id" value="<?php echo htmlentities($ID); ?>" />
 					<div class="search-field">
 						<label for="qsearch__in" class="sronly"><?php echo htmlentities($lang['btn_search']); ?></label>
-						<input name="q" type="text" class="edit" title="<?php echo $lang['btn_search']; ?> [F]" accesskey="f" placeholder="<?php echo $lang['btn_search']; ?>" autocomplete="off" id="qsearch__in" value="<?php echo ($ACT === 'search' ? $QUERY : ''); ?>" /><button value="0" type="reset" title="<?php echo htmlentities($lang['btn_delete']); ?>"><?php echo htmlentities($lang['btn_delete']); ?>"</button><button value="1" type="submit" title="<?php echo htmlentities($lang['btn_search']); ?>"><?php echo htmlentities($lang['btn_search']); ?>"</button>
+						<input name="q" type="text" class="edit" title="<?php echo $lang['btn_search']; ?> [F]" accesskey="f" placeholder="<?php echo $lang['btn_search']; ?>" autocomplete="off" id="qsearch__in" value="<?php echo ($ACT === 'search' ? $QUERY : ''); ?>" /><button value="0" type="reset" title="<?php echo htmlentities($lang['btn_delete']); ?>"><span class="sr-only"><?php echo htmlentities($lang['btn_delete']); ?></span></button><button value="1" type="submit" title="<?php echo htmlentities($lang['btn_search']); ?>"><span class="sr-only"><?php echo htmlentities($lang['btn_search']); ?></span></button>
 					</div>
 					<div class="search-popup">
 						<div id="qsearch__out" class="ajax_qsearch JSpopup"></div>

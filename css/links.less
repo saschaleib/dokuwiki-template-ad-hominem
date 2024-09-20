@@ -5,31 +5,39 @@
  
 /* general link styles */
 a:link {
-	color:				@ini_link;
-	text-decoration:	none;
+	color: @ini_link;
+	text-decoration: none;
 }
 a:visited {
-	color:				@ini_link;
+	color: @ini_link;
 }
 a:hover {
-	text-decoration:	underline;
+	text-decoration: underline;
 }
 a:focus {
-	outline:			@ini_focus_color solid 2px;
+	outline: @ini_focus_color solid 2px;
 }
 a.wikilink1:link,
 a.wikilink1:visited {
-	color:				@ini_existing;
+	color: @ini_existing;
 }
 a.wikilink2:link,
 a.wikilink2:visited {
-	color:				@ini_missing;
+	color: @ini_missing;
+}
+
+/* in-page links */
+a[href^='#'].wikilink1:link,
+a[href^='#'].wikilink1:visited {
+	color: @ini_text_alt;
+	text-decoration: underline;
+	text-decoration-style: dotted;
 }
 
 /* special cases: included section in footer: */
 footer #ftInclude a.wikilink1:link,
 footer #ftInclude a.wikilink1:visited {
-	color:		@ini_link;
+	color: @ini_link;
 }
 
 /* dark mode overrides */
@@ -39,5 +47,5 @@ footer #ftInclude a.wikilink1:visited {
 	body.darkmode a.wikilink1:link, body.darkmode a.wikilink1:visited { color: @ini_existing_dark; }
 	body.darkmode a.wikilink2:link, body.darkmode a.wikilink2:visited { color: @ini_missing_dark; }
 	body.darkmode #ftInclude a.wikilink1:link, body.darkmode #ftInclude a.wikilink1:visited { color: @ini_link_dark; }
-
+	body.darkmode a[href^='#'].wikilink1:link, body.darkmode a[href^='#'].wikilink1:visited { color: @ini_text_alt_dark; }
 }

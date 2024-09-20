@@ -177,7 +177,8 @@ function my_metaheaders($alt = true) {
     // load stylesheets
     $head['link'][] = array(
         'rel' => 'stylesheet',
-        'href'=> DOKU_BASE . 'lib/exe/css.php?t='.rawurlencode($conf['template']).'&tseed='.$tseed
+        'href'=> DOKU_BASE . 'lib/exe/css.php?t='.rawurlencode($conf['template']).'&tseed='.$tseed,
+		'defer' => 'defer'
     );
 
     $script = "var NS='".(isset($INFO)?$INFO['namespace']:'')."';\n\t\t";
