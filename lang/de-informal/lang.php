@@ -11,6 +11,7 @@ $lang['__background_site__']	= 'Farbe für den Seitenhintergrund (hinter dem Inh
 $lang['__link__']			= 'Allgemeine Linkfarbe';
 $lang['__existing__']		= 'Farbe für Links zu existierenden Seiten';
 $lang['__missing__']		= 'Farbe für Links zu nicht-existierenden Seiten';
+$lang['__inpage__']         = 'Farbe für Links innerhalb derselben Seite';
 $lang['__site_width__']		= 'Breite der ganzen Seite (kann eine beliebige Längeneinheit sein: %, px, em, ...)';
 $lang['__sidebar_width__']	= 'Breite der Seitenleiste, falls vorhanden (kann eine beliebige Längeneinheit sein: %, px, em, ...)';
 
@@ -45,6 +46,7 @@ $lang['__text_alt_dark__']       = 'Alternative Textfarbe (Nachtmodus)';
 $lang['__link_dark__']           = 'Farbe externe Links (Nachtmodus)';
 $lang['__existing_dark__']       = 'Farbe Links zu existierenden Artikeln (Nachtmodus)';
 $lang['__missing_dark__']        = 'Farbe Links zu fehlenden Artikeln (Nachtmodus)';
+$lang['__inpage_dark__']         = 'Farbe für Links innerhalb derselben Seite (Nachtmodus)';
 $lang['__border_dark__']         = 'Umrandungsfarbe (Nachtmodus)';
 $lang['__blockquote_dark__']     = 'Markierung von Zitatblöcken (Nachtmodus)';
 

@@ -6,6 +6,7 @@ $lang['__background_site__']   = 'Window background color';
 $lang['__link__']              = 'External link color';
 $lang['__existing__']          = 'Existing article link color';
 $lang['__missing__']           = 'Missing article link color';
+$lang['__inpage__']            = 'Color of links within the same page';
 $lang['__site_width__']        = 'The width of the full site (can be any length unit: %, px, em, …)';
 $lang['__sidebar_width__']     = 'The width of the sidebar, if any (can be any length unit: %, px, em, …)';
 
@@ -40,6 +41,7 @@ $lang['__text_alt_dark__']     = 'Alternative Text color (dark mode)';
 $lang['__link_dark__']         = 'External link color (dark mode)';
 $lang['__existing_dark__']     = 'Existing article link color (dark mode)';
 $lang['__missing_dark__']      = 'Missing article link color (dark mode)';
+$lang['__inpage_dark__']       = 'Color of links within the same page (dark mode)';
 $lang['__border_dark__']       = 'Border color (dark mode)';
 $lang['__blockquote_dark__']   = 'Blockquote marker (dark mode)';
 

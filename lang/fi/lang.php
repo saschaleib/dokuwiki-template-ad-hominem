@@ -6,6 +6,7 @@ $lang['__background_site__']   = 'Ikkunan taustaväri';
 $lang['__link__']              = 'Ulkoisen linkin väri';
 $lang['__existing__']          = 'Olemassa olevan artikkelin linkin väri';
 $lang['__missing__']           = 'Puuttuvan artikkelilinkin väri';
+$lang['__inpage__']            = 'Saman sivun sisällä olevien linkkien väri';
 $lang['__site_width__']        = 'Koko sivuston leveys (voi olla mikä tahansa pituusyksikkö: %, px, em, …)';
 $lang['__sidebar_width__']     = 'Mahdollisen sivupalkin leveys (voi olla mikä tahansa pituusyksikkö: %, px, em, …)';
 
@@ -40,6 +41,7 @@ $lang['__text_alt_dark__']     = 'Vaihtoehtoinen tekstiväri (tumma tila)';
 $lang['__link_dark__']         = 'Ulkoisen linkin väri (tumma tila)';
 $lang['__existing_dark__']     = 'Olemassa olevan artikkelin linkin väri (tumma tila)';
 $lang['__missing_dark__']      = 'Puuttuva artikkelilinkin väri (tumma tila)';
+$lang['__inpage_dark__']       = 'Saman sivun sisällä olevien linkkien väri (tumma tila)';
 $lang['__border_dark__']       = 'Reunan väri (tumma tila)';
 $lang['__blockquote_dark__']   = 'Lohkolausemerkintä (tumma tila)';
 

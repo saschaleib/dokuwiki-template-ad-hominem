@@ -10,6 +10,7 @@ $lang['__background_site__']   = 'Color para el fondo (detrás de la caja de con
 $lang['__link__']              = 'El color de los enlaces en general';
 $lang['__existing__']          = 'El color de los enlaces a páginas existentes';
 $lang['__missing__']           = 'El color de los enlaces a páginas no existentes';
+$lang['__inpage__']            = 'Color de los enlaces dentro de la misma página';
 $lang['__site_width__']        = 'El ancho de la página completa (puede ser cualquier unidad de longitud: %, px, em, …)';
 $lang['__sidebar_width__']     = 'El ancho de la barra lateral (puede ser cualquier unidad de longitud: %, px, em, …)';
 $lang['__tablet_width__']      = 'Para tamaños de pantalla por debajo de esta anchura, el sitio cambia al modo tableta';
@@ -44,6 +45,7 @@ $lang['__text_alt_dark__']     = 'Color del texto alternativo (modo oscuro)';
 $lang['__link_dark__']         = 'Color del enlace externo (modo oscuro)';
 $lang['__existing_dark__']     = 'Color del enlace del artículo existente (modo oscuro)';
 $lang['__missing_dark__']      = 'Color del enlace del artículo que falta (modo oscuro)';
+$lang['__inpage_dark__']       = 'Color de los enlaces dentro de la misma página (modo oscuro)';
 $lang['__border_dark__']       = 'Color del borde (modo oscuro)';
 $lang['__blockquote_dark__']   = 'Marcador de cita en bloque (modo oscuro)';
 

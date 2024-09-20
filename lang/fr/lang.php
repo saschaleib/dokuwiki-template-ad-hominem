@@ -11,6 +11,7 @@ $lang['__background_site__']   = 'Couleur du fond (derrière la boîte de conten
 $lang['__link__']              = 'Couleur générale des liens';
 $lang['__existing__']          = 'Couleur des liens pour les pages existantes';
 $lang['__missing__']           = 'Couleur des liens pour les pages inexistantes';
+$lang['__inpage__']            = 'Couleur pour les liens au sein de la même page';
 $lang['__site_width__']        = 'Largeur du site complet (dans une unité de longueur valide : %, px, em,...)';
 $lang['__sidebar_width__']     = 'Largeur de la barre latérale, si existante (dans une unité de longueur valide : %, px, em, …)';
 $lang['__tablet_width__']      = 'En dessous de cette largeur, le site passe en mode tablette.';
@@ -45,6 +46,7 @@ $lang['__text_alt_dark__']       = 'Couleur alternative du texte (mode sombre)';
 $lang['__link_dark__']           = 'Couleur des liens externes (mode sombre)';
 $lang['__existing_dark__']       = 'Couleur du lien de l’article existant (mode sombre)';
 $lang['__missing_dark__']        = 'Couleur du lien vers l’article manquant (mode sombre)';
+$lang['__inpage_dark__']         = 'Couleur pour les liens au sein de la même page (mode sombre)';
 $lang['__border_dark__']         = 'Couleur des bordures (mode sombre)';
 $lang['__blockquote_dark__']     = 'Couleur du marqueur de citation (mode sombre)';
 
