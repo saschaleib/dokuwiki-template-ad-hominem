@@ -26,11 +26,6 @@ span.curid a {
     font-weight: bold;
 }
 
-/* override some link icons */
-a.interwiki {
-	background-size: 1.0em;
-}
-
 /* Wikipedia Links */
 a.iw_wp, a.iw_wpfr, a.iw_wpde, a.iw_wpes, a.iw_wppl, a.iw_wpjp, a.iw_wpmeta {
   background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTAwJTI1JyBoZWlnaHQ9JzEwMCUyNScgdmlld0JveD0nMCAwIDUxMiA1MTInIHZlcnNpb249JzEuMScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48Y2lyY2xlIGN4PScyNTYnIGN5PScyNTYnIHI9JzI1MCcgc3R5bGU9J2ZpbGw6I2ViZWJlYjtzdHJva2U6IzMzMztzdHJva2Utd2lkdGg6MTBweDsnLz48cGF0aCBkPSdNNjUsMTUybDAsOGMwLDIgMSwzIDQsM2MyMCwxIDIwLDUgMjgsMjNsOTAsMTk2YzcsMTQgMTYsMTYgMjUsLTFsNDUsLTg4bDQyLDg4YzgsMTUgMTYsMTYgMjQsMGw4NiwtMTk0YzgsLTE3IDE5LC0yNCAzNiwtMjRjMiwwIDIsLTEgMiwtM2wwLC04bC04MCwwbC0xLDFsMCw3YzAsMiAyLDMgNCwzYzEwLDAgMjksMiAyMSwxOWwtNzAsMTY2bC0zLC0xbC00MywtODhsMzcsLTcyYzgsLTE1IDEwLC0yNCAyNSwtMjRjMiwwIDQsLTEgNCwtM2wwLC03bC0xLC0xbC02NCwwbC0xLDFsMCw3YzAsMyA0LDMgNywzYzE4LDEgMTYsOCAxMCwxOWwtMjcsNTZsLTI1LC01MmMtOSwtMTYgLTExLC0yMSAyLC0yMmMzLC0xIDgsLTEgOCwtNGwwLC03bC0xLC0xbC02OSwwbC0xLDFsMCw4YzAsMiAyLDIgNSwyYzEyLDIgMTIsMyAyMywyNmw0MCw4NGwtMzcsNzVsLTMsLTFsLTc2LC0xNjdjLTgsLTE3IDIsLTE2IDE4LC0xN2MzLDAgMywtMSAzLC0zbDAsLTdsLTEsLTFsLTg2LDBaJyBzdHlsZT0nZmlsbDojMzMzOycvPjwvc3ZnPg==");
@@ -53,7 +48,8 @@ a.mediafile,
 a.interwiki {
     background-repeat: no-repeat;
     background-position: 0 center;
-    padding: 0 0 0 21px;
+	background-size: 1.1em;
+    padding: 0 0 0 1.25em;
 }
 /* external link */
 a.urlextern {
