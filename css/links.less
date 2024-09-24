@@ -7,6 +7,7 @@
 a:link {
 	color: @ini_link;
 	text-decoration: none;
+	border-radius: 2px;
 }
 a:visited {
 	color: @ini_link;
@@ -24,6 +25,12 @@ a.wikilink1:visited {
 a.wikilink2:link,
 a.wikilink2:visited {
 	color: @ini_missing;
+}
+
+a.media:link,
+a.media:visited {
+	display: block;
+	line-height: 0;
 }
 
 /* in-page links */
