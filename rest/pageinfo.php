@@ -33,7 +33,7 @@ if ($id !== null) {
 	/* get all metadata; */
 	$meta = p_get_metadata($id);
 	
-	if ($meta['title'] !== null) {
+	if ($meta['title'] && $meta['title'] !== null) {
 
 		if ($style == 'preview') {
 			$result['type'] = 'preview';
