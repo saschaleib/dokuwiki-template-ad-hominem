@@ -69,17 +69,26 @@
 	/* Security Warning */
 	#security__check {
 		clear: both;
+		grid-row: 7;
+		grid-column: 1 / span 2;
 	}
 
     /* DokuWiki version */
     #admin__version {
 		display: block;
-		width: 100%; height: 1.5em;
+		box-sizing: border-box;
+		width: 100%;
+		max-height: 7em;
+		overflow: auto;
         color: @ini_text_neu;
-		background: @ini_background_alt url('images/info.svg') .25em center no-repeat;
+		background: @ini_background_alt url('images/info.svg') .25em .5em no-repeat;
 		background-size: 1em;
 		padding: .25em 0 .25em 1.75em;
-		border-radius: 1em;
+		border: @ini_border 1px solid;
+		border-radius: .25em;
+		box-shadow: inset .5pt .5pt 1pt #0008;
+		grid-row: 9;
+		grid-column: 1 / span 2;
 	}
 }
 

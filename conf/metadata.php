@@ -22,3 +22,6 @@ $meta['cookiemsg'] = array('string');
 $meta['cookielink'] = array('string');
 
 $meta['homelink'] = array('string');
+
+$meta['langmenu'] = array('multichoice',
+						'_choices' => array ('none', 'toolbar', 'sidebar'));

@@ -1,0 +1,143 @@
+/**
+ * This file provides styles for the Languages list, 
+ * both for the side- and the toolbar.
+ * This overrides some of the styles in the languages plugin.
+ */
+
+#sbLanguages, #tbLanguages {
+	
+	div.plugin_translation {
+	
+		&.is-dropdown {
+			& {
+				padding-bottom: 0;
+			}
+			ul {
+				& {
+					border: @ini_border solid 1px;
+				}
+				li {
+					& {
+					}
+					&.a {
+						background-color: @ini_background_alt;
+					}
+					&.a:hover {
+						background-color: @ini_background_neu;
+					}
+					&.span span:after {
+						content: '';
+						display: inline-block;
+						position: absolute;
+						right: .6em;
+						margin-top: .2em;
+						width: 1em; height: 1em;
+						background: transparent  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 9H16L12 16' /%3E%3C/svg%3E") center no-repeat;
+						background-size: 1.25em;
+					}
+				}
+			}
+		}
+	
+		/* the title should resemble a headline: */
+		& > span.title {
+			display: block;
+			text-align: left;
+			font-family: @ini_headline_fonts;
+			color: @ini_headlines;
+			line-height: 1.5em;
+			font-size: 1rem;
+			font-weight: bold;
+			margin: 1em .25em 0 1em;
+		}
+		
+		& > ul {
+			& {
+				position: initial;
+				display: grid;
+				width: ~"calc(100% - 1.5rem)";
+				padding: 0;
+				margin: .5em 0 0 1rem;
+			}
+			li {
+				& {
+					display: block;
+					padding: 0; margin: 0;
+				}
+				&.span span {
+					background-color: transparent;
+					color: @ini_link;
+				}
+				&.a a {
+					& {
+						background-color: transparent;
+						color: @ini_link;
+					}
+					&.wikilink2 {
+						color: @ini_missing;
+					}
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+}
+
+#tbLanguages div.plugin_translation {
+	
+	span.title {
+		display: none;
+	}
+	
+	ul {
+		& {
+			position: absolute;
+			width: max-content;
+			margin-right: 1rem;
+		}
+		&:hover {
+			background-color: @ini_background_alt;
+			box-shadow: 1pt 1pt 2pt #00000088;
+		}
+		li.span {
+			padding-right: 2.5rem;
+		}
+	}
+	
+}
+
+/* dark mode overrides */
+@media (prefers-color-scheme: dark) {
+
+	#sbLanguages, #tbLanguages {
+		div.plugin_translation {
+			&.is-dropdown ul {
+				& { border-color: @ini_border_dark; }
+				li {
+					&.a { background-color: @ini_background_alt_dark; }
+					&.a:hover { background-color: @ini_background_dark; }
+					&.span span:after {
+						background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 9H16L12 16' style='fill:%2338383D' /%3E%3C/svg%3E");
+					}
+				}
+			}
+			& > span.title { color: @ini_headlines_dark; }
+			& > ul li {
+				&.span span { color: @ini_link_dark; }
+				&.a a {
+					& { color: @ini_link_dark; }
+					&.wikilink2 { color: @ini_missing_dark; }
+				}
+			}
+		}
+	}
+
+	#tbLanguages div.plugin_translation {
+		ul:hover {
+			background-color: @ini_background_alt;
+			box-shadow-color: 1pt 1pt 2pt #00000055;
+		}
+	}
+}

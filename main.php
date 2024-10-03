@@ -52,7 +52,11 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 			<div id="phSearch">
 <?php include('tpl_searchform.php'); ?>
 			</div>
-			<div id="phTools"><!-- placeholder for additional tools --></div>
+			<div id="phTools">
+				<div id="tbLanguages">
+<?php my_langmenu(str_repeat(chr(9),5), 'toolbar'); ?>
+				</div>
+			</div>
 			<div id="phInclude"><?php tpl_includeFile('header.html') ?></div>
 		</header>
 	</div>
@@ -70,6 +74,9 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 			tpl_includeFile('sidebarfooter.html');
 ?>				</nav>
 <!-- - - - - - - - - END OF SIDEBAR CONTENT  - - - - - - - -->
+				<div id="sbLanguages">
+<?php my_langmenu(str_repeat(chr(9),5), 'sidebar'); ?>
+				</div>
 				<div id="sbBreadcrumbs">
 <?php		if($conf['breadcrumbs']) { my_breadcrumbs(str_repeat(chr(9),4)); } ?>
 				</div>

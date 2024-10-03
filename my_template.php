@@ -630,3 +630,23 @@ function my_cookiebanner($prefix = '') {
 	echo $prefix . "\n\t</p>\n" . $prefix . "</div>\n";
 
 }
+
+/**
+ * inserts the Languages menu, if appropriate.
+ *
+ * @author Sascha Leib <sascha@leib.be>
+ *
+ *
+ * @param  string $prefix to be added before each line
+ * @param  string $place zhe location from where it is called
+ */
+function my_langmenu($prefix, $place) {
+
+	/* get the config option: */
+	$config = tpl_getConf('langmenu', 'none');
+
+	if ($config == $place) {
+		$translation = plugin_load('helper','translation');
+		if ($translation) echo $translation->showTranslations();
+	}
+}

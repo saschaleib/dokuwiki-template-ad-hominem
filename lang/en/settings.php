@@ -26,3 +26,8 @@ $lang['homelink']			= 'Override the homepage link (empty for default behaviour)'
 $lang['printstyle']				= 'Print style variant';
 	$lang['printstyle_o_basic']		= 'Basic';
 	$lang['printstyle_o_compact']	= 'Compact';
+
+$lang['langmenu']			= 'Display the Languages menu <small>(requires the <a href="https://www.dokuwiki.org/plugin:translation" target="_blank">Translation plugin</a>)</small>';
+	$lang['langmenu_o_none']	= 'Don’t show';
+	$lang['langmenu_o_toolbar']	= 'Show in toolbar';
+	$lang['langmenu_o_sidebar']	= 'Show in sidebar';
