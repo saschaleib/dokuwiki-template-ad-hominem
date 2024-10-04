@@ -15,6 +15,7 @@ $p = {
 		$p.linkinfo.init();
 		$p.search.init();
 		$p.togglers.init();
+		$p.langMenu.init();
 
 	},
 	
@@ -279,6 +280,39 @@ $p = {
 		}
 	},
 	
+	/* the language menu, if present */
+	langMenu: {
+		/* initialize lang menu */
+		init:	function() {
+
+			const langMenu = document.getElementById('langButton');
+			if (langMenu) {
+				jQuery(langMenu).click($p.langMenu._btnCallback);
+			}
+		},
+
+		_btnCallback: function(e) {
+			
+			const btn = e.currentTarget;
+			if (btn) {
+				const menuId = btn.getAttribute('aria-controls');
+				const expanded = (btn.getAttribute('aria-expanded') == 'true');
+				if (menuId) {
+					const menu = document.getElementById(menuId);
+					if (menu) {
+						if (expanded) {
+							jQuery(menu).hide();
+							btn.setAttribute('aria-expanded', 'false')
+						} else {
+							jQuery(menu).show();
+							btn.setAttribute('aria-expanded', 'true')
+						}
+					}
+				}
+			}
+		}
+
+	},
 	/* Cookies info banner */
 	cookie_banner: {
 

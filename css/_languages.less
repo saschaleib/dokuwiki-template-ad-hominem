@@ -4,140 +4,140 @@
  * This overrides some of the styles in the languages plugin.
  */
 
-#sbLanguages, #tbLanguages {
-	
-	div.plugin_translation {
-	
-		&.is-dropdown {
-			& {
-				padding-bottom: 0;
-			}
-			ul {
-				& {
-					border: @ini_border solid 1px;
-				}
-				li {
-					& {
-					}
-					&.a {
-						background-color: @ini_background_alt;
-					}
-					&.a:hover {
-						background-color: @ini_background_neu;
-					}
-					&.span span:after {
-						content: '';
-						display: inline-block;
-						position: absolute;
-						right: .6em;
-						margin-top: .2em;
-						width: 1em; height: 1em;
-						background: transparent  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 9H16L12 16' /%3E%3C/svg%3E") center no-repeat;
-						background-size: 1.25em;
-					}
-				}
-			}
-		}
-	
-		/* the title should resemble a headline: */
-		& > span.title {
-			display: block;
-			text-align: left;
-			font-family: @ini_headline_fonts;
-			color: @ini_headlines;
-			line-height: 1.5em;
-			font-size: 1rem;
-			font-weight: bold;
-			margin: 1em .25em 0 1em;
-		}
-		
-		& > ul {
-			& {
-				position: initial;
-				display: grid;
-				width: ~"calc(100% - 1.5rem)";
-				padding: 0;
-				margin: .5em 0 0 1rem;
-			}
-			li {
-				& {
-					display: block;
-					padding: 0; margin: 0;
-				}
-				&.span span {
-					background-color: transparent;
-					color: @ini_link;
-				}
-				&.a a {
-					& {
-						background-color: transparent;
-						color: @ini_link;
-					}
-					&.wikilink2 {
-						color: @ini_missing;
-					}
-					&:hover {
-						text-decoration: underline;
-					}
-				}
-			}
-		}
-	}
-}
-
-#tbLanguages div.plugin_translation {
-	
-	span.title {
-		display: none;
-	}
+#tbLanguages, #sbLanguages {
 	
 	ul {
 		& {
-			position: absolute;
-			width: max-content;
-			margin-right: 1rem;
+			margin-left: .5em;
+		}
+		li {
+			& {
+				list-style: none inside;
+			}
+			a  {
+				& {
+					display: grid;
+					grid-template-columns: 1.25em auto;
+					align-items: center;
+					gap: .4em;
+					padding: .125em;
+					line-height: 1.2em;
+				}
+				&::before {
+					content: attr(lang);
+					display: inline-block;
+					text-align: center;
+					place-self: stretch;
+					border: @ini_text solid 1px;
+					font-size: small;
+					border-radius: 1.5pt;
+					font-family: @ini_mono_fonts;
+					font-size: .75rem;
+					color: @ini_text;
+				}
+				&.wikilink1 {
+					color: @ini_link;
+				}
+				&.wikilink2 {
+					color: @ini_missing;
+					text-decoration: underline;
+					text-decoration-style: dotted;
+					border-bottom: transparent 0 none;
+				}
+				&.wikilink2:hover {
+					text-decoration-style: solid;
+				}
+			}
+		}
+	}
+}
+	
+#tbLanguages {
+	
+	& {
+		display: grid;
+		place-items: center;
+		grid-template-rows: auto 0;
+		height: 100%;
+	}
+	button {
+		& {
+			padding: .25em;
+			font-size: 1rem;
+			border: transparent 1px solid;
+			background-color: transparent;
+			color: @ini_link;
+			cursor: pointer;
+			border-radius: .25em;
 		}
 		&:hover {
 			background-color: @ini_background_alt;
-			box-shadow: 1pt 1pt 2pt #00000088;
+			border-color: @ini_border;
+			text-decoration: underline;
 		}
-		li.span {
-			padding-right: 2.5rem;
+		svg {
+			width: 1.8rem; height: 1.8rem;
+			fill: @ini_link;
+			text-transform: uppercase;
+		}
+		svg text {
+			fill: @ini_background_site;
 		}
 	}
-	
+	#langMenuWrapper {
+		& {
+			position: relative;
+			left: 2rem; top: .5rem;
+		}
+		#langMenu {
+			& {
+				position: absolute;
+				right: 0;
+				background-color: @ini_background_site;
+				border: @ini_border solid 1px;
+				box-shadow: 0 0 8px rgba(0,0,0,.2);
+				border-radius: 2pt;
+				padding: .25em;
+				z-index: 12;
+			}
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				height: 1em;
+				right: 16%;
+				width: 1em;
+				margin-left: -.5em;
+				background-color: #fff;
+				box-shadow: 0 0 8px rgba(0,0,0,.2);
+				-webkit-clip-path: polygon(-8px -8px,calc(100% + 8px) -8px,calc(100% + 8px) calc(100% + 8px));
+				clip-path: polygon(-8px -8px,calc(100% + 8px) -8px,calc(100% + 8px) calc(100% + 8px));
+				transform: translateY(-50%) rotate(-45deg);
+			}
+			li a {
+				& {
+					font-size: 1rem;
+					padding: .25em;
+					min-width: 6.5em;
+					width: max-content;
+				}
+			}
+		}
+	}
 }
 
-/* dark mode overrides */
-@media (prefers-color-scheme: dark) {
-
-	#sbLanguages, #tbLanguages {
-		div.plugin_translation {
-			&.is-dropdown ul {
-				& { border-color: @ini_border_dark; }
-				li {
-					&.a { background-color: @ini_background_alt_dark; }
-					&.a:hover { background-color: @ini_background_dark; }
-					&.span span:after {
-						background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 9H16L12 16' style='fill:%2338383D' /%3E%3C/svg%3E");
-					}
-				}
-			}
-			& > span.title { color: @ini_headlines_dark; }
-			& > ul li {
-				&.span span { color: @ini_link_dark; }
-				&.a a {
-					& { color: @ini_link_dark; }
-					&.wikilink2 { color: @ini_missing_dark; }
-				}
-			}
-		}
+#sbLanguages {
+	& {
+		margin: 1em .25em 0 1em;
 	}
+	ul {
+		padding-left: 0 !important;
+	}
+}
 
-	#tbLanguages div.plugin_translation {
-		ul:hover {
-			background-color: @ini_background_alt;
-			box-shadow-color: 1pt 1pt 2pt #00000055;
-		}
+@media (max-width: 950px) {
+
+	#sbLanguages {
+		margin: .5em .25em 0 .5em;
 	}
 }

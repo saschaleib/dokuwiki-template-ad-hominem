@@ -635,18 +635,95 @@ function my_cookiebanner($prefix = '') {
  * inserts the Languages menu, if appropriate.
  *
  * @author Sascha Leib <sascha@leib.be>
- *
+ * @author Andreas Gohr <andi@splitbrain.org>
  *
  * @param  string $prefix to be added before each line
- * @param  string $place zhe location from where it is called
+ * @param  string $place the location from where it is called
+ * @param  string $checkage should the age of the translation be checked?
  */
-function my_langmenu($prefix, $place) {
+function my_langmenu($prefix, $place, $checkage = true) {
+
+	global $INFO;
+	global $conf;
+
+	// the current page language: 
+	$lang = $conf['lang'];
 
 	/* get the config option: */
 	$config = tpl_getConf('langmenu', 'none');
+	
+	/* collect the output: */
+	$out = '';
 
 	if ($config == $place) {
-		$translation = plugin_load('helper','translation');
-		if ($translation) echo $translation->showTranslations();
+		$trans = plugin_load('helper','translation');
+		if ($trans) {
+			
+			if (!$trans->istranslatable($INFO['id'])) return '';
+			if ($checkage) $trans->checkage();
+
+			[, $idpart] = $trans->getTransParts($INFO['id']);
+			
+			$asMenu = ($place == 'tb'); // display as menu only in toolbar!
+			
+			$out .= "{$prefix}<div id=\"{$place}Languages\">\n";
+			
+			// create the header item 
+			
+			if ($asMenu) { // menu only
+			
+				$langName = htmlentities($trans->getLocalName($lang));
+			
+				$svg = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><title>{$langName}</title><path d='M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4C22,2.89 21.1,2 20,2Z' /><text lengthAdjust='spacingAndGlyphs' x='50%' y='47%' dominant-baseline='middle' text-anchor='middle' style='font-size:50%'>{$lang}</text></svg>";
+			
+				$out .= "{$prefix}\t<button id=\"langButton\" aria-haspopup=\"menu\" aria-controls=\"langMenuWrapper\" aria-expanded=\"false\">\n";
+				$out .= "{$prefix}\t\t{$svg}\n";
+				$out .= "{$prefix}\t\t<span class=\"sronly\">" . $trans->getLang('translations') . "</span>\n{$prefix}\t</button>\n";
+			
+			} else { // not a menu
+
+				if (isset($trans->opts['title'])) {
+					$out .= "{$prefix}\t<h4><span>" . htmlentities(tpl_getLang('languages'));
+
+					/* show the about text? */
+					if ($trans->getConf('about')) {
+						$out .= $trans->showAbout();
+					}
+					/* note: special case for French version: */
+					$out .= ( $lang == 'fr' ? '&#8239;:' : ':') . "</span></h4>\n";
+				} 
+			}
+
+			/* build the menu content */
+			$out .= "{$prefix}\t<div id=\"langMenu" . ( $asMenu ? 'Wrapper" role="menu" style="display: none"' : 'List"') . ">\n"
+				 .	"{$prefix}\t\t<ul id=\"lang" . ( $asMenu ? 'Menu" role="group"' : 'List"' ) . ">\n";
+
+			foreach ($trans->translations as $t) {
+				$l = ( $t !== '' ? $t : $lang );
+				
+				[$trg, $lng] = $trans->buildTransID($t, $idpart);
+				$trg = cleanID($trg);
+				$exists = page_exists($trg, '', false);
+				$filter = tpl_getConf('langfilter', 'all');
+				
+				/* only show if translation exists */
+				if ($exists || $filter === 'all') {
+					$class = 'wikilink' . ( $exists ? '1' : '2');
+					$link = wl($trg);
+					$current = ($lng == $lang);
+					
+					$out .= "{$prefix}\t\t\t<li" . ( $asMenu ? ' role="presentation"' : '' ). ( $current ? ' class="current"' : '' ) . ">\n";
+					$out .= "{$prefix}\t\t\t\t<a href=\"{$link}\" lang=\"{$lng}\" hreflang=\"{$lng}\" class=\"{$class}\"" . ( $asMenu ? ' role="menuitem"' : '' ) . '><span>'. $trans->getLocalName($lng) . "</span></a>\n";
+					$out .= "{$prefix}\t\t\t</li>\n";
+				}
+			}
+
+			$out .= "{$prefix}\t\t</ul>\n"
+				 .	"{$prefix}\t</div>\n"
+				 .	"{$prefix}</div>\n";
+
+		}
+		
 	}
+	echo $out;
 }

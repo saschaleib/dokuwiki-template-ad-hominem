@@ -15,3 +15,4 @@ $conf['cookiemsg']		= 'This website uses cookies. By using the website, you agre
 $conf['cookielink']		= 'about:cookies';
 
 $conf['langmenu']		= 'none';
+$conf['langfilter']		= 'existing';

@@ -29,5 +29,9 @@ $lang['printstyle']				= 'Print style variant';
 
 $lang['langmenu']			= 'Display the Languages menu <small>(requires the <a href="https://www.dokuwiki.org/plugin:translation" target="_blank">Translation plugin</a>)</small>';
 	$lang['langmenu_o_none']	= 'Don’t show';
-	$lang['langmenu_o_toolbar']	= 'Show in toolbar';
-	$lang['langmenu_o_sidebar']	= 'Show in sidebar';
+	$lang['langmenu_o_tb']	= 'Show in toolbar';
+	$lang['langmenu_o_sb']	= 'Show in sidebar';
+
+$lang['langfilter']			= 'Filter which translations to show in the menu or list';
+	$lang['langfilter_o_all']	= 'List all languages';
+	$lang['langfilter_o_existing']	= 'List only if translation exists';

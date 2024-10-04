@@ -53,9 +53,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 <?php include('tpl_searchform.php'); ?>
 			</div>
 			<div id="phTools">
-				<div id="tbLanguages">
-<?php my_langmenu(str_repeat(chr(9),5), 'toolbar'); ?>
-				</div>
+<?php my_langmenu(str_repeat(chr(9),4), 'tb'); ?>
 			</div>
 			<div id="phInclude"><?php tpl_includeFile('header.html') ?></div>
 		</header>
@@ -72,13 +70,13 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 			tpl_includeFile('sidebarheader.html');
 			tpl_include_page($conf['sidebar'], true, true);
 			tpl_includeFile('sidebarfooter.html');
-?>				</nav>
+?>
+
 <!-- - - - - - - - - END OF SIDEBAR CONTENT  - - - - - - - -->
-				<div id="sbLanguages">
-<?php my_langmenu(str_repeat(chr(9),5), 'sidebar'); ?>
-				</div>
+				</nav>
+<?php my_langmenu(str_repeat(chr(9),4), 'sb'); ?>
 				<div id="sbBreadcrumbs">
-<?php		if($conf['breadcrumbs']) { my_breadcrumbs(str_repeat(chr(9),4)); } ?>
+<?php		if($conf['breadcrumbs']) { my_breadcrumbs(str_repeat(chr(9),5)); } ?>
 				</div>
 			</div>
 		</div>
@@ -90,9 +88,12 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 				if($conf['youarehere']) { my_youarehere(str_repeat(chr(9),4)); }
 ?>			</header>
 			<article id="main-content">
-<!-- - - - - - - - - ARTICLE CONTENT - - - - - - - -->
-<?php tpl_content(false) ?>
+
+<!-- - - - - - - - - ARTICLE CONTENT - - - - - - - --><?php tpl_content(false) ?>
+
+
 <!-- - - - - - - - - END OF ARTICLE  - - - - - - - -->
+
 			</article>
 			<footer>
 <?php my_lastchange(str_repeat(chr(9),4)); ?>
