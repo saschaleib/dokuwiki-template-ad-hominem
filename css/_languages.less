@@ -36,15 +36,30 @@
 					color: @ini_text;
 				}
 				&.wikilink1 {
-					color: @ini_link;
+					& {
+						color: @ini_link;
+					}
+					&:hover {
+						text-decoration: none;
+					}
+					&:hover span {
+						text-decoration: underline;
+					}
 				}
 				&.wikilink2 {
-					color: @ini_missing;
-					text-decoration: underline;
-					text-decoration-style: dotted;
-					border-bottom: transparent 0 none;
+					& {
+						border-bottom: transparent 0 none;
+					}
+					&:hover {
+						text-decoration: none;
+					}
+					span {
+						color: @ini_missing;
+						text-decoration: underline;
+						text-decoration-style: dotted;
+					}
 				}
-				&.wikilink2:hover {
+				&.wikilink2:hover span {
 					text-decoration-style: solid;
 				}
 			}
@@ -78,10 +93,10 @@
 		svg {
 			width: 1.8rem; height: 1.8rem;
 			fill: @ini_link;
-			text-transform: uppercase;
 		}
 		svg text {
 			fill: @ini_background_site;
+			text-transform: uppercase;
 		}
 	}
 	#langMenuWrapper {
@@ -108,11 +123,12 @@
 				right: 16%;
 				width: 1em;
 				margin-left: -.5em;
-				background-color: #fff;
+				background-color: @ini_background_site;
 				box-shadow: 0 0 8px rgba(0,0,0,.2);
 				-webkit-clip-path: polygon(-8px -8px,calc(100% + 8px) -8px,calc(100% + 8px) calc(100% + 8px));
 				clip-path: polygon(-8px -8px,calc(100% + 8px) -8px,calc(100% + 8px) calc(100% + 8px));
 				transform: translateY(-50%) rotate(-45deg);
+				border: @ini_border solid 1px;
 			}
 			li a {
 				& {
@@ -135,8 +151,46 @@
 	}
 }
 
+/* dark mode overrides: */
+@media (prefers-color-scheme: dark) {
+	
+	body.darkmode {
+
+		#tbLanguages, #sbLanguages {
+			ul li a {
+				&::before { border-color: @ini_text_dark; color: @ini_text_dark; }
+				&.wikilink1 { color: @ini_link_dark; }
+				&.wikilink2 span { color: @ini_missing_dark; }
+			}
+		}
+
+		#tbLanguages {
+			button {
+				& { color: @ini_link_dark; }
+				&:hover { background-color: @ini_background_alt_dark; border-color: @ini_border_dark; }
+				svg { fill: @ini_link_dark; }
+				svg text { fill: @ini_background_site_dark; }
+			}
+			#langMenuWrapper #langMenu {
+				& {
+					background-color: @ini_background_site_dark;
+					border-color: @ini_border_dark;
+					box-shadow: 1pt 1pt 5pt rgba(0,0,0,0.4);;
+				}
+				&:before {
+					background-color: @ini_background_site_dark;
+					box-shadow: 1pt 1pt 5pt rgba(0,0,0,0.4);;
+					border-color: @ini_border_dark;
+				}
+			}
+		}
+	}
+}
+
+
 @media (max-width: 950px) {
 
+	/* touchup for the languages list in menu mode */
 	#sbLanguages {
 		margin: .5em .25em 0 .5em;
 	}
