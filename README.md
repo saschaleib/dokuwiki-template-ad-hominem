@@ -19,9 +19,9 @@ A clean and lightweight HTML5 template for DokuWiki.
   * Improvements to the default functionality, e.g. a resizeable internal link selection widget, etc.
   * Configuration to override the "home"-link (see below)
   * Integrated "Cookies" banner functionality
+  * Integrated languages menu (works with the Translate plugin)
   * Compatible with PHP8+ as well as DokuWiki “[Kaos](https://www.dokuwiki.org/changes#release_2024-02-06_kaos)”.
   * Support for global RTL (right-to-left) site direction.
-
 
 ## Localizations
 
