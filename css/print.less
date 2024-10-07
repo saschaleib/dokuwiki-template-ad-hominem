@@ -32,7 +32,7 @@ body {
 }
 
 /* hide unneded page elements */
-#globalTools, #phSearch, #phTools, #phTools,
+#globalTools, #phSearch,
 #sidebar, #toc, #navYouAreHere,
 #footer-layout .ftSection {
 	display: none;
@@ -400,6 +400,34 @@ main div.footnotes:before {
 	height: .5em;
 }
 
+/* show language code, if configured as menu */
+#tbLanguages {
+	& {
+		display: block;
+		float:right;
+		position: relative;
+		top: -1.5rem;
+	}
+	button {
+		& {
+			border: transparent none 0;
+		}
+		svg {
+			& {
+				fill: transparent;
+				stroke: #000;
+				stroke-width: .5pt;
+				width: 1.75rem; height: 1.75rem;
+			}
+			text {
+				fill: #000;
+				text-transform: uppercase;
+				font-family: Arial, Helvetica, Verdana, sans;
+				stroke-width: 0;
+			}	
+		}
+	}
+}
 
 /* alternative compact style: */
 body.print-compact #main-content {

@@ -49,3 +49,5 @@ $lang['cookie_consent']        = 'OK';
 $lang['cookie_linktext']       = 'Lisätietoja';
 
 $lang['homepage']				= 'Kotisivu';
+
+$lang['languages']				= 'Käytettävissä olevat kielet';

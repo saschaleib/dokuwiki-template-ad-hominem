@@ -50,4 +50,4 @@ $lang['cookie_linktext']       = 'More information';
 
 $lang['homepage']				= 'Homepage';
 
-$lang['languages']				= 'Languages';
+$lang['languages']				= 'Available languages';

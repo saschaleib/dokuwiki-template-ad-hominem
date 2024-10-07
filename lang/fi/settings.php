@@ -26,3 +26,11 @@ $lang['homelink']         = 'Linkki ylemmän tason kotisivulle (tyhjä oletusarv
 $lang['printstyle']         = 'Painotyylin vaihtelu';
 	$lang['printstyle_o_basic']	= 'perus';
 	$lang['printstyle_o_compact']	= 'kompakti';
+
+$lang['langmenu']			= 'Näytä lielet-valikko <small>(Vaatii <a href="https://www.dokuwiki.org/plugin:translation" target="_blank">Translation pluginin</a>)</small>';
+	$lang['langmenu_o_tb']	= 'Valikkona työkalupalkissa';
+	$lang['langmenu_o_sb']	= 'Luettelona sivupalkissa';
+
+$lang['langfilter']			= 'Valitse, mitkä käännökset näytetään valikossa tai luettelossa.';
+	$lang['langfilter_o_all']	= 'Näytä kaikki kielet';
+	$lang['langfilter_o_existing']	= 'Luettele vain, jos käännös on olemassa';

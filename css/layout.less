@@ -359,8 +359,8 @@ div.no {
 	.curid {
 		font-weight: bold;
 	}
-	h4 {
-		font-size: 1rem;
+	h3, h4 {
+		font-size: 1.1rem;
 		margin: 0.25em 2pt;
 	}
 	& > button.tg_button {
@@ -980,6 +980,7 @@ body.mediadetail {
 		#sidebar {
 			hr { background-image:	linear-gradient(to right, @ini_background_site_dark, @ini_text_alt, @ini_background_site_dark); }
 			a:link, a:visited { color: @ini_link_dark; }
+			li::marker { color: @ini_text_dark; }
 		}
 
 		#toc {
@@ -1159,25 +1160,25 @@ body.mediadetail {
 	}
 
 	#sbNavigation {
-		padding-left:		.5em;
-		margin-left:		0;
+		padding-left: .5em;
+		margin-left: 0;
 	}
 	#sidebar h3,
 	#sidebar h4	{
-		font-size:			1rem;
-		padding:			.25em 0 .25em 2pt;
+		font-size: 1rem;
+		padding: .25em 0 .25em 2pt;
 	}
 	#sidebar ul, #sidebar ol {
-		margin-left:		.5em;
+		margin-left: .5em;
 	}
 	#sidebar ul ul, #sidebar ol ol,
 	#sidebar ul ol, #sidebar ol ul {
-		margin-left:		0;
+		margin-left: 0;
 	}
 	#sidebar p,
 	#sidebar li	{
-		font-size:			small;
-		padding:			.25em 0 .25em .25em;
+		font-size: small;
+		padding: .25em 0 .25em .25em;
 	}
 
 	main {
@@ -1188,7 +1189,7 @@ body.mediadetail {
 	.toggle .tg_content,
 	.toggle.alt .tg_content,
 	.toggle.show .tg_content {
-		display:		initial;
+		display: initial;
 	}
 	.toggle.auto .tg_content {
 		display:		none;
@@ -1196,10 +1197,10 @@ body.mediadetail {
 
 	#toc.hide h3::after,
 	#toc.auto h3::after {
-		content:			'\2630';
+		content: '\2630';
 	}
 	#toc.alt h3::after {
-		content:			'\203A';
+		content: '\203A';
 	}
 
 	#toc.hide h3 > span,
@@ -1225,10 +1226,10 @@ body.mediadetail {
 				-webkit-box-shadow:		3px 3px 3px @ini_background_site_dark;
 				box-shadow:				3px 3px 3px @ini_background_site_dark;
 			}
-			&:before {
+			&::before {
 				border-bottom-color:	@ini_border_dark;
 			}
-			&:after {
+			&::after {
 				border-bottom-color:	@ini_background_dark;
 			}
 		}

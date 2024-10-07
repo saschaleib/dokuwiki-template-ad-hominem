@@ -53,3 +53,5 @@ $lang['cookie_consent']        = 'OK';
 $lang['cookie_linktext']       = 'Más información';
 
 $lang['homepage']				= 'Página de inicio';
+
+$lang['languages']				= 'Lenguas disponibles';

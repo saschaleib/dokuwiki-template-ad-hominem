@@ -651,12 +651,17 @@ function my_langmenu($prefix, $place, $checkage = true) {
 
 	/* get the config option: */
 	$config = tpl_getConf('langmenu', 'none');
-	
-	/* collect the output: */
-	$out = '';
 
+	/* only shw the menu if this is called from the right place */
 	if ($config == $place) {
+
+		/* collect the output: */
+		$out = '';
+
+		/* try to load the plugin: */
 		$trans = plugin_load('helper','translation');
+		
+		/* plugin available? */
 		if ($trans) {
 			
 			if (!$trans->istranslatable($INFO['id'])) return '';
@@ -670,27 +675,41 @@ function my_langmenu($prefix, $place, $checkage = true) {
 			
 			// create the header item 
 			
-			if ($asMenu) { // menu only
+			if ($asMenu) { // show as menu (toolbar)
 			
+				// get the language name (in the local language)
 				$langName = htmlentities($trans->getLocalName($lang));
 			
+				/* prepare the menu icon (note that the language code and name are embedded! */
 				$svg = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><title>{$langName}</title><path d='M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4C22,2.89 21.1,2 20,2Z' /><text lengthAdjust='spacingAndGlyphs' x='50%' y='47%' dominant-baseline='middle' text-anchor='middle' style='font-size:50%'>{$lang}</text></svg>";
 			
+				// prepare the menu button:
 				$out .= "{$prefix}\t<button id=\"langButton\" aria-haspopup=\"menu\" aria-controls=\"langMenuWrapper\" aria-expanded=\"false\">\n";
 				$out .= "{$prefix}\t\t{$svg}\n";
 				$out .= "{$prefix}\t\t<span class=\"sronly\">" . $trans->getLang('translations') . "</span>\n{$prefix}\t</button>\n";
 			
-			} else { // not a menu
+			} else { // show as list (sidebar)
 
+				// show title (only if the option is configured)
 				if (isset($trans->opts['title'])) {
-					$out .= "{$prefix}\t<h4><span>" . htmlentities(tpl_getLang('languages'));
-
-					/* show the about text? */
-					if ($trans->getConf('about')) {
-						$out .= $trans->showAbout();
+					
+					// get a localized headline text
+					$headline = tpl_getLang('languages');
+					
+					// should a link to the about page be added?
+					$about = $trans->getConf('about'); /* get the about link */
+					if ($about !== '') {
+						/* localized about links? */
+						if ($trans->getConf('localabout')) {
+							[, $aboutid] = $trans->getTransParts($about);
+							[$about, ] = $trans->buildTransID($lang, $aboutid);
+							$about = cleanID($about);
+						}
+						// build the link:
+						$headline = html_wikilink($about, $headline);
 					}
-					/* note: special case for French version: */
-					$out .= ( $lang == 'fr' ? '&#8239;:' : ':') . "</span></h4>\n";
+					/* complete the headline */
+					$out .= "{$prefix}\t<h3><span>" . $headline . "</span></h3>\n";
 				} 
 			}
 
@@ -698,6 +717,7 @@ function my_langmenu($prefix, $place, $checkage = true) {
 			$out .= "{$prefix}\t<div id=\"langMenu" . ( $asMenu ? 'Wrapper" role="menu" style="display: none"' : 'List"') . ">\n"
 				 .	"{$prefix}\t\t<ul id=\"lang" . ( $asMenu ? 'Menu" role="group"' : 'List"' ) . ">\n";
 
+			// loop over each language and add it to the menu:
 			foreach ($trans->translations as $t) {
 				$l = ( $t !== '' ? $t : $lang );
 				
@@ -706,24 +726,23 @@ function my_langmenu($prefix, $place, $checkage = true) {
 				$exists = page_exists($trg, '', false);
 				$filter = tpl_getConf('langfilter', 'all');
 				
-				/* only show if translation exists */
+				/* only show if translation exists? */
 				if ($exists || $filter === 'all') {
 					$class = 'wikilink' . ( $exists ? '1' : '2');
 					$link = wl($trg);
 					$current = ($lng == $lang);
 					
 					$out .= "{$prefix}\t\t\t<li" . ( $asMenu ? ' role="presentation"' : '' ). ( $current ? ' class="current"' : '' ) . ">\n";
-					$out .= "{$prefix}\t\t\t\t<a href=\"{$link}\" lang=\"{$lng}\" hreflang=\"{$lng}\" class=\"{$class}\"" . ( $asMenu ? ' role="menuitem"' : '' ) . '><span>'. $trans->getLocalName($lng) . "</span></a>\n";
+					$out .= "{$prefix}\t\t\t\t<a href=\"{$link}\" lang=\"{$lng}\" hreflang=\"{$lng}\" class=\"{$class}\"" . ( $asMenu ? ' role="menuitem"' : '' ) . '><bdi>'. $trans->getLocalName($lng) . "</bdi></a>\n";
 					$out .= "{$prefix}\t\t\t</li>\n";
 				}
 			}
 
+			// close all open elements:
 			$out .= "{$prefix}\t\t</ul>\n"
 				 .	"{$prefix}\t</div>\n"
 				 .	"{$prefix}</div>\n";
-
 		}
-		
+		echo $out; // done.
 	}
-	echo $out;
 }

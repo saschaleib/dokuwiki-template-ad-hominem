@@ -28,6 +28,5 @@ $lang['printstyle']				= 'Druckstil-Variante';
 	$lang['printstyle_o_compact']	= 'Kompakt';
 
 $lang['langmenu']			= 'Zeige das Sprachen-Menü <small>(benötigt das <a href="https://www.dokuwiki.org/plugin:translation" target="_blank" hreflang="en">Translation-Plugin</a>)</small>';
-	$lang['langmenu_o_none']	= 'Nicht anzeigen';
-	$lang['langmenu_o_tb']	= 'In der Werkzeugleiste';
-	$lang['langmenu_o_sb']	= 'In der Seitenleiste';
+	$lang['langmenu_o_tb']	= 'Als Menü in der Werkzeugleiste';
+	$lang['langmenu_o_sb']	= 'Als Liste in der Seitenleiste';

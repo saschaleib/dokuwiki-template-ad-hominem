@@ -26,3 +26,11 @@ $lang['homelink']         = 'Sustituir el enlace de la página de inicio (vacío
 $lang['printstyle']         = 'Variante de estilo de impresión';
 	$lang['printstyle_o_basic']	= 'Clásico';
 	$lang['printstyle_o_compact']	= 'Compacto';
+
+$lang['langmenu']			= 'Mostrar el menú de lenguas <small>(requiere el <a href="https://www.dokuwiki.org/plugin:translation" target="_blank">plugin de traducción</a>)</small>';
+	$lang['langmenu_o_tb']	= 'Como menú en la barra de herramientas';
+	$lang['langmenu_o_sb']	= 'Como lista en la barra lateral';
+
+$lang['langfilter']			= 'Filtrar qué traducciones mostrar en el menú o la lista';
+	$lang['langfilter_o_all']	= 'Listar todos los idiomas';
+	$lang['langfilter_o_existing']	= 'Mostrar sólo si existe traducción';

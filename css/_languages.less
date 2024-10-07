@@ -53,7 +53,7 @@
 					&:hover {
 						text-decoration: none;
 					}
-					span {
+					bdi {
 						color: @ini_missing;
 						text-decoration: underline;
 						text-decoration-style: dotted;
@@ -146,6 +146,9 @@
 	& {
 		margin: 1em .25em 0 1em;
 	}
+	h3 a.wikilink2 {
+		color: @ini_missing;
+	}
 	ul {
 		padding-left: 0 !important;
 	}
@@ -160,7 +163,7 @@
 			ul li a {
 				&::before { border-color: @ini_text_dark; color: @ini_text_dark; }
 				&.wikilink1 { color: @ini_link_dark; }
-				&.wikilink2 span { color: @ini_missing_dark; }
+				&.wikilink2 bdi { color: @ini_missing_dark; }
 			}
 		}
 
@@ -184,9 +187,11 @@
 				}
 			}
 		}
+		#sbLanguages h3 a.wikilink2 {
+			color: @ini_missing_dark;
+		}
 	}
 }
-
 
 @media (max-width: 950px) {
 
