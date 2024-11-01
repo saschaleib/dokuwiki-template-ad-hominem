@@ -1,6 +1,6 @@
 # DokuWiki Template Ad-Hominem
 
-A clean and lightweight HTML5 template for DokuWiki.
+A clean and lightweight HTML5 template for [DokuWiki](https://github.com/dokuwiki/dokuwiki).
 
 ## Features
 
