@@ -1,0 +1,77 @@
+/**
+ * This file overrides syntax highlighting colours
+ *
+ * @author Sascha Leib <ad@hominem.info>
+**/
+
+main .code {
+    .co0 { color: #545454 }
+    .co4 { color: #AD0000 }
+    .es5 { color: #005C8A }
+    .es6 { color: #006120 }
+    .kw2 { color: #000000 } /* no change */
+    .kw5 { color: #006600 }
+    .kw6 { color: #A8005A }
+    .me0 { color: #004000 } /* no change */
+    .nu0 { color: #8A2E8A }
+    .re0 { color: #0000ff }
+    .re3 { color: #AD0000 }
+    .re4 { color: #006161 }
+    .re5 { color: #660033 } /* no change */
+    .re7 { color: #991111 } /* no change */
+    .re8 { color: #005200 }
+    .sc-2 { color: #404040 } /* no change */
+    .sy3 { color: #000040 } /* no change */
+    .br0, .sy0 { color: #216321; }
+    .co1, .coMULTI, .sc-1 { color: #545454 }
+    .co2, .sy1 { color: #216321 }
+    .co3, .sy4 { color: #006161 }
+    .es0, .es1, .esHARD { color: #000099 } /* no change */
+    .es2, .es3, .es4 { color: #660099 } /* no change */
+    .kw1, .kw8 { color: #855c0d }
+    .kw10, .kw11, .kw12, .kw9 { color: #003399 }
+    .kw13, .kw14, .kw15, .kw16, .me1, .me2 { color: #006600 } /* no change */
+    .kw3, .kw7, .sy2 { color: #000066 } /* no change */
+    .kw4, .re2 { color: #993333 } /* no change */
+    .re1, .st0, .st_h { color: #E60000 }
+    .ln-xtra { background-color: @ini_highlight }
+}
+
+/* dark mode overrides */
+@media (prefers-color-scheme: dark) {
+
+	body.darkmode main .code {
+        
+        .co0 { color: #A6A6A6 }
+        .co4 { color: #FF8080 }
+        .es5 { color: #0FAFFF }
+        .es6 { color: #00C241 }
+        .kw2 { color: #EEEEEE }
+        .kw5 { color: #52FF52 }
+        .kw6 { color: #FF99CC }
+        .me0 { color: #00C200 }
+        .nu0 { color: #D98CD9 }
+        .re0 { color: #9E9EFF }
+        .re3 { color: #FF8080 }
+        .re4 { color: #00CCCC }
+        .re5 { color: #FF7ABD }
+        .re7 { color: #F28888 }
+        .re8 { color: #38FF38 }
+        .sc-2 { color: #A6A6A6 }
+        .sy3 { color: #9E9EFF  }
+        .br0, .sy0 { color: #66cc66 } /* no change */
+        .co1, .coMULTI, .sc-1 { color: #DDDDDD }
+        .co2, .sy1 { color: #94DB94 }
+        .co3, .sy4 { color: #00EBEB }
+        .es0, .es1, .esHARD { color: #A8A8FF }
+        .es2, .es3, .es4 { color: #D685FF }
+        .kw1, .kw8 { color: #D6D600 }
+        .kw10, .kw11, .kw12, .kw9 { color: #B8CEFF }
+        .kw13, .kw14, .kw15, .kw16, .me1, .me2 { color: #00FF00 }
+        .kw3, .kw7, .sy2 { color: #CCCCFF }
+        .kw4, .re2 { color: #ECC5C5 }
+        .re1, .st0, .st_h { color: #FF8080 }
+        .ln-xtra { background-color: @ini_highlight_dark }
+
+    }
+}
