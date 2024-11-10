@@ -3,11 +3,11 @@
 /**
  * This file provides styles for forms in general and specifically
  * for ?do=
- *   - login
- *   - resendpwd
- *   - register
- *   - profile
- *   - subscribe
+ * - login
+ * - resendpwd
+ * - register
+ * - profile
+ * - subscribe
  */
 
 /* ---------------- forms ------------------------ */
@@ -23,7 +23,7 @@
   font-weight: bold;
 }
 [dir=rtl] .dokuwiki label.block {
-    text-align: left;
+	text-align: left;
 }
 
 .dokuwiki label.simple {
@@ -32,7 +32,7 @@
   font-weight: normal;
 }
 [dir=rtl] .dokuwiki label.simple {
-    text-align: right;
+	text-align: right;
 }
 
 .dokuwiki label.block select,
@@ -41,7 +41,7 @@
 }
 
 .dokuwiki label span {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 .dokuwiki fieldset {
@@ -62,7 +62,7 @@
 }
 
 .dokuwiki button {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 .dokuwiki input:focus,
 .dokuwiki select:focus,
@@ -76,7 +76,7 @@
 #dw__resendpwd fieldset,
 #dw__register fieldset {
 	max-width: calc(100% - 1em);
-    padding-bottom: 0.7em;
+	padding-bottom: 0.7em;
 }
 
 #dw__login fieldset label.block,
@@ -86,12 +86,12 @@
 	max-width: 320px;
 }
 #dw__login label[for="remember__me"] {
-    margin: 0 10% 1.4em;
+	margin: 0 10% 1.4em;
 }
 
 #dw__profiledelete {
-    display: block;
-    margin-top: 2.8em;
+	display: block;
+	margin-top: 2.8em;
 }
 
 /**
@@ -99,20 +99,20 @@
  */
 
 #subscribe__form {
-    display: block;
-    width: 400px;
-    text-align: center;
+	display: block;
+	width: 400px;
+	text-align: center;
 }
 
 #subscribe__form fieldset {
-    text-align: left;
-    margin: 0.5em 0;
+	text-align: left;
+	margin: 0.5em 0;
 }
 [dir=rtl] #subscribe__form fieldset {
-    text-align: right;
+	text-align: right;
 }
 
 #subscribe__form label {
-    display: block;
-    margin: 0 0.5em 0.5em;
+	display: block;
+	margin: 0 0.5em 0.5em;
 }

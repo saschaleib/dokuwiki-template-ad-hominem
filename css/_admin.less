@@ -11,14 +11,14 @@
 		margin-bottom: 1em;
 	}
 
-    /* main task grouped in two columns */
-    ul.admin_tasks {
+	/* main task grouped in two columns */
+	ul.admin_tasks {
 		grid-column: 2;
 		list-style-type: none;
 		font-size: 1.125em;
 		margin: 0;
-    }
-    ul.admin_tasks:first-of-type {
+	}
+	ul.admin_tasks:first-of-type {
 		grid-row: 3 / span 4;
 		grid-column: 1;
 	}
@@ -27,44 +27,44 @@
 		grid-column: 2;
 	}	
 
-    /* general menu item styling */
-    ul {
-        padding: 0;
-        li {
-            margin: 0 0 1em 0;
-            font-weight: bold;
-            list-style-type: none;
-            white-space: nowrap;
+	/* general menu item styling */
+	ul {
+		padding: 0;
+		li {
+			margin: 0 0 1em 0;
+			font-weight: bold;
+			list-style-type: none;
+			white-space: nowrap;
 
-            a {
-                display: flex;
-                span {
-                    display: inline-block;
+			a {
+				display: flex;
+				span {
+					display: inline-block;
 
-                    &.icon {
-                        width: 1.5em;
-                        min-height: 1.5em;
-                        margin: 0 0.5em;
-                        vertical-align: top;
+					&.icon {
+						width: 1.5em;
+						min-height: 1.5em;
+						margin: 0 0.5em;
+						vertical-align: top;
 
-                        svg {
-                            width: 1.5em;
-                            height: 1.5em;
-                            fill: @ini_link;
-                            display: inline-block;
-                            path {
-                                fill: @ini_link;
-                            }
-                        }
-                    }
+						svg {
+							width: 1.5em;
+							height: 1.5em;
+							fill: @ini_link;
+							display: inline-block;
+							path {
+								fill: @ini_link;
+							}
+						}
+					}
 
-                    &.prompt {
-                        white-space: normal;
-                    }
-                }
-            }
-        }
-    }
+					&.prompt {
+						white-space: normal;
+					}
+				}
+			}
+		}
+	}
 
 	/* Security Warning */
 	#security__check {
@@ -73,14 +73,14 @@
 		grid-column: 1 / span 2;
 	}
 
-    /* DokuWiki version */
-    #admin__version {
+	/* DokuWiki version */
+	#admin__version {
 		display: block;
 		box-sizing: border-box;
 		width: 100%;
 		max-height: 7em;
 		overflow: auto;
-        color: @ini_text_neu;
+		color: @ini_text_neu;
 		background: @ini_background_alt url('images/info.svg') .25em .5em no-repeat;
 		background-size: 1em;
 		padding: .25em 0 .25em 1.75em;

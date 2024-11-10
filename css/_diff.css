@@ -4,77 +4,77 @@
  */
 
 .mode_diff table.diff {
-    width: 100%;
-    border-width: 0;
+	width: 100%;
+	border-width: 0;
 }
 .mode_diff table.diff th,
 .mode_diff table.diff td {
-    vertical-align: top;
-    padding: 0;
-    border-width: 0;
-    /* no style.ini colours because deleted and added lines have a fixed background colour */
-    background-color: #fff;
-    color: #333;
+	vertical-align: top;
+	padding: 0;
+	border-width: 0;
+	/* no style.ini colours because deleted and added lines have a fixed background colour */
+	background-color: #fff;
+	color: #333;
 }
 
 /* table header */
 .mode_diff table.diff th {
-    border-bottom: 1px solid @ini_border;
-    font-size: 110%;
-    font-weight: normal;
+	border-bottom: 1px solid @ini_border;
+	font-size: 110%;
+	font-weight: normal;
 }
 .mode_diff table.diff th a {
-    font-weight: bold;
+	font-weight: bold;
 }
 .mode_diff table.diff th span.user {
-    font-size: .9em;
+	font-size: .9em;
 }
 .mode_diff table.diff th span.sum {
-    font-size: .9em;
-    font-weight: bold;
+	font-size: .9em;
+	font-weight: bold;
 }
 .mode_diff table.diff th.minor {
-    color: #999;
+	color: #999;
 }
 .mode_diff table.diff_sidebyside th {
-    width: 50%;
+	width: 50%;
 }
 
 /* table body */
 .mode_diff table.diff .diff-lineheader {
-    width: .7em;
-    text-align: right;
+	width: .7em;
+	text-align: right;
 }
 [dir=rtl] .mode_diff table.diff .diff-lineheader {
-    text-align: left;
+	text-align: left;
 }
 .mode_diff table.diff .diff-lineheader,
 .mode_diff table.diff td {
-    font-family: @ini_mono_fonts;
+	font-family: @ini_mono_fonts;
 	background-color:	#F6F8FA;
 }
 .mode_diff table.diff td.diff-blockheader {
-    font-weight: bold;
+	font-weight: bold;
 }
 .mode_diff table.diff .diff-addedline {
-    background-color: #E4FFEE;
-    color: inherit;
+	background-color: #E4FFEE;
+	color: inherit;
 }
 .mode_diff table.diff .diff-deletedline {
-    background-color: #FFEEF0;
-    color: inherit;
+	background-color: #FFEEF0;
+	color: inherit;
 }
 .mode_diff table.diff td.diff-context {
-    background-color: #FFF;
-    color: inherit;
+	background-color: #FFF;
+	color: inherit;
 }
 .mode_diff table.diff td.diff-addedline strong {
-    color:				#23292E;
+	color:				#23292E;
 	background-color:	#A5F2C1;
 	font-weight:		normal;
 }
 .mode_diff table.diff td.diff-deletedline strong {
-    color:				#23292E;
+	color:				#23292E;
 	background-color:	#FFB7BF;
 	font-weight:		normal;
 }
@@ -82,63 +82,63 @@
 /* diff options */
 
 .mode_diff .diffoptions form {
-    float: left;
+	float: left;
 }
 .mode_diff .diffoptions p {
-    float: right;
+	float: right;
 }
 
 /* diff nav */
 
 .mode_diff table.diff_sidebyside td.diffnav {
-    padding-bottom: .7em;
+	padding-bottom: .7em;
 }
 .mode_diff .diffnav a {
-    display: inline-block;
-    vertical-align: middle;
+	display: inline-block;
+	vertical-align: middle;
 }
 .mode_diff .diffnav a span {
-    display: none;
+	display: none;
 }
 
 .mode_diff .diffnav a:hover,
 .mode_diff .diffnav a:active,
 .mode_diff .diffnav a:focus {
-    background-color: @ini_background_alt;
-    text-decoration: none;
+	background-color: @ini_background_alt;
+	text-decoration: none;
 }
 
 .mode_diff .diffnav a:before {
-    display: inline-block;
-    line-height: 1;
-    padding: .2em .4em;
-    border: 1px solid @ini_border;
-    border-radius: 2px;
-    color: @ini_text;
+	display: inline-block;
+	line-height: 1;
+	padding: .2em .4em;
+	border: 1px solid @ini_border;
+	border-radius: 2px;
+	color: @ini_text;
 }
 
 .mode_diff .diffnav a.diffprevrev:before {
-    content: '\25C0'; /* left triangle */
+	content: '\25C0'; /* left triangle */
 }
 .mode_diff .diffnav a.diffnextrev:before,
 .mode_diff .diffnav a.difflastrev:before {
-    content: '\25B6'; /* right triangle */
+	content: '\25B6'; /* right triangle */
 }
 .mode_diff .diffnav a.diffbothprevrev:before {
-    content: '\25C0\25C0';
+	content: '\25C0\25C0';
 }
 .mode_diff .diffnav a.diffbothnextrev:before {
-    content: '\25B6\25B6';
+	content: '\25B6\25B6';
 }
 
 .mode_diff .diffnav select {
-    width: 60%;
-    min-width: 9em;
-    height: 1.5em; /* height is necessary for longer options in Webkit */
+	width: 60%;
+	min-width: 9em;
+	height: 1.5em; /* height is necessary for longer options in Webkit */
 }
 
 .mode_diff .diffnav select option[selected] {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 /* dark mode overrides */

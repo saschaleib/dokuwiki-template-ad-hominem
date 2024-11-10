@@ -2,11 +2,11 @@
 /**
  * Ad Hominem Template
  *
- * @link     https://ad.hominem.info/
- * @author   Sascha Leib <sascha@leib.be>
- * @author   Anika Henke <anika@selfthinker.org>
- * @author   Clarence Lee <clarencedglee@gmail.com>
- * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
+ * @link	https://ad.hominem.info/
+ * @author	Sascha Leib <sascha@leib.be>
+ * @author	Anika Henke <anika@selfthinker.org>
+ * @author	Clarence Lee <clarencedglee@gmail.com>
+ * @license	GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
  
 ini_set('display_errors', 0);
@@ -56,7 +56,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 			<div id="phInclude"><?php tpl_includeFile('header.html') ?></div>
 		</header>
 	</div>
-    <div id="main-layout">
+	<div id="main-layout">
 		<div id="sidebar" class="toggle hide">
 			<button class="tg_button" title="<?php echo $lang['sidebar'] ?>"><span><?php echo $lang['sidebar'] ?></span></button>
 			<div class="tg_content">

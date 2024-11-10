@@ -3,7 +3,7 @@
  */
 
 .dokuwiki .ui-widget {
-    font-size: 100%;
+	font-size: 100%;
 	/*min-width: 290px;
 	min-height: 285px; */
 }
@@ -22,7 +22,7 @@
 }
 
 [dir=rtl] #link__wiz_close {
-    float: left;
+	float: left;
 }
 
 #link__wiz .ui-dialog-content {
@@ -55,62 +55,62 @@
 }
 
 #link__wiz_result {
-    background-color: @ini_background;
-    width:  ~"calc(100% - 2px)";
-    height: ~"calc(100% - 68px)";
-    overflow: auto;
-    border: 1px solid @ini_border;
-    margin: 3px auto;
-    text-align: left;
+	background-color: @ini_background;
+	width:  ~"calc(100% - 2px)";
+	height: ~"calc(100% - 68px)";
+	overflow: auto;
+	border: 1px solid @ini_border;
+	margin: 3px auto;
+	text-align: left;
 	font-size: medium;
-    line-height: 1em;
+	line-height: 1em;
 }
 [dir=rtl] #link__wiz_result {
-    text-align: right;
+	text-align: right;
 }
 
 #link__wiz_result div {
-    padding: 3px 3px 3px 0;
+	padding: 3px 3px 3px 0;
 }
 
 #link__wiz_result div a {
-    display: block;
-    padding-left: 1.3em;
-    min-height: 16px;
-    background: transparent 3px center no-repeat;
+	display: block;
+	padding-left: 1.3em;
+	min-height: 16px;
+	background: transparent 3px center no-repeat;
 	background-size: 1em;
 }
 [dir=rtl] #link__wiz_result div a {
-    padding: 3px 22px 3px 3px;
-    background-position: 257px 3px;
+	padding: 3px 22px 3px 3px;
+	background-position: 257px 3px;
 }
 
 #link__wiz_result div.type_u a:link,
 #link__wiz_result div.type_u a:visited {
-    background-image: url(./images/editor/browse-parent.svg);
+	background-image: url(./images/editor/browse-parent.svg);
 	color: @ini_link;
 }
 #link__wiz_result div.type_f a {
-    background-image: url(./images/editor/browse-link.svg);
+	background-image: url(./images/editor/browse-link.svg);
 }
 #link__wiz_result div.type_d a:link,
 #link__wiz_result div.type_d a:visited {
-    background-image: url(./images/editor/browse-folder.svg);
+	background-image: url(./images/editor/browse-folder.svg);
 	color: @ini_link;
 }
 
 #link__wiz_result div.even {
-    background-color: @ini_background_neu;
+	background-color: @ini_background_neu;
 }
 
 #link__wiz_result div.selected {
-    background-color: @ini_background_alt;
+	background-color: @ini_background_alt;
 }
 
 #link__wiz_result span {
-    display: block;
-    color: @ini_text_neu;
-    margin-left: 22px;
+	display: block;
+	color: @ini_text_neu;
+	margin-left: 22px;
 }
 
 #link__wiz .ui-button {
@@ -127,22 +127,22 @@
 ********************************************************************/
 
 #media__popup {
-    /* for backwards compatibility (not needed since Rincewind) */
-    display: none;
+	/* for backwards compatibility (not needed since Rincewind) */
+	display: none;
 }
 
 #media__popup_content p {
-    margin: 0 0 .5em;
+	margin: 0 0 .5em;
 }
 
 #media__popup_content label {
-    margin-right: .5em;
-    cursor: default;
+	margin-right: .5em;
+	cursor: default;
 }
 
 #media__popup_content button {
-    margin-right: 1px;
-    cursor: pointer;
+	margin-right: 1px;
+	cursor: pointer;
 }
 
 /* dark mode overrides */

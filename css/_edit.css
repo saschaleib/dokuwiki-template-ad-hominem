@@ -10,30 +10,30 @@
 }
 
 .mode_edit div.editBox button {
-	border:				#666 solid 1px;
-	border-radius:		1px;
-	padding:			3pt 6pt;
-	margin:				0 2px;
-	cursor:				pointer;
+	border: #666 solid 1px;
+	border-radius: 1px;
+	padding: 3pt 6pt;
+	margin: 0 2px;
+	cursor: pointer;
 }
 
 .mode_edit div.editButtons button:hover {
 	text-decoration:	underline;
 }
 .mode_edit div.editBox button:focus {
-	outline:			@ini_focus_color solid 2px;
-	background-color:	@ini_background;
+	outline: @ini_focus_color solid 2px;
+	background-color: @ini_background;
 }
 
 /*____________ toolbar ____________*/
 
 .mode_edit .editBox > .toolbar,
 .mode_preview .editBox > .toolbar {
-    display: block;
+	display: block;
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
-	background-color:	@ini_background;
+	background-color: @ini_background;
 	padding-bottom: 2px;
 	z-index: 9;
 }
@@ -41,21 +41,21 @@
 
 .mode_edit div.toolbar,
 .mode_preview div.toolbar {
-    display: inline-block;
+	display: inline-block;
 }
 #draft__status {
-    font-size: small;
-    color: @ini_text_alt;
-    background-color: inherit;
+	font-size: small;
+	color: @ini_text_alt;
+	background-color: inherit;
 }
 [dir=rtl] #draft__status {
-    /* float: left; */
+	/* float: left; */
 }
 #tool__bar {
-    float: left;
+	float: left;
 }
 [dir=rtl] #tool__bar {
-    float: right;
+	float: right;
 }
 
 /* hide the hard-coded button images */
@@ -121,29 +121,29 @@
 }
 /* picker popups (outside of .dokuwiki) */
 div.picker {
-    width: 300px;
-    border: 1px solid #CCC;
-    background-color: #EEE;
-    color: inherit;
+	width: 300px;
+	border: 1px solid #CCC;
+	background-color: #EEE;
+	color: inherit;
 }
 /* picker for headlines */
 div.picker.pk_hl {
-    width: auto;
+	width: auto;
 }
 
 /* buttons inside of picker */
 div.picker button.pickerbutton,
 div.picker button.toolbutton {
-    padding: .1em .35em;
-    border-width: 0;
+	padding: .1em .35em;
+	border-width: 0;
 }
 
 /*____________ edit textarea ____________*/
 
 .dokuwiki textarea.edit {
-    width: 100%;
+	width: 100%;
 	padding: 1px 0 0 2px;
-    margin-bottom: .5em;
+	margin-bottom: .5em;
 	min-height: 52pt;
 	background-color: #EEE;
 	font-family: 'Source Code Pro',Menlo,Consolas,'Courier New',Courier,monospace;
@@ -175,20 +175,20 @@ div.picker button.toolbutton {
 /*____________ below the textarea ____________*/
 
 .dokuwiki div.editBar {
-    display: grid;
+	display: grid;
 	grid-template-columns: 320px minmax(500px, 1fr) auto;
 	align-items: start;
-    margin-bottom: .5em;
+	margin-bottom: .5em;
 }
 
 /* size and wrap controls */
 #size__ctl {
 	grid-row: 1;
-    grid-column: 3;
+	grid-column: 3;
 	min-width: 64px;
 }
 #size__ctl img {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 /* edit buttons */
@@ -199,8 +199,8 @@ div.picker button.toolbutton {
 	grid-template-columns: 1fr 1fr 1fr;
 }
 [dir=rtl] .dokuwiki .editBar .editButtons {
-    margin-right: 0;
-    margin-left: 1em;
+	margin-right: 0;
+	margin-left: 1em;
 }
 .dokuwiki .editBar .editButtons button {
 	border: #CCC solid 1.5pt;
@@ -242,7 +242,7 @@ div.picker button.toolbutton {
 .dokuwiki .editBar .summary {
 	grid-row: 1;
 	grid-column: 2;
-    display: grid;
+	display: grid;
 	grid-template-columns: 1fr auto;
 	line-height: 1em;
 	padding-top: 2pt;
@@ -259,7 +259,7 @@ div.picker button.toolbutton {
 }
 
 .dokuwiki .editBar .summary label {
-    white-space: nowrap;
+	white-space: nowrap;
 }
 .dokuwiki .editBar .summary label:last-child  {
 	padding: 2pt 0 2pt 4pt;
@@ -271,15 +271,15 @@ div.picker button.toolbutton {
 	padding: 2pt 5pt 0 0;
 }
 .dokuwiki .editBar .summary label span {
-    font-size: small;
+	font-size: small;
 	margin: 0 1pt 0 3pt;
 }
 .dokuwiki .editBar .summary input {
 }
 /* change background colour if summary is missing */
 .dokuwiki .editBar .summary input.missing {
-    color: @ini_text;
-    background-color: #ffcccc;
+	color: @ini_text;
+	background-color: #ffcccc;
 }
 
 /* toolbar popups */
@@ -322,10 +322,10 @@ div.picker button.toolbutton {
 ********************************************************************/
 
 .dokuwiki div.preview {
-    border: dotted #CCC;
-    border-width: .2em 0;
-    padding: 1.4em 0;
-    margin-bottom: 1.4em;
+	border: dotted #CCC;
+	border-width: .2em 0;
+	padding: 1.4em 0;
+	margin-bottom: 1.4em;
 }
 
 /* narrow screen overrides: */
