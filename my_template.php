@@ -455,7 +455,7 @@ function my_toc($prefix = '') {
 	/* Build the hierarchical list of headline links: */
 	if (count($toc) >= intval($conf['tocminheads'])) {
 		echo $prefix . "<aside id=\"toc\" class=\"toggle hide\">\n";
-		echo $prefix . "\t<button type=\"button\" id=\"toc-menubutton\" class=\"tg_button\" title=\"" . htmlentities($lang['toc']) . '" aria-haspopup="true" aria-controls="toc-menu"><span>' . htmlentities($lang['toc']) . "</span></button>\n" . $prefix . "\t<div id=\"toc-menu\" class=\"tg_content\" role=\"menu\" aria-labelledby=\"toc-menubutton\">";
+		echo $prefix . "\t<button type=\"button\" id=\"toc-menubutton\" class=\"tg_button\" title=\"" . htmlentities($lang['toc']) . '" aria-haspopup="true" aria-controls="toc-menu"><span>' . htmlentities($lang['toc']) . "</span></button>\n" . $prefix . "\t<nav id=\"toc-menu\" class=\"tg_content\" role=\"menu\" aria-labelledby=\"toc-menubutton\">";
 		$level = 0;
 		foreach($toc as $it) {
 			
@@ -486,7 +486,7 @@ function my_toc($prefix = '') {
 			echo "</li>\n" . $prefix . str_repeat("\t", $i*2 + 1) . "</ol>";
 		}
 			
-		echo "</li>\n" . $prefix . "\t\t</ol>\n" . $prefix . "\t</div>\n" . $prefix . "</aside>\n";
+		echo "</li>\n" . $prefix . "\t\t</ol>\n" . $prefix . "\t</nav>\n" . $prefix . "</aside>\n";
 	}
 }
 
