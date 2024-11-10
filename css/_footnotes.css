@@ -2,11 +2,42 @@
  * This file provides styles for footnotes.
  */
 
+/* pre-defined custom footnote styles */
+
+@counter-style: ~"@counter-style";
+@{counter-style} super-decimal {
+	system: numeric;
+	symbols: '\2070' '\B9' '\B2' '\B3' '\2074' '\2075' '\2076' '\2077' '\2078' '\2079';
+	/* symbols: '⁰' '¹' '²' '³' '⁴' '⁵' '⁶' '⁷' '⁸' '⁹'; */
+}
+
+/* create a custom counter for the footnotes: */
+body, div.footnotes {
+    counter-reset: footnotes;
+}
+
 /*____________ footnotes inside the text ____________*/
 
 /* link to footnote inside the text */
-.dokuwiki sup a.fn_top {
+
+.dokuwiki sup { /* ignore superscript tags! */
+	vertical-align: baseline;
+	font-size: inherit;
 }
+.dokuwiki sup a.fn_top {
+	
+	& {
+		padding: 0 .5pt;
+		font-size: 0;text-decoration: none;
+	}
+	&::after {
+		content: counter(footnotes, super-decimal);
+		counter-increment: footnotes;
+		font-size: 1.1667rem;
+		font-weight: bold;
+	}
+}
+
 /* JSpopup */
 div.insitu-footnote {
 	max-width: 40%;
@@ -33,11 +64,21 @@ div.insitu-footnote {
 			font-size: 1em;
 		}
 		.fn_bot {
-			display: inline-block;
-			width: 2rem;
-			text-align: right;
-			margin: 0 .5rem 0 0;
-			font-variant-numeric: oldstyle-nums;
+			& {
+				display: inline-block;
+				text-align: right;
+				margin: 0 .5rem 0 0;
+				width: 2rem; height: .972rem;
+				font-variant-numeric: oldstyle-nums;
+				font-size: 0;
+			}
+			&::after {
+				content: counter(footnotes, decimal) '.';
+				counter-increment: footnotes;
+				display: inline-block;
+				font-size: .972rem;
+				width: 2rem;
+			}
 		}
 		& > .content {
 			display: inline;
