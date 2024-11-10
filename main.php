@@ -2,11 +2,11 @@
 /**
  * Ad Hominem Template
  *
- * @link     https://ad.hominem.info/
- * @author   Sascha Leib <sascha@leib.be>
- * @author   Anika Henke <anika@selfthinker.org>
- * @author   Clarence Lee <clarencedglee@gmail.com>
- * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
+ * @link	https://ad.hominem.info/
+ * @author	Sascha Leib <sascha@leib.be>
+ * @author	Anika Henke <anika@selfthinker.org>
+ * @author	Clarence Lee <clarencedglee@gmail.com>
+ * @license	GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
 
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
@@ -45,7 +45,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 				<div id="gUserTools">
 					<h3 class="sronly"><?php echo $lang['user_tools']; ?></h3>
 					<ul>
-<?php my_userinfo(str_repeat(chr(9),6)); ?>
+<?php my_userinfo(str_repeat(DOKU_TAB,6)); ?>
 					</ul>
 				</div>
 			</div>
@@ -53,14 +53,14 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 <?php include('tpl_searchform.php'); ?>
 			</div>
 			<div id="phTools">
-<?php my_langmenu(str_repeat(chr(9),4), 'tb'); ?>
+<?php my_langmenu(str_repeat(DOKU_TAB,4), 'tb'); ?>
 			</div>
 			<div id="phInclude"><?php tpl_includeFile('header.html') ?></div>
 		</header>
 	</div>
-    <div id="main-layout">
+	<div id="main-layout">
 		<div id="sidebar" class="toggle <?php
-        echo ( $showSidebar ? 'auto' : 'hide' ); ?>">
+		echo ( $showSidebar ? 'auto' : 'hide' ); ?>">
 			<button type="button" class="tg_button" title="<?php echo $lang['sidebar'] ?>"><span><?php echo $lang['sidebar'] ?></span></button>
 			<div class="tg_content">
 				<nav id="sbNavigation">
@@ -72,31 +72,31 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 			tpl_includeFile('sidebarfooter.html');
 ?>
 
-<!-- - - - - - - - - END OF SIDEBAR CONTENT  - - - - - - - -->
+<!-- - - - - - - - - END OF SIDEBAR CONTENT - - - - - - - -->
 				</nav>
-<?php my_langmenu(str_repeat(chr(9),4), 'sb'); ?>
+<?php my_langmenu(str_repeat(DOKU_TAB,4), 'sb'); ?>
 				<div id="sbBreadcrumbs">
-<?php		if($conf['breadcrumbs']) { my_breadcrumbs(str_repeat(chr(9),5)); } ?>
+<?php		if($conf['breadcrumbs']) { my_breadcrumbs(str_repeat(DOKU_TAB,5)); } ?>
 				</div>
 			</div>
 		</div>
 		<main id="dokuwiki__top">
 			<header>
-<?php			my_toc(str_repeat(chr(9),4)); 
+<?php			my_toc(str_repeat(DOKU_TAB,4)); 
 				tpl_flush();
 				tpl_includeFile('pageheader.html');
-				if($conf['youarehere']) { my_youarehere(str_repeat(chr(9),4)); }
+				if($conf['youarehere']) { my_youarehere(str_repeat(DOKU_TAB,4)); }
 ?>			</header>
 			<article id="main-content">
 
 <!-- - - - - - - - - ARTICLE CONTENT - - - - - - - --><?php tpl_content(false) ?>
 
 
-<!-- - - - - - - - - END OF ARTICLE  - - - - - - - -->
+<!-- - - - - - - - - END OF ARTICLE - - - - - - - -->
 
 			</article>
 			<footer>
-<?php my_lastchange(str_repeat(chr(9),4)); ?>
+<?php my_lastchange(str_repeat(DOKU_TAB,4)); ?>
 <?php tpl_includeFile('pagefooter.html'); ?>
 			</footer>
 		</main>
@@ -124,7 +124,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 <?php include('tpl_footer.php'); ?>
 		</footer>
 	</div>
-<?php my_cookiebanner("\t"); ?>
+<?php my_cookiebanner(DOKU_TAB); ?>
 	<div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
 	<div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
 </body>

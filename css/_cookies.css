@@ -32,11 +32,12 @@
 	float: left;
 	width: 64px;
 	height: 64px;
-	background: transparent url('images/cookie.svg') no-repeat center;
-	background-size: 64px;
 	margin: 8px 16px 8px 2px;
 }
-
+#cookiebanner .cb_icon svg {
+    width: 100%;
+    height: 100%;
+}
 #cookiebanner .cb_action {
 	margin-top:	6pt;
 	display:	grid;
