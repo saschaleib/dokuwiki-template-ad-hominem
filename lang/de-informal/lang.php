@@ -49,6 +49,7 @@ $lang['__missing_dark__']        = 'Farbe Links zu fehlenden Artikeln (Nachtmodu
 $lang['__inpage_dark__']         = 'Farbe für Links innerhalb derselben Seite (Nachtmodus)';
 $lang['__border_dark__']         = 'Umrandungsfarbe (Nachtmodus)';
 $lang['__blockquote_dark__']     = 'Markierung von Zitatblöcken (Nachtmodus)';
+$lang['__highlight_dark__']      = 'Hervorhebungsfarbe (Nachtmodus)';
 
 $lang['cookie_consent']        = 'OK';
 $lang['cookie_linktext']       = 'Mehr Info';

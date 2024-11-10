@@ -44,6 +44,7 @@ $lang['__missing_dark__']      = 'Missing article link color (dark mode)';
 $lang['__inpage_dark__']       = 'Color of links within the same page (dark mode)';
 $lang['__border_dark__']       = 'Border color (dark mode)';
 $lang['__blockquote_dark__']   = 'Blockquote marker (dark mode)';
+$lang['__highlight_dark__']    = 'Highlight color (dark mode)';
 
 $lang['cookie_consent']        = 'OK';
 $lang['cookie_linktext']       = 'More information';

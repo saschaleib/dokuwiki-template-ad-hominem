@@ -44,6 +44,7 @@ $lang['__missing_dark__']      = 'Puuttuva artikkelilinkin väri (tumma tila)';
 $lang['__inpage_dark__']       = 'Saman sivun sisällä olevien linkkien väri (tumma tila)';
 $lang['__border_dark__']       = 'Reunan väri (tumma tila)';
 $lang['__blockquote_dark__']   = 'Lohkolausemerkintä (tumma tila)';
+$lang['__highlight_dark__']    = 'Korostusväri (tumma tila)';
 
 $lang['cookie_consent']        = 'OK';
 $lang['cookie_linktext']       = 'Lisätietoja';

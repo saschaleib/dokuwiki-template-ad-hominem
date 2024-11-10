@@ -49,6 +49,7 @@ $lang['__missing_dark__']        = 'Couleur du lien vers l’article manquant (m
 $lang['__inpage_dark__']         = 'Couleur pour les liens au sein de la même page (mode sombre)';
 $lang['__border_dark__']         = 'Couleur des bordures (mode sombre)';
 $lang['__blockquote_dark__']     = 'Couleur du marqueur de citation (mode sombre)';
+$lang['__highlight_dark__']      = 'Couleur de surbrillance (mode sombre)';
 
 $lang['cookie_consent']        = 'OK';
 $lang['cookie_linktext']       = 'Plus d’informations';

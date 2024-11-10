@@ -48,6 +48,7 @@ $lang['__missing_dark__']      = 'Color del enlace del artículo que falta (modo
 $lang['__inpage_dark__']       = 'Color de los enlaces dentro de la misma página (modo oscuro)';
 $lang['__border_dark__']       = 'Color del borde (modo oscuro)';
 $lang['__blockquote_dark__']   = 'Marcador de cita en bloque (modo oscuro)';
+$lang['__highlight_dark__']    = 'Color resaltado (modo oscuro)';
 
 $lang['cookie_consent']        = 'OK';
 $lang['cookie_linktext']       = 'Más información';
