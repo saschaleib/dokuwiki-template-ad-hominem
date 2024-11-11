@@ -23,6 +23,7 @@ body, div.footnotes {
 .dokuwiki sup { /* ignore superscript tags! */
 	vertical-align: baseline;
 	font-size: inherit;
+	line-height: .96rem;
 }
 .dokuwiki sup a.fn_top {
 	
@@ -34,8 +35,13 @@ body, div.footnotes {
 		content: counter(footnotes, super-decimal);
 		counter-increment: footnotes;
 		font-size: 1.1667rem;
-		font-weight: bold;
+		/*font-weight: bold;*/
 	}
+}
+
+/* special situations */
+.dokuwiki blockquote sup a.fn_top::after {
+	font-size: small;
 }
 
 /* JSpopup */
