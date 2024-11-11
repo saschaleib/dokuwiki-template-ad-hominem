@@ -28,8 +28,9 @@ body, div.footnotes {
 .dokuwiki sup a.fn_top {
 	
 	& {
+		text-decoration: none;
 		padding: 0 .5pt;
-		font-size: 0;text-decoration: none;
+		font-size: 0;
 	}
 	&::after {
 		content: counter(footnotes, super-decimal);
@@ -37,11 +38,6 @@ body, div.footnotes {
 		font-size: 1.1667rem;
 		/*font-weight: bold;*/
 	}
-}
-
-/* special situations */
-.dokuwiki blockquote sup a.fn_top::after {
-	font-size: small;
 }
 
 /* JSpopup */
