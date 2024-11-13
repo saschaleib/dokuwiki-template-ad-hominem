@@ -17,7 +17,7 @@ if (!defined('DOKU_INC')) { define('DOKU_INC', __DIR__ . '/../../../../'); }
 require_once(DOKU_INC . 'inc/init.php');
 
 /* get the output style (can be 'preview' or 'all') */
-$style = strtolower($_GET['v']);
+$style = ( array_key_exists('v', $_GET) ? strtolower($_GET['v']) : 'all' );
 if ($style !== 'preview') { $style = 'all'; }
 
 /* initialize the storage: */
@@ -33,7 +33,7 @@ if ($id !== null) {
 	/* get all metadata; */
 	$meta = p_get_metadata($id);
 	
-	if ($meta['title'] && $meta['title'] !== null) {
+	if (array_key_exists('title', $meta) && $meta['title'] !== null) {
 
 		if ($style == 'preview') {
 			$result['type'] = 'preview';
@@ -69,8 +69,8 @@ if ($id !== null) {
 
 		/* extract the first paragraph:*/
 		$parts = explode("\n", $meta['description']['abstract']);
-		$result['extract'] = $parts[2];
-		$result['extract_html'] = '<p>'.$parts[2].'</p>';
+		$result['extract'] = ( count($parts) > 2 ? $parts[2] : '' );
+		$result['extract_html'] = '<p>'. ( count($parts) > 2 ? $parts[2] : '' ) .'</p>';
 	
 	} else {
 		$result['extract'] = 'Error: page does not exist.';
