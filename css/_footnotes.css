@@ -2,11 +2,42 @@
  * This file provides styles for footnotes.
  */
 
+/* pre-defined custom footnote styles */
+
+@counter-style: ~"@counter-style";
+@{counter-style} super-decimal {
+	system: numeric;
+	symbols: '\2070' '\B9' '\B2' '\B3' '\2074' '\2075' '\2076' '\2077' '\2078' '\2079';
+	/* symbols: '⁰' '¹' '²' '³' '⁴' '⁵' '⁶' '⁷' '⁸' '⁹'; */
+}
+
+/* create a custom counter for the footnotes: */
+body, div.footnotes {
+    counter-reset: footnotes;
+}
+
 /*____________ footnotes inside the text ____________*/
 
 /* link to footnote inside the text */
-.dokuwiki sup a.fn_top {
+
+.dokuwiki sup { /* ignore superscript tags! */
+	vertical-align: baseline;
+	font-size: inherit;
 }
+.dokuwiki sup a.fn_top {
+	
+	& {
+		padding: 0 .5pt;
+		font-size: 0;text-decoration: none;
+	}
+	&::after {
+		content: counter(footnotes, super-decimal);
+		counter-increment: footnotes;
+		font-size: 1.1667rem;
+		font-weight: bold;
+	}
+}
+
 /* JSpopup */
 div.insitu-footnote {
 	max-width: 40%;
@@ -16,16 +47,49 @@ div.insitu-footnote {
 /*____________ footnotes at the bottom of the page ____________*/
 
 .dokuwiki div.footnotes {
-	border-top: 1px solid @ini_border;
-	padding: .5em 0 0 0;
-	margin: 1em 0 0 0;
-	clear: both;
+	& {
+		border-top: 1px solid @ini_border;
+		padding: .5em 0 0 0;
+		margin: 1em 0 0 0;
+		clear: both;
+	}
+	> .fn {
+		& {
+			margin: 0 0 0 2.5rem !important;
+			white-space-collapse: discard;
+			text-indent: ~"calc(-2.5rem - .3em)"; /* compensate for the whitespace character! */
+		}
+		sup { /* ignore superscript tags! */
+			vertical-align: baseline;
+			font-size: 1em;
+		}
+		.fn_bot {
+			& {
+				display: inline-block;
+				text-align: right;
+				margin: 0 .5rem 0 0;
+				width: 2rem; height: .972rem;
+				font-variant-numeric: oldstyle-nums;
+				font-size: 0;
+			}
+			&::after {
+				content: counter(footnotes, decimal) '.';
+				counter-increment: footnotes;
+				display: inline-block;
+				font-size: .972rem;
+				width: 2rem;
+			}
+		}
+		& > .content {
+			display: inline;
+		}
+	}
 }
-.dokuwiki div.footnotes div.fn {
+
+[dir=rtl] .dokuwiki div.footnotes > .fn {
+    margin: 0 2.5em 0 0;
 }
-.dokuwiki div.footnotes div.fn div.content {
-	display: inline;
-}
-.dokuwiki div.footnotes div.fn sup a.fn_bot {
-	font-weight: bold;
+[dir=rtl] .dokuwiki div.footnotes > .fn .fn_bot {
+	text-align: left;
+	margin: 0 0 0 .5em;
 }

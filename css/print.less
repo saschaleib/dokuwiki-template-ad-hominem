@@ -108,6 +108,7 @@ main {
 	-moz-box-shadow: 0 0 0 0 transparent;
 	-webkit-box-shadow: 0 0 0 0 transparent;
 	box-shadow: 0 0 0 0 transparent;
+	font-variant-ligatures: common-ligatures discretionary-ligatures;
 }
 
 /* headlines */
@@ -376,27 +377,35 @@ main img {
 }
 
 /* footnotes */
-main div.footnotes {
-	margin-top: 1.5em;
+.dokuwiki div.footnotes {
+	border-top: transparent 0 none;
 	font-size: smaller;
 }
-main div.footnotes div.fn {
-	display: grid;
-	grid-template-columns: 1.5em auto;
-	grid-gap: .25em;
+
+.dokuwiki sup a.fn_top {
+	color: #000;
 }
-main div.footnotes div.fn > sup {
-	vertical-align: baseline;
-	font-size: smaller;
-	text-align: right;
+.dokuwiki sup a.fn_top::after {
+	font-size: 1.0rem;
+	font-weight: normal;
+}
+ #main-content h1 + div > p:first-child sup a.fn_top::after {
+	 font-weight: bold;
+ }
+ 
+.dokuwiki div.footnotes > .fn .fn_bot {
+	color: #000;
+}
+.dokuwiki div.footnotes > .fn .fn_bot::after {
+	font-size: .833rem;
 }
 
 main div.footnotes:before {
 	content: ' ';
 	display: block;
-	width: 33%;
+	width: 50%;
 	min-width: 5em;
-	border-top: @ini_text solid .5pt;
+	border-top: #000 solid .5pt;
 	height: .5em;
 }
 
