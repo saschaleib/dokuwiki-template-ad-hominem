@@ -1,7 +1,7 @@
 base     ad-hominem
 author   Sascha Leib
 email    ad@hominem.info
-date     2024-11-10
+date     2025-01-26
 name     Ad Hominem Template
 desc     A flexible, lightweight and modernised revision of the DokuWIki default template
 url      https://www.dokuwiki.org/template:ad-hominem
