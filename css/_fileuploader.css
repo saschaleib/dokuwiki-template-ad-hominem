@@ -15,21 +15,26 @@
 
 /* select file button */
 
-.qq-upload-button {
+.qq-upload-button,
+#mediamanager__upload_button {
 	display: inline-block;
 	text-decoration: none;
-	font-size: 100%;
+	font-size: 1rem;
 	cursor: pointer;
 	margin: 1px 1px 5px;
-	background-color: #15395B;
 	padding: 2pt 20pt;
+	border: none 0;
 	color: #FFF;
 	cursor: pointer;
 }
-#mediamanager__upload_button {
-	padding: 3pt 6pt;
-	border: #666 solid 1px;
+.qq-upload-button {
+	background-color: #15395B;
 }
+#mediamanager__upload_button {
+	background-color: #B71C1C;
+	padding: .4rem 2.5rem;
+}
+
 
 .qq-upload-button-focus {
 	outline: 1px dotted;
@@ -120,4 +125,14 @@ div.qq-uploader ul {
 }
 #mediamanager__page .ui-resizable-e {
 	background-color: #EEE;
+}
+
+/* dark mode overrides */
+@media (prefers-color-scheme: dark) {
+
+	body.darkmode {
+		.qq-upload-button {
+			background-color: #1976D2;
+		}
+	}
 }
