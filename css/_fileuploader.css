@@ -7,6 +7,33 @@
 	position: relative;
 	width: 100%;
 }
+#mediamanager__page .qq-upload-list li {
+	display: grid;
+	grid-template-columns: 1.25rem auto 1rem;
+	grid-gap: 5px;
+	align-items: center;
+}
+#mediamanager__page .qq-upload-list li::before {
+	content: '\1F5CE';
+	color: @ini_text;
+	font-size: 1.25rem;
+	display: inline-block;
+	width: 1.25rem;
+	height:1.5rem;
+	text-align: right;
+}
+
+#mediamanager__page .qq-upload-list li input[type="text"] {
+	font-family: @ini_mono_fonts;
+	font-size: @ini_alt_font_size;
+	background-color: transparent;
+	border: 1px solid transparent;
+	padding: .25em;
+	border-radius: 1.5pt;
+}
+#mediamanager__page .qq-upload-list li input[type="text"]:focus {
+	border-color: @ini_border;
+}
 
 .qq-uploader .error {
 	color: #f00;
@@ -15,21 +42,26 @@
 
 /* select file button */
 
-.qq-upload-button {
+.qq-upload-button,
+#mediamanager__upload_button {
 	display: inline-block;
 	text-decoration: none;
-	font-size: 100%;
+	font-size: 1rem;
 	cursor: pointer;
 	margin: 1px 1px 5px;
-	background-color: #15395B;
 	padding: 2pt 20pt;
+	border: none 0;
 	color: #FFF;
 	cursor: pointer;
 }
-#mediamanager__upload_button {
-	padding: 3pt 6pt;
-	border: #666 solid 1px;
+.qq-upload-button {
+	background-color: #15395B;
 }
+#mediamanager__upload_button {
+	background-color: #B71C1C;
+	padding: .4rem 2.5rem;
+}
+
 
 .qq-upload-button-focus {
 	outline: 1px dotted;
@@ -95,10 +127,22 @@ div.qq-uploader ul {
 	vertical-align: text-bottom;
 }
 
-.qq-upload-size,
-.qq-upload-cancel {
+.qq-upload-size {
 	font-size: 85%;
 }
+.qq-upload-cancel {
+	font-size: 1rem;
+	line-height: 1.25;
+	width: 1em; height: 1.5em;
+	overflow: hidden;
+}
+.qq-upload-cancel::before {
+	content: '\1F5D9';
+	display: inline-block;
+	width: 1em;
+	height: 1.5em;
+}
+
 
 .qq-upload-failed-text {
 	display: none;
@@ -120,4 +164,26 @@ div.qq-uploader ul {
 }
 #mediamanager__page .ui-resizable-e {
 	background-color: #EEE;
+}
+
+/* dark mode overrides */
+@media (prefers-color-scheme: dark) {
+
+	body.darkmode {
+		.qq-upload-button {
+			background-color: #1976D2;
+		}
+		#mediamanager__page .qq-upload-list {
+			li::before {
+				color: @ini_text_dark;
+			}
+			li input[type="text"] {	
+				color: @ini_text_dark;
+			}
+			li input[type="text"]:focus {
+				border-color: @ini_border_dark;
+			}
+			
+		}
+	}
 }

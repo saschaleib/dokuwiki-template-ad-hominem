@@ -54,7 +54,9 @@
 	padding: 10px 10px 8px;
 	text-align: left;
 	min-height: 20px;
-	overflow: hidden;
+	overflow: hidden; 
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 [dir=rtl] #mediamanager__page .panelHeader {
 	text-align: right;
@@ -142,14 +144,12 @@
 }
 
 #mediamanager__page .namespaces ul {
-	margin-left: .2em;
-	margin-bottom: 0;
+	margin: 0 2px 0 0;
 	padding: 0;
 	list-style: none;
 }
 [dir=rtl] #mediamanager__page .namespaces ul {
-	margin-left: 0;
-	margin-right: .2em;
+	margin: 0 0 0 2px;
 }
 #mediamanager__page .namespaces ul ul {
 	margin-left: 1em;
@@ -160,6 +160,15 @@
 }
 #mediamanager__page .namespaces ul ul li {
 	margin: 0;
+}
+#mediamanager__page .namespaces ul a {
+	display: block;
+	overflow: hidden; 
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+#mediamanager__page .namespaces ul li::before {
+	content: none !important;
 }
 
 #mediamanager__page .namespaces ul .selected {
@@ -174,7 +183,7 @@
 
 #mediamanager__page .panelHeader form.options {
 	float: right;
-	margin-top: -3px;
+	margin-top: .25rem;
 }
 [dir=rtl] #mediamanager__page .panelHeader form.options {
 	float : left
@@ -241,7 +250,16 @@
 	display: table-cell;
 	overflow: hidden;
 }
-
+#mediamanager__page .filelist ul dl dt {
+	display: block;
+	border-radius: 2px;
+	box-shadow: inset 1px 1px 2px 1px #00000066;
+	background: @ini_background_alt url("data:image/gif;base64,R0lGODlhEAAQAHAAACwAAAAAEAAQAIHd3d3u7u4AAAAAAAACH4RvoauIzNyBSyYaLMDZcv15HAaSIlWiJ5Sya/RWVgEAOw==") center;
+}
+#mediamanager__page .filelist ul dl dt img {
+	-webkit-filter: drop-shadow(2px 2px 2px #00000066);
+	filter: drop-shadow(2px 2px 2px #00000066);
+}
 /* file list as thumbs */
 
 #mediamanager__page .filelist .thumbs li {
@@ -538,12 +556,18 @@
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
 	body.darkmode #mediamanager__page .panelHeader,
+	body.darkmode ul.tabs li strong {
+		background-color: transparent;
+		border-color: @ini_text_alt_dark;
+		color: @ini_text_alt_dark;
+		font-weight: bold;
+		border-bottom-color: @ini_background_dark;
+	}
 	body.darkmode .tabs > ul li a,
-	body.darkmode ul.tabs li strong,
 	body.darkmode ul.tabs li a {
-		background-color:	transparent;
-		border-color:		@ini_text_dark;
-		color:				@ini_text_dark;
+		background-color: transparent;
+		border-color: @ini_text_dark;
+		color: @ini_text_dark;
 	}
 
 	body.darkmode #mediamanager__page .namespaces h2 {
@@ -567,6 +591,11 @@
 	body.darkmode #mediamanager__page .filelist .rows li:nth-child(2n+1) {
 		background-color: @ini_background_alt_dark;
 	}
+
+	#mediamanager__page .filelist ul dl dt {
+		background: @ini_background_alt_dark url("data:image/gif;base64,R0lGODlhEAAQAHAAACwAAAAAEAAQAIFeXmJISEwAAAAAAAACH4RvoauIzNyBSyYaLMDZcv15HAaSIlWiJ5Sya/RWVgEAOw==") center;
+	}		
+	
 
 	body.darkmode #mediamanager__page .ui-resizable-e { background-color:	@ini_background_dark; }
 	body.darkmode #mediamanager__page .ui-resizable-e:hover,
