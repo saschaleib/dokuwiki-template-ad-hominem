@@ -26,3 +26,66 @@
 		cursor: pointer;
 	}
 }
+
+/* redirect plugin (dark mode override): */
+
+@media (prefers-color-scheme: dark) {
+
+	body.darkmode div.noteredirect {
+		background-color: #2A4456;
+	}
+}
+
+/* move plugin: */
+
+main #plugin_move__progress #plugin_move__preview span {
+	color: @ini_link;
+}
+
+@media (prefers-color-scheme: dark) {
+
+	body.darkmode #plugin_move__progress #plugin_move__preview span {
+		color: @ini_link_dark;
+	}
+	body.darkmode #plugin_move__tree ul.tree_list li div:hover {
+		background-color: @ini_background_alt_dark;
+	}
+
+	body.darkmode .ui-widget-content {
+		border-color: @ini_border_dark;
+		background-color: @ini_background_site_dark;
+		color: @ini_text_alt_dark;
+	}
+
+	body.darkmode .ui-widget.ui-widget-content {
+		border-color: @ini_border_dark;
+	}
+	body.darkmode .ui-widget-header {
+		color: @ini_text_dark;
+		background: @ini_background_alt_dark none 50% 50% repeat-x;
+	}
+}
+
+/* searchIndex Manager plugin (dark mode overrides): */
+
+@media (prefers-color-scheme: dark) {
+	body.darkmode  #plugin__searchindex_msg {
+		background-color: @ini_background_site_dark;
+		color: @ini_text_alt_dark;
+		border-color: @ini_border_dark;
+	}
+}
+
+/* Translations plugin: */
+
+table#outdated_translations {
+	td.missing { background-color: #fdd; }
+	td.current { background-color: #dfd; }
+}
+
+@media (prefers-color-scheme: dark) {
+	body.darkmode table#outdated_translations {
+		td.missing { background-color: #300; }
+		td.current { background-color: #030; }
+	}
+}

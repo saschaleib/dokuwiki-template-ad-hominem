@@ -418,7 +418,7 @@ div.no {
 	margin: 1em .25em 0 1em;
 }
 #navBreadCrumbs {
-	margin-left: .5em;
+	margin: 1em .25em 0 1em;
 }
 #navBreadCrumbs ol {
 	list-style: decimal outside;
@@ -521,7 +521,7 @@ body.home #navYouAreHere ol li:last-child {
 		line-height: 1.5em;
 		text-align: left;
 		max-width: @ini_toc_width;
-		background-color: transparent;
+		background-color: @ini_background;
 		border: transparent none 0;
 		border-left: @ini_border solid 1pt;
 	}
@@ -928,6 +928,10 @@ body.mediadetail {
 @media screen and (prefers-color-scheme: dark) {
 	
 	body.darkmode {
+
+		#toc {
+			background-color: @ini_background_dark;
+		}
 
 		& { background-color: @ini_background_site_dark; color: @ini_text_dark; }
 		#skip-link a { background-color: @ini_background_dark;color: @ini_link_dark;}
