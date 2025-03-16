@@ -263,8 +263,8 @@
 /* file list as thumbs */
 
 #mediamanager__page .filelist .thumbs li {
-	width: 100px;
-	min-height: 130px;
+	width: 114px;
+	min-height: 132px;
 	display: inline-block;
 	/* the right margin should visually be 10px, but because of its inline-block nature the whitespace inbetween is about 4px more */
 	margin: 0 6px 10px 0;
@@ -282,13 +282,16 @@
 }
 
 #mediamanager__page .filelist .thumbs li dt a {
-	width: 100px;
-	height: 90px;
+	width: 110px;
+	height: 110px;
 }
 
 #mediamanager__page .filelist .thumbs li dt a img {
-	max-width: 90px;
-	max-height: 90px;
+	display: block;
+	max-width: 150px;
+	max-height: 150px;
+	padding: 5px;
+	margin: auto;
 }
 
 #mediamanager__page .filelist .thumbs li .name,
@@ -298,7 +301,6 @@
 	display: block;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	width: 90px;
 	white-space: nowrap;
 	font-size: 10pt;
 }
