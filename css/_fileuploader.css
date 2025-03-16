@@ -70,31 +70,33 @@
 /* drop area */
 
 .qq-upload-drop-area {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	min-height: 70px;
-	z-index: 2;
 	background: @ini_background_neu;
-	color: @ini_text;
+	color: @ini_text_neu;
 	text-align: center;
 }
 
 .qq-upload-drop-area span {
+	padding: 2em .5em;
+}
+
+.qq-upload-drop-area-active {
+	position: fixed;
+	top: 0; left: 0;
+	width: 100vw;
+	height: 100vh;
+	min-height: 70px;
+	background: fadeout(@ini_background_alt, 10%);;
+	z-index: 99;
+}
+.qq-upload-drop-area-active span {
 	display: block;
 	position: absolute;
 	top: 50%;
 	width: 100%;
 	margin-top: -8px;
 	font-size: 120%;
+	color: #15395B;
 }
-
-.qq-upload-drop-area-active {
-	background: @ini_background_alt;
-}
-
 /* list of files to upload */
 
 div.qq-uploader ul {
@@ -173,6 +175,19 @@ div.qq-uploader ul {
 		.qq-upload-button {
 			background-color: #1976D2;
 		}
+		
+		.qq-upload-drop-area {
+			background: @ini_background_neu_dark;
+			color: @ini_text_neu_dark;
+		}
+
+		.qq-upload-drop-area-active {
+			background: fadeout(@ini_background_alt_dark, 10%);;
+		}
+		.qq-upload-drop-area-active span {
+			color: #1976D2;
+		}
+
 		#mediamanager__page .qq-upload-list {
 			li::before {
 				color: @ini_text_dark;

@@ -83,15 +83,15 @@
 	margin-left: 0;
 }
 
-#mediamanager__page .ui-resizable-e,
-[dir=rtl] #mediamanager__page .ui-resizable-w {
+#mediamanager__page .ui-resizable-handle.ui-resizable-e,
+[dir=rtl] #mediamanager__page .ui-resizable-handle.ui-resizable-w {
 	width: 6px;
 	right: 2px;
-	background: transparent url(../../images/resizecol.png) center center no-repeat;
+	background: @ini_background_neu url(../../images/resizecol.png) center center no-repeat;
 }
 #mediamanager__page .ui-resizable-e:hover,
 [dir=rtl] #mediamanager__page .ui-resizable-w:hover {
-	background-color: @ini_background_alt;
+	background-color: @ini_background;
 }
 
 #mediamanager__page dd {
@@ -563,7 +563,7 @@
 		border-color: @ini_text_alt_dark;
 		color: @ini_text_alt_dark;
 		font-weight: bold;
-		border-bottom-color: @ini_background_dark;
+		border-bottom-color: @ini_background_alt_dark;
 	}
 	body.darkmode .tabs > ul li a,
 	body.darkmode ul.tabs li a {
@@ -573,13 +573,13 @@
 	}
 
 	body.darkmode #mediamanager__page .namespaces h2 {
-		background-color:	@ini_background_dark;
+		background-color:	@ini_background_alt_dark;
 		border-color:		@ini_text_dark;
-		border-bottom-color: @ini_background_dark;
+		border-bottom-color: @ini_background_alt_dark;
 		color:				@ini_headlines_dark;
 	}
 	body.darkmode #mediamanager__page .filelist .thumbs li {
-		background-color:	@ini_background_alt_dark;
+		background-color:	@ini_background_neu_dark;
 		color:				@ini_text_dark;
 	}
 	body.darkmode #mediamanager__page .filelist .panelContent ul li:hover {
@@ -599,9 +599,13 @@
 	}		
 	
 
-	body.darkmode #mediamanager__page .ui-resizable-e { background-color:	@ini_background_dark; }
+	body.darkmode #mediamanager__page .ui-resizable-e {
+		background-color: @ini_background_dark;
+	}
 	body.darkmode #mediamanager__page .ui-resizable-e:hover,
-	body.darkmode [dir=rtl] #mediamanager__page .ui-resizable-w:hover { background-color: @ini_background_alt_dark; }
+	body.darkmode [dir=rtl] #mediamanager__page .ui-resizable-w:hover {
+		background-color: @ini_background_neu_dark;
+	}
 	body.darkmode #mediamanager__page .file dl dt { background-color:	rgba(0,0,0,.5); }
 	body.darkmode #mediamanager__page .file dl dd { background-color:	rgba(0,0,0,.2); }
 	body.darkmode #mediamanager__page .namespaces ul .selected { background-color: @ini_background_alt_dark; }
