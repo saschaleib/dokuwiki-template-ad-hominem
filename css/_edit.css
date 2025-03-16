@@ -33,7 +33,7 @@
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
-	background-color: @ini_background;
+	background-color: fadeout(@ini_background, 20%);
 	padding-bottom: 2px;
 	z-index: 9;
 }
@@ -58,16 +58,15 @@
 	float: right;
 }
 
-/* hide the hard-coded button images */
-#tool__bar button>img {
-	visibility: hidden;
-}
-
 #tool__bar button {
-	background:	#E9E9ED url('images/editor/default.svg') center no-repeat;
+	background:	@ini_background_alt none center no-repeat;
 	background-size: 20px;
-	padding: 3pt 6pt;
+	padding: 3pt 5pt 1pt 5pt;
 	border:	@ini_border solid 1px;
+	margin-right: 2pt;
+}
+#tool__bar button:hover {
+	background-color: @ini_background_neu;
 }
 #tool__bar button[aria-haspopup=true]:after,
 #tool__bar button:nth-child(10):after,
@@ -82,38 +81,6 @@
 	background:	transparent none center no-repeat;
 	background-size: 13px;
 }
-
-#tool__bar button[aria-haspopup=true]:after {
-	background-image: url('images/editor/overlay-menu.svg');
-}
-#tool__bar button:nth-child(10):after,
-#tool__bar button:nth-child(15):after {
-	background-image: url('images/editor/overlay-popup.svg');
-}
-
-/* import the new icons */
-#tool__bar button[accesskey="b"] { background-image: url('images/editor/format-bold.svg'); margin-left: 1.5pt; }
-#tool__bar button[accesskey="i"] { background-image: url('images/editor/format-italic.svg'); }
-#tool__bar button[accesskey="u"] { background-image: url('images/editor/format-underline.svg'); }
-#tool__bar button[accesskey="m"] { background-image: url('images/editor/format-monospace.svg'); }
-#tool__bar button[accesskey="d"] { background-image: url('images/editor/format-strikethrough.svg'); }
-#tool__bar button[accesskey="8"] { background-image: url('images/editor/format-header-equal.svg'); margin-left: 4pt; }
-#tool__bar button[accesskey="9"] { background-image: url('images/editor/format-header-decrease.svg'); }
-#tool__bar button[accesskey="0"] { background-image: url('images/editor/format-header-increase.svg'); }
-#tool__bar button:nth-child(9) { background-image: url('images/editor/format-header-menu.svg'); }
-#tool__bar button[accesskey="l"] { background-image: url('images/editor/insert-link.svg');margin-left:4pt; }
-#tool__bar button:nth-child(11) { background-image: url('images/editor/insert-external-link.svg'); }
-#tool__bar button[accesskey="-"] { background-image: url('images/editor/format-list-numbered.svg');  margin-left:4pt;}
-#tool__bar button[accesskey="."] { background-image: url('images/editor/format-list-bulleted.svg'); }
-#tool__bar button:nth-child(14) { background-image: url('images/editor/insert-hr.svg');margin-left:4pt;}
-#tool__bar button:nth-child(15) { background-image: url('images/editor/insert-media.svg');margin-left:4pt; }
-#tool__bar button:nth-child(16) { background-image: url('images/editor/insert-emoticon.svg');margin-left:4pt; }
-#tool__bar button:nth-child(17) { background-image: url('images/editor/insert-symbol.svg'); }
-#tool__bar button[accesskey="y"] { background-image: url('images/editor/insert-signature.svg');margin-left:4pt; }
-
-/* set icons for known plugins: */
-#tool__bar #tbbtn_adhoctagsInline { background-image: url('../../plugins/adhoctags/images/code-tags.svg');margin-left:4pt; }
-#tool__bar #tbbtn_adhoctagsBlocks { background-image: url('../../plugins/adhoctags/images/code-brackets.svg'); }
 
 /* buttons inside of toolbar */
 .mode_edit div.toolbar button.toolbutton {
@@ -132,10 +99,17 @@ div.picker.pk_hl {
 }
 
 /* buttons inside of picker */
-div.picker button.pickerbutton,
-div.picker button.toolbutton {
-	padding: .1em .35em;
-	border-width: 0;
+body.dokuwiki div.picker {
+	button {
+		&:hover {
+			background-color: @ini_background_neu;
+		}
+		&.pickerbutton,
+		&.toolbutton {
+			padding: .1em .35em;
+			border-width: 0;
+		}
+	}
 }
 
 /*____________ edit textarea ____________*/
@@ -370,7 +344,7 @@ div.picker button.toolbutton {
 @media (prefers-color-scheme: dark) {
 
 	body.darkmode .editBox > .toolbar {
-		background-color:	@ini_background_dark;
+		background-color: fadeout(@ini_background_dark, 20%);
 	}
 	body.darkmode textarea.edit {
 		background-color:	@ini_background_alt_dark;
@@ -400,7 +374,7 @@ div.picker button.toolbutton {
 	}
 	body.mode_edit.darkmode .editBar .editButtons button::before,
 	body.mode_preview.darkmode .editBar .editButtons button::before {
-		filter: invert(.9); 
+		filter: invert(1) opacity(.67);
 	}
 	body.darkmode .editBar .editButtons button#edbtn__save {
 		background-color: #334466;
@@ -417,12 +391,20 @@ div.picker button.toolbutton {
 
 	body.mode_edit.darkmode #tool__bar button,
 	body.mode_preview.darkmode #tool__bar button {
+		background-color: #8C8C8C;
 		border-color:	@ini_border_dark;
-		filter: invert(.8);
+	}
+	body.mode_edit.darkmode #tool__bar button:hover,
+	body.mode_preview.darkmode #tool__bar button:hover {
+		background-color: @ini_text_dark;
 	}
 	body.mode_edit.darkmode .editBar .editButtons button,
 	body.mode_preview.darkmode .editBar .editButtons button {
 		border-color: @ini_border_dark;
+	}
+	body.mode_edit.darkmode #tool__bar button img,
+	body.mode_preview.darkmode #tool__bar button img {
+		filter: brightness(90%);
 	}
 	
 	body.mode_edit.darkmode .editBar .summary #edit__summary,
@@ -439,8 +421,8 @@ div.picker button.toolbutton {
 		}
 		button {
 			& {
-				color: @ini_text_dark;
-				background-color: @ini_background_alt_dark;
+				color: @ini_text;
+				background-color: #8C8C8C;
 				border-color: @ini_border_dark;
 			}
 			&:hover {
