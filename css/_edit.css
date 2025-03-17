@@ -414,6 +414,11 @@ body.dokuwiki div.picker {
 		color: @ini_text_dark;
 	}
 
+	body.darkmode #draft__status {
+		color: @ini_text_alt_dark;
+	}
+
+
 	body.darkmode div.picker {
 		& {
 			background-color: @ini_background_dark;
