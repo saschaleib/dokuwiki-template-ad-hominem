@@ -1,99 +1,155 @@
-.dokuwiki div.ui-admin {
-	
-	& {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-	}
-	
-	h1.first-child,
-	div.level1	{
-		grid-column: 1 / span 2;
-		margin-bottom: 1em;
-	}
 
-	/* main task grouped in two columns */
-	ul.admin_tasks {
-		grid-column: 2;
-		list-style-type: none;
-		font-size: 1.125em;
-		margin: 0;
+/* indicate special modes by using a different background and border */
+body.mode_admin {
+	main {
+		& {
+			background-color: @ini_background_alt;
+			border: @ini_text_alt solid 2px;
+			color: @ini_text_alt;
+		}
+		#toc {
+			background-color: @ini_background_alt;
+		}
+		#navYouAreHere {
+			background-color: @ini_background;
+			padding: .25em .25em 0 .25em;
+			border-radius: .25em;
+			border: @ini_text_alt solid 2px;
+		}
+		table th {
+			background-color: @ini_background_neu;
+		}
 	}
-	ul.admin_tasks:first-of-type {
-		grid-row: 3 / span 4;
-		grid-column: 1;
-	}
-	ul.admin_plugins {
-		grid-row: 6;
-		grid-column: 2;
-	}	
+	div.ui-admin {
+	
+		& {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+		
+		h1.first-child,
+		div.level1	{
+			grid-column: 1 / span 2;
+			margin-bottom: 1em;
+		}
 
-	/* general menu item styling */
-	ul {
-		padding: 0;
-		li {
-			margin: 0 0 1em 0;
-			font-weight: bold;
+		/* main task grouped in two columns */
+		ul.admin_tasks {
+			grid-column: 2;
 			list-style-type: none;
-			white-space: nowrap;
+			font-size: 1.125em;
+			margin: 0;
+		}
+		ul.admin_tasks:first-of-type {
+			grid-row: 3 / span 4;
+			grid-column: 1;
+		}
+		ul.admin_plugins {
+			grid-row: 6;
+			grid-column: 2;
+		}	
 
-			a {
-				display: flex;
-				span {
-					display: inline-block;
+		/* general menu item styling */
+		ul {
+			padding: 0;
+			li {
+				margin: 0 0 1em 0;
+				font-weight: bold;
+				list-style-type: none;
+				white-space: nowrap;
 
-					&.icon {
-						width: 1.5em;
-						min-height: 1.5em;
-						margin: 0 0.5em;
-						vertical-align: top;
+				a {
+					display: flex;
+					span {
+						display: inline-block;
 
-						svg {
+						&.icon {
 							width: 1.5em;
-							height: 1.5em;
-							fill: @ini_link;
-							display: inline-block;
-							path {
+							min-height: 1.5em;
+							margin: 0 0.5em;
+							vertical-align: top;
+
+							svg {
+								width: 1.5em;
+								height: 1.5em;
 								fill: @ini_link;
+								display: inline-block;
+								path {
+									fill: @ini_link;
+								}
 							}
 						}
-					}
 
-					&.prompt {
-						white-space: normal;
+						&.prompt {
+							white-space: normal;
+						}
 					}
 				}
 			}
 		}
-	}
 
-	/* Security Warning */
-	#security__check {
-		clear: both;
-		grid-row: 7;
-		grid-column: 1 / span 2;
-	}
+		/* Security Warning */
+		#security__check {
+			clear: both;
+			grid-row: 7;
+			grid-column: 1 / span 2;
+		}
 
-	/* DokuWiki version */
-	#admin__version {
-		display: block;
-		box-sizing: border-box;
-		width: 100%;
-		max-height: 7em;
-		overflow: auto;
-		color: @ini_text_neu;
-		background: @ini_background_alt url('images/info.svg') .25em .5em no-repeat;
-		background-size: 1em;
-		padding: .25em 0 .25em 1.75em;
-		border: @ini_border 1px solid;
-		border-radius: .25em;
-		box-shadow: inset .5pt .5pt 1pt #0008;
-		grid-row: 9;
-		grid-column: 1 / span 2;
+		/* DokuWiki version */
+		#admin__version {
+			display: block;
+			box-sizing: border-box;
+			width: 100%;
+			max-height: 7em;
+			overflow: auto;
+			color: @ini_text_neu;
+			background: @ini_background_neu url('images/info.svg') .25em .5em no-repeat;
+			background-size: 1em;
+			padding: .25em 0 .25em 1.75em;
+			border: @ini_border 1px solid;
+			border-radius: .25em;
+			box-shadow: inset .5pt .5pt 1pt #0008;
+			grid-row: 9;
+			grid-column: 1 / span 2;
+		}
+	}
+	
+	/* user manager: */
+	#user__manager {
+		button {
+			& {
+				background-color: @ini_background;
+				border: @ini_text solid 1px;
+				border-radius: .25em;
+				padding: .25em .5em;
+				cursor: pointer;
+			}
+			&#usrmgr__del {
+				background-color: #fcd;
+				color: @ini_text;
+			}
+			&[name="fn[add]"] {
+				background-color: #cdf;
+				color: @ini_text;
+			}
+			&[name="fn[start]"] {
+				border-radius: .5em 0 0 .5em;
+			}
+			&[name="fn[prev]"],
+			&[name="fn[next]"] {
+				border-radius: 0;
+				border-left-width: 0;
+			}
+			&[name="fn[last]"] {
+				border-radius: 0 .5em .5em 0;
+				border-left-width: 0;
+			}
+		}
 	}
 }
 
 /* style the extension manager items: */
-.dokuwiki #extension__manager {
+body.dokuwiki #extension__manager {
 	form.install { box-sizing: border-box; width: 100%; padding: 1em 2em; background-color: #EEE; }
 	form.install .block { text-align: left; width: 100% }
 	form.install input[name=installurl] {
@@ -123,16 +179,44 @@
 
 /* dark mode overrides */
 @media (prefers-color-scheme: dark) {
-	body.darkmode.dokuwiki #extension__manager form.install { background-color: #39393D; }
-	body.darkmode.dokuwiki #extension__manager form.install button[type=submit] {	
+	body.darkmode.mode_admin {
+		main {
+			& {
+				background-color: @ini_background_alt_dark;
+				border-color: @ini_text_alt_dark;
+				color: @ini_text_alt_dark;
+			}
+			#toc {
+				background-color: @ini_background_alt_dark;
+				border-left: @ini_text_alt_dark solid .5pt;;
+			}
+			#navYouAreHere {
+				background-color: @ini_background_dark;
+				border-color: @ini_text_alt_dark;
+			}
+		}
+	}
+
+	body.darkmode #extension__manager form.install { background-color: #39393D; }
+	body.darkmode #extension__manager form.install button[type=submit] {	
 		color: #CDF;
 		background-color: #346;
 		border-color: #90909B;
 	}
-	body.darkmode.dokuwiki #extension__manager form.install button[type=submit]::before { filter: invert(.9); }
-	body.darkmode.dokuwiki div.ui-admin #admin__version { color: @ini_text_alt_dark; background-color: @ini_background_alt_dark; }
+	body.darkmode #extension__manager form.install button[type=submit]::before { filter: invert(.9); }
+	body.darkmode div.ui-admin #admin__version {
+		color: @ini_text_neu_dark;
+		background-color: @ini_background_neu_dark;
+	}
+	
+	body.darkmode div.ui-admin ul li a span.icon {
+		svg {
+			& { fill: @ini_link_dark; }
+			path { fill: @ini_link_dark; }
+		}
+	}
 }
 /* below tablet size */
 @media (max-width: @ini_tablet_width) {
-	.dokuwiki div.ui-admin { display: block; }
+	body.dokuwiki div.ui-admin { display: block; }
 }

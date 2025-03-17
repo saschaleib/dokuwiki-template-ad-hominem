@@ -16,12 +16,18 @@ $p = {
 		$p.search.init();
 		$p.togglers.init();
 		$p.langMenu.init();
-
 	},
 	
 	/* link information */
 	linkinfo: {
 		init: function() {
+			
+			// write a warning to the console for wrong BASEDIR settings:
+			if (typeof BASEDIR !== 'string') {
+				console.warn("Ad-Hominem Template: BASEDIR not set, assuming '/'!");
+			} else if (BASEDIR.substring(0,1) !== '/') {
+				console.warn("Ad-Hominem Template: BASEDIR does not start with a slash, this may cause problems.");
+			}
 			
 			/* find all links in the main section */
 			var main = document.getElementById("main-layout");
@@ -100,7 +106,7 @@ $p = {
 		/* TODO: mechanism to dynamically add sites by site admin */
 				
 		/* callback for the onhover event of links: */
-		_linkHoverCallback: function() {
+		_linkHoverCallback: function(evt) {
 
 			var a = jQuery(this);
 			var hi = jQuery.data(this, 'has-info');
@@ -124,7 +130,9 @@ $p = {
 							break;
 						}
 					};
-				} catch (e) {}
+				} catch (err) {
+					console.error(err);
+				}
 
 				/* get the ID to request: */
 				switch(type) {
@@ -153,7 +161,7 @@ $p = {
 						dataType:	'json',
 						crossDomain: true,
 						error:		function(xhr, msg, e) {
-										console.error(msg);
+										console.error("Ajax Error:", msg);
 									},
 						success:	function(data, msg, xhr) {
 										// build the new title for the element:

@@ -83,15 +83,15 @@
 	margin-left: 0;
 }
 
-#mediamanager__page .ui-resizable-e,
-[dir=rtl] #mediamanager__page .ui-resizable-w {
+#mediamanager__page .ui-resizable-handle.ui-resizable-e,
+[dir=rtl] #mediamanager__page .ui-resizable-handle.ui-resizable-w {
 	width: 6px;
 	right: 2px;
-	background: transparent url(../../images/resizecol.png) center center no-repeat;
+	background: @ini_background_neu url(../../images/resizecol.png) center center no-repeat;
 }
 #mediamanager__page .ui-resizable-e:hover,
 [dir=rtl] #mediamanager__page .ui-resizable-w:hover {
-	background-color: @ini_background_alt;
+	background-color: @ini_background;
 }
 
 #mediamanager__page dd {
@@ -263,8 +263,8 @@
 /* file list as thumbs */
 
 #mediamanager__page .filelist .thumbs li {
-	width: 100px;
-	min-height: 130px;
+	width: 114px;
+	min-height: 132px;
 	display: inline-block;
 	/* the right margin should visually be 10px, but because of its inline-block nature the whitespace inbetween is about 4px more */
 	margin: 0 6px 10px 0;
@@ -282,13 +282,16 @@
 }
 
 #mediamanager__page .filelist .thumbs li dt a {
-	width: 100px;
-	height: 90px;
+	width: 110px;
+	height: 110px;
 }
 
 #mediamanager__page .filelist .thumbs li dt a img {
-	max-width: 90px;
-	max-height: 90px;
+	display: block;
+	max-width: 150px;
+	max-height: 150px;
+	padding: 5px;
+	margin: auto;
 }
 
 #mediamanager__page .filelist .thumbs li .name,
@@ -298,7 +301,6 @@
 	display: block;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	width: 90px;
 	white-space: nowrap;
 	font-size: 10pt;
 }
@@ -561,7 +563,7 @@
 		border-color: @ini_text_alt_dark;
 		color: @ini_text_alt_dark;
 		font-weight: bold;
-		border-bottom-color: @ini_background_dark;
+		border-bottom-color: @ini_background_alt_dark;
 	}
 	body.darkmode .tabs > ul li a,
 	body.darkmode ul.tabs li a {
@@ -571,13 +573,13 @@
 	}
 
 	body.darkmode #mediamanager__page .namespaces h2 {
-		background-color:	@ini_background_dark;
+		background-color:	@ini_background_alt_dark;
 		border-color:		@ini_text_dark;
-		border-bottom-color: @ini_background_dark;
+		border-bottom-color: @ini_background_alt_dark;
 		color:				@ini_headlines_dark;
 	}
 	body.darkmode #mediamanager__page .filelist .thumbs li {
-		background-color:	@ini_background_alt_dark;
+		background-color:	@ini_background_neu_dark;
 		color:				@ini_text_dark;
 	}
 	body.darkmode #mediamanager__page .filelist .panelContent ul li:hover {
@@ -597,9 +599,13 @@
 	}		
 	
 
-	body.darkmode #mediamanager__page .ui-resizable-e { background-color:	@ini_background_dark; }
+	body.darkmode #mediamanager__page .ui-resizable-e {
+		background-color: @ini_background_dark;
+	}
 	body.darkmode #mediamanager__page .ui-resizable-e:hover,
-	body.darkmode [dir=rtl] #mediamanager__page .ui-resizable-w:hover { background-color: @ini_background_alt_dark; }
+	body.darkmode [dir=rtl] #mediamanager__page .ui-resizable-w:hover {
+		background-color: @ini_background_neu_dark;
+	}
 	body.darkmode #mediamanager__page .file dl dt { background-color:	rgba(0,0,0,.5); }
 	body.darkmode #mediamanager__page .file dl dd { background-color:	rgba(0,0,0,.2); }
 	body.darkmode #mediamanager__page .namespaces ul .selected { background-color: @ini_background_alt_dark; }
