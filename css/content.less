@@ -40,11 +40,6 @@ body {
 		font-family: @ini_headline_fonts;
 		color: @ini_headlines;
 	}
-	dl.compact dl { /* except in compact mode */
-		font-weight: 600;
-		font-family: inherit;
-		color: inherit;
-	}
 
 	/* make strike-through and underline more useful! */
 	u {
@@ -111,10 +106,10 @@ body {
 
 	/* horizontal rules */
 	hr {
-		border:				#666 solid 0;
-		border-top-width:	1pt;
-		height:				0;
-		margin:				3pt 0;
+		border: #666 solid 0;
+		border-top-width: 1pt;
+		height: 0;
+		margin: 3pt 0;
 	}
 
 	tt, blockquote tt,
@@ -301,7 +296,7 @@ body {
 		-webkit-hyphens: auto;
 		hyphenate-limit-chars: 6 2 3;
 	}
-	
+
 	/* footnotes section */
 	div.footnotes {
 		border-top: transparent 0 none;
@@ -407,6 +402,26 @@ body.home h1:first-child { margin-top: .5em; }
 			samp {background-color: @ini_background_alt_dark;}
 			pre {border-color: @ini_border_dark; box-shadow: inset 0 0 .5em @ini_background_site_dark;}
 			dl dt {	color: @ini_headlines_dark; }
+
+			details summary {
+				& {
+					color: @ini_headlines_dark;
+				}
+				&::after {
+					background-color: @ini_link_dark;
+				}
+				&:hover {
+					& {
+						color: @ini_text_dark;
+					}
+					&::after {
+						background-color: lighten(@ini_link_dark, 10%);
+					}
+				}
+				&:focus {
+					outline: @ini_focus_color solid 2px;
+				}
+			}
 
 			/* overrides for PRE blocks: */
 			pre.code {
