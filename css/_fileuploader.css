@@ -8,20 +8,26 @@
 	width: 100%;
 }
 #mediamanager__page .qq-upload-list li {
-	display: grid;
-	grid-template-columns: 1.25rem auto 1rem;
-	grid-gap: 5px;
-	align-items: center;
+	& {
+		display: grid;
+		grid-template-columns: 1.25rem auto auto;
+		grid-gap: 5px;
+		align-items: center;
+	}
+	&::before {
+		content: '\1F5CE';
+		color: @ini_text;
+		font-size: 1.25rem;
+		display: inline-block;
+		width: 1.25rem;
+		height:1.5rem;
+		text-align: right;
+	}
+	.qq-upload-failed-text {
+		grid-column: 2 / span 2;
+	}
 }
-#mediamanager__page .qq-upload-list li::before {
-	content: '\1F5CE';
-	color: @ini_text;
-	font-size: 1.25rem;
-	display: inline-block;
-	width: 1.25rem;
-	height:1.5rem;
-	text-align: right;
-}
+		
 
 #mediamanager__page .qq-upload-list li input[type="text"] {
 	font-family: @ini_mono_fonts;
