@@ -23,6 +23,9 @@
 		height:1.5rem;
 		text-align: right;
 	}
+	.qq-upload-size {
+		min-width: fit-content;
+	}
 	.qq-upload-failed-text {
 		grid-column: 2 / span 2;
 	}
