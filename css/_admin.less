@@ -146,6 +146,21 @@ body.mode_admin {
 			}
 		}
 	}
+	
+	/* extensions manager */
+	#extension__list {
+		ul.extensionList {
+			li {
+				padding: .25em .5em;
+				border: transparent dashed 2pt;
+				border-radius: .25em;
+			}
+			li.update {
+				border-color: ini_focus_color;
+			}
+		}
+	}
+		
 }
 
 /* style the extension manager items: */
@@ -214,6 +229,10 @@ body.dokuwiki #extension__manager {
 			& { fill: @ini_link_dark; }
 			path { fill: @ini_link_dark; }
 		}
+	}
+	
+	body.darkmode #extension__list ul.extensionList li.update {
+		border-color: ini_focus_color_dark;
 	}
 }
 /* below tablet size */
