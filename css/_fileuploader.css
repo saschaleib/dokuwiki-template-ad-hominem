@@ -23,8 +23,12 @@
 		height:1.5rem;
 		text-align: right;
 	}
+	&.qq-upload-success {
+		grid-template-columns: 1.25rem auto auto;
+	}
 	.qq-upload-size {
 		min-width: fit-content;
+		text-align: right;
 	}
 	.qq-upload-failed-text {
 		grid-column: 2 / span 2;
@@ -206,6 +210,9 @@ div.qq-uploader ul {
 			}
 			li input[type="text"]:focus {
 				border-color: @ini_border_dark;
+			}
+			.qq-upload-size {
+				color: @ini_text_dark;
 			}
 			
 		}
