@@ -37,7 +37,7 @@
 .dokuwiki ul.tabs li a {
 	display: inline-block;
 	padding: .3em .8em;
-	margin: 1.5pt 0 0 .3em;
+	margin: 0 0 0 .3em;
 	background-color: @ini_background_neu;
 	color: @ini_text;
 	border: 1px solid @ini_border;

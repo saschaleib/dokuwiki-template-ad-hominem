@@ -52,30 +52,13 @@
   margin: auto;
 }
 
-.dokuwiki input[type="text"] {
-	& {
-		border: @ini_border solid 1px;
-		border-radius: 1pt;
-		padding: .25em;
-	}
-	&:focus {
-		box-shadow: inset .125em .125em .25em fadeout(@ini_text, 60%);
-	}
-}
-.dokuwiki input[type="checkbox"],
-.dokuwiki select {
-	& {
-		border: @ini_border solid 1px;
-		border-radius: 1pt;
-		padding: .25em;
-	}
-	&:hover, &:focus {
-		box-shadow: .125em .125em .25em fadeout(@ini_text, 60%);
-	}
-}
+
 .dokuwiki input.edit,
 .dokuwiki select.edit {
   vertical-align: middle;
+}
+.dokuwiki select.edit {
+  padding: 0.1em 0;
 }
 
 .dokuwiki button {

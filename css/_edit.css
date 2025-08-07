@@ -262,6 +262,8 @@ body.dokuwiki div.picker {
 		background-color: @ini_background_alt;
 		border: @ini_border solid 1px;
 		padding: .125rem;
+		-webkit-box-shadow: .125rem .125rem .5rem 0 rgba(0,0,0,.2);
+		-moz-box-shadow: .125rem .125rem .5rem 0 rgba(0,0,0,.2);
 		box-shadow: .125rem .125rem .5rem 0 rgba(0,0,0,.2);
 	}
 	button {
