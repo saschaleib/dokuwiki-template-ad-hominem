@@ -10,18 +10,17 @@
 #mediamanager__page .qq-upload-list li {
 	& {
 		display: grid;
-		grid-template-columns: 1.25rem auto auto;
+		grid-template-columns: 1.25rem auto 1.25rem;
 		grid-gap: 5px;
 		align-items: center;
 	}
 	&::before {
-		content: '\1F5CE';
-		color: @ini_text;
-		font-size: 1.25rem;
+		content: '';
+		background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14,11C12.34,11 11,9.66 11,8V4H7C5.9,4 5,4.9 5,6V19C5,20.1 5.9,21 7,21H16C17.1,21 18,20.1 18,19V11H14M12,8C12,9.1 12.9,10 14,10H17.59L12,4.41V8M7,3H12L19,10V19C19,20.66 17.66,22 16,22H7C5.34,22 4,20.66 4,19V6C4,4.34 5.34,3 7,3Z' /%3E%3C/svg%3E") center no-repeat;
+		background-size: 1em;
 		display: inline-block;
 		width: 1.25rem;
 		height:1.5rem;
-		text-align: right;
 	}
 	&.qq-upload-success {
 		grid-template-columns: 1.25rem auto auto;
@@ -35,7 +34,6 @@
 	}
 }
 		
-
 #mediamanager__page .qq-upload-list li input[type="text"] {
 	font-family: @ini_mono_fonts;
 	font-size: @ini_alt_font_size;
@@ -75,13 +73,11 @@
 	padding: .4rem 2.5rem;
 }
 
-
 .qq-upload-button-focus {
 	outline: 1px dotted;
 }
 
 /* drop area */
-
 .qq-upload-drop-area {
 	background: @ini_background_neu;
 	color: @ini_text_neu;
@@ -152,12 +148,13 @@ div.qq-uploader ul {
 	overflow: hidden;
 }
 .qq-upload-cancel::before {
-	content: '\1F5D9';
+	content: '';
+	background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' style='fill:%23A00' /%3E%3C/svg%3E") center no-repeat;
+	background-size: 1em;
 	display: inline-block;
 	width: 1em;
 	height: 1.5em;
 }
-
 
 .qq-upload-failed-text {
 	display: none;
@@ -203,7 +200,7 @@ div.qq-uploader ul {
 
 		#mediamanager__page .qq-upload-list {
 			li::before {
-				color: @ini_text_dark;
+				filter: invert(.9);
 			}
 			li input[type="text"] {	
 				color: @ini_text_dark;
@@ -214,7 +211,10 @@ div.qq-uploader ul {
 			.qq-upload-size {
 				color: @ini_text_dark;
 			}
-			
+			.qq-upload-cancel::before {
+				filter: brightness(1.5);
+			}
+
 		}
 	}
 }
