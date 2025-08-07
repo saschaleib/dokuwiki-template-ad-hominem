@@ -231,12 +231,10 @@ function _my_metaheaders_action($data) {
 		foreach($inst as $attr) {
 			if ( empty($attr) ) { continue; }
 			echo DOKU_TAB . '<', $tag, ' ', buildAttributes($attr);
-			if(isset($attr['_data']) || $tag == 'script') {
-				if($tag == 'script' && $attr['_data'])
-					$attr['_data'] = "/*<![CDATA[*/".NL. DOKU_TAB . DOKU_TAB .
-						$attr['_data'].
-						NL . DOKU_TAB . ' /*!]]>*/';
-
+			if($tag == 'script' && isset($attr['_data'])) {
+				$attr['_data'] = "/*<![CDATA[*/".NL. DOKU_TAB . DOKU_TAB .
+					$attr['_data'].
+					NL . DOKU_TAB . ' /*!]]>*/';
 				echo '>', $attr['_data'], '</', $tag, '>';
 			} else {
 				echo '/>';

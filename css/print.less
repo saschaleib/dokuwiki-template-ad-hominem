@@ -105,8 +105,6 @@ main {
 	line-height: 1.5em;
 	border: none 0;
 	word-break: break-word;
-	-moz-box-shadow: 0 0 0 0 transparent;
-	-webkit-box-shadow: 0 0 0 0 transparent;
 	box-shadow: 0 0 0 0 transparent;
 	font-variant-ligatures: common-ligatures discretionary-ligatures;
 }
@@ -148,6 +146,17 @@ main h1 + div, main h2 + div, main h3 + div, main h4 + div, main h5 + div, main 
 	break-before: avoid;
 }
 
+/* workaround until CSS orphans are widely supported: */
+main p::before {
+	content: '';
+	display: block;
+	height: 3.2em;
+	margin-bottom: -3.2em;
+	page-break-inside: avoid;
+	break-inside: avoid;
+}
+/* note: no workaround for missing CSS widows yet :-( */
+
 /* paragraph-level blocks */
 main p, main ul, main ol {
 	margin: .5em 0;
@@ -157,10 +166,10 @@ main p, main li {
 	orphans: 2;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	hyphens: auto;
 	-ms-hyphens: auto;
 	-moz-hyphens: auto;
 	-webkit-hyphens: auto;
+	hyphens: auto;
 	hyphenate-limit-chars: 6 2 3;
 }
 main ul { list-style: square outside; }
