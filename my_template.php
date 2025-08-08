@@ -232,13 +232,16 @@ function _my_metaheaders_action($data) {
 			if ( empty($attr) ) { continue; }
 			echo DOKU_TAB . '<', $tag, ' ', buildAttributes($attr);
 			if($tag == 'script' && isset($attr['_data'])) {
-				$attr['_data'] = "/*<![CDATA[*/".NL. DOKU_TAB . DOKU_TAB .
+				/* $attr['_data'] = "<![CDATA[".NL. DOKU_TAB . DOKU_TAB .
 					$attr['_data'].
-					NL . DOKU_TAB . ' /*!]]>*/';
+					NL . DOKU_TAB . ' ]]>'; */
 
 				echo '>', $attr['_data'], '</', $tag, '>';
 			} else {
-				echo '/>';
+				echo '>';
+				if ($tag == 'script') {
+					echo '</', $tag, '>';
+				}
 			}
 			echo DOKU_LF;
 		}
