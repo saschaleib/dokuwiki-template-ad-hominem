@@ -1,0 +1,162 @@
+/**
+ * Styles for the sidebar/navigation bar
+ */
+
+ #sidebar {
+	& {
+		width: @ini_sidebar_width;
+		max-width: @ini_sidebar_width;
+		font-size: @ini_default_font_size * .86;
+		flex-grow: 0;
+		transition-duration: .25s;
+		transition-timing-function: ease-in-out;
+	}
+	#sbNavigation {
+		margin: 1em .25em 0 1em;
+	}
+	&.toggle.hide,
+	&.toggle.alt {
+		max-width: 1em;
+	}
+	p, ul, ol {
+		padding-left: 1.5em;
+	}
+	ul {
+		list-style: square outside;
+	}
+	ul ~ ul, ul ~ ol,
+	ol ~ ul, ol ~ ol {
+		margin-top: .5em;
+	}
+	ul li, ol li {
+		color: @ini_text_alt;
+		padding: .1em 0;
+	}
+	dl dt {
+		font-weight: bold;
+	}
+	a:link, a:visited {
+		color: @ini_link;
+	}
+	.home a::before {
+		content: ' ';
+		display: inline-block;
+		width: 10pt;
+		height: 1em;
+		background: transparent url('images/home.svg') no-repeat no-repeat 0 4px;
+		background-size: .8em;
+		padding-right: 3pt;
+	}
+	.curid {
+		font-weight: bold;
+	}
+	h2, h3, h4, h5 {
+		color: @ini_headlines;
+		margin: 0.25em 2pt;
+	}
+	& > button.tg_button {
+		float: right;
+		display: block;
+		background-color: transparent;
+		border: transparent none 0;
+		margin-right: 2px;
+		font-size: 1.5rem;
+	}
+	& > button:focus {
+		outline: @ini_focus_color solid 2px;
+	}
+	& > button.tg_button span {
+		display: none;
+	}
+	&.hide > button.tg_button,
+	&.alt > button.tg_button {
+		margin-left: 0;
+		width: 11pt;
+	}
+	& > button.tg_button::after {
+		content: '\2039';
+		color: @ini_link;
+		display: inline-block;
+		width: .75em;
+		height: 1.25em;
+		text-align: center;
+	}
+	&.hide>button.tg_button span,
+	&.alt>button.tg_button span {
+		display: none;
+	}
+	&.hide>button.tg_button::after,
+	&.alt>button.tg_button::after {
+		content: '\203A';
+		width: auto;
+	}
+
+	.tg_content {
+		line-height: 1.5em;
+	}
+
+	hr {
+		border: 0;
+		height: 1pt;
+		background: @ini_text_alt;
+		background-image: linear-gradient(to right, @ini_background_alt, @ini_text_alt, @ini_background_alt);
+		margin: .5em 1em .5em 0;
+	}
+
+	/* definition list elements: */
+	dl {
+		dt {
+			margin: 0.25em 2pt;
+		}
+		dd {
+			margin-left: .3em;
+		}
+	}
+}
+
+/* dark mode overrides */
+@media (prefers-color-scheme: dark) {
+
+	body.darkmode {
+		#sidebar {
+
+			ul li, ol li {
+				color: @ini_text_alt_dark;
+			}
+			a:link, a:visited,
+			& > button.tg_button::after {
+				color: @ini_link_dark !important;
+			}
+			h2, h3, h4, h5 {
+				color: @ini_headlines_dark;
+			}
+
+			hr {
+				background: @ini_text_alt_dark;
+				background-image: linear-gradient(to right, @ini_background_alt_dark, @ini_text_alt_dark, @ini_background_alt_dark);
+			}
+			
+			/* details-summary elements: */
+			details {
+				summary {
+					color: @ini_headlines_dark;
+				}
+				summary::after {
+					background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z' style='fill:%2376B0FD' /%3E%3C/svg%3E");
+				}
+			}
+
+			/* definition list elements: */
+			dl dt {
+				color: @ini_headlines_dark;
+			}
+		}
+	}
+}
+
+/* small screen break point: */
+@media (max-width: 440px) {
+	#sidebar.alt div.tg_content {
+		    width: ~"calc(100vw - 1em)";
+	}
+}

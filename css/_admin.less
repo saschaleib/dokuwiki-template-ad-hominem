@@ -108,7 +108,7 @@ body.mode_admin {
 			padding: .25em 0 .25em 1.75em;
 			border: @ini_border 1px solid;
 			border-radius: .25em;
-			box-shadow: inset .5pt .5pt 1pt #0008;
+			box-shadow: inset .5pt .5pt 1pt #00000088;
 			grid-row: 9;
 			grid-column: 1 / span 2;
 		}
@@ -143,6 +143,20 @@ body.mode_admin {
 			&[name="fn[last]"] {
 				border-radius: 0 .5em .5em 0;
 				border-left-width: 0;
+			}
+		}
+	}
+
+	/* extensions manager */
+	#extension__list {
+		ul.extensionList {
+			li {
+				padding: .25em .5em;
+				border: transparent dashed 2pt;
+				border-radius: .25em;
+			}
+			li.update {
+				border-color: ini_focus_color;
 			}
 		}
 	}
@@ -214,6 +228,9 @@ body.dokuwiki #extension__manager {
 			& { fill: @ini_link_dark; }
 			path { fill: @ini_link_dark; }
 		}
+	}
+	body.darkmode #extension__list ul.extensionList li.update {
+		border-color: ini_focus_color_dark;
 	}
 }
 /* below tablet size */
