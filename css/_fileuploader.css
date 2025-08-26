@@ -3,9 +3,12 @@
  * used in the media manager (both fullscreen and popup).
  */
 
- .qq-uploader {
+.qq-uploader {
 	position: relative;
 	width: 100%;
+}
+.qq-upload-size {
+	grid-column: 1 / span 2;
 }
 #mediamanager__page .qq-upload-list li {
 	& {
