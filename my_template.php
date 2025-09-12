@@ -512,10 +512,12 @@ function my_lastchange($prefix = '') {
 	global $lang;
 	global $INFO;
 	global $conf;
+	global $_REQUEST;
 
 	$lastmod = $INFO['lastmod'];
+	$doAdmin = (array_key_exists('do', $_REQUEST) && $_REQUEST['do'] == 'admin');
 
-	if (intval($lastmod) > 0) { // is valid date?
+	if (!$doAdmin && intval($lastmod) > 0) { // is valid date?
 
 		$longDate = htmlentities(dformat($lastmod));
 
