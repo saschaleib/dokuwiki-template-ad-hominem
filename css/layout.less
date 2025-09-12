@@ -3,7 +3,7 @@
  * @author Sascha Leib <sascha@leib.be>
  */
 
-html, body, * {
+ html, body, * {
 	font-family: @ini_default_fonts;
 	margin: 0;
 	padding: 0;
@@ -823,54 +823,6 @@ body.mediadetail {
 		}
 	}
 }
-#extension__list {
-	.legend a.info, .legend a.info.close {
-		width: 22px;
-		height: 22px;
-		background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 9H13V7H11M12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20M12 2A10 10 0 0 0 2 12A10 10 0 0 0 12 22A10 10 0 0 0 22 12A10 10 0 0 0 12 2M11 17H13V11H11V17Z' style='fill:%23ADADB3'/%3E%3C/svg%3E") center no-repeat;
-		background-size: 24px;
-		border-radius: 50%;
-		margin-bottom: .5em;
-	}
-  
-	/* git warnings */
-	.actions {
-		p.permerror {
-			border: #D99C3C solid 1px;;
-			background-color: #FBF0C4;
-			background-position: 1px 1px;
-			border-radius: 2pt;
-			padding: 1.5px 1pt 0 22px;
-		}
-		.available {
-			border: #6EC247 solid 1px;
-			background-color: #C4FEB8;
-			padding: 1pt;
-			border-radius: 2pt;
-		}
-	}
-	/* notices */
-	section.extension > .notices {
-		li.warning {
-			border: #D99C3C solid 1px;;
-			background-color: #FEA;
-			border-radius: 2pt;
-			padding: 0 1pt 2pt 0;
-			margin-bottom: 1.5pt;
-		}
-		li.error {
-			border: #F33 solid 1px;;
-			background-color: #FFDADA;
-			border-radius: 2pt;
-			padding: 0 1pt 2pt 0;
-			margin-bottom: 1.5pt;
-		}
-		span.icon {
-			align-self: flex-start;
-			margin: 1pt 0 0 1pt;
-		}
-	}
-}
 
 /* RTL Overrides */
 [dir=rtl] {
@@ -1015,37 +967,6 @@ body.mediadetail {
 		#ftLicenseButtons {
 			p.license { color: @ini_text_alt_dark; }
 			hr { background-image: linear-gradient(to right, @ini_background_site_dark, @ini_text_dark, @ini_background_site_dark); }
-		}
-
-		/* Extension Manager: */
-		#extension__manager{
-			.panelHeader { background-color: @ini_background_alt_dark; }
-			ul.tabs li a { background-color: @ini_background_dark; border-color: @ini_border_dark; color: @ini_text_dark }
-			ul.tabs li.active a { background-color: @ini_background_alt_dark; border-color: @ini_text_dark; }
-			tr .input, tr.default .input { color: @ini_text_dark; }
-		}
-		#extension__list {
-			ul.extensionList li { color: @ini_text_dark; }
-			.actions {
-				p.permerror {
-					border-color: #86560A;
-					background-color: #4D3F04;
-				}
-				.available {
-					border-color: #4F7A0B;
-					background-color: #333E03;
-				}
-			}
-			section.extension > .notices {
-				li.warning {
-					border-color: #86560A;
-					background-color: #4D3F04;
-				}
-				li.error {
-					border-color: #A62A2A;
-					background-color: #360505;
-				}
-			}
 		}
 	}
 

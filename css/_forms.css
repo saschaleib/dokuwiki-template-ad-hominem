@@ -73,6 +73,7 @@
 		box-shadow: .125em .125em .25em fadeout(@ini_text, 60%);
 	}
 }
+
 .dokuwiki input.edit,
 .dokuwiki select.edit {
   vertical-align: middle;
