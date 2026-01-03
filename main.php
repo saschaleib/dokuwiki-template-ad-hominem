@@ -87,6 +87,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 				tpl_includeFile('pageheader.html');
 				if($conf['youarehere']) { my_youarehere(str_repeat(DOKU_TAB,4)); }
 ?>			</header>
+			<div id="doku__msgarea"><?php html_msgarea()?></div>
 			<article id="main-content">
 
 <!-- - - - - - - - - ARTICLE CONTENT - - - - - - - --><?php tpl_content(false) ?>
