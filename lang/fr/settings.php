@@ -2,7 +2,7 @@
 /**
  * French language file for the Ad Hominem template settings
  *
- * @author     Sascha Leib <sascha@leib.be> (machine-translated with DeepL.com)
+ * @author     Sascha Leib <sascha@leib.be> (partially machine-translated with DeepL.com)
  */
 
 $lang['darkmode']			= 'Autoriser un mode sombre côté client<br><small>(Uniquement si le visiteur a également activé le mode sombre)</small>';
