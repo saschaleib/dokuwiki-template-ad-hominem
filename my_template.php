@@ -699,9 +699,10 @@ function my_langmenu($prefix, $place, $checkage = true) {
 			
 				// get the language name (in the local language)
 				$langName = htmlentities($trans->getLocalName($lang));
+				$langId = substr($lang, 0, 2);
 			
 				/* prepare the menu icon (note that the language code and name are embedded! */
-				$svg = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><title>{$langName}</title><path d='M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4C22,2.89 21.1,2 20,2Z' /><text lengthAdjust='spacingAndGlyphs' x='50%' y='47%' dominant-baseline='middle' text-anchor='middle' style='font-size:50%'>{$lang}</text></svg>";
+				$svg = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><title>{$langName}</title><path d='M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4C22,2.89 21.1,2 20,2Z' /><text lengthAdjust='spacingAndGlyphs' x='50%' y='47%' dominant-baseline='middle' text-anchor='middle' style='font-size:50%'>{$langId}</text></svg>";
 			
 				// prepare the menu button:
 				$out .= $prefix . DOKU_TAB . '<button id="langButton" aria-haspopup="menu" aria-controls="langMenuWrapper" aria-expanded="false">'.NL;
@@ -743,6 +744,8 @@ function my_langmenu($prefix, $place, $checkage = true) {
 				$l = ( $t !== '' ? $t : $lang );
 				
 				[$trg, $lng] = $trans->buildTransID($t, $idpart);
+				$langName = $trans->getLocalName($lng);
+				$lngId = substr($lng, 0, 2);
 				$trg = cleanID($trg);
 				$exists = page_exists($trg, '', false);
 				$filter = tpl_getConf('langfilter', 'all');
@@ -754,7 +757,7 @@ function my_langmenu($prefix, $place, $checkage = true) {
 					$current = ($lng == $lang);
 					
 					$out .= $prefix . DOKU_TAB . DOKU_TAB . DOKU_TAB .'<li' . ( $asMenu ? ' role="presentation"' : '' ). ( $current ? ' class="current"' : '' ) . '>'.NL;
-					$out .= $prefix . DOKU_TAB . DOKU_TAB . DOKU_TAB . DOKU_TAB . "<a href=\"{$link}\" lang=\"{$lng}\" hreflang=\"{$lng}\" class=\"{$class}\"" . ( $asMenu ? ' role="menuitem"' : '' ) . '><bdi>'. $trans->getLocalName($lng) . '</bdi></a>'.NL;
+					$out .= $prefix . DOKU_TAB . DOKU_TAB . DOKU_TAB . DOKU_TAB . "<a href=\"{$link}\" hreflang=\"{$lngId}\" class=\"{$class}\"" . ( $asMenu ? ' role="menuitem"' : '' ) . "><bdi lang=\"{$lngId}\">{$langName}</bdi></a>".NL;
 					$out .= $prefix . DOKU_TAB . DOKU_TAB . DOKU_TAB . '</li>'.NL;
 				}
 			}
