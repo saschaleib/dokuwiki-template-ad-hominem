@@ -14,14 +14,18 @@ $lang['navtrail']			= 'Mostrar la página actual en las migas de pan jerárquica
 	$lang['navtrail_o_text']	= 'Mostrar como texto';
 	$lang['navtrail_o_link']	= 'Mostrar como enlace';
 
+$lang['tocstyle']			= 'Estado del índice (<abbr lang="en" title="Table of Contents">TOC</abbr>)';
+	$lang['tocstyle_o_hide']	= 'Ocultar por defecto';
+	$lang['tocstyle_o_show']	= 'Mostrar por defecto';
+
 $lang['cookiepos']          = 'Mostrar el mensaje de Cookie';
 	$lang['cookiepos_o_hide']   = 'No mostrar';
 	$lang['cookiepos_o_top']    = 'Mostrar en la parte superior de la página';
 	$lang['cookiepos_o_bottom'] = 'Mostrar en la parte inferior de la página';
 
-$lang['cookiemsg']          = 'El mensaje a mostrar en el banner de cookies (puede contener HTML)';
-$lang['cookielink']         = 'Enlace a la página "Más información" (interna o externa)';
-$lang['homelink']         = 'Sustituir el enlace de la página de inicio (vacío para el comportamiento por defecto)';
+$lang['cookiemsg']          = 'El mensaje a mostrar en el banner de cookies<br><small>(puede contener <abbr>HTML</abbr>)</small>';
+$lang['cookielink']         = 'Enlace a la página "Más información" <small>(interna o externa)</small>';
+$lang['homelink']         = 'Sustituir el enlace de la página de inicio<br><small>(vacío para el comportamiento por defecto)</small>';
 
 $lang['printstyle']         = 'Variante de estilo de impresión';
 	$lang['printstyle_o_basic']	= 'Clásico';
