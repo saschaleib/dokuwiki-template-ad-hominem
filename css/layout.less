@@ -618,7 +618,6 @@ main {
 		}
 	}
 
-	
 	/* details/summary styles */
 	details {
 		summary {
@@ -960,6 +959,15 @@ body.mediadetail {
 			h1, h2, h3, h4, h5, h6 { color: @ini_headlines_dark; }
 			& > footer p.docInfo { color: @ini_text_alt_dark; }
 			figure table { background-color: @ini_background_dark; }
+		}
+
+		/* For both the sidebar and the main block */
+		#main-layout {
+			
+			/* Definition List styles: */
+			dl dt {
+				color: @ini_headlines_dark;
+			}
 		}
 
 		#footer-layout > footer h4 { color: @ini_headlines_dark; }
