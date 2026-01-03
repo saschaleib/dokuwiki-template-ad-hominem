@@ -430,10 +430,17 @@ function my_toc($prefix = '') {
 	global $lang;
 	$toc = array();
 
+	// default TOC State:
+	$tocState = 'hide';
+
 	if(is_array($TOC)) {
 		// if a TOC was prepared in global scope, always use it
 		$toc = $TOC;
 	} elseif(($ACT == 'show' || substr($ACT, 0, 6) == 'export') && !$REV && $INFO['exists']) {
+
+		// read TOC state from the user config:
+		$tocState = tpl_getConf('tocstyle', $tocState);
+
 		// get TOC from metadata, render if neccessary
 		$meta = p_get_metadata($ID, '', METADATA_RENDER_USING_CACHE);
 		if(isset($meta['internal']['toc'])) {
@@ -456,7 +463,7 @@ function my_toc($prefix = '') {
 
 	/* Build the hierarchical list of headline links: */
 	if (count($toc) >= intval($conf['tocminheads'])) {
-		echo $prefix . '<aside id="toc" class="toggle hide">'.NL;
+		echo $prefix . '<aside id="toc" class="toggle '.$tocState.'">'.NL;
 		echo $prefix . DOKU_TAB . '<button type="button" id="toc-menubutton" class="tg_button" title="' . htmlentities($lang['toc']) . '" aria-haspopup="true" aria-controls="toc-menu"><span>' . htmlentities($lang['toc']) . '</span></button>'.NL;
 		echo $prefix . DOKU_TAB . '<nav id="toc-menu" class="tg_content" role="menu" aria-labelledby="toc-menubutton">';
 		$level = 0;
