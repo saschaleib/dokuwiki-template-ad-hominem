@@ -14,6 +14,9 @@ $meta['navtrail'] = array('multichoice',
 $meta['printstyle'] = array('multichoice',
 						'_choices' => array ('basic', 'compact'));
 
+$meta['tocstyle'] = array('multichoice',
+						'_choices' => array ('hide', 'show'));
+
 $meta['cookiepos'] = array('multichoice',
 						'_choices' => array ('hide', 'top', 'bottom'));
 
