@@ -90,7 +90,9 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 			<div id="doku__msgarea"><?php html_msgarea()?></div>
 			<article id="main-content">
 
-<!-- - - - - - - - - ARTICLE CONTENT - - - - - - - --><?php tpl_content(false) ?>
+<!-- - - - - - - - - ARTICLE CONTENT - - - - - - - -->
+
+<?php tpl_content(false) ?>
 
 
 <!-- - - - - - - - - END OF ARTICLE - - - - - - - -->

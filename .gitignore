@@ -1,3 +1,4 @@
 /composer.lock
 /vendor
 rest/php_errors.log
+.vscode/launch.json
