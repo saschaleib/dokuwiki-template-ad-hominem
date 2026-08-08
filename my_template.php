@@ -464,7 +464,7 @@ function my_toc($prefix = '') {
 
 	/* Build the hierarchical list of headline links: */
 	if (count($toc) >= intval($conf['tocminheads'])) {
-		echo $prefix . '<aside id="toc" class="toggle '.$tocState.'">'.NL;
+		echo $prefix . '<aside id="dw__toc" class="toggle '.$tocState.'">'.NL;
 		echo $prefix . DOKU_TAB . '<button type="button" id="toc-menubutton" class="tg_button" title="' . htmlentities($lang['toc']) . '" aria-haspopup="true" aria-controls="toc-menu"><span>' . htmlentities($lang['toc']) . '</span></button>'.NL;
 		echo $prefix . DOKU_TAB . '<nav id="toc-menu" class="tg_content" role="menu" aria-labelledby="toc-menubutton">';
 		$level = 0;

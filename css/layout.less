@@ -415,7 +415,7 @@ body.home #navYouAreHere ol li:last-child {
 }
 
 /* Table of Contents */
-#toc {
+#dw__toc {
 	& {
 		clear: both;
 		float: right;
@@ -840,12 +840,12 @@ body.mediadetail {
 		padding: 0 0 0 .5rem;
 	}
 
-	#toc {
+	#dw__toc {
 		float: left;
 		border-left: transparent 0;
 		border-right: #CCC solid 1pt;
 	}
-	#toc ol {
+	#dw__toc ol {
 		padding: 0 1em 0 0;
 	}
 
@@ -893,7 +893,7 @@ body.mediadetail {
 	
 	body.darkmode {
 
-		#toc {
+		#dw__toc {
 			background-color: @ini_background_dark;
 			border-left: @ini_border_dark solid 1pt;
 		}
@@ -947,7 +947,7 @@ body.mediadetail {
 			}
 		}
 
-		#toc {
+		#dw__toc {
 			& { border-color: @ini_border_dark; }
 			#toc-menubutton,
 			#toc-menubutton span { color: @ini_headlines_dark; }
@@ -1157,19 +1157,19 @@ body.mediadetail {
 		display: none;
 	}
 
-	#toc.hide h3::after,
-	#toc.auto h3::after {
+	#dw__toc.hide h3::after,
+	#dw__toc.auto h3::after {
 		content: '\2630';
 	}
-	#toc.alt h3::after {
+	#dw__toc.alt h3::after {
 		content: '\203A';
 	}
 
-	#toc.hide h3 > span,
-	#toc.auto h3 > span {
+	#dw__toc.hide h3 > span,
+	#dw__toc.auto h3 > span {
 		display: none;
 	}
-	#toc.alt h3 > span {
+	#dw__toc.alt h3 > span {
 		display: inline-block;
 	}
 
