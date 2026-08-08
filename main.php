@@ -2,7 +2,7 @@
 /**
  * Ad Hominem Template
  *
- * @link	https://ad.hominem.info/
+ * @link	https://www.dokuwiki.org/template:ad-hominem
  * @author	Sascha Leib <sascha@leib.be>
  * @author	Anika Henke <anika@selfthinker.org>
  * @author	Clarence Lee <clarencedglee@gmail.com>

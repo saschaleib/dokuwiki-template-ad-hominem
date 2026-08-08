@@ -2,6 +2,7 @@
 /**
  * Overwriting DokuWiki template functions
  *
+ * @link    https://www.dokuwiki.org/template:ad-hominem
  * @license	GPL 2 (http://www.gnu.org/licenses/gpl.html)
  * @author	Sascha Leib <sascha@leib.be>
  * @author	Andreas Gohr <andi@splitbrain.org>
