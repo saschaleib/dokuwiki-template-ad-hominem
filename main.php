@@ -13,7 +13,7 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 
 require_once('my_template.php');
 
-$hasSidebar = page_findnearest($conf['sidebar']);
+$hasSidebar = ( page_findnearest($conf['sidebar']) || $conf['breadcrumbs'] > 0 || tpl_getConf('langmenu', 'none') == 'sb');
 $showSidebar = $hasSidebar && ($ACT=='show');
 
 // get the language information:
@@ -58,7 +58,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 			<div id="phInclude"><?php tpl_includeFile('header.html') ?></div>
 		</header>
 	</div>
-	<div id="main-layout">
+	<div id="main-layout"><?php if($hasSidebar) { ?>
 		<div id="sidebar" class="toggle <?php
 		echo ( $showSidebar ? 'auto' : 'hide' ); ?>">
 			<button type="button" class="tg_button" title="<?php echo $lang['sidebar'] ?>"><span><?php echo $lang['sidebar'] ?></span></button>
@@ -78,7 +78,7 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 				<div id="sbBreadcrumbs">
 <?php		if($conf['breadcrumbs']) { my_breadcrumbs(str_repeat(DOKU_TAB,5)); } ?>
 				</div>
-			</div>
+			</div><?php }; ?>
 		</div>
 		<main id="dokuwiki__top">
 			<header>

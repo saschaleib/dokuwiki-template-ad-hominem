@@ -115,7 +115,7 @@ div.no {
 		display: inline;
 	}
 	ul li::before {
-		content: '\00B7';
+		content: '\00B7'; /* Middle Dot */
 		display: inline-block;
 		width: .35em;
 		padding-right: .35em;
@@ -379,7 +379,7 @@ div.no {
 			}
 
 			&::before {
-				content: '\25B8';
+				content: '\25B8'; /* Right pointing triangle */
 				padding: 0 2pt;
 				color: @ini_text_alt;
 			}
@@ -462,7 +462,7 @@ body.home #navYouAreHere ol li:last-child {
 	color: @ini_headlines;
 }
 #toc-menubutton::after {
-	content: '\203A';
+	content: '\203A'; /* Single right pointing angle quotation mark */
 	display: inline-block;
 	width: 1.5em;
 	text-align: center;
@@ -470,7 +470,7 @@ body.home #navYouAreHere ol li:last-child {
 
 .hide #toc-menubutton::after,
 .alt #toc-menubutton::after {
-	content: '\2630';
+	content: '\2630'; /* Hamburger menu icon */
 }
 
 .hide #toc-menubutton>span,
@@ -854,7 +854,7 @@ body.mediadetail {
 	}
 	
 	#navYouAreHere ol li::before {
-		content: '\25C2';
+		content: '\25C2'; /* Left Pointing Triangle */
 	}
 	#navYouAreHere ol li.home::before {
 		content: '';
@@ -1063,11 +1063,11 @@ body.mediadetail {
 	}
 
 	#sidebar > button.tg_button::after {
-		content: '\2715';
+		content: '\2630'; /* Hamburger Menu icon */
 	}
 	#sidebar.hide>button.tg_button::after,
 	#sidebar.alt>button.tg_button::after {
-		content: '\2630';
+		content: '\2715'; /* Close icon */
 	}
 
 	#sidebar .tg_content {
@@ -1159,10 +1159,10 @@ body.mediadetail {
 
 	#dw__toc.hide h3::after,
 	#dw__toc.auto h3::after {
-		content: '\2630';
+		content: '\203A'; /* Single right-pointing angle quotation mark */
 	}
 	#dw__toc.alt h3::after {
-		content: '\203A';
+		content: '\2630'; /* hamburger menu icon */
 	}
 
 	#dw__toc.hide h3 > span,
@@ -1223,7 +1223,7 @@ body.mediadetail {
 				display: inline-block;
 			}
 			.ftSection li::before {
-				content: '\00B7';
+				content: '\00B7'; /* Middle Dot */
 				display: inline;
 				width: .35em;
 				padding: 0 .35em;
