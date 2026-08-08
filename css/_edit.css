@@ -149,10 +149,18 @@ body.dokuwiki div.picker {
 /*____________ below the textarea ____________*/
 
 .dokuwiki div.editBar {
-	display: grid;
-	grid-template-columns: 320px minmax(500px, 1fr) auto;
-	align-items: start;
-	margin-bottom: .5em;
+	& {
+		display: grid;
+		grid-template-columns: 320px minmax(500px, 1fr) auto;
+		align-items: start;
+		margin-bottom: .5em;
+	}
+	#size__ctl button {
+		appearance: none;
+		background: transparent;
+		border: none;
+		padding: 0;
+	}
 }
 
 /* size and wrap controls */
@@ -219,8 +227,8 @@ body.dokuwiki div.picker {
 	display: grid;
 	grid-template-columns: 1fr auto;
 	line-height: 1em;
-	padding-top: 2pt;
-	padding-right: 5pt;
+	padding: 2pt 5pt 0 5pt;
+	column-gap: 5px;
 }
 
 .dokuwiki .editBar .summary #edit__summary {
