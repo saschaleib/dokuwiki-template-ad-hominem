@@ -89,14 +89,14 @@ $htmlLang = ' lang="' . $conf['lang'] . ( $lang['direction'] != 'ltr' ? '" dir="
 ?>			</header>
 			<div id="doku__msgarea"><?php html_msgarea()?></div>
 			<article id="main-content">
+<?php tpl_includeFile('articleheader.html'); ?>
 
 <!-- - - - - - - - - ARTICLE CONTENT - - - - - - - -->
 
 <?php tpl_content(false) ?>
 
-
 <!-- - - - - - - - - END OF ARTICLE - - - - - - - -->
-
+<?php tpl_includeFile('articlefooter.html'); ?>
 			</article>
 			<footer>
 <?php my_lastchange(str_repeat(DOKU_TAB,4)); ?>
