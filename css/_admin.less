@@ -234,6 +234,21 @@ body.mode_admin {
 					align-self: flex-start;
 					margin: 1pt 0 0 1pt;
 				}
+				span.icon svg {
+					fill: @ini_text_neu !important;
+				}
+			}
+
+			/* Extensions */
+			& > .details details summary {
+				color: @ini_link;
+			}
+
+			/* Actions */
+			& > .actions {
+				.available .version {
+					background: transparent none;
+				}
 			}
 		}
 	}
@@ -302,7 +317,7 @@ body.dokuwiki #extension__manager {
 	
 		div.ui-admin ul li a span.icon {
 			svg {
-				& { fill: @ini_link_dark; }
+				& { fill: @ini_link_dark }
 				path { fill: @ini_link_dark; }
 			}
 		}
@@ -326,14 +341,22 @@ body.dokuwiki #extension__manager {
 					background-color: #333E03;
 				}
 			}
-			section.extension > .notices {
-				li.warning {
-					border-color: #86560A;
-					background-color: #4D3F04;
+			section.extension {
+				& > .notices {
+					li.warning {
+						border-color: #86560A;
+						background-color: #4D3F04;
+					}
+					li.error {
+						border-color: #A62A2A;
+						background-color: #360505;
+					}
+					span.icon svg {
+						fill: @ini_text_neu_dark !important;
+					}
 				}
-				li.error {
-					border-color: #A62A2A;
-					background-color: #360505;
+				& > .details details summary {
+					color: @ini_link_dark;
 				}
 			}
 			ul.extensionList li.update {

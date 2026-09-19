@@ -968,6 +968,24 @@ body.mediadetail {
 			dl dt {
 				color: @ini_headlines_dark;
 			}
+
+			/* details/summary styles */
+			details summary {
+				& {
+					color: @ini_headlines_dark;
+				}
+				&::before {
+					background-color: @ini_link_dark;
+				}
+				&:hover {
+					& {
+						color: @ini_text_dark;
+					}
+					&::before {
+						background-color: lighten(@ini_link_dark, 20%);
+					}
+				}
+			}
 		}
 
 		#footer-layout > footer h4 { color: @ini_headlines_dark; }
