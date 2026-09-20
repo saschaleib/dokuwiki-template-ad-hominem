@@ -17,10 +17,12 @@ body {
 
 /* headlines: */
 	h1, h2, h3, h4, h5, h6 {
-		font-family:	@ini_headline_fonts;
-		color:			@ini_headlines;
-		margin:			1em 0 1em 0;
-		line-height:	1.1em;
+		font-family: @ini_headline_fonts;
+		color: @ini_headlines;
+		margin: 1em 0 1em 0;
+		line-height:	1.25em;
+		break-inside: avoid;
+		break-after: avoid;
 	}
 	h1 { font-size: 2em; }
 	h2 { font-size: 1.5em; }
@@ -147,10 +149,12 @@ body {
 		margin: 0 2em 1em 1em;
 		font-family: @ini_alt_fonts;
 		font-size: @ini_alt_font_size;
+		font-size-adjust: ex-height .5;
 		hanging-punctuation: first allow-end;
 	}
 	blockquote * {
 		font-family: @ini_alt_fonts;
+		font-size-adjust: ex-height .5;
 	} 
 
 	svg {
@@ -287,7 +291,7 @@ body {
 	}
 
 	/* hyphenation only in the main-content */
-	p, li {
+	p, li, blockquote {
 		word-wrap: break-word;
 		overflow-wrap: break-word;
 		hyphens: auto;
@@ -295,24 +299,6 @@ body {
 		-moz-hyphens: auto;
 		-webkit-hyphens: auto;
 		hyphenate-limit-chars: 6 2 3;
-	}
-	
-	/* footnotes section */
-	div.footnotes {
-		border-top: transparent 0 none;
-		margin-top: 1.5em;
-		font-size: smaller;
-	}
-	div.footnotes:before {
-		content: ' ';
-		display: block;
-		width: 33%;
-		min-width: 5em;
-		border-top: @ini_border solid 1.5pt;
-		height: .5em;
-	}
-	div.footnotes div.fn {
-		margin-left: 1em;
 	}
 }
 
@@ -361,23 +347,42 @@ body.home h1:first-child { margin-top: .5em; }
 @media (max-width: @ini_tablet_width) {
 	
 	/* tighter hyphenation for narrower screens */
-	#main-content p, #main-content li {
-		hyphenate-limit-chars: 5 2 2;
+	#main-content {
+		p, li, blockquote {
+			hyphenate-limit-chars: 5 2 2;
+		}
 	}
 }
 
 /* phone break point: */
 @media (max-width: @ini_phone_width) {
 
-	.nophone, .wrap_nophone {
-		display: none !important;
-	}
-	
-	main aside {
-		width:			100%;
-		max-width:		initial;
-		float:			none;
-		margin-left:	0;
+	.dokuwiki {
+
+		.nophone, .wrap_nophone {
+			display: none !important;
+		}
+		
+		main {
+
+			/* lists: */
+			ul, ol {
+				margin: 0 0 1em 0;
+				padding-left: 1em !important;
+			}
+
+			/* asides */
+			aside {
+				width:			100%;
+				max-width:		initial;
+				float:			none;
+				margin-left:	0;
+			}
+
+			blockquote {
+				margin: 0 .25em 1em 0;
+			}
+		}
 	}
 }
 

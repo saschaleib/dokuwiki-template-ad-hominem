@@ -45,20 +45,37 @@ body, div.footnotes {
 div.insitu-footnote {
 	max-width: 40%;
 	min-width: 5em;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	hyphens: auto;
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphenate-limit-chars: 6 2 3;
+	font-size: smaller;
 }
 
 /*____________ footnotes at the bottom of the page ____________*/
 
 .dokuwiki div.footnotes {
 	& {
-		border-top: 1px solid @ini_border;
+		border-top: transparent 0 none;
 		padding: .5em 0 0 0;
-		margin: 1em 0 0 0;
+		margin: 1.5em 0 0 0;
 		clear: both;
+		font-size: smaller;
 	}
-	> .fn {
+	&:before {
+		content: ' ';
+		display: block;
+		width: 33%;
+		min-width: 5em;
+		border-top: @ini_border solid 1.5pt;
+		height: .5em;
+	}
+	& > .fn {
 		& {
-			margin: 0 0 0 2.5rem !important;
+			margin: 0 0 .5em 2.5rem !important;
 			white-space-collapse: discard;
 			text-indent: ~"calc(-2.5rem - .3em)"; /* compensate for the whitespace character! */
 		}
@@ -86,6 +103,14 @@ div.insitu-footnote {
 		}
 		& > .content {
 			display: inline;
+			line-height: 1;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
+			hyphens: auto;
+			-ms-hyphens: auto;
+			-moz-hyphens: auto;
+			-webkit-hyphens: auto;
+			hyphenate-limit-chars: 6 2 3;
 		}
 	}
 }
@@ -96,4 +121,30 @@ div.insitu-footnote {
 [dir=rtl] .dokuwiki div.footnotes > .fn .fn_bot {
 	text-align: left;
 	margin: 0 0 0 .5em;
+}
+
+/* phone break point: */
+@media (max-width: @ini_phone_width) {
+
+	.dokuwiki {
+			div.footnotes > .fn {
+
+			& {
+				text-indent: calc(-2rem - .3em);
+			}
+
+			.fn_bot {
+				width: 1.25rem;
+			}
+			.fn_bot::after {
+				width: 1.25rem;
+			}
+		}
+
+		/* JSpopup */
+		div.insitu-footnote {
+			max-width: 90%;
+			margin: .5rem;
+		}
+	}
 }
