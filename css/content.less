@@ -126,14 +126,25 @@ body {
 		padding: 0 2pt;
 	}
 	pre {
-		overflow-x: auto;
-		white-space: pre-wrap;
-		word-wrap: normal;
-		border: 1px solid @ini_border;
-		border-radius: 2px;
-		box-shadow: inset 0 0 .5em @ini_border;
-		padding: .3em;
-		font-variant-numeric: slashed-zero;
+		& {
+			overflow-x: auto;
+			white-space: pre-wrap;
+			word-wrap: normal;
+			border: 1px solid @ini_border;
+			border-radius: 2px;
+			box-shadow: inset 0 0 .5em @ini_border;
+			padding: .3em;
+			font-variant-numeric: slashed-zero;
+		}
+		& .code-copy-btn {
+			border: transparent none 0;
+			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath style='fill:%231F53A8' d='M19,20H5V4H7V7H17V4H19M12,2A1,1 0 0,1 13,3A1,1 0 0,1 12,4A1,1 0 0,1 11,3A1,1 0 0,1 12,2M19,2H14.82C14.4,0.84 13.3,0 12,0C10.7,0 9.6,0.84 9.18,2H5A2,2 0 0,0 3,4V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V4A2,2 0 0,0 19,2Z' /%3E%3C/svg%3E") left center no-repeat;
+			background-size: 1.1em;
+			padding-left: 1.5em;
+			cursor: pointer;
+			width: 1.25em; height: 1.5em; overflow: hidden;
+			border-radius: .25em;
+		}
 	}
 
 	/* overwrite pre styling for CodeMirror plugin: */
@@ -405,7 +416,12 @@ body.home h1:first-child { margin-top: .5em; }
 			kbd {color: @ini_headlines_dark;border-color: @ini_border_dark;}
 			kbd kbd {background-color: @ini_background_alt_dark;}
 			samp {background-color: @ini_background_alt_dark;}
-			pre {border-color: @ini_border_dark; box-shadow: inset 0 0 .5em @ini_background_site_dark;}
+			pre {
+				& {border-color: @ini_border_dark; box-shadow: inset 0 0 .5em @ini_background_site_dark;}
+				& .code-copy-btn {
+					background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath style='fill:%2376B0FD' d='M19,20H5V4H7V7H17V4H19M12,2A1,1 0 0,1 13,3A1,1 0 0,1 12,4A1,1 0 0,1 11,3A1,1 0 0,1 12,2M19,2H14.82C14.4,0.84 13.3,0 12,0C10.7,0 9.6,0.84 9.18,2H5A2,2 0 0,0 3,4V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V4A2,2 0 0,0 19,2Z' /%3E%3C/svg%3E");
+				}
+			}
 			dl dt {	color: @ini_headlines_dark; }
 
 			details summary {

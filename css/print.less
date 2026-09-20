@@ -220,7 +220,16 @@
 		hyphens: auto;
 	}
 	pre {
-		white-space: normal;
+		& {
+			white-space: normal;
+			box-shadow: none;
+			border-color: #000;
+			border-radius: .25rem;
+			font-size: smaller;
+		}
+		button {
+			display: none;
+		}
 	}
 	figure {
 		break-inside: avoid;
