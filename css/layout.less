@@ -1274,15 +1274,24 @@ body.mediadetail {
 		}
 	}
 
-	main blockquote {
-		margin-left: .15em;
-		margin-right: 0;
+	main {
+		& {
+			padding: 1em 5px .75em 5px;
+			border-radius: 0;
+			border: transparent 0 none;
+		}
+
+
+		blockquote {
+			margin-left: .15em;
+			margin-right: 0;
+		}
+		ul, ol {
+			margin-left: .5em;
+			margin-right: 0;
+			padding-left: .75em;
+		}
 	}
-	main ul, main ol {
-		margin-left: .5em;
-		margin-right: 0;
-		padding-left: .75em;
-	}	
 	
 	/* compact lists: */
 	.dokuwiki main dl.compact {
