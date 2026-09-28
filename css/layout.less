@@ -113,23 +113,33 @@ div.no {
 		padding-right: .5rem;
 	}
 	ul {
+		display: grid;
+		grid-template-columns: auto min-content;
+		grid-template-rows: auto auto;
 		list-style: none inside;
-		display: flex;
 		justify-content: flex-end;
 		line-height: 1.1;
 	}
 	ul li {
 		display: inline-grid;
 		grid-template-columns: 1em auto;
+		grid-row: 2;
 	}
 	ul li::before {
-		content: '\00B7'; /* Middle Dot */
+		content: '';
 		display: inline-block;
 		width: 1em;
 		text-align: center;
 	}
-	ul li:first-child::before {
-		content:		'';
+	ul li:first-child {
+		grid-row: 1;
+		grid-column: 1 / span 2;
+	}
+	ul li:last-child {
+		white-space: nowrap;
+	}
+	ul li:last-child::before {
+		content: '\00B7'; /* Middle Dot */
 	}
 }
 
@@ -1231,15 +1241,11 @@ body.mediadetail {
 
 		#gUserTools ul {
 			& {
-				flex-direction: column;
-				justify-content: flex-start;
 			}
 			li {
 				display: inline;
 			}
-			li:before {
-				content: '';
-			}
+			
 		}
 		#phSearch, #phInclude {
 			padding: .5em 5% .5em e("max(5%, 2.75rem)");
