@@ -9,7 +9,8 @@ if (!defined('DOKU_INC')) die();
 					<input type="hidden" name="do" value="search" />
 					<input type="hidden" name="id" value="<?php echo htmlentities($ID); ?>" />
 					<div class="search-field">
-						<input name="q" type="text" class="edit" title="<?php echo $lang['btn_search']; ?>" placeholder="<?php echo $lang['btn_search']; ?>" aria-label="<?php echo $lang['btn_search']; ?>" autocomplete="off" id="qsearch__in" value="<?php echo ($ACT === 'search' ? $QUERY : ''); ?>" />
+						<input name="q" type="text" class="edit" title="<?php echo $lang['btn_search']; ?>" placeholder="<?php echo $lang['btn_search']; ?>" aria-label="<?php echo $lang['btn_search']; ?>" autocomplete="off" id="qsearch__in" value="<?php
+							echo ($ACT === 'search' ? htmlentities($QUERY) : ''); ?>" />
 						<button value="1" type="submit" title="<?php echo htmlentities($lang['btn_search']); ?>"><span class="sr-only"><?php echo htmlentities($lang['btn_search']); ?></span></button>
 						<button value="0" type="reset" title="<?php echo htmlentities($lang['btn_delete']); ?>"><span class="sr-only"><?php echo htmlentities($lang['btn_delete']); ?></span></button>
 					</div>
