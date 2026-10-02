@@ -21,7 +21,7 @@
 	text-decoration:	underline;
 }
 .mode_edit div.editBox button:focus {
-	outline: @ini_focus_color solid 2px;
+	outline: @ini_focus_color solid 1pt;
 	background-color: @ini_background;
 }
 

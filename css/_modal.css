@@ -97,7 +97,7 @@ html .ui-button.ui-state-disabled:active {
 	font-size: 11pt;
 }
 #link__wiz #link__wiz_entry:focus {
-	outline: @ini_focus_color solid 2px;
+	outline: @ini_focus_color solid 1pt;
 }
 
 #link__wiz_result {

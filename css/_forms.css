@@ -85,7 +85,7 @@
 .dokuwiki input:focus,
 .dokuwiki select:focus,
 .dokuwiki button:focus {
-	outline:	@ini_focus_color solid 2px;
+	outline: @ini_focus_color solid 1pt;
 }
 /**
  * Styles for auth forms
