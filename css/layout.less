@@ -122,8 +122,6 @@ div.no {
 		line-height: 1.1;
 	}
 	ul li {
-		display: inline-grid;
-		grid-template-columns: 1em auto;
 		grid-row: 2;
 	}
 	ul li::before {
@@ -131,16 +129,18 @@ div.no {
 		display: inline-block;
 		width: 1em;
 		text-align: center;
+		white-space: nowrap;
+	}
+	ul li:last-child {
+		white-space: nowrap;
+		max-width: min-content;
+	}
+	ul li:last-child::before {
+		content: '\00B7'; /* Middle Dot */
 	}
 	ul li:first-child {
 		grid-row: 1;
 		grid-column: 1 / span 2;
-	}
-	ul li:last-child {
-		white-space: nowrap;
-	}
-	ul li:last-child::before {
-		content: '\00B7'; /* Middle Dot */
 	}
 	ul li:first-child::before {
 		content: none;
